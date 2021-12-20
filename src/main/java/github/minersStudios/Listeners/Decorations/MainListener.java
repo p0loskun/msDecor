@@ -1,4 +1,4 @@
-package github.minersStudios.Decorations;
+package github.minersStudios.Listeners.Decorations;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

@@ -2,6 +2,7 @@ package github.minersStudios;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
+import github.minersStudios.Listeners.RegEvents;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import org.bukkit.Bukkit;
@@ -43,7 +44,7 @@ public final class Main extends JavaPlugin {
         this.saveConfig();
 
         // Register Events
-
+        new RegEvents();
 
         Bukkit.getConsoleSender().sendMessage("");
         Bukkit.getConsoleSender().sendMessage("§6msDecor §f| §aВключён!");

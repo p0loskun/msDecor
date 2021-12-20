@@ -1,4 +1,4 @@
-package github.minersStudios.Decorations;
+package github.minersStudios.Listeners.Decorations;
 
 import github.minersStudios.Mechanic.CustomDecor;
 import github.minersStudios.Mechanic.HitBox;
