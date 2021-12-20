@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-A Minecraft plugin that adds decorations <br>
+A Minecraft plugin with Decorations for "Unknown server" <br>
   (Project is in development, so there is shit code)
 </p>
   
