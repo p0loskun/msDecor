@@ -15,8 +15,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Objects;
-
 public class PlaceCustomDecorListener implements Listener {
 
     @EventHandler
@@ -43,6 +41,6 @@ public class PlaceCustomDecorListener implements Listener {
             blockAtFace = clickedBlock;
 
         CustomDecor customDecor = new CustomDecor(blockAtFace, player);
-        customDecor.setCustomDecor(Objects.requireNonNull(CustomDecorMaterial.getCustomDecorMaterialByItem(itemInMainHand)), player);
+        customDecor.setCustomDecor(CustomDecorMaterial.getCustomDecorMaterialByItem(itemInMainHand), player);
     }
 }

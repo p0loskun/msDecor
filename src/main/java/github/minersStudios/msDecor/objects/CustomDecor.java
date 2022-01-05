@@ -39,8 +39,9 @@ public class CustomDecor {
     /**
      * Sets custom decor
      */
-    public void setCustomDecor(@Nonnull CustomDecorMaterial customDecorMaterial, Player player) {
+    public void setCustomDecor(CustomDecorMaterial customDecorMaterial, Player player) {
         assert player.getInventory().getItemInMainHand().getItemMeta() != null;
+        if(customDecorMaterial == null) return;
         if(customDecorMaterial.getHitBox().isArmorStand()) {
             block.getWorld().spawn(block.getLocation().add(0.5d, 0.0d, 0.5d), ArmorStand.class, (armorStand) -> {
                 assert armorStand.getEquipment() != null;
