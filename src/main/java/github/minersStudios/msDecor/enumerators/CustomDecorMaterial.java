@@ -10,47 +10,42 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.Collections;
+import java.util.List;
 
 public enum CustomDecorMaterial {
     ACACIA_SMALL_CHAIR("Aкациевый стул", 1000, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, new String[]{Badge.PAINTABLE.getBadgeSymbol(), Badge.COMMON.getBadgeSymbol()},
-            true
+            HitBox.SOLID_SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     BIRCH_SMALL_CHAIR("Берёзовый стул", 1001, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, new String[]{Badge.PAINTABLE.getBadgeSymbol()},
-            true
+            HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     CRIMSON_SMALL_CHAIR("Багровый стул", 1002, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, new String[]{Badge.PAINTABLE.getBadgeSymbol()},
-            true
+            HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     DARK_OAK_SMALL_CHAIR("Стул из тёмного дуба", 1003, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, new String[]{Badge.PAINTABLE.getBadgeSymbol()},
-            true
+            HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     JUNGLE_SMALL_CHAIR("Тропический стул", 1004, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, new String[]{Badge.PAINTABLE.getBadgeSymbol()},
-            true
+            HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     OAK_SMALL_CHAIR("Дубовый стул", 1005, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, new String[]{Badge.PAINTABLE.getBadgeSymbol()},
-            true
+            HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     SPRUCE_SMALL_CHAIR("Еловый стул", 1006, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, new String[]{Badge.PAINTABLE.getBadgeSymbol()},
-            true
+            HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     WARPED_SMALL_CHAIR("Искажённый стул", 1007, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, new String[]{Badge.PAINTABLE.getBadgeSymbol()},
-            true
+            HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     ;
 
@@ -63,20 +58,19 @@ public enum CustomDecorMaterial {
     private final float pitch;
 
     private final HitBox hitBox;
-    private final String[] badges;
-
-    private final boolean degreesDefault;
+    private final CustomDecorFacing customDecorFacing;
+    private final List<String> lore;
 
     CustomDecorMaterial(
-            String itemName,
+            @Nonnull String itemName,
             int itemCustomModelData,
-            Material itemMaterial,
-            Sound placeSound,
-            Sound breakSound,
+            @Nonnull Material itemMaterial,
+            @Nonnull Sound placeSound,
+            @Nonnull Sound breakSound,
             float pitch,
-            HitBox hitBox,
-            String[] badges,
-            boolean degreesDefault
+            @Nonnull HitBox hitBox,
+            @Nullable CustomDecorFacing customDecorFacing,
+            @Nullable List<String> lore
     ) {
         this.itemName = itemName;
         this.itemCustomModelData = itemCustomModelData;
@@ -87,16 +81,8 @@ public enum CustomDecorMaterial {
         this.pitch = pitch;
 
         this.hitBox = hitBox;
-        this.badges = badges;
-
-        this.degreesDefault = degreesDefault;
-    }
-
-    /**
-     * @return item name String
-     */
-    public String getItemName(){
-        return itemName;
+        this.customDecorFacing = customDecorFacing;
+        this.lore = lore;
     }
 
     /**
@@ -121,6 +107,13 @@ public enum CustomDecorMaterial {
     }
 
     /**
+     * @return custom decor facing
+     */
+    public CustomDecorFacing getFacing(){
+        return customDecorFacing;
+    }
+
+    /**
      * @return custom decor place Sound
      */
     public Sound getPlaceSound(){
@@ -142,13 +135,6 @@ public enum CustomDecorMaterial {
     }
 
     /**
-     * @return True if armor stand degrees = 45
-     */
-    public boolean isDegreesDefault(){
-        return degreesDefault;
-    }
-
-    /**
      * @return custom decor ItemStack
      */
     public ItemStack getItemStack(){
@@ -157,6 +143,7 @@ public enum CustomDecorMaterial {
         assert itemMeta != null;
         itemMeta.setCustomModelData(itemCustomModelData);
         itemMeta.setDisplayName(ChatColor.WHITE + itemName);
+        if(lore != null) itemMeta.setLore(lore);
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }

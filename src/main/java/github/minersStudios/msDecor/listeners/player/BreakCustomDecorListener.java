@@ -1,8 +1,8 @@
 package github.minersStudios.msDecor.listeners.player;
 
 import github.minersStudios.msDecor.objects.CustomDecor;
+import github.minersStudios.msDecor.utils.BlockUtils;
 import org.bukkit.GameMode;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,7 +19,7 @@ public class BreakCustomDecorListener implements Listener {
         Player player = event.getPlayer();
         if (
                 event.getAction() != Action.LEFT_CLICK_BLOCK
-                || (block.getType() != Material.BARRIER && block.getType() != Material.VOID_AIR)
+                || !BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(block.getType())
         ) return;
         if((player.isSneaking() && player.getGameMode() == GameMode.SURVIVAL) || player.getGameMode() == GameMode.CREATIVE){
             CustomDecor customDecor = new CustomDecor(block, player);

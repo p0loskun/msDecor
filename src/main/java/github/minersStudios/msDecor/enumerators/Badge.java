@@ -15,7 +15,7 @@ public enum Badge {
     }
 
     /**
-     * Sets custom decor
+     * @return Badge symbol as String
      */
     public String getBadgeSymbol() {
         return badgeSymbol;

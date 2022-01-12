@@ -4,16 +4,14 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import org.bukkit.Material;
 
-import java.util.HashSet;
-
 public class BlockUtils {
-    public static final ImmutableSet<Material> TRANSPARENT = Sets.immutableEnumSet(
-            Material.AIR,
-            Material.WATER,
-            Material.LAVA
+    public static final ImmutableSet<Material> CUSTOM_BLOCK_MATERIALS = Sets.immutableEnumSet(
+            Material.BARRIER,
+            Material.LIGHT,
+            Material.STRUCTURE_VOID
     );
 
-    public static final HashSet<Material> REPLACE = Sets.newHashSet(
+    public static final ImmutableSet<Material> REPLACE = Sets.immutableEnumSet(
             Material.AIR,
             Material.WATER,
             Material.LAVA,

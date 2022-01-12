@@ -13,6 +13,7 @@ public class RegEvents {
 
         pluginManager.registerEvents(new ExplosionListener(), plugin);
         pluginManager.registerEvents(new BreakCustomDecorListener(), plugin);
+        pluginManager.registerEvents(new BreakBarrierListener(), plugin);
         pluginManager.registerEvents(new PlaceCustomDecorListener(), plugin);
     }
 }
