@@ -15,5 +15,6 @@ public class RegEvents {
         pluginManager.registerEvents(new BreakCustomDecorListener(), plugin);
         pluginManager.registerEvents(new BreakBarrierListener(), plugin);
         pluginManager.registerEvents(new PlaceCustomDecorListener(), plugin);
+        pluginManager.registerEvents(new ItemFrameInteractListener(), plugin);
     }
 }

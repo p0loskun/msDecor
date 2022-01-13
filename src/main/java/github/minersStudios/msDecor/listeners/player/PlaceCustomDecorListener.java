@@ -24,13 +24,10 @@ public class PlaceCustomDecorListener implements Listener {
         assert event.getClickedBlock() != null;
         if (
                 event.getAction() != Action.RIGHT_CLICK_BLOCK
-                || (event.getPlayer().getInventory().getItemInMainHand().getType() != Material.PAPER
-                    && event.getPlayer().getInventory().getItemInMainHand().getType() != Material.LEATHER_HORSE_ARMOR)
+                || (event.getPlayer().getInventory().getItemInMainHand().getType() != Material.PAPER && event.getPlayer().getInventory().getItemInMainHand().getType() != Material.LEATHER_HORSE_ARMOR)
                 || event.getHand() != EquipmentSlot.HAND
         ) return;
-        Block clickedBlock = event.getClickedBlock(),
-                blockAtFace = clickedBlock.getRelative(event.getBlockFace());
-
+        Block clickedBlock = event.getClickedBlock(), blockAtFace = clickedBlock.getRelative(event.getBlockFace());
         for (Entity nearbyEntity : clickedBlock.getWorld().getNearbyEntities(blockAtFace.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d))
             if(!(nearbyEntity instanceof Item)) return;
 
@@ -38,14 +35,11 @@ public class PlaceCustomDecorListener implements Listener {
         ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
         assert itemInMainHand.getItemMeta() != null;
         if (!itemInMainHand.getItemMeta().hasCustomModelData()) return;
-
-        if(BlockUtils.REPLACE.contains(clickedBlock.getType()))
-            blockAtFace = clickedBlock;
+        if(BlockUtils.REPLACE.contains(clickedBlock.getType())) blockAtFace = clickedBlock;
 
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByItem(itemInMainHand);
         CustomDecor customDecor = new CustomDecor(blockAtFace, player);
         assert customDecorMaterial != null;
-
         if(customDecorMaterial.getFacing() == null || event.getBlockFace() != BlockFace.DOWN && !blockAtFace.getLocation().add(0.5d, -1.0d, 0.5d).getBlock().getType().isAir() && customDecorMaterial.getFacing() == CustomDecorFacing.FLOOR){
             customDecor.setCustomDecor(customDecorMaterial, player, BlockFace.UP);
         } else if(event.getBlockFace() != BlockFace.UP && !blockAtFace.getLocation().add(0.5d, 1.0d, 0.5d).getBlock().getType().isAir() && customDecorMaterial.getFacing() == CustomDecorFacing.CEILING){
