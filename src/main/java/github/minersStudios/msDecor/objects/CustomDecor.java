@@ -92,6 +92,7 @@ public class CustomDecor {
                 nearbyEntity.remove();
             }
         }
+        assert customDecorMaterial != null;
         world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
         block.setType(Material.AIR);
         coreProtectAPI.logRemoval(player != null ? player.getName() : "Неизвестно", block.getLocation(), Material.VOID_AIR, block.getBlockData());
