@@ -106,6 +106,7 @@ public enum CustomDecorMaterial {
     /**
      * @return Custom decor item Material
      */
+    @Nonnull
     public Material getItemMaterial(){
         return itemMaterial;
     }
@@ -113,6 +114,7 @@ public enum CustomDecorMaterial {
     /**
      * @return Custom decor hitbox
      */
+    @Nonnull
     public HitBox getHitBox(){
         return hitBox;
     }
@@ -120,6 +122,7 @@ public enum CustomDecorMaterial {
     /**
      * @return Custom decor facing
      */
+    @Nullable
     public CustomDecorFacing getFacing(){
         return customDecorFacing;
     }
@@ -127,6 +130,7 @@ public enum CustomDecorMaterial {
     /**
      * @return Custom decor place Sound
      */
+    @Nonnull
     public Sound getPlaceSound(){
         return placeSound;
     }
@@ -134,6 +138,7 @@ public enum CustomDecorMaterial {
     /**
      * @return Custom decor break Sound
      */
+    @Nonnull
     public Sound getBreakSound(){
         return breakSound;
     }
@@ -148,6 +153,7 @@ public enum CustomDecorMaterial {
     /**
      * @return Custom decor item
      */
+    @Nonnull
     public ItemStack getItemStack(){
         ItemStack itemStack = new ItemStack(itemMaterial);
         ItemMeta itemMeta = itemStack.getItemMeta();
@@ -162,6 +168,7 @@ public enum CustomDecorMaterial {
     /**
      * @return Custom decor material by item in hand
      */
+    @Nullable
     public static CustomDecorMaterial getCustomDecorMaterialByItem(@Nonnull ItemStack itemStack){
         assert itemStack.getItemMeta() != null;
         for(CustomDecorMaterial customBlockMaterial : CustomDecorMaterial.values()) {
@@ -178,6 +185,7 @@ public enum CustomDecorMaterial {
     /**
      * @return Custom decor material by item in entity
      */
+    @Nullable
     public static CustomDecorMaterial getCustomDecorMaterialByEntity(@Nonnull Entity entity){
         for(CustomDecorMaterial customBlockMaterial : CustomDecorMaterial.values()) {
             ItemStack itemStack;

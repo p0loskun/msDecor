@@ -1,5 +1,8 @@
 package github.minersStudios.msDecor.enums;
 
+import javax.annotation.Nonnull;
+
+@SuppressWarnings("unused")
 public enum Badge {
     PAINTABLE("a"),
     EXCLUSIVE("b"),
@@ -20,6 +23,7 @@ public enum Badge {
     /**
      * @return Badge symbol as String
      */
+    @Nonnull
     public String getBadgeSymbol() {
         return badgeSymbol;
     }

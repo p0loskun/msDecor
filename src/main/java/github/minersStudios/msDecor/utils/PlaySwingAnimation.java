@@ -1,6 +1,5 @@
 package github.minersStudios.msDecor.utils;
 
-
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 

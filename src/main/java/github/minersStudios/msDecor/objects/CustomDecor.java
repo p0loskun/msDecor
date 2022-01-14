@@ -24,6 +24,7 @@ import static github.minersStudios.msDecor.Main.coreProtectAPI;
 /**
  * Custom decor Object
  */
+@Nonnull
 public class CustomDecor {
     private final Block block;
     private final Player player;
@@ -76,13 +77,9 @@ public class CustomDecor {
                 itemMeta.setDisplayName(nearbyEntity.getName());
                 itemStack.setItemMeta(itemMeta);
                 world.dropItemNaturally(blockLocation, itemStack);
-                world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
-                block.setType(Material.AIR);
                 nearbyEntity.remove();
-                coreProtectAPI.logRemoval(player != null ? player.getName() : "Неизвестно", block.getLocation(), Material.VOID_AIR, block.getBlockData());
             }
         }
-
         for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)){
             assert nearbyEntity != null;
             blockLocation.add(-0.5d, -0.0d, -0.5d);
@@ -92,12 +89,41 @@ public class CustomDecor {
                 assert ((ArmorStand) nearbyEntity).getEquipment().getHelmet().getItemMeta() != null;
                 customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity);
                 world.dropItemNaturally(blockLocation, ((ArmorStand) nearbyEntity).getEquipment().getHelmet());
-                world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
-                block.setType(Material.AIR);
                 nearbyEntity.remove();
-                coreProtectAPI.logRemoval(player != null ? player.getName() : "Неизвестно", block.getLocation(), Material.VOID_AIR, block.getBlockData());
             }
         }
+        world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
+        block.setType(Material.AIR);
+        coreProtectAPI.logRemoval(player != null ? player.getName() : "Неизвестно", block.getLocation(), Material.VOID_AIR, block.getBlockData());
+    }
+
+    /**
+     * Breaks custom block vanillish
+     */
+    public void breakCustomDecorEntity(Entity entity) {
+        Location blockLocation = block.getLocation();
+        World world = block.getWorld();
+        if (entity instanceof ItemFrame) {
+            assert ((ItemFrame) entity).getItem().getItemMeta() != null;
+            customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity);
+            ItemStack itemStack = ((ItemFrame) entity).getItem();
+            ItemMeta itemMeta = itemStack.getItemMeta();
+            assert itemMeta != null;
+            itemMeta.setDisplayName(entity.getName());
+            itemStack.setItemMeta(itemMeta);
+            world.dropItemNaturally(blockLocation, itemStack);
+        } else if (entity instanceof ArmorStand) {
+            assert ((ArmorStand) entity).getEquipment() != null;
+            assert ((ArmorStand) entity).getEquipment().getHelmet() != null;
+            assert ((ArmorStand) entity).getEquipment().getHelmet().getItemMeta() != null;
+            customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity);
+            world.dropItemNaturally(blockLocation, ((ArmorStand) entity).getEquipment().getHelmet());
+        }
+
+        world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
+        block.setType(Material.AIR);
+        entity.remove();
+        coreProtectAPI.logRemoval(player != null ? player.getName() : "Неизвестно", block.getLocation(), Material.VOID_AIR, block.getBlockData());
     }
 
     /**
@@ -121,54 +147,17 @@ public class CustomDecor {
             itemStack.setItemMeta(itemMeta);
             armorStand.getEquipment().setHelmet(itemStack);
 
-            // Starts ShitCode
-            {
-                if (player.getLocation().getYaw() >= 25 && player.getLocation().getYaw() <= 64 && player.getLocation().getYaw() != 45) {
-                    Location location45 = armorStand.getLocation();
-                    location45.setYaw(45);
-                    armorStand.teleport(location45);
-                }
-                if (player.getLocation().getYaw() >= 65 && player.getLocation().getYaw() <= 119 && player.getLocation().getYaw() != 90) {
-                    Location location90 = armorStand.getLocation();
-                    location90.setYaw(90);
-                    armorStand.teleport(location90);
-                }
-                if (player.getLocation().getYaw() >= 120 && player.getLocation().getYaw() <= 139 && player.getLocation().getYaw() != 135) {
-                    Location location135 = armorStand.getLocation();
-                    location135.setYaw(135);
-                    armorStand.teleport(location135);
-                }
-                if (player.getLocation().getYaw() >= 140 && player.getLocation().getYaw() <= 180 && player.getLocation().getYaw() != 180) {
-                    Location location180 = armorStand.getLocation();
-                    location180.setYaw(180);
-                    armorStand.teleport(location180);
-                }
-                if (player.getLocation().getYaw() >= -26 && player.getLocation().getYaw() <= 24 && player.getLocation().getYaw() != 0 && player.getLocation().getYaw() != -180) {
-                    Location location0 = armorStand.getLocation();
-                    location0.setYaw(0);
-                    armorStand.teleport(location0);
-                }
-                if (player.getLocation().getYaw() <= -25 && player.getLocation().getYaw() >= -64 && player.getLocation().getYaw() != -45) {
-                    Location location45 = armorStand.getLocation();
-                    location45.setYaw(-45);
-                    armorStand.teleport(location45);
-                }
-                if (player.getLocation().getYaw() <= -65 && player.getLocation().getYaw() >= -119 && player.getLocation().getYaw() != -90) {
-                    Location location90 = armorStand.getLocation();
-                    location90.setYaw(-90);
-                    armorStand.teleport(location90);
-                }
-                if (player.getLocation().getYaw() <= -120 && player.getLocation().getYaw() >= -150 && player.getLocation().getYaw() != -135) {
-                    Location location135 = armorStand.getLocation();
-                    location135.setYaw(-135);
-                    armorStand.teleport(location135);
-                }
-                if (player.getLocation().getYaw() <= -151 && player.getLocation().getYaw() >= -179 && player.getLocation().getYaw() != -180 && player.getLocation().getYaw() != 0) {
-                    Location location180 = armorStand.getLocation();
-                    location180.setYaw(-180);
-                    armorStand.teleport(location180);
-                }
-            }
+            Location location = armorStand.getLocation();
+            if (player.getLocation().getYaw() >= 25 && player.getLocation().getYaw() <= 64 && player.getLocation().getYaw() != 45) location.setYaw(45);
+            if (player.getLocation().getYaw() >= 65 && player.getLocation().getYaw() <= 119 && player.getLocation().getYaw() != 90) location.setYaw(90);
+            if (player.getLocation().getYaw() >= 120 && player.getLocation().getYaw() <= 139 && player.getLocation().getYaw() != 135) location.setYaw(135);
+            if (player.getLocation().getYaw() >= 140 && player.getLocation().getYaw() <= 180 && player.getLocation().getYaw() != 180) location.setYaw(180);
+            if (player.getLocation().getYaw() >= -26 && player.getLocation().getYaw() <= 24 && player.getLocation().getYaw() != 0 && player.getLocation().getYaw() != -180) location.setYaw(0);
+            if (player.getLocation().getYaw() <= -25 && player.getLocation().getYaw() >= -64 && player.getLocation().getYaw() != -45) location.setYaw(-45);
+            if (player.getLocation().getYaw() <= -65 && player.getLocation().getYaw() >= -119 && player.getLocation().getYaw() != -90) location.setYaw(-90);
+            if (player.getLocation().getYaw() <= -120 && player.getLocation().getYaw() >= -150 && player.getLocation().getYaw() != -135) location.setYaw(-135);
+            if (player.getLocation().getYaw() <= -151 && player.getLocation().getYaw() >= -179 && player.getLocation().getYaw() != -180 && player.getLocation().getYaw() != 0) location.setYaw(-180);
+            armorStand.teleport(location);
         });
     }
 

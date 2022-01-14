@@ -32,11 +32,9 @@ public class BreakCustomDecorListener implements Listener {
     public void onPlayerDamageEntity(EntityDamageByEntityEvent event) {
         Entity damaged = event.getEntity();
         Entity damager = event.getDamager();
-        damager.sendMessage("a");
         Block block = damaged.getLocation().getBlock();
         if(!(damaged instanceof ArmorStand) || CustomDecorMaterial.getCustomDecorMaterialByEntity(damaged) == null) return;
-        damager.sendMessage("b");
         CustomDecor customDecor = new CustomDecor(block, damager instanceof Player ? ((Player) damager) : null);
-        customDecor.breakCustomDecor();
+        customDecor.breakCustomDecorEntity(damaged);
     }
 }

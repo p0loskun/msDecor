@@ -8,9 +8,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -34,10 +32,10 @@ public class PlaceCustomDecorListener implements Listener {
         ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByItem(itemInMainHand);
         if(customDecorMaterial == null) return;
-        if(customDecorMaterial.getHitBox().isSolidHitBox()) {
-            for (Entity nearbyEntity : clickedBlock.getWorld().getNearbyEntities(blockAtFace.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d))
-                if (!(nearbyEntity instanceof Item)) return;
-        }
+
+        for (Entity nearbyEntity : clickedBlock.getWorld().getNearbyEntities(blockAtFace.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d))
+            if (!(nearbyEntity instanceof Item) && (customDecorMaterial.getHitBox().isSolidHitBox() || nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame)) return;
+
         assert itemInMainHand.getItemMeta() != null;
         if (!itemInMainHand.getItemMeta().hasCustomModelData()) return;
         if(BlockUtils.REPLACE.contains(clickedBlock.getType())) blockAtFace = clickedBlock;
