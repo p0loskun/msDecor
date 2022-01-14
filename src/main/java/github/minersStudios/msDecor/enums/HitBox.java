@@ -1,4 +1,4 @@
-package github.minersStudios.msDecor.enumerators;
+package github.minersStudios.msDecor.enums;
 
 public enum HitBox {
     FRAME,
@@ -11,6 +11,9 @@ public enum HitBox {
     SOLID_NORMAL_ARMOR_STAND,
     STRUCTURE_NORMAL_ARMOR_STAND;
 
+    /**
+     * @return True if hitbox of custom decor is barrier
+     */
     public boolean isSolidHitBox() {
         switch (this) {
             case SOLID_FRAME:
@@ -22,6 +25,9 @@ public enum HitBox {
         }
     }
 
+    /**
+     * @return True if hitbox of custom decor is structure void
+     */
     public boolean isStructureHitBox() {
         switch (this) {
             case STRUCTURE_FRAME:
@@ -33,6 +39,9 @@ public enum HitBox {
         }
     }
 
+    /**
+     * @return True if hitbox of custom decor is armor stand
+     */
     public boolean isArmorStand() {
         switch (this) {
             case SOLID_SMALL_ARMOR_STAND:

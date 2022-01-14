@@ -1,4 +1,4 @@
-package github.minersStudios.msDecor.enumerators;
+package github.minersStudios.msDecor.enums;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -17,7 +17,7 @@ import java.util.List;
 public enum CustomDecorMaterial {
     ACACIA_SMALL_CHAIR("Aкациевый стул", 1000, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
-            HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
+            HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())
     ),
     BIRCH_SMALL_CHAIR("Берёзовый стул", 1001, Material.LEATHER_HORSE_ARMOR,
             Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f,
@@ -61,6 +61,17 @@ public enum CustomDecorMaterial {
     private final CustomDecorFacing customDecorFacing;
     private final List<String> lore;
 
+    /**
+     * @param itemName custom decor item custom name
+     * @param itemCustomModelData custom decor item CustomModelData
+     * @param itemMaterial custom decor item material
+     * @param placeSound custom decor place sound
+     * @param breakSound custom decor break sound
+     * @param pitch custom decor sound pitch
+     * @param hitBox custom decor hitbox
+     * @param customDecorFacing custom decor facing
+     * @param lore custom decor item lore
+     */
     CustomDecorMaterial(
             @Nonnull String itemName,
             int itemCustomModelData,
@@ -86,56 +97,56 @@ public enum CustomDecorMaterial {
     }
 
     /**
-     * @return item CMD int
+     * @return Custom decor item CustomModelData integer
      */
     public int getItemCustomModelData(){
         return itemCustomModelData;
     }
 
     /**
-     * @return item Material
+     * @return Custom decor item Material
      */
     public Material getItemMaterial(){
         return itemMaterial;
     }
 
     /**
-     * @return custom decor hitbox
+     * @return Custom decor hitbox
      */
     public HitBox getHitBox(){
         return hitBox;
     }
 
     /**
-     * @return custom decor facing
+     * @return Custom decor facing
      */
     public CustomDecorFacing getFacing(){
         return customDecorFacing;
     }
 
     /**
-     * @return custom decor place Sound
+     * @return Custom decor place Sound
      */
     public Sound getPlaceSound(){
         return placeSound;
     }
 
     /**
-     * @return custom decor break Sound
+     * @return Custom decor break Sound
      */
     public Sound getBreakSound(){
         return breakSound;
     }
 
     /**
-     * @return custom decor sound pitch
+     * @return Custom decor sound pitch
      */
     public float getPitch(){
         return pitch;
     }
 
     /**
-     * @return custom decor ItemStack
+     * @return Custom decor item
      */
     public ItemStack getItemStack(){
         ItemStack itemStack = new ItemStack(itemMaterial);
@@ -149,7 +160,7 @@ public enum CustomDecorMaterial {
     }
 
     /**
-     * @return custom decor material by item in main hand
+     * @return Custom decor material by item in hand
      */
     public static CustomDecorMaterial getCustomDecorMaterialByItem(@Nonnull ItemStack itemStack){
         assert itemStack.getItemMeta() != null;
@@ -165,9 +176,9 @@ public enum CustomDecorMaterial {
     }
 
     /**
-     * @return custom decor material by item in entity
+     * @return Custom decor material by item in entity
      */
-    public static CustomDecorMaterial getCustomDecorMaterialByEntity(Entity entity){
+    public static CustomDecorMaterial getCustomDecorMaterialByEntity(@Nonnull Entity entity){
         for(CustomDecorMaterial customBlockMaterial : CustomDecorMaterial.values()) {
             ItemStack itemStack;
             if(entity instanceof ArmorStand){

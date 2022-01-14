@@ -8,6 +8,9 @@ import static github.minersStudios.msDecor.Main.plugin;
 
 public class RegEvents {
 
+    /**
+     * Registers events
+     */
     public RegEvents(){
         PluginManager pluginManager = plugin.getServer().getPluginManager();
 

@@ -1,4 +1,4 @@
-package github.minersStudios.msDecor.enumerators;
+package github.minersStudios.msDecor.enums;
 
 public enum Badge {
     PAINTABLE("a"),
@@ -10,6 +10,9 @@ public enum Badge {
 
     private final String badgeSymbol;
 
+    /**
+     * @param badgeSymbol badge symbol that will be replaced by resource pack
+     */
     Badge(String badgeSymbol){
         this.badgeSymbol = badgeSymbol;
     }
