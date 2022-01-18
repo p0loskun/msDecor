@@ -63,6 +63,7 @@ public class CustomDecor {
      * Breaks custom block vanillish
      */
     public void breakCustomDecor(){
+        assert player != null;
         Location blockLocation = block.getLocation();
         World world = block.getWorld();
         for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)){
@@ -76,7 +77,7 @@ public class CustomDecor {
                 assert itemMeta != null;
                 itemMeta.setDisplayName(nearbyEntity.getName());
                 itemStack.setItemMeta(itemMeta);
-                world.dropItemNaturally(blockLocation, itemStack);
+                if (player.getGameMode() == GameMode.SURVIVAL) world.dropItemNaturally(blockLocation, itemStack);
                 nearbyEntity.remove();
             }
         }
@@ -88,14 +89,14 @@ public class CustomDecor {
                 assert ((ArmorStand) nearbyEntity).getEquipment().getHelmet() != null;
                 assert ((ArmorStand) nearbyEntity).getEquipment().getHelmet().getItemMeta() != null;
                 customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity);
-                world.dropItemNaturally(blockLocation, ((ArmorStand) nearbyEntity).getEquipment().getHelmet());
+                if (player.getGameMode() == GameMode.SURVIVAL) world.dropItemNaturally(blockLocation, ((ArmorStand) nearbyEntity).getEquipment().getHelmet());
                 nearbyEntity.remove();
             }
         }
         assert customDecorMaterial != null;
         world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
         block.setType(Material.AIR);
-        coreProtectAPI.logRemoval(player != null ? player.getName() : "Неизвестно", block.getLocation(), Material.VOID_AIR, block.getBlockData());
+        coreProtectAPI.logRemoval(player.getName(), block.getLocation(), Material.VOID_AIR, block.getBlockData());
     }
 
     /**
@@ -104,6 +105,7 @@ public class CustomDecor {
     public void breakCustomDecorEntity(Entity entity) {
         Location blockLocation = block.getLocation();
         World world = block.getWorld();
+        assert player != null;
         if (entity instanceof ItemFrame) {
             assert ((ItemFrame) entity).getItem().getItemMeta() != null;
             customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity);
@@ -112,19 +114,19 @@ public class CustomDecor {
             assert itemMeta != null;
             itemMeta.setDisplayName(entity.getName());
             itemStack.setItemMeta(itemMeta);
-            world.dropItemNaturally(blockLocation, itemStack);
+            if (player.getGameMode() == GameMode.SURVIVAL) world.dropItemNaturally(blockLocation, itemStack);
         } else if (entity instanceof ArmorStand) {
             assert ((ArmorStand) entity).getEquipment() != null;
             assert ((ArmorStand) entity).getEquipment().getHelmet() != null;
             assert ((ArmorStand) entity).getEquipment().getHelmet().getItemMeta() != null;
             customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity);
-            world.dropItemNaturally(blockLocation, ((ArmorStand) entity).getEquipment().getHelmet());
+            if (player.getGameMode() == GameMode.SURVIVAL) world.dropItemNaturally(blockLocation, ((ArmorStand) entity).getEquipment().getHelmet());
         }
 
         world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
         block.setType(Material.AIR);
         entity.remove();
-        coreProtectAPI.logRemoval(player != null ? player.getName() : "Неизвестно", block.getLocation(), Material.VOID_AIR, block.getBlockData());
+        coreProtectAPI.logRemoval(player.getName(), block.getLocation(), Material.VOID_AIR, block.getBlockData());
     }
 
     /**
@@ -175,7 +177,6 @@ public class CustomDecor {
             itemFrame.setCustomName(itemInMainHand.getItemMeta().getDisplayName());
             itemFrame.setVisible(false);
             itemFrame.setFixed(customDecorMaterial.getHitBox() != HitBox.FRAME);
-            itemFrame.setRotation(Rotation.CLOCKWISE);
             itemFrame.setFacingDirection(blockFace);
             itemFrame.addScoreboardTag("customDecor");
 
@@ -185,6 +186,16 @@ public class CustomDecor {
             itemMeta.setDisplayName(null);
             itemStack.setItemMeta(itemMeta);
             itemFrame.setItem(itemStack);
+
+            if (player.getLocation().getYaw() >= 25 && player.getLocation().getYaw() <= 64 && player.getLocation().getYaw() != 45) itemFrame.setRotation(Rotation.CLOCKWISE_45);
+            if (player.getLocation().getYaw() >= 65 && player.getLocation().getYaw() <= 119 && player.getLocation().getYaw() != 90) itemFrame.setRotation(Rotation.CLOCKWISE);
+            if (player.getLocation().getYaw() >= 120 && player.getLocation().getYaw() <= 139 && player.getLocation().getYaw() != 135) itemFrame.setRotation(Rotation.CLOCKWISE_135);
+            if (player.getLocation().getYaw() >= 140 && player.getLocation().getYaw() <= 180 && player.getLocation().getYaw() != 180) itemFrame.setRotation(Rotation.FLIPPED);
+            if (player.getLocation().getYaw() >= -26 && player.getLocation().getYaw() <= 24 && player.getLocation().getYaw() != 0 && player.getLocation().getYaw() != -180) itemFrame.setRotation(Rotation.NONE);
+            if (player.getLocation().getYaw() <= -25 && player.getLocation().getYaw() >= -64 && player.getLocation().getYaw() != -45) itemFrame.setRotation(Rotation.COUNTER_CLOCKWISE_45);
+            if (player.getLocation().getYaw() <= -65 && player.getLocation().getYaw() >= -119 && player.getLocation().getYaw() != -90) itemFrame.setRotation(Rotation.COUNTER_CLOCKWISE);
+            if (player.getLocation().getYaw() <= -120 && player.getLocation().getYaw() >= -150 && player.getLocation().getYaw() != -135) itemFrame.setRotation(Rotation.FLIPPED_45);
+            if (player.getLocation().getYaw() <= -151 && player.getLocation().getYaw() >= -179 && player.getLocation().getYaw() != -180 && player.getLocation().getYaw() != 0) itemFrame.setRotation(Rotation.FLIPPED);
         });
     }
 
