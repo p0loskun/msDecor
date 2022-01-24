@@ -4,8 +4,12 @@ import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorFacing;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.enums.HitBox;
+import github.minersStudios.msDecor.utils.EntityUtils;
 import github.minersStudios.msDecor.utils.PlaySwingAnimation;
-import org.bukkit.*;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.ArmorStand;
@@ -74,7 +78,8 @@ public class CustomDecor {
                 nearbyEntity.remove();
                 if (player.getGameMode() != GameMode.SURVIVAL) return;
                 ItemStack itemStack = ((ItemFrame) nearbyEntity).getItem();
-                ItemMeta itemMeta = itemStack.getItemMeta();itemMeta.setDisplayName(nearbyEntity.getName());
+                ItemMeta itemMeta = itemStack.getItemMeta();
+                itemMeta.setDisplayName(nearbyEntity.getName());
                 itemStack.setItemMeta(itemMeta);
                 world.dropItemNaturally(blockLocation, itemStack);
             }
@@ -137,18 +142,7 @@ public class CustomDecor {
             itemMeta.setDisplayName(itemStack.getItemMeta().getDisplayName());
             itemStack.setItemMeta(itemMeta);
             armorStand.getEquipment().setHelmet(itemStack);
-
-            Location location = armorStand.getLocation();
-            if (player.getLocation().getYaw() >= 25 && player.getLocation().getYaw() <= 64 && player.getLocation().getYaw() != 45) location.setYaw(45);
-            if (player.getLocation().getYaw() >= 65 && player.getLocation().getYaw() <= 119 && player.getLocation().getYaw() != 90) location.setYaw(90);
-            if (player.getLocation().getYaw() >= 120 && player.getLocation().getYaw() <= 139 && player.getLocation().getYaw() != 135) location.setYaw(135);
-            if (player.getLocation().getYaw() >= 140 && player.getLocation().getYaw() <= 180 && player.getLocation().getYaw() != 180) location.setYaw(180);
-            if (player.getLocation().getYaw() >= -26 && player.getLocation().getYaw() <= 24 && player.getLocation().getYaw() != 0 && player.getLocation().getYaw() != -180) location.setYaw(0);
-            if (player.getLocation().getYaw() <= -25 && player.getLocation().getYaw() >= -64 && player.getLocation().getYaw() != -45) location.setYaw(-45);
-            if (player.getLocation().getYaw() <= -65 && player.getLocation().getYaw() >= -119 && player.getLocation().getYaw() != -90) location.setYaw(-90);
-            if (player.getLocation().getYaw() <= -120 && player.getLocation().getYaw() >= -150 && player.getLocation().getYaw() != -135) location.setYaw(-135);
-            if (player.getLocation().getYaw() <= -151 && player.getLocation().getYaw() >= -179 && player.getLocation().getYaw() != -180 && player.getLocation().getYaw() != 0) location.setYaw(-180);
-            armorStand.teleport(location);
+            new EntityUtils().rotateArmorStandByPlayer(armorStand, player);
         });
     }
 
@@ -175,17 +169,8 @@ public class CustomDecor {
             itemStack.setItemMeta(itemMeta);
             itemFrame.setItem(itemStack);
 
-            if(customDecorMaterial.getFacing() == CustomDecorFacing.WALL) return;
-            if (player.getLocation().getYaw() >= 25 && player.getLocation().getYaw() <= 64 && player.getLocation().getYaw() != 45) itemFrame.setRotation(Rotation.CLOCKWISE_45);
-            if (player.getLocation().getYaw() >= 65 && player.getLocation().getYaw() <= 119 && player.getLocation().getYaw() != 90) itemFrame.setRotation(Rotation.CLOCKWISE);
-            if (player.getLocation().getYaw() >= 120 && player.getLocation().getYaw() <= 139 && player.getLocation().getYaw() != 135) itemFrame.setRotation(Rotation.CLOCKWISE_135);
-            if (player.getLocation().getYaw() >= 140 && player.getLocation().getYaw() <= 180 && player.getLocation().getYaw() != 180) itemFrame.setRotation(Rotation.FLIPPED);
-            if (player.getLocation().getYaw() >= -26 && player.getLocation().getYaw() <= 24 && player.getLocation().getYaw() != 0 && player.getLocation().getYaw() != -180) itemFrame.setRotation(Rotation.NONE);
-            if (player.getLocation().getYaw() <= -25 && player.getLocation().getYaw() >= -64 && player.getLocation().getYaw() != -45) itemFrame.setRotation(Rotation.COUNTER_CLOCKWISE_45);
-            if (player.getLocation().getYaw() <= -65 && player.getLocation().getYaw() >= -119 && player.getLocation().getYaw() != -90) itemFrame.setRotation(Rotation.COUNTER_CLOCKWISE);
-            if (player.getLocation().getYaw() <= -120 && player.getLocation().getYaw() >= -150 && player.getLocation().getYaw() != -135) itemFrame.setRotation(Rotation.FLIPPED_45);
-            if (player.getLocation().getYaw() <= -151 && player.getLocation().getYaw() >= -179 && player.getLocation().getYaw() != -180 && player.getLocation().getYaw() != 0) itemFrame.setRotation(Rotation.FLIPPED);
-        });
+            if(customDecorMaterial.getFacing() != CustomDecorFacing.WALL) new EntityUtils().rotateItemFrameByPlayer(itemFrame, player);
+            });
     }
 
     /**
