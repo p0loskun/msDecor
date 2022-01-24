@@ -158,6 +158,7 @@ public class CustomDecor {
             itemFrame.setItemDropChance(0.0f);
             itemFrame.setCustomName(itemInMainHand.getItemMeta().getDisplayName());
             itemFrame.setVisible(false);
+            itemFrame.setSilent(true);
             itemFrame.setFixed(customDecorMaterial.getHitBox() != HitBox.FRAME);
             itemFrame.setFacingDirection(blockFace);
             itemFrame.addScoreboardTag("customDecor");

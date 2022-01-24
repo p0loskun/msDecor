@@ -1,5 +1,7 @@
 package github.minersStudios.msDecor.enums;
 
+import org.bukkit.ChatColor;
+
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
@@ -25,6 +27,6 @@ public enum Badge {
      */
     @Nonnull
     public String getBadgeSymbol() {
-        return badgeSymbol;
+        return ChatColor.WHITE + badgeSymbol;
     }
 }
