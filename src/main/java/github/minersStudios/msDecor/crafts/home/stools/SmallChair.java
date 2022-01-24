@@ -24,12 +24,12 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_oak_chair"), CustomDecorMaterial.OAK_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                "PWP",
+                "PLP",
                 "F F"
         );
         shapedRecipe.setIngredient('P',Material.OAK_PLANKS);
         shapedRecipe.setIngredient('F', Material.OAK_FENCE);
-        shapedRecipe.setIngredient('W', Material.WHITE_WOOL);
+        shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
@@ -37,12 +37,12 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_spruce_chair"), CustomDecorMaterial.SPRUCE_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                "PWP",
+                "PLP",
                 "F F"
         );
         shapedRecipe.setIngredient('P',Material.SPRUCE_PLANKS);
         shapedRecipe.setIngredient('F', Material.SPRUCE_FENCE);
-        shapedRecipe.setIngredient('W', Material.WHITE_WOOL);
+        shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
@@ -50,12 +50,12 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_dark_oak_chair"), CustomDecorMaterial.DARK_OAK_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                "PWP",
+                "PLP",
                 "F F"
         );
         shapedRecipe.setIngredient('P',Material.DARK_OAK_PLANKS);
         shapedRecipe.setIngredient('F', Material.DARK_OAK_FENCE);
-        shapedRecipe.setIngredient('W', Material.WHITE_WOOL);
+        shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
@@ -63,12 +63,12 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_birch_chair"), CustomDecorMaterial.BIRCH_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                "PWP",
+                "PLP",
                 "F F"
         );
         shapedRecipe.setIngredient('P',Material.BIRCH_PLANKS);
         shapedRecipe.setIngredient('F', Material.BIRCH_FENCE);
-        shapedRecipe.setIngredient('W', Material.WHITE_WOOL);
+        shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
@@ -76,12 +76,12 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_jungle_chair"), CustomDecorMaterial.JUNGLE_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                "PWP",
+                "PLP",
                 "F F"
         );
         shapedRecipe.setIngredient('P',Material.JUNGLE_PLANKS);
         shapedRecipe.setIngredient('F', Material.JUNGLE_FENCE);
-        shapedRecipe.setIngredient('W', Material.WHITE_WOOL);
+        shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
@@ -89,12 +89,12 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_acacia_chair"), CustomDecorMaterial.ACACIA_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                "PWP",
+                "PLP",
                 "F F"
         );
         shapedRecipe.setIngredient('P',Material.ACACIA_PLANKS);
         shapedRecipe.setIngredient('F', Material.ACACIA_FENCE);
-        shapedRecipe.setIngredient('W', Material.WHITE_WOOL);
+        shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
@@ -102,12 +102,12 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_warped_chair"), CustomDecorMaterial.WARPED_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                "PWP",
+                "PLP",
                 "F F"
         );
         shapedRecipe.setIngredient('P',Material.WARPED_PLANKS);
         shapedRecipe.setIngredient('F', Material.WARPED_FENCE);
-        shapedRecipe.setIngredient('W', Material.WHITE_WOOL);
+        shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
@@ -115,12 +115,12 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_crimson_chair"), CustomDecorMaterial.CRIMSON_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                "PWP",
+                "PLP",
                 "F F"
         );
         shapedRecipe.setIngredient('P',Material.CRIMSON_PLANKS);
         shapedRecipe.setIngredient('F', Material.CRIMSON_FENCE);
-        shapedRecipe.setIngredient('W', Material.WHITE_WOOL);
+        shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 }
