@@ -163,12 +163,10 @@ public enum CustomDecorMaterial {
         for(CustomDecorMaterial customBlockMaterial : CustomDecorMaterial.values()) {
             if(entity instanceof ArmorStand && ((ArmorStand) entity).getEquipment() != null){
                 ItemStack helmetItem = ((ArmorStand) entity).getEquipment().getHelmet();
-                assert helmetItem != null && helmetItem.getItemMeta() != null;
-                if(customBlockMaterial.getItemCustomModelData() == helmetItem.getItemMeta().getCustomModelData()) return customBlockMaterial;
+                if(helmetItem != null && helmetItem.getItemMeta() != null && customBlockMaterial.getItemCustomModelData() == helmetItem.getItemMeta().getCustomModelData()) return customBlockMaterial;
             } else if (entity instanceof ItemFrame && ((ItemFrame) entity).getItem().getType() != Material.AIR){
                 ItemStack item = ((ItemFrame) entity).getItem();
-                assert item.getItemMeta() != null;
-                if(customBlockMaterial.getItemCustomModelData() == item.getItemMeta().getCustomModelData()) return customBlockMaterial;
+                if(item.getItemMeta() != null && customBlockMaterial.getItemCustomModelData() == item.getItemMeta().getCustomModelData()) return customBlockMaterial;
             }
         }
         return null;
