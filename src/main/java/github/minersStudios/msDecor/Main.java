@@ -22,10 +22,8 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-
         coreProtectAPI = getCoreProtect();
         if (coreProtectAPI != null) coreProtectAPI.testAPI();
-
         new RegEvents();
     }
 }
