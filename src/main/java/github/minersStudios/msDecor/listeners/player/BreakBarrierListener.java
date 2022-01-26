@@ -12,7 +12,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 public class BreakBarrierListener implements Listener {
 
     @EventHandler
-    public void onPlayerBLockBreaking(BlockBreakEvent event){
+    public void onPlayerBarrierBreaking(BlockBreakEvent event){
         Block block = event.getBlock();
         if(
                 !BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(event.getBlock().getType())

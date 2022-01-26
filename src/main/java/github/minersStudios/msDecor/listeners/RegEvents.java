@@ -20,5 +20,6 @@ public class RegEvents {
         pluginManager.registerEvents(new PlaceCustomDecorListener(), plugin);
         pluginManager.registerEvents(new ItemFrameInteractListener(), plugin);
         pluginManager.registerEvents(new ArmorStandInteractListener(), plugin);
+        pluginManager.registerEvents(new HorseArmorListener(), plugin);
     }
 }
