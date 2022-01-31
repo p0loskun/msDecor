@@ -1,8 +1,10 @@
 package github.minersStudios.msDecor.listeners.player;
 
-import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.objects.CustomDecor;
-import org.bukkit.entity.*;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.ItemFrame;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -37,6 +39,6 @@ public class ItemFrameInteractListener implements Listener {
     @EventHandler
     public void onFrameRotating(PlayerInteractEntityEvent event) {
         assert event.getRightClicked().getType() == EntityType.ITEM_FRAME;
-        event.setCancelled(CustomDecorMaterial.getCustomDecorMaterialByEntity(event.getRightClicked()) != null);
+        event.setCancelled(event.getRightClicked().getScoreboardTags().contains("customDecor"));
     }
 }
