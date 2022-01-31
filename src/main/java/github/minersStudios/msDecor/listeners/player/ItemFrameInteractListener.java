@@ -1,7 +1,6 @@
 package github.minersStudios.msDecor.listeners.player;
 
 import github.minersStudios.msDecor.objects.CustomDecor;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -38,7 +37,7 @@ public class ItemFrameInteractListener implements Listener {
 
     @EventHandler
     public void onFrameRotating(PlayerInteractEntityEvent event) {
-        assert event.getRightClicked().getType() == EntityType.ITEM_FRAME;
+        if (!(event.getRightClicked() instanceof ItemFrame)) return;
         event.setCancelled(event.getRightClicked().getScoreboardTags().contains("customDecor"));
     }
 }
