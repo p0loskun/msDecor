@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/github/languages/code-size/minersstudios/msDecor.svg" alt="Code-Size">
 </p>
 <p align="center">
-A Minecraft plugin with Decorations for "Unknown server" <br>
+A Minecraft plugin with Decorations for WhoMine <br>
   (Project is in development, so there is shit code)
 </p>
   
