@@ -10,10 +10,11 @@ import org.bukkit.inventory.HorseInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-public class HorseArmorListener implements Listener {
+import javax.annotation.Nonnull;
 
+public class HorseArmorListener implements Listener {
     @EventHandler
-    public void onHorseInventoryEquip(InventoryClickEvent event){
+    public void onHorseInventoryEquip(@Nonnull InventoryClickEvent event){
         event.setCancelled(
                 event.getInventory() instanceof HorseInventory
                 && (event.getCursor() != null
@@ -32,7 +33,7 @@ public class HorseArmorListener implements Listener {
     }
 
     @EventHandler
-    public void onHorseInventoryEquip(InventoryDragEvent event){
+    public void onHorseInventoryEquip(@Nonnull InventoryDragEvent event){
         ItemStack itemStack = event.getNewItems().get(1);
         if(itemStack == null || itemStack.getType() != Material.LEATHER_HORSE_ARMOR) return;
         event.setCancelled(
@@ -43,5 +44,4 @@ public class HorseArmorListener implements Listener {
                 && event.getInventory() instanceof HorseInventory
         );
     }
-
 }

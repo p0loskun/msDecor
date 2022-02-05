@@ -14,14 +14,15 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class BreakCustomDecorListener implements Listener {
+import javax.annotation.Nonnull;
 
+public class BreakCustomDecorListener implements Listener {
     @EventHandler
-    public void onPlayerInteract(PlayerInteractEvent event){
+    public void onPlayerInteract(@Nonnull PlayerInteractEvent event){
         assert event.getClickedBlock() != null;
         Block block = event.getClickedBlock();
-        Player player = event.getPlayer();
         if (event.getAction() != Action.LEFT_CLICK_BLOCK || !BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(block.getType())) return;
+        Player player = event.getPlayer();
         if((player.isSneaking() && player.getGameMode() == GameMode.SURVIVAL) || player.getGameMode() == GameMode.CREATIVE){
             CustomDecor customDecor = new CustomDecor(block, player);
             customDecor.breakCustomDecor();
@@ -29,12 +30,11 @@ public class BreakCustomDecorListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerDamageEntity(EntityDamageByEntityEvent event) {
+    public void onPlayerDamageEntity(@Nonnull EntityDamageByEntityEvent event) {
         Entity damaged = event.getEntity();
         Entity damager = event.getDamager();
-        Block block = damaged.getLocation().getBlock();
         if(!(damaged instanceof ArmorStand) || CustomDecorMaterial.getCustomDecorMaterialByEntity(damaged) == null || damager instanceof Player && ((Player) damager).getGameMode() == GameMode.ADVENTURE) return;
-        CustomDecor customDecor = new CustomDecor(block, damager instanceof Player ? ((Player) damager) : null);
+        CustomDecor customDecor = new CustomDecor(damaged.getLocation().getBlock(), damager instanceof Player ? ((Player) damager) : null);
         customDecor.breakCustomDecorEntity(damaged);
     }
 }

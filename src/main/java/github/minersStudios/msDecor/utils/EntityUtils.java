@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 import javax.annotation.Nonnull;
 
 public class EntityUtils {
-
     /**
      * Rotates armor stand by player yaw
      *

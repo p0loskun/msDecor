@@ -16,10 +16,12 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
+
 public class PlaceCustomDecorListener implements Listener {
 
     @EventHandler
-    public void onPlayerInteract(PlayerInteractEvent event) {
+    public void onPlayerInteract(@Nonnull PlayerInteractEvent event) {
         assert event.getClickedBlock() != null;
         if (
                 event.getAction() != Action.RIGHT_CLICK_BLOCK

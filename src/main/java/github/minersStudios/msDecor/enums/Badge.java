@@ -27,6 +27,6 @@ public enum Badge {
      */
     @Nonnull
     public String getBadgeSymbol() {
-        return ChatColor.WHITE + badgeSymbol;
+        return ChatColor.RESET + badgeSymbol;
     }
 }

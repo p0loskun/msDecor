@@ -40,7 +40,7 @@ public class CustomDecor {
      * @param block block at face
      * @param player player who places/breaks custom decor, if player == null the log will not record the player's nickname
      */
-    public CustomDecor(@Nonnull Block block, @Nullable Player player){
+    public CustomDecor(@Nonnull Block block, @Nullable Player player) {
         this.block = block;
         this.player = player;
     }
@@ -55,11 +55,12 @@ public class CustomDecor {
         assert player != null;
         itemInMainHand = player.getInventory().getItemInMainHand();
         this.customDecorMaterial = customDecorMaterial;
-        if(customDecorMaterial.getHitBox().isArmorStand()) summonArmorStand();
+        if (customDecorMaterial.getHitBox().isArmorStand()) summonArmorStand();
         else summonItemFrame(blockFace);
         setHitBox();
         new PlaySwingAnimation(player, EquipmentSlot.HAND);
-        block.getWorld().playSound(block.getLocation(), customDecorMaterial.getPlaceSound(), 1.0f, customDecorMaterial.getPitch());
+        if (customDecorMaterial.getPlaceSound() != null)
+            block.getWorld().playSound(block.getLocation(), customDecorMaterial.getPlaceSound(), 1.0f, customDecorMaterial.getPitch());
         itemInMainHand.setAmount(player.getGameMode() == GameMode.SURVIVAL ? itemInMainHand.getAmount() - 1 : itemInMainHand.getAmount());
         coreProtectAPI.logPlacement(player.getName(), block.getLocation(), Material.VOID_AIR, block.getBlockData());
     }
@@ -67,13 +68,13 @@ public class CustomDecor {
     /**
      * Breaks custom block vanillish
      */
-    public void breakCustomDecor(){
+    public void breakCustomDecor() {
         assert player != null;
         Location blockLocation = block.getLocation();
         World world = block.getWorld();
-        for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)){
+        for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
             blockLocation.add(-0.5d, -0.5d, -0.5d);
-            if(nearbyEntity instanceof ItemFrame && ((ItemFrame) nearbyEntity).getItem().getItemMeta() != null) {
+            if (nearbyEntity instanceof ItemFrame && ((ItemFrame) nearbyEntity).getItem().getItemMeta() != null) {
                 customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity);
                 nearbyEntity.remove();
                 if (player.getGameMode() != GameMode.SURVIVAL) return;
@@ -84,15 +85,17 @@ public class CustomDecor {
                 world.dropItemNaturally(blockLocation, itemStack);
             }
         }
-        for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)){
+        for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
             blockLocation.add(-0.5d, -0.0d, -0.5d);
-            if(nearbyEntity instanceof ArmorStand && ((ArmorStand) nearbyEntity).getEquipment() != null && ((ArmorStand) nearbyEntity).getEquipment().getHelmet() != null) {
+            if (nearbyEntity instanceof ArmorStand && ((ArmorStand) nearbyEntity).getEquipment() != null && ((ArmorStand) nearbyEntity).getEquipment().getHelmet() != null) {
                 customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity);
                 nearbyEntity.remove();
-                if (player.getGameMode() == GameMode.SURVIVAL) world.dropItemNaturally(blockLocation, ((ArmorStand) nearbyEntity).getEquipment().getHelmet());
+                if (player.getGameMode() == GameMode.SURVIVAL)
+                    world.dropItemNaturally(blockLocation, ((ArmorStand) nearbyEntity).getEquipment().getHelmet());
             }
         }
-        world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
+        if (customDecorMaterial.getBreakSound() != null)
+            world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
         block.setType(Material.AIR);
         coreProtectAPI.logRemoval(player.getName(), block.getLocation(), Material.VOID_AIR, block.getBlockData());
     }
@@ -112,11 +115,13 @@ public class CustomDecor {
             itemMeta.setDisplayName(entity.getName());
             itemStack.setItemMeta(itemMeta);
             world.dropItemNaturally(blockLocation, itemStack);
-        } else if(entity instanceof ArmorStand && ((ArmorStand) entity).getEquipment() != null && ((ArmorStand) entity).getEquipment().getHelmet() != null) {
+        } else if (entity instanceof ArmorStand && ((ArmorStand) entity).getEquipment() != null && ((ArmorStand) entity).getEquipment().getHelmet() != null) {
             customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity);
-            if (player.getGameMode() == GameMode.SURVIVAL) world.dropItemNaturally(blockLocation, ((ArmorStand) entity).getEquipment().getHelmet());
+            if (player.getGameMode() == GameMode.SURVIVAL)
+                world.dropItemNaturally(blockLocation, ((ArmorStand) entity).getEquipment().getHelmet());
         }
-        world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
+        if (customDecorMaterial.getBreakSound() != null)
+            world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
         block.setType(Material.AIR);
         entity.remove();
         coreProtectAPI.logRemoval(player.getName(), block.getLocation(), Material.VOID_AIR, block.getBlockData());
@@ -125,7 +130,7 @@ public class CustomDecor {
     /**
      * Summons armor stand with custom decor item like hat
      */
-    private void summonArmorStand(){
+    private void summonArmorStand() {
         assert player != null;
         block.getWorld().spawn(block.getLocation().add(0.5d, 0.0d, 0.5d), ArmorStand.class, (armorStand) -> {
             assert armorStand.getEquipment() != null;
@@ -151,7 +156,7 @@ public class CustomDecor {
      *
      * @param blockFace block face on which the frame is to be spawned
      */
-    private void summonItemFrame(BlockFace blockFace){
+    private void summonItemFrame(BlockFace blockFace) {
         assert itemInMainHand.getItemMeta() != null;
         assert player != null;
         block.getWorld().spawn(block.getLocation().add(0.5d, 0.0d, 0.5d), ItemFrame.class, (itemFrame) -> {
@@ -170,22 +175,23 @@ public class CustomDecor {
             itemStack.setItemMeta(itemMeta);
             itemFrame.setItem(itemStack);
 
-            if(customDecorMaterial.getFacing() != CustomDecorFacing.WALL) new EntityUtils().rotateItemFrameByPlayer(itemFrame, player);
-            });
+            if (customDecorMaterial.getFacing() != CustomDecorFacing.WALL)
+                new EntityUtils().rotateItemFrameByPlayer(itemFrame, player);
+        });
     }
 
     /**
      * Sets custom decor hitbox
      */
-    private void setHitBox(){
-        new BukkitRunnable(){
+    private void setHitBox() {
+        new BukkitRunnable() {
             @Override
             public void run() {
                 block.setType(
                         customDecorMaterial.getHitBox().isStructureHitBox() ? Material.STRUCTURE_VOID
-                                : customDecorMaterial.getHitBox().isSolidHitBox() ? Material.BARRIER
-                                : !customDecorMaterial.getHitBox().isArmorStand() ? Material.LIGHT
-                                : Material.AIR
+                        : customDecorMaterial.getHitBox().isSolidHitBox() ? Material.BARRIER
+                        : !customDecorMaterial.getHitBox().isArmorStand() ? Material.LIGHT
+                        : Material.AIR
                 );
             }
         }.runTask(Main.plugin);

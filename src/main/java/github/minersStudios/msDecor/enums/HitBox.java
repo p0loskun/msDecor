@@ -1,5 +1,8 @@
 package github.minersStudios.msDecor.enums;
 
+/**
+ * Custom Decor HitBox enum used to define the decor's hitbox
+ */
 public enum HitBox {
     FRAME,
     SOLID_FRAME,

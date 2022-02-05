@@ -6,7 +6,6 @@ import org.bukkit.inventory.EquipmentSlot;
 import javax.annotation.Nonnull;
 
 public class PlaySwingAnimation {
-
     /**
      * Swings player hand
      *

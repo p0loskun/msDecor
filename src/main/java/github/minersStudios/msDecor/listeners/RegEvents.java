@@ -7,7 +7,6 @@ import org.bukkit.plugin.PluginManager;
 import static github.minersStudios.msDecor.Main.plugin;
 
 public class RegEvents {
-
     /**
      * Registers events
      */

@@ -11,7 +11,7 @@
 
     <name>msDecor</name>
 
-    <description>A Minecraft plugin with Decorations for "Unknown server"</description>
+    <description>A Minecraft plugin with Decorations for WhoMine</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -79,6 +79,12 @@
             <groupId>net.coreprotect</groupId>
             <artifactId>coreprotect</artifactId>
             <version>20.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

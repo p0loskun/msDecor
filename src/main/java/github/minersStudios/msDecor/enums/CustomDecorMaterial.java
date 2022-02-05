@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.enums;
 
+import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -14,6 +15,9 @@ import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * CustomDecorMaterial enum with decor parameters
+ */
 public enum CustomDecorMaterial {
     ACACIA_SMALL_CHAIR("Aкациевый стул", 1000, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
     BIRCH_SMALL_CHAIR("Берёзовый стул", 1001, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
@@ -38,16 +42,33 @@ public enum CustomDecorMaterial {
     SMALL_CLOCK("Настенные часы", 1017, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.FRAME, CustomDecorFacing.WALL, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
     ;
 
+    // Item
+
     private final String itemName;
-    private final int itemCustomModelData;
 
-    private final Sound placeSound;
-    private final Sound breakSound;
-    private final float pitch;
+    /** Custom decor item CustomModelData integer */
+    @Getter private final int itemCustomModelData;
 
-    private final HitBox hitBox;
-    private final CustomDecorFacing customDecorFacing;
-    private final List<String> lore;
+    @Nullable private final List<String> lore;
+
+    // Sound
+
+    /** Custom decor place Sound */
+    @Getter @Nullable private final Sound placeSound;
+
+    /** Custom decor break Sound */
+    @Getter @Nullable private final Sound breakSound;
+
+    /** Custom decor sound pitch*/
+    @Getter private final float pitch;
+
+    // Other
+
+    /** Custom decor hitbox*/
+    @Getter @Nonnull private final HitBox hitBox;
+
+    /** Custom decor facing */
+    @Getter @Nullable private final CustomDecorFacing facing;
 
     /**
      * @param itemName custom decor item custom name
@@ -58,17 +79,17 @@ public enum CustomDecorMaterial {
      * @param pitch custom decor sound pitch
      *
      * @param hitBox custom decor hitbox
-     * @param customDecorFacing custom decor facing
+     * @param facing custom decor facing
      * @param lore custom decor item lore
      */
     CustomDecorMaterial(
             @Nonnull String itemName,
             int itemCustomModelData,
-            @Nonnull Sound placeSound,
-            @Nonnull Sound breakSound,
+            @Nullable Sound placeSound,
+            @Nullable Sound breakSound,
             float pitch,
             @Nonnull HitBox hitBox,
-            @Nullable CustomDecorFacing customDecorFacing,
+            @Nullable CustomDecorFacing facing,
             @Nullable List<String> lore
     ) {
         this.itemName = itemName;
@@ -79,55 +100,10 @@ public enum CustomDecorMaterial {
         this.pitch = pitch;
 
         this.hitBox = hitBox;
-        this.customDecorFacing = customDecorFacing;
+        this.facing = facing;
         this.lore = lore;
     }
 
-    /**
-     * @return Custom decor item CustomModelData integer
-     */
-    public int getItemCustomModelData(){
-        return itemCustomModelData;
-    }
-
-    /**
-     * @return Custom decor hitbox
-     */
-    @Nonnull
-    public HitBox getHitBox(){
-        return hitBox;
-    }
-
-    /**
-     * @return Custom decor facing
-     */
-    @Nullable
-    public CustomDecorFacing getFacing(){
-        return customDecorFacing;
-    }
-
-    /**
-     * @return Custom decor place Sound
-     */
-    @Nonnull
-    public Sound getPlaceSound(){
-        return placeSound;
-    }
-
-    /**
-     * @return Custom decor break Sound
-     */
-    @Nonnull
-    public Sound getBreakSound(){
-        return breakSound;
-    }
-
-    /**
-     * @return Custom decor sound pitch
-     */
-    public float getPitch(){
-        return pitch;
-    }
 
     /**
      * @return Custom decor item
@@ -138,7 +114,7 @@ public enum CustomDecorMaterial {
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
         itemMeta.setCustomModelData(itemCustomModelData);
-        itemMeta.setDisplayName(ChatColor.WHITE + itemName);
+        itemMeta.setDisplayName(ChatColor.RESET + itemName);
         if(lore != null) itemMeta.setLore(lore);
         itemStack.setItemMeta(itemMeta);
         return itemStack;

@@ -11,10 +11,11 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
-public class ItemFrameInteractListener implements Listener {
+import javax.annotation.Nonnull;
 
+public class ItemFrameInteractListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-    public void onHangingBreakByEntity(HangingBreakByEntityEvent event) {
+    public void onHangingBreakByEntity(@Nonnull HangingBreakByEntityEvent event) {
         if (!(event.getEntity() instanceof ItemFrame) || !event.getEntity().getScoreboardTags().contains("customDecor")) return;
         if (!(event.getRemover() instanceof Player || event.getRemover() instanceof Projectile)) return;
         if (event.getRemover() instanceof Projectile && !(((Projectile) event.getRemover()).getShooter() instanceof Player)) return;
@@ -25,7 +26,7 @@ public class ItemFrameInteractListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-    public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
+    public void onEntityDamageByEntity(@Nonnull EntityDamageByEntityEvent event) {
         if (!(event.getEntity() instanceof ItemFrame) || !event.getEntity().getScoreboardTags().contains("customDecor")) return;
         if (!(event.getDamager() instanceof Player || event.getDamager() instanceof Projectile)) return;
         if (event.getDamager() instanceof Projectile && !(((Projectile) event.getDamager()).getShooter() instanceof Player)) return;
@@ -36,7 +37,7 @@ public class ItemFrameInteractListener implements Listener {
     }
 
     @EventHandler
-    public void onFrameRotating(PlayerInteractEntityEvent event) {
+    public void onFrameRotating(@Nonnull PlayerInteractEntityEvent event) {
         if (!(event.getRightClicked() instanceof ItemFrame)) return;
         event.setCancelled(event.getRightClicked().getScoreboardTags().contains("customDecor"));
     }
