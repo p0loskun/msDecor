@@ -25,10 +25,9 @@ public class SmallChair {
         shapedRecipe.shape(
                 "   ",
                 "PLP",
-                "F F"
+                "P P"
         );
         shapedRecipe.setIngredient('P',Material.OAK_PLANKS);
-        shapedRecipe.setIngredient('F', Material.OAK_FENCE);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
@@ -38,10 +37,9 @@ public class SmallChair {
         shapedRecipe.shape(
                 "   ",
                 "PLP",
-                "F F"
+                "P P"
         );
         shapedRecipe.setIngredient('P',Material.SPRUCE_PLANKS);
-        shapedRecipe.setIngredient('F', Material.SPRUCE_FENCE);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
@@ -51,10 +49,9 @@ public class SmallChair {
         shapedRecipe.shape(
                 "   ",
                 "PLP",
-                "F F"
+                "P P"
         );
         shapedRecipe.setIngredient('P',Material.DARK_OAK_PLANKS);
-        shapedRecipe.setIngredient('F', Material.DARK_OAK_FENCE);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
@@ -64,10 +61,9 @@ public class SmallChair {
         shapedRecipe.shape(
                 "   ",
                 "PLP",
-                "F F"
+                "P P"
         );
         shapedRecipe.setIngredient('P',Material.BIRCH_PLANKS);
-        shapedRecipe.setIngredient('F', Material.BIRCH_FENCE);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
@@ -77,10 +73,9 @@ public class SmallChair {
         shapedRecipe.shape(
                 "   ",
                 "PLP",
-                "F F"
+                "P P"
         );
         shapedRecipe.setIngredient('P',Material.JUNGLE_PLANKS);
-        shapedRecipe.setIngredient('F', Material.JUNGLE_FENCE);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
@@ -90,10 +85,9 @@ public class SmallChair {
         shapedRecipe.shape(
                 "   ",
                 "PLP",
-                "F F"
+                "P P"
         );
         shapedRecipe.setIngredient('P',Material.ACACIA_PLANKS);
-        shapedRecipe.setIngredient('F', Material.ACACIA_FENCE);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
@@ -103,10 +97,9 @@ public class SmallChair {
         shapedRecipe.shape(
                 "   ",
                 "PLP",
-                "F F"
+                "P P"
         );
         shapedRecipe.setIngredient('P',Material.WARPED_PLANKS);
-        shapedRecipe.setIngredient('F', Material.WARPED_FENCE);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
@@ -116,10 +109,9 @@ public class SmallChair {
         shapedRecipe.shape(
                 "   ",
                 "PLP",
-                "F F"
+                "P P"
         );
         shapedRecipe.setIngredient('P',Material.CRIMSON_PLANKS);
-        shapedRecipe.setIngredient('F', Material.CRIMSON_FENCE);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }

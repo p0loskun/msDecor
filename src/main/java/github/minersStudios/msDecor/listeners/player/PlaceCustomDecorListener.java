@@ -23,14 +23,22 @@ public class PlaceCustomDecorListener implements Listener {
     @EventHandler
     public void onPlayerInteract(@Nonnull PlayerInteractEvent event) {
         assert event.getClickedBlock() != null;
+        Player player = event.getPlayer();
         if (
                 event.getAction() != Action.RIGHT_CLICK_BLOCK
                 || event.getPlayer().getInventory().getItemInMainHand().getType() != Material.LEATHER_HORSE_ARMOR
                 || event.getHand() != EquipmentSlot.HAND
                 || event.getPlayer().getGameMode() == GameMode.ADVENTURE
+                || (event.getClickedBlock().getType().isInteractable() && event.getClickedBlock().getType() != Material.NOTE_BLOCK && !player.isSneaking())
+                || !BlockUtils.REPLACE.contains(event.getClickedBlock().getRelative(event.getBlockFace()).getType())
         ) return;
         Block replaceableBlock = BlockUtils.REPLACE.contains(event.getClickedBlock().getType()) ? event.getClickedBlock() : event.getClickedBlock().getRelative(event.getBlockFace());
-        Player player = event.getPlayer();
+        if(
+                replaceableBlock.getType() == Material.TALL_GRASS && replaceableBlock.getLocation().clone().add(0.0f, -1.0f, 0.0f).getBlock().getType() == Material.TALL_GRASS
+                || replaceableBlock.getType() == Material.TALL_SEAGRASS && replaceableBlock.getLocation().clone().add(0.0f, -1.0f, 0.0f).getBlock().getType() == Material.TALL_SEAGRASS
+        ) {
+            replaceableBlock.getLocation().clone().add(0.0f, -1.0f, 0.0f).getBlock().breakNaturally();
+        }
         ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
         if (itemInMainHand.getItemMeta() == null || !itemInMainHand.getItemMeta().hasCustomModelData()) return;
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByItem(itemInMainHand.getItemMeta());
