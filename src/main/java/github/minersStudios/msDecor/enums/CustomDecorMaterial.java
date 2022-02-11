@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.enums;
 
+import github.minersStudios.msDecor.utils.BlockUtils;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -37,7 +38,86 @@ public enum CustomDecorMaterial {
     SPRUCE_CHAIR("Еловый стул со спинкой", 1014, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
     WARPED_CHAIR("Искажённый стул со спинкой", 1015, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
 
-    BAR_STOOL("Барный стул", 1016, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    COOL_ARMCHAIR("Стильное кресло", 1016, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    COOL_ARMCHAIR_LEFT(null, 1017, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOL_ARMCHAIR_MIDDLE(null, 1018, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOL_ARMCHAIR_RIGHT(null, 1019, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+
+    ACACIA_SMALL_ARMCHAIR("Aкациевое маленькое кресло", 1020, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    BIRCH_SMALL_ARMCHAIR("Берёзовое маленькое кресло", 1021, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    CRIMSON_SMALL_ARMCHAIR("Багровое маленькое кресло", 1022, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    DARK_OAK_SMALL_ARMCHAIR("Маленькое кресло из тёмного дуба", 1023, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    JUNGLE_SMALL_ARMCHAIR("Тропическое маленькое кресло", 1024, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    OAK_SMALL_ARMCHAIR("Дубовое маленькое кресло", 1025, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    SPRUCE_SMALL_ARMCHAIR("Еловое маленькое кресло", 1026, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    WARPED_SMALL_ARMCHAIR("Искажённое маленькое кресло", 1027, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    ACACIA_ARMCHAIR("Aкациевое кресло", 1028, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    BIRCH_ARMCHAIR("Берёзовое кресло", 1029, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    CRIMSON_ARMCHAIR("Багровое кресло", 1030, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    DARK_OAK_ARMCHAIR("Кресло из тёмного дуба", 1031, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    JUNGLE_ARMCHAIR("Тропическое кресло", 1032, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    OAK_ARMCHAIR("Дубовое кресло", 1033, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    SPRUCE_ARMCHAIR("Еловое кресло", 1034, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    WARPED_ARMCHAIR("Искажённое кресло", 1035, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    BAR_STOOL("Барный стул", 1036, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    COOL_CHAIR("Стильный стул", 1037, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    ACACIA_ROCKING_CHAIR("Aкациевое кресло-качалка", 1038, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    ACACIA_ROCKING_CHAIR_PAINTABLE("Aкациевое кресло-качалка", 1039, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    BIRCH_ROCKING_CHAIR("Берёзовое кресло-качалка", 1040, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    BIRCH_ROCKING_CHAIR_PAINTABLE("Берёзовое кресло-качалка", 1041, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    CRIMSON_ROCKING_CHAIR("Багровое кресло-качалка", 1042, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    CRIMSON_ROCKING_CHAIR_PAINTABLE("Багровое кресло-качалка", 1043, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    DARK_OAK_ROCKING_CHAIR("Кресло-качалка из тёмного дуба", 1044, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    DARK_OAK_ROCKING_CHAIR_PAINTABLE("Кресло-качалка из тёмного дуба", 1045, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    JUNGLE_ROCKING_CHAIR("Тропическое кресло-качалка", 1046, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    JUNGLE_ROCKING_CHAIR_PAINTABLE("Тропическое кресло-качалка", 1047, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    OAK_ROCKING_CHAIR("Дубовое кресло-качалка", 1048, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    OAK_ROCKING_CHAIR_PAINTABLE("Дубовое кресло-качалка", 1049, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    SPRUCE_ROCKING_CHAIR("Еловое кресло-качалка", 1050, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    SPRUCE_ROCKING_CHAIR_PAINTABLE("Еловое кресло-качалка", 1051, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    WARPED_ROCKING_CHAIR("Искажённое кресло-качалка", 1052, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    WARPED_ROCKING_CHAIR_PAINTABLE("Искажённое кресло-качалка", 1053, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+
+
+    ACACIA_TABLE("Aкациевый стол", 1054, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    ACACIA_TABLE_PAINTABLE("Aкациевый стол со скатерью", 1055, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    BIRCH_TABLE("Берёзовый стол", 1056, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    BIRCH_TABLE_PAINTABLE("Берёзовый стол со скатерью", 1057, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    CRIMSON_TABLE("Багровый стол", 1058, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    CRIMSON_TABLE_PAINTABLE("Багровый стол со скатерью", 1059, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    DARK_OAK_TABLE("Стол из тёмного дуба", 1060, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    DARK_OAK_TABLE_PAINTABLE("Стол из тёмного дуба со скатерью", 1061, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    JUNGLE_TABLE("Тропический стол", 1062, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    JUNGLE_TABLE_PAINTABLE("Тропический стол со скатерью", 1063, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    OAK_TABLE("Дубовый стол", 1064, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    OAK_TABLE_PAINTABLE("Дубовый стол со скатерью", 1065, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    SPRUCE_TABLE("Еловый стол", 1066, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    SPRUCE_TABLE_PAINTABLE("Еловый стол со скатерью", 1067, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    WARPED_TABLE("Искажённый стол", 1068, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    WARPED_TABLE_PAINTABLE("Искажённый стол со скатерью", 1069, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    ACACIA_SMALL_TABLE("Маленький акациевый стол", 1070, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    ACACIA_SMALL_TABLE_PAINTABLE("Маленький акациевый стол со скатерью", 1071, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    BIRCH_SMALL_TABLE("Маленький берёзовый стол", 1072, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    BIRCH_SMALL_TABLE_PAINTABLE("Маленький берёзовый стол со скатерью", 1073, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    CRIMSON_SMALL_TABLE("Маленький багровый стол", 1074, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    CRIMSON_SMALL_TABLE_PAINTABLE("Маленький багровый стол со скатерью", 1075, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    DARK_OAK_SMALL_TABLE("Маленький стол из тёмного дуба", 1076, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    DARK_OAK_SMALL_TABLE_PAINTABLE("Маленький стол из тёмного дуба со скатерью", 1077, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    JUNGLE_SMALL_TABLE("Маленький тропический стол", 1078, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    JUNGLE_SMALL_TABLE_PAINTABLE("Маленький тропический стол со скатерью", 1079, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    OAK_SMALL_TABLE("Маленький дубовый стол", 1080, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    OAK_SMALL_TABLE_PAINTABLE("Маленький дубовый стол со скатерью", 1081, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    SPRUCE_SMALL_TABLE("Маленький еловый стол", 1082, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    SPRUCE_SMALL_TABLE_PAINTABLE("Маленький еловый стол со скатерью", 1083, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    WARPED_SMALL_TABLE("Маленький искажённый стол", 1084, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    WARPED_SMALL_TABLE_PAINTABLE("Маленький искажённый стол со скатерью", 1085, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
 
     SMALL_CLOCK("Настенные часы", 1017, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.FRAME, CustomDecorFacing.WALL, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
     ;
@@ -83,7 +163,7 @@ public enum CustomDecorMaterial {
      * @param lore custom decor item lore
      */
     CustomDecorMaterial(
-            @Nonnull String itemName,
+            @Nullable String itemName,
             int itemCustomModelData,
             @Nullable Sound placeSound,
             @Nullable Sound breakSound,
@@ -124,9 +204,12 @@ public enum CustomDecorMaterial {
      * @return Custom decor material by item in hand
      */
     @Nullable
-    public static CustomDecorMaterial getCustomDecorMaterialByItem(@Nonnull ItemMeta itemMeta){
-        for(CustomDecorMaterial customBlockMaterial : CustomDecorMaterial.values()) {
-            if(customBlockMaterial.itemCustomModelData == itemMeta.getCustomModelData()) return customBlockMaterial;
+    public static CustomDecorMaterial getCustomDecorMaterialByItem(@Nonnull ItemMeta itemMeta, boolean searchOriginal){
+        for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values()) {
+            if(customDecorMaterial.itemCustomModelData == itemMeta.getCustomModelData()) {
+                if(searchOriginal && customDecorMaterial.name().contains("_LEFT") || customDecorMaterial.name().contains("_RIGHT") || customDecorMaterial.name().contains("_MIDDLE")) return BlockUtils.getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name());
+                return customDecorMaterial;
+            }
         }
         return null;
     }
@@ -135,14 +218,20 @@ public enum CustomDecorMaterial {
      * @return Custom decor material by item in entity
      */
     @Nullable
-    public static CustomDecorMaterial getCustomDecorMaterialByEntity(@Nonnull Entity entity){
-        for(CustomDecorMaterial customBlockMaterial : CustomDecorMaterial.values()) {
+    public static CustomDecorMaterial getCustomDecorMaterialByEntity(@Nonnull Entity entity, boolean searchOriginal){
+        for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values()) {
             if(entity instanceof ArmorStand && ((ArmorStand) entity).getEquipment() != null){
                 ItemStack helmetItem = ((ArmorStand) entity).getEquipment().getHelmet();
-                if(helmetItem != null && helmetItem.getItemMeta() != null && customBlockMaterial.getItemCustomModelData() == helmetItem.getItemMeta().getCustomModelData()) return customBlockMaterial;
+                if(helmetItem != null && helmetItem.getItemMeta() != null && customDecorMaterial.getItemCustomModelData() == helmetItem.getItemMeta().getCustomModelData()){
+                    if(searchOriginal && customDecorMaterial.name().contains("_LEFT") || customDecorMaterial.name().contains("_RIGHT") || customDecorMaterial.name().contains("_MIDDLE")) return BlockUtils.getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name());
+                    return customDecorMaterial;
+                }
             } else if (entity instanceof ItemFrame && ((ItemFrame) entity).getItem().getType() != Material.AIR){
                 ItemStack item = ((ItemFrame) entity).getItem();
-                if(item.getItemMeta() != null && customBlockMaterial.getItemCustomModelData() == item.getItemMeta().getCustomModelData()) return customBlockMaterial;
+                if(item.getItemMeta() != null && customDecorMaterial.getItemCustomModelData() == item.getItemMeta().getCustomModelData()){
+                    if(searchOriginal && customDecorMaterial.name().contains("_LEFT") || customDecorMaterial.name().contains("_RIGHT") || customDecorMaterial.name().contains("_MIDDLE")) return BlockUtils.getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name());
+                    return customDecorMaterial;
+                }
             }
         }
         return null;

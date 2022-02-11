@@ -75,12 +75,13 @@ public class CustomDecor {
         for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
             blockLocation.add(-0.5d, -0.5d, -0.5d);
             if (nearbyEntity instanceof ItemFrame && ((ItemFrame) nearbyEntity).getItem().getItemMeta() != null) {
-                customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity);
+                customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, true);
                 nearbyEntity.remove();
                 if (player.getGameMode() != GameMode.SURVIVAL) return;
                 ItemStack itemStack = ((ItemFrame) nearbyEntity).getItem();
                 ItemMeta itemMeta = itemStack.getItemMeta();
                 itemMeta.setDisplayName(nearbyEntity.getName());
+                itemMeta.setCustomModelData(customDecorMaterial.getItemCustomModelData());
                 itemStack.setItemMeta(itemMeta);
                 world.dropItemNaturally(blockLocation, itemStack);
             }
@@ -88,10 +89,15 @@ public class CustomDecor {
         for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
             blockLocation.add(-0.5d, -0.0d, -0.5d);
             if (nearbyEntity instanceof ArmorStand && ((ArmorStand) nearbyEntity).getEquipment() != null && ((ArmorStand) nearbyEntity).getEquipment().getHelmet() != null) {
-                customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity);
+                customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, true);
                 nearbyEntity.remove();
-                if (player.getGameMode() == GameMode.SURVIVAL)
-                    world.dropItemNaturally(blockLocation, ((ArmorStand) nearbyEntity).getEquipment().getHelmet());
+                if (player.getGameMode() != GameMode.SURVIVAL) return;
+                ItemStack itemStack = ((ItemFrame) nearbyEntity).getItem();
+                ItemMeta itemMeta = itemStack.getItemMeta();
+                assert itemMeta != null;
+                itemMeta.setCustomModelData(customDecorMaterial.getItemCustomModelData());
+                itemStack.setItemMeta(itemMeta);
+                world.dropItemNaturally(blockLocation, itemStack);
             }
         }
         if (customDecorMaterial.getBreakSound() != null)
@@ -108,7 +114,7 @@ public class CustomDecor {
         World world = block.getWorld();
         assert player != null;
         if (entity instanceof ItemFrame && ((ItemFrame) entity).getItem().getItemMeta() != null) {
-            customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity);
+            customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity, true);
             if (player.getGameMode() != GameMode.SURVIVAL) return;
             ItemStack itemStack = ((ItemFrame) entity).getItem();
             ItemMeta itemMeta = itemStack.getItemMeta();
@@ -116,7 +122,7 @@ public class CustomDecor {
             itemStack.setItemMeta(itemMeta);
             world.dropItemNaturally(blockLocation, itemStack);
         } else if (entity instanceof ArmorStand && ((ArmorStand) entity).getEquipment() != null && ((ArmorStand) entity).getEquipment().getHelmet() != null) {
-            customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity);
+            customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(entity, true);
             if (player.getGameMode() == GameMode.SURVIVAL)
                 world.dropItemNaturally(blockLocation, ((ArmorStand) entity).getEquipment().getHelmet());
         }

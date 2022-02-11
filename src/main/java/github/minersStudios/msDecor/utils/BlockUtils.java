@@ -2,7 +2,11 @@ package github.minersStudios.msDecor.utils;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
+import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Material;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class BlockUtils {
     public static final ImmutableSet<Material> CUSTOM_BLOCK_MATERIALS = Sets.immutableEnumSet(
@@ -25,4 +29,16 @@ public class BlockUtils {
             Material.SNOW,
             Material.FIRE
     );
+
+    /**
+     * @param name name of CustomDecorMaterial enum
+     *
+     * @return Original CustomDecorMaterial
+     */
+    @Nullable
+    public static CustomDecorMaterial getCustomDecorMaterialWithoutSuffix(@Nonnull String name){
+        for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values())
+            if(customDecorMaterial.name().equals(name.replaceAll("_MIDDLE|_RIGHT|_LEFT", ""))) return customDecorMaterial;
+        return null;
+    }
 }

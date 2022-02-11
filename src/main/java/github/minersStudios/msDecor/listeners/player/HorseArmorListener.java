@@ -22,13 +22,13 @@ public class HorseArmorListener implements Listener {
                 && event.getCursor().getItemMeta() != null
                 && event.getCursor().getItemMeta().hasCustomModelData()
                 && event.getCursor().getType() == Material.LEATHER_HORSE_ARMOR
-                && CustomDecorMaterial.getCustomDecorMaterialByItem(event.getCursor().getItemMeta()) != null
+                && CustomDecorMaterial.getCustomDecorMaterialByItem(event.getCursor().getItemMeta(), false) != null
                 || event.getClick().isShiftClick()
                 && event.getCurrentItem() != null
                 && event.getCurrentItem().getItemMeta() != null
                 && event.getCurrentItem().getItemMeta().hasCustomModelData()
                 && event.getCurrentItem().getType() == Material.LEATHER_HORSE_ARMOR
-                && CustomDecorMaterial.getCustomDecorMaterialByItem(event.getCurrentItem().getItemMeta()) != null)
+                && CustomDecorMaterial.getCustomDecorMaterialByItem(event.getCurrentItem().getItemMeta(), false) != null)
         );
     }
 
@@ -39,7 +39,7 @@ public class HorseArmorListener implements Listener {
         event.setCancelled(
                 itemStack.getItemMeta() != null
                 && itemStack.getItemMeta().hasCustomModelData()
-                && CustomDecorMaterial.getCustomDecorMaterialByItem(itemStack.getItemMeta()) != null
+                && CustomDecorMaterial.getCustomDecorMaterialByItem(itemStack.getItemMeta(), false) != null
                 && event.getRawSlots().contains(1)
                 && event.getInventory() instanceof HorseInventory
         );

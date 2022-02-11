@@ -59,7 +59,7 @@ public class ItemFrameInteractListener implements Listener {
                 itemInMainHand = originalItemInMainHand.clone();
         ItemMeta itemMeta = itemInMainHand.getItemMeta(),
                 originalItemMeta = originalItemInMainHand.getItemMeta();
-        if(originalItemMeta == null || itemMeta == null || !itemMeta.hasCustomModelData() || CustomDecorMaterial.getCustomDecorMaterialByItem(itemMeta) == null) return;
+        if(originalItemMeta == null || itemMeta == null || !itemMeta.hasCustomModelData() || CustomDecorMaterial.getCustomDecorMaterialByItem(itemMeta, false) == null) return;
         event.setCancelled(true);
         originalItemMeta.setDisplayName(originalItemMeta.getDisplayName() + "");
         originalItemInMainHand.setItemMeta(originalItemMeta);
@@ -71,7 +71,7 @@ public class ItemFrameInteractListener implements Listener {
     }
 
     @EventHandler
-    public void onHangingBreakByEntity(@Nonnull EntityDamageByEntityEvent event) {
+    public void onDamageByEntityCustomDecor(@Nonnull EntityDamageByEntityEvent event) {
         if(!(event.getEntity() instanceof ItemFrame) || !(event.getDamager() instanceof Player && ((Player) event.getDamager()).getGameMode() != GameMode.CREATIVE || event.getDamager() instanceof Projectile)) return;
         if(event.getDamager() instanceof Projectile && !(((Projectile) event.getDamager()).getShooter() instanceof Player)) return;
         if(event.getDamager() instanceof Projectile) event.getDamager().remove();
@@ -79,7 +79,7 @@ public class ItemFrameInteractListener implements Listener {
         if(itemFrame.getItem().getType().isAir()) return;
         ItemStack itemInFrame = itemFrame.getItem().clone();
         ItemMeta itemMeta = itemInFrame.getItemMeta();
-        if(itemMeta == null || !itemMeta.hasCustomModelData() || CustomDecorMaterial.getCustomDecorMaterialByItem(itemMeta) == null) return;
+        if(itemMeta == null || !itemMeta.hasCustomModelData() || CustomDecorMaterial.getCustomDecorMaterialByItem(itemMeta, true) == null) return;
         event.setCancelled(true);
         itemMeta.setDisplayName(itemFrame.getName());
         itemInFrame.setItemMeta(itemMeta);
