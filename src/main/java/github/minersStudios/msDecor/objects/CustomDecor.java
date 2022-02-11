@@ -92,7 +92,7 @@ public class CustomDecor {
                 customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, true);
                 nearbyEntity.remove();
                 if (player.getGameMode() != GameMode.SURVIVAL) return;
-                ItemStack itemStack = ((ItemFrame) nearbyEntity).getItem();
+                ItemStack itemStack = ((ArmorStand) nearbyEntity).getEquipment().getHelmet();
                 ItemMeta itemMeta = itemStack.getItemMeta();
                 assert itemMeta != null;
                 itemMeta.setCustomModelData(customDecorMaterial.getItemCustomModelData());
