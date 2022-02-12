@@ -1,4 +1,4 @@
-package github.minersStudios.msDecor.crafts.home.stools;
+package github.minersStudios.msDecor.crafts.home.chairs;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Material;

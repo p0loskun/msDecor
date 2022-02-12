@@ -37,8 +37,13 @@ public class BlockUtils {
      */
     @Nullable
     public static CustomDecorMaterial getCustomDecorMaterialWithoutSuffix(@Nonnull String name){
-        for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values())
-            if(customDecorMaterial.name().equals(name.replaceAll("_MIDDLE|_RIGHT|_LEFT", ""))) return customDecorMaterial;
+        for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values()){
+            if(customDecorMaterial.name().equals(name.replaceAll("_[2-3]_MIDDLE|_[2-3]_RIGHT|_[2-3]_LEFT|_MIDDLE|_RIGHT|_LEFT", ""))){
+                return customDecorMaterial;
+            } else if(customDecorMaterial.name().equals(name)){
+                return customDecorMaterial;
+            }
+        }
         return null;
     }
 }

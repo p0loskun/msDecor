@@ -1,4 +1,4 @@
-package github.minersStudios.msDecor.crafts.home.stools;
+package github.minersStudios.msDecor.crafts.home.chairs;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Material;
@@ -7,35 +7,35 @@ import org.bukkit.inventory.ShapedRecipe;
 
 import static github.minersStudios.msDecor.Main.plugin;
 
-public class SmallArmchair {
+public class SmallChair {
 
-    public SmallArmchair(){
-        craftSmallOakArmchair();
-        craftSmallSpruceArmchair();
-        craftSmallBirchArmchair();
-        craftSmallDarkOakArmchair();
-        craftSmallJungleArmchair();
-        craftSmallAcaciaArmchair();
-        craftSmallWarpedArmchair();
-        craftSmallCrimsonArmchair();
+    public SmallChair(){
+        craftSmallOakChair();
+        craftSmallSpruceChair();
+        craftSmallBirchChair();
+        craftSmallDarkOakChair();
+        craftSmallJungleChair();
+        craftSmallAcaciaChair();
+        craftSmallWarpedChair();
+        craftSmallCrimsonChair();
     }
 
-    private void craftSmallOakArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_oak_armchair"), CustomDecorMaterial.OAK_SMALL_ARMCHAIR.getItemStack());
+    private void craftSmallOakChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_oak_chair"), CustomDecorMaterial.OAK_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "LP ",
+                "   ",
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P', Material.OAK_PLANKS);
+        shapedRecipe.setIngredient('P',Material.OAK_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftSmallSpruceArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_spruce_armchair"), CustomDecorMaterial.SPRUCE_SMALL_ARMCHAIR.getItemStack());
+    private void craftSmallSpruceChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_spruce_chair"), CustomDecorMaterial.SPRUCE_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "LP ",
+                "   ",
                 "PLP",
                 "P P"
         );
@@ -44,10 +44,10 @@ public class SmallArmchair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftSmallDarkOakArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_dark_oak_armchair"), CustomDecorMaterial.DARK_OAK_SMALL_ARMCHAIR.getItemStack());
+    private void craftSmallDarkOakChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_dark_oak_chair"), CustomDecorMaterial.DARK_OAK_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "LP ",
+                "   ",
                 "PLP",
                 "P P"
         );
@@ -56,10 +56,10 @@ public class SmallArmchair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftSmallBirchArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_birch_armchair"), CustomDecorMaterial.BIRCH_SMALL_ARMCHAIR.getItemStack());
+    private void craftSmallBirchChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_birch_chair"), CustomDecorMaterial.BIRCH_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "LP ",
+                "   ",
                 "PLP",
                 "P P"
         );
@@ -68,10 +68,10 @@ public class SmallArmchair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftSmallJungleArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_jungle_armchair"), CustomDecorMaterial.JUNGLE_SMALL_ARMCHAIR.getItemStack());
+    private void craftSmallJungleChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_jungle_chair"), CustomDecorMaterial.JUNGLE_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "LP ",
+                "   ",
                 "PLP",
                 "P P"
         );
@@ -80,10 +80,10 @@ public class SmallArmchair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftSmallAcaciaArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_acacia_armchair"), CustomDecorMaterial.ACACIA_SMALL_ARMCHAIR.getItemStack());
+    private void craftSmallAcaciaChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_acacia_chair"), CustomDecorMaterial.ACACIA_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "LP ",
+                "   ",
                 "PLP",
                 "P P"
         );
@@ -92,10 +92,10 @@ public class SmallArmchair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftSmallWarpedArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_warped_armchair"), CustomDecorMaterial.WARPED_SMALL_ARMCHAIR.getItemStack());
+    private void craftSmallWarpedChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_warped_chair"), CustomDecorMaterial.WARPED_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "LP ",
+                "   ",
                 "PLP",
                 "P P"
         );
@@ -104,10 +104,10 @@ public class SmallArmchair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftSmallCrimsonArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_crimson_armchair"), CustomDecorMaterial.CRIMSON_SMALL_ARMCHAIR.getItemStack());
+    private void craftSmallCrimsonChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_crimson_chair"), CustomDecorMaterial.CRIMSON_SMALL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "LP ",
+                "   ",
                 "PLP",
                 "P P"
         );

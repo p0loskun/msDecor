@@ -1,4 +1,4 @@
-package github.minersStudios.msDecor.crafts.home.stools;
+package github.minersStudios.msDecor.crafts.home.chairs;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Material;
@@ -7,16 +7,16 @@ import org.bukkit.inventory.ShapedRecipe;
 
 import static github.minersStudios.msDecor.Main.plugin;
 
-public class CoolArmchair {
+public class CoolChair {
 
-    public CoolArmchair(){
-        craftCoolArmchair();
+    public CoolChair(){
+        craftCoolChair();
     }
 
-    private void craftCoolArmchair(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cool_armchair"), CustomDecorMaterial.COOL_ARMCHAIR.getItemStack());
+    private void craftCoolChair(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cool_chair"), CustomDecorMaterial.COOL_CHAIR.getItemStack());
         shapedRecipe.shape(
-                "L  ",
+                "   ",
                 "LLL",
                 "I I"
         );
