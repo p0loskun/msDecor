@@ -84,22 +84,22 @@ public enum CustomDecorMaterial {
 
 
 
-    ACACIA_TABLE("Aкациевый стол", 1054, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
-    ACACIA_TABLE_PAINTABLE("Aкациевый стол со скатерью", 1055, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
-    BIRCH_TABLE("Берёзовый стол", 1056, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
-    BIRCH_TABLE_PAINTABLE("Берёзовый стол со скатерью", 1057, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
-    CRIMSON_TABLE("Багровый стол", 1058, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
-    CRIMSON_TABLE_PAINTABLE("Багровый стол со скатерью", 1059, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
-    DARK_OAK_TABLE("Стол из тёмного дуба", 1060, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
-    DARK_OAK_TABLE_PAINTABLE("Стол из тёмного дуба со скатерью", 1061, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
-    JUNGLE_TABLE("Тропический стол", 1062, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
-    JUNGLE_TABLE_PAINTABLE("Тропический стол со скатерью", 1063, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
-    OAK_TABLE("Дубовый стол", 1064, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
-    OAK_TABLE_PAINTABLE("Дубовый стол со скатерью", 1065, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
-    SPRUCE_TABLE("Еловый стол", 1066, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
-    SPRUCE_TABLE_PAINTABLE("Еловый стол со скатерью", 1067, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
-    WARPED_TABLE("Искажённый стол", 1068, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
-    WARPED_TABLE_PAINTABLE("Искажённый стол со скатерью", 1069, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    ACACIA_BIG_TABLE("Aкациевый стол", 1054, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    ACACIA_BIG_TABLE_PAINTABLE("Aкациевый стол со скатерью", 1055, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    BIRCH_BIG_TABLE("Берёзовый стол", 1056, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    BIRCH_BIG_TABLE_PAINTABLE("Берёзовый стол со скатерью", 1057, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    CRIMSON_BIG_TABLE("Багровый стол", 1058, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    CRIMSON_BIG_TABLE_PAINTABLE("Багровый стол со скатерью", 1059, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    DARK_OAK_BIG_TABLE("Стол из тёмного дуба", 1060, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    DARK_OAK_BIG_TABLE_PAINTABLE("Стол из тёмного дуба со скатерью", 1061, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    JUNGLE_BIG_TABLE("Тропический стол", 1062, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    JUNGLE_BIG_TABLE_PAINTABLE("Тропический стол со скатерью", 1063, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    OAK_BIG_TABLE("Дубовый стол", 1064, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    OAK_BIG_TABLE_PAINTABLE("Дубовый стол со скатерью", 1065, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    SPRUCE_BIG_TABLE("Еловый стол", 1066, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    SPRUCE_BIG_TABLE_PAINTABLE("Еловый стол со скатерью", 1067, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    WARPED_BIG_TABLE("Искажённый стол", 1068, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    WARPED_BIG_TABLE_PAINTABLE("Искажённый стол со скатерью", 1069, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
 
     ACACIA_SMALL_TABLE("Маленький акациевый стол", 1070, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
     ACACIA_SMALL_TABLE_PAINTABLE("Маленький акациевый стол со скатерью", 1071, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
@@ -183,13 +183,45 @@ public enum CustomDecorMaterial {
     WARPED_NIGHTSTAND_3_MIDDLE(null, 1140, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
     WARPED_NIGHTSTAND_3_RIGHT(null, 1141, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
 
+    WHEELBARROW("Тачка", 1142, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
 
-    SMALL_CLOCK("Настенные часы", 1017, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.FRAME, CustomDecorFacing.WALL, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+    SMALL_LAMP("Маленькая лампа", 1144, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    SMALL_GLOBUS("Маленький глобус", 1145, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.STRUCTURE_FRAME, CustomDecorFacing.FLOOR, null),
+
+    SMALL_CLOCK("Маленькие настенные часы", 1146, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.FRAME, CustomDecorFacing.WALL, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    PATEFON("Патефон", 1147, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+
+    IRON_TRASHCAN("Железная мусорка", 1148, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+
+    FIRE_HYDRANT("Пожарный гидрант", 1149, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    CAMERA("Камера", 1150, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.FRAME, CustomDecorFacing.FLOOR, null),
+
+    BIG_LAMP("Большая лампа", 1151, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.NORMAL_ARMOR_STAND, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    BANKOMAT("Банкомат", 1152, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Badge.PAINTABLE.getBadgeSymbol())),
+
+    BMO_PLUSH("Плюшевый Бимо", 1153, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+
+    BROWN_BEAR_PLUSH("Плюшевый мишка", 1154, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+
+    PIGGYBANK("Копилка", 1155, Sound.BLOCK_GLASS_PLACE, Sound.BLOCK_GLASS_BREAK, 1.5f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+    PIGGYBANK_DIAMOND("Алмазная копилка", 1156, Sound.BLOCK_STONE_PLACE, Sound.BLOCK_STONE_BREAK, 1.5f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+    PIGGYBANK_EMERALD("Изумрудная копилка", 1157, Sound.BLOCK_STONE_PLACE, Sound.BLOCK_STONE_BREAK, 1.5f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+    PIGGYBANK_GOLD("Золотая копилка", 1158, Sound.BLOCK_STONE_PLACE, Sound.BLOCK_STONE_BREAK, 1.5f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+    PIGGYBANK_IRON("Железная копилка", 1159, Sound.BLOCK_STONE_PLACE, Sound.BLOCK_STONE_BREAK, 1.5f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+    PIGGYBANK_NETHERITE("Незеритовая копилка", 1160, Sound.BLOCK_STONE_PLACE, Sound.BLOCK_STONE_BREAK, 1.5f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+
+    DEER_HEAD("Голова оленя", 1161, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
+    HOGLIN_HEAD("Голова борова", 1162, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
+    ZOGLIN_HEAD("Голова зомбу борова", 1163, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
     ;
 
     // Item
 
-    private final String itemName;
+    @Nullable private final String itemName;
 
     /** Custom decor item CustomModelData integer */
     @Getter private final int itemCustomModelData;
