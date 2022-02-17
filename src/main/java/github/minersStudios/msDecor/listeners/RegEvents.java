@@ -15,7 +15,7 @@ public class RegEvents {
 
         pluginManager.registerEvents(new ExplosionListener(), plugin);
         pluginManager.registerEvents(new BreakCustomDecorListener(), plugin);
-        pluginManager.registerEvents(new BreakBarrierListener(), plugin);
+        pluginManager.registerEvents(new BreakBlockListener(), plugin);
         pluginManager.registerEvents(new PlaceCustomDecorListener(), plugin);
         pluginManager.registerEvents(new ItemFrameInteractListener(), plugin);
         pluginManager.registerEvents(new ArmorStandInteractListener(), plugin);

@@ -11,7 +11,6 @@ import javax.annotation.Nullable;
 public class BlockUtils {
     public static final ImmutableSet<Material> CUSTOM_BLOCK_MATERIALS = Sets.immutableEnumSet(
             Material.BARRIER,
-            Material.LIGHT,
             Material.STRUCTURE_VOID
     );
 

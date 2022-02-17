@@ -73,7 +73,7 @@ public class ItemFrameInteractListener implements Listener {
     @EventHandler
     public void onDamageByEntityCustomDecor(@Nonnull EntityDamageByEntityEvent event) {
         if(!(event.getEntity() instanceof ItemFrame) || !(event.getDamager() instanceof Player && ((Player) event.getDamager()).getGameMode() != GameMode.CREATIVE || event.getDamager() instanceof Projectile)) return;
-        if(event.getDamager() instanceof Projectile && !(((Projectile) event.getDamager()).getShooter() instanceof Player)) return;
+        if(event.getDamager() instanceof Projectile && !(((Projectile) event.getDamager()).getShooter() instanceof Player) || event.getEntity().getScoreboardTags().contains("customDecor")) return;
         if(event.getDamager() instanceof Projectile) event.getDamager().remove();
         ItemFrame itemFrame = (ItemFrame) event.getEntity();
         if(itemFrame.getItem().getType().isAir()) return;

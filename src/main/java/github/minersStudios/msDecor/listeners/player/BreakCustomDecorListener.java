@@ -4,6 +4,7 @@ import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.objects.CustomDecor;
 import github.minersStudios.msDecor.utils.BlockUtils;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
@@ -23,7 +24,7 @@ public class BreakCustomDecorListener implements Listener {
         Block block = event.getClickedBlock();
         if (event.getAction() != Action.LEFT_CLICK_BLOCK || !BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(block.getType())) return;
         Player player = event.getPlayer();
-        if((player.isSneaking() && player.getGameMode() == GameMode.SURVIVAL) || player.getGameMode() == GameMode.CREATIVE){
+        if((player.isSneaking() && player.getGameMode() == GameMode.SURVIVAL) || player.getGameMode() == GameMode.SURVIVAL && block.getType() != Material.BARRIER || player.getGameMode() == GameMode.CREATIVE){
             CustomDecor customDecor = new CustomDecor(block, player);
             customDecor.breakCustomDecor();
         }
@@ -35,6 +36,6 @@ public class BreakCustomDecorListener implements Listener {
         Entity damager = event.getDamager();
         if(!(damaged instanceof ArmorStand) || CustomDecorMaterial.getCustomDecorMaterialByEntity(damaged, true) == null || damager instanceof Player && ((Player) damager).getGameMode() == GameMode.ADVENTURE) return;
         CustomDecor customDecor = new CustomDecor(damaged.getLocation().getBlock(), damager instanceof Player ? ((Player) damager) : null);
-        customDecor.breakCustomDecorEntity(damaged);
+        customDecor.breakCustomDecor();
     }
 }

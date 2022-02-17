@@ -21,7 +21,7 @@ public class Patefon {
                 "SJS"
         );
         shapedRecipe.setIngredient('J', Material.JUKEBOX);
-        shapedRecipe.setIngredient('P', Material.SPRUCE_PLANKS);
+        shapedRecipe.setIngredient('S', Material.SPRUCE_PLANKS);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 }
