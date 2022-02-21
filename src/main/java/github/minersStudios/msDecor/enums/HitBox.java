@@ -51,6 +51,8 @@ public enum HitBox {
             case SOLID_NORMAL_ARMOR_STAND:
             case NORMAL_ARMOR_STAND:
             case SMALL_ARMOR_STAND:
+            case STRUCTURE_NORMAL_ARMOR_STAND:
+            case STRUCTURE_SMALL_ARMOR_STAND:
                 return true;
             default:
                 return false;

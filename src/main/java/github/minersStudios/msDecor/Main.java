@@ -18,7 +18,7 @@ public final class Main extends JavaPlugin {
     private CoreProtectAPI getCoreProtect() {
         final Plugin coreProtect = getServer().getPluginManager().getPlugin("CoreProtect");
         if (coreProtect == null) return null;
-        CoreProtectAPI CoreProtect = ((CoreProtect)coreProtect).getAPI();
+        CoreProtectAPI CoreProtect = ((CoreProtect) coreProtect).getAPI();
         return (!CoreProtect.isEnabled() || CoreProtect.APIVersion() < 7 ? null : CoreProtect);
     }
 

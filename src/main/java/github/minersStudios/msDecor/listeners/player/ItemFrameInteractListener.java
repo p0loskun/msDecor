@@ -3,8 +3,10 @@ package github.minersStudios.msDecor.listeners.player;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.objects.CustomDecor;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -44,15 +46,13 @@ public class ItemFrameInteractListener implements Listener {
 
     @EventHandler
     public void onFrameRotating(@Nonnull PlayerInteractEntityEvent event) {
-        if (!(event.getRightClicked() instanceof ItemFrame)) return;
-        event.setCancelled(event.getRightClicked().getScoreboardTags().contains("customDecor"));
+        event.setCancelled(event instanceof ItemFrame && event.getRightClicked().getScoreboardTags().contains("customDecor"));
     }
 
     @EventHandler
     public void onPutInItemFrameCustomDecor(@Nonnull PlayerInteractEntityEvent event){
-        if (!(event.getRightClicked() instanceof ItemFrame)) return;
         Player player = event.getPlayer();
-        if(player.getInventory().getItemInMainHand().getType().isAir()) return;
+        if (!(event.getRightClicked() instanceof ItemFrame) || player.getInventory().getItemInMainHand().getType() != Material.LEATHER_HORSE_ARMOR) return;
         ItemFrame itemFrame = (ItemFrame) event.getRightClicked();
         if(!itemFrame.getItem().getType().isAir()) return;
         ItemStack originalItemInMainHand = player.getInventory().getItemInMainHand(),
@@ -72,10 +72,12 @@ public class ItemFrameInteractListener implements Listener {
 
     @EventHandler
     public void onDamageByEntityCustomDecor(@Nonnull EntityDamageByEntityEvent event) {
-        if(!(event.getEntity() instanceof ItemFrame) || !(event.getDamager() instanceof Player && ((Player) event.getDamager()).getGameMode() != GameMode.CREATIVE || event.getDamager() instanceof Projectile)) return;
-        if(event.getDamager() instanceof Projectile && !(((Projectile) event.getDamager()).getShooter() instanceof Player) || event.getEntity().getScoreboardTags().contains("customDecor")) return;
-        if(event.getDamager() instanceof Projectile) event.getDamager().remove();
-        ItemFrame itemFrame = (ItemFrame) event.getEntity();
+        Entity damaged = event.getEntity();
+        Entity damager = event.getDamager();
+        if(!(damaged instanceof ItemFrame) || ((ItemFrame) damaged).getItem().getType() != Material.LEATHER_HORSE_ARMOR || !(damager instanceof Player && ((Player) damager).getGameMode() != GameMode.CREATIVE || damager instanceof Projectile)) return;
+        if(damager instanceof Projectile && !(((Projectile) damager).getShooter() instanceof Player) || damaged.getScoreboardTags().contains("customDecor")) return;
+        if(damager instanceof Projectile) damager.remove();
+        ItemFrame itemFrame = (ItemFrame) damaged;
         if(itemFrame.getItem().getType().isAir()) return;
         ItemStack itemInFrame = itemFrame.getItem().clone();
         ItemMeta itemMeta = itemInFrame.getItemMeta();

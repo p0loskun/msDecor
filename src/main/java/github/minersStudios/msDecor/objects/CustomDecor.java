@@ -72,10 +72,14 @@ public class CustomDecor {
         assert player != null;
         Location blockLocation = block.getLocation();
         World world = block.getWorld();
-        for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
-            blockLocation.add(-0.5d, -0.5d, -0.5d);
+        for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.clone().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
             if (nearbyEntity instanceof ItemFrame && ((ItemFrame) nearbyEntity).getItem().getItemMeta() != null) {
                 customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, true);
+                if(customDecorMaterial == null) return;
+                block.setType(Material.AIR);
+                if (customDecorMaterial.getBreakSound() != null)
+                    world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
+                coreProtectAPI.logRemoval(player.getName(), block.getLocation(), Material.VOID_AIR, block.getBlockData());
                 nearbyEntity.remove();
                 if (player.getGameMode() == GameMode.SURVIVAL) {
                     ItemStack itemStack = ((ItemFrame) nearbyEntity).getItem();
@@ -85,14 +89,19 @@ public class CustomDecor {
                     itemStack.setItemMeta(itemMeta);
                     world.dropItemNaturally(blockLocation, itemStack);
                 }
+                return;
             }
         }
-        for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
-            blockLocation.add(-0.5d, -0.0d, -0.5d);
+        for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.clone().add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
             if (nearbyEntity instanceof ArmorStand && ((ArmorStand) nearbyEntity).getEquipment() != null && ((ArmorStand) nearbyEntity).getEquipment().getHelmet() != null) {
                 customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, true);
+                if(customDecorMaterial == null) return;
+                block.setType(Material.AIR);
+                if (customDecorMaterial.getBreakSound() != null)
+                    world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
+                coreProtectAPI.logRemoval(player.getName(), block.getLocation(), Material.VOID_AIR, block.getBlockData());
                 nearbyEntity.remove();
-                if (player.getGameMode() != GameMode.SURVIVAL) {
+                if (player.getGameMode() == GameMode.SURVIVAL) {
                     ItemStack itemStack = ((ArmorStand) nearbyEntity).getEquipment().getHelmet();
                     ItemMeta itemMeta = itemStack.getItemMeta();
                     assert itemMeta != null;
@@ -102,11 +111,6 @@ public class CustomDecor {
                 }
             }
         }
-        if(customDecorMaterial == null) return;
-        block.setType(Material.AIR);
-        if (customDecorMaterial.getBreakSound() != null)
-            world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
-        coreProtectAPI.logRemoval(player.getName(), block.getLocation(), Material.VOID_AIR, block.getBlockData());
     }
 
     /**
@@ -117,8 +121,8 @@ public class CustomDecor {
         block.getWorld().spawn(block.getLocation().add(0.5d, 0.0d, 0.5d), ArmorStand.class, (armorStand) -> {
             assert armorStand.getEquipment() != null;
             armorStand.setGravity(false);
-            armorStand.setMarker(customDecorMaterial.getHitBox().isSolidHitBox());
-            armorStand.setSmall(customDecorMaterial.getHitBox() == HitBox.SMALL_ARMOR_STAND || customDecorMaterial.getHitBox() == HitBox.SOLID_SMALL_ARMOR_STAND);
+            armorStand.setMarker(customDecorMaterial.getHitBox().isSolidHitBox() || customDecorMaterial.getHitBox().isStructureHitBox());
+            armorStand.setSmall(customDecorMaterial.getHitBox() == HitBox.SMALL_ARMOR_STAND || customDecorMaterial.getHitBox() == HitBox.SOLID_SMALL_ARMOR_STAND || customDecorMaterial.getHitBox() == HitBox.STRUCTURE_SMALL_ARMOR_STAND);
             armorStand.setVisible(false);
             armorStand.setCollidable(false);
             armorStand.addScoreboardTag("customDecor");

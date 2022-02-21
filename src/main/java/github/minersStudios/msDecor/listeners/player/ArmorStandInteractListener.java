@@ -12,6 +12,7 @@ public class ArmorStandInteractListener implements Listener {
     @EventHandler
     public void onInteractWithArmorStand(@Nonnull PlayerInteractAtEntityEvent event) {
         if (event.getRightClicked().getType() != EntityType.ARMOR_STAND) return;
-        event.setCancelled(CustomDecorMaterial.getCustomDecorMaterialByEntity(event.getRightClicked(), false) != null);
+        if(CustomDecorMaterial.getCustomDecorMaterialByEntity(event.getRightClicked(), false) == null) return;
+        event.setCancelled(true);
     }
 }
