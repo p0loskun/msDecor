@@ -18,9 +18,7 @@ public class BreakBlockListener implements Listener {
         Block block = event.getBlock();
         if(BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(event.getBlock().getType())) {
             for (Entity nearbyEntity : block.getWorld().getNearbyEntities(block.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)){
-                if((nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame) && nearbyEntity.getScoreboardTags().contains("customDecor")){
-                    event.setCancelled(true);
-                }
+                event.setCancelled((nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame) && nearbyEntity.getScoreboardTags().contains("customDecor"));
             }
         }
     }

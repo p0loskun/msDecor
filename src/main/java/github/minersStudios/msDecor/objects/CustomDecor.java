@@ -12,6 +12,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
@@ -176,9 +177,13 @@ public class CustomDecor {
                 block.setType(
                         customDecorMaterial.getHitBox().isStructureHitBox() ? Material.STRUCTURE_VOID
                         : customDecorMaterial.getHitBox().isSolidHitBox() ? Material.BARRIER
-                        : !customDecorMaterial.getHitBox().isArmorStand() ? Material.LIGHT
-                        : Material.AIR
+                        : Material.LIGHT
                 );
+
+                if(block.getType() != Material.LIGHT) return;
+                Levelled level0 = (Levelled) block.getBlockData();
+                level0.setLevel(0);
+                block.setBlockData(level0, true);
             }
         }.runTask(Main.plugin);
     }

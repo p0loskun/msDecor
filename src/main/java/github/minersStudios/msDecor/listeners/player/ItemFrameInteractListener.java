@@ -46,7 +46,7 @@ public class ItemFrameInteractListener implements Listener {
 
     @EventHandler
     public void onFrameRotating(@Nonnull PlayerInteractEntityEvent event) {
-        event.setCancelled(event instanceof ItemFrame && event.getRightClicked().getScoreboardTags().contains("customDecor"));
+        event.setCancelled(event.getRightClicked() instanceof ItemFrame && event.getRightClicked().getScoreboardTags().contains("customDecor"));
     }
 
     @EventHandler
