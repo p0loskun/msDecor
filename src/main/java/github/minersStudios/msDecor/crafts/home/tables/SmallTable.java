@@ -119,8 +119,8 @@ public class SmallTable {
     private void craftOakPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_paintable_small_table"), CustomDecorMaterial.OAK_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
-                "   ",
-                "PLP",
+                " L ",
+                "PPP",
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.OAK_PLANKS);
@@ -131,8 +131,8 @@ public class SmallTable {
     private void craftSprucePaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_paintable_small_table"), CustomDecorMaterial.SPRUCE_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
-                "   ",
-                "PLP",
+                " L ",
+                "PPP",
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.SPRUCE_PLANKS);
@@ -143,8 +143,8 @@ public class SmallTable {
     private void craftDarkOakPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_paintable_small_table"), CustomDecorMaterial.DARK_OAK_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
-                "   ",
-                "PLP",
+                " L ",
+                "PPP",
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.DARK_OAK_PLANKS);
@@ -155,8 +155,8 @@ public class SmallTable {
     private void craftBirchPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_paintable_small_table"), CustomDecorMaterial.BIRCH_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
-                "   ",
-                "PLP",
+                " L ",
+                "PPP",
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.BIRCH_PLANKS);
@@ -167,8 +167,8 @@ public class SmallTable {
     private void craftJunglePaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_paintable_small_table"), CustomDecorMaterial.JUNGLE_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
-                "   ",
-                "PLP",
+                " L ",
+                "PPP",
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.JUNGLE_PLANKS);
@@ -179,8 +179,8 @@ public class SmallTable {
     private void craftAcaciaPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_paintable_small_table"), CustomDecorMaterial.ACACIA_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
-                "   ",
-                "PLP",
+                " L ",
+                "PPP",
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.ACACIA_PLANKS);
@@ -191,8 +191,8 @@ public class SmallTable {
     private void craftWarpedPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_paintable_small_table"), CustomDecorMaterial.WARPED_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
-                "   ",
-                "PLP",
+                " L ",
+                "PPP",
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.WARPED_PLANKS);
@@ -203,8 +203,8 @@ public class SmallTable {
     private void craftCrimsonPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_paintable_small_table"), CustomDecorMaterial.CRIMSON_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
-                "   ",
-                "PLP",
+                " L ",
+                "PPP",
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.CRIMSON_PLANKS);

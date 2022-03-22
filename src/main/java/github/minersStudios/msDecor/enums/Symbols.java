@@ -6,15 +6,8 @@ import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 public enum Symbols {
-    ERROR("a"),
-    WARN("b"),
-    INFO("c"),
-    PAINTABLE("d"),
-    EXCLUSIVE("e"),
-    COMMON("f"),
-    RARE("g"),
-    GOLDEN("h"),
-    LEGENDARY("i");
+    PAINTABLE("\uA022"),
+    ;
 
     private final String symbol;
 

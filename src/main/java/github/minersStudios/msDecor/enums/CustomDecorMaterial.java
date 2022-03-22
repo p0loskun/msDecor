@@ -219,16 +219,12 @@ public enum CustomDecorMaterial {
     ZOGLIN_HEAD("Голова зомбу борова", 1163, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
     ;
 
-    // Item
-
     @Nullable private final String itemName;
 
     /** Custom decor item CustomModelData integer */
     @Getter private final int itemCustomModelData;
 
     @Nullable private final List<String> lore;
-
-    // Sound
 
     /** Custom decor place Sound */
     @Getter @Nullable private final Sound placeSound;
@@ -238,8 +234,6 @@ public enum CustomDecorMaterial {
 
     /** Custom decor sound pitch*/
     @Getter private final float pitch;
-
-    // Other
 
     /** Custom decor hitbox*/
     @Getter @Nonnull private final HitBox hitBox;
@@ -290,9 +284,9 @@ public enum CustomDecorMaterial {
         ItemStack itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
         ItemMeta itemMeta = itemStack.getItemMeta();
         assert itemMeta != null;
-        itemMeta.setCustomModelData(itemCustomModelData);
-        itemMeta.setDisplayName(ChatColor.WHITE + itemName);
-        if(lore != null) itemMeta.setLore(lore);
+        itemMeta.setCustomModelData(this.itemCustomModelData);
+        itemMeta.setDisplayName(ChatColor.WHITE + this.itemName);
+        if(this.lore != null) itemMeta.setLore(this.lore);
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }
@@ -304,8 +298,7 @@ public enum CustomDecorMaterial {
     public static CustomDecorMaterial getCustomDecorMaterialByItem(@Nonnull ItemMeta itemMeta, boolean searchOriginal){
         for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values()) {
             if(customDecorMaterial.itemCustomModelData == itemMeta.getCustomModelData()) {
-                if(searchOriginal) return BlockUtils.getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name());
-                return customDecorMaterial;
+                return searchOriginal ? BlockUtils.getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name()) : customDecorMaterial;
             }
         }
         return null;

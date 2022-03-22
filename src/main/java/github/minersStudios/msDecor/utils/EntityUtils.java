@@ -9,8 +9,6 @@ import org.bukkit.entity.Player;
 import javax.annotation.Nonnull;
 
 public class EntityUtils {
-    private float playerRotation;
-
     /**
      * Rotates armor stand by player yaw
      *
@@ -19,25 +17,26 @@ public class EntityUtils {
      */
     public void rotateArmorStandByPlayer(@Nonnull ArmorStand armorStand, @Nonnull Player player){
         Location armorStandLocation = armorStand.getLocation();
-        playerRotation = player.getLocation().getYaw();
-        if (playerRotation >= 25 && playerRotation <= 64 && playerRotation != 45)
+        float playerRotation = player.getLocation().getYaw();
+        if (playerRotation > 25 && playerRotation < 65) {
             armorStandLocation.setYaw(45);
-        else if (playerRotation >= 65 && playerRotation <= 119 && playerRotation != 90)
+        } else if (playerRotation > 65 && playerRotation < 120) {
             armorStandLocation.setYaw(90);
-        else if (playerRotation >= 120 && playerRotation <= 139 && playerRotation != 135)
+        } else if (playerRotation > 120 && playerRotation < 140) {
             armorStandLocation.setYaw(135);
-        else if (playerRotation >= 140 && playerRotation <= 180 && playerRotation != 180)
+        } else if (playerRotation > 140 && playerRotation < 180) {
             armorStandLocation.setYaw(180);
-        else if (playerRotation >= -26 && playerRotation <= 24 && playerRotation != 0)
+        } else if (playerRotation < 25 && playerRotation > -25) {
             armorStandLocation.setYaw(0);
-        else if (playerRotation <= -25 && playerRotation >= -64 && playerRotation != -45)
+        } else if (playerRotation < -25 && playerRotation > -65) {
             armorStandLocation.setYaw(-45);
-        else if (playerRotation <= -65 && playerRotation >= -119 && playerRotation != -90)
+        } else if (playerRotation < -65 && playerRotation > -120) {
             armorStandLocation.setYaw(-90);
-        else if (playerRotation <= -120 && playerRotation >= -150 && playerRotation != -135)
+        } else if (playerRotation < -120 && playerRotation > -150) {
             armorStandLocation.setYaw(-135);
-        else if (playerRotation <= -151 && playerRotation >= -179)
+        } else if (playerRotation < -150 && playerRotation > -180) {
             armorStandLocation.setYaw(-180);
+        }
         armorStand.teleport(armorStandLocation);
     }
 
@@ -48,24 +47,25 @@ public class EntityUtils {
      * @param player player used for rotate item frame item
      */
     public void rotateItemFrameByPlayer(@Nonnull ItemFrame itemFrame, @Nonnull Player player){
-        playerRotation = player.getLocation().getYaw();
-        if (playerRotation >= 25 && playerRotation <= 64 && playerRotation != 45)
+        float playerRotation = player.getLocation().getYaw();
+        if (playerRotation > 25 && playerRotation < 65) {
             itemFrame.setRotation(Rotation.CLOCKWISE_45);
-        else if (playerRotation >= 65 && playerRotation <= 119 && playerRotation != 90)
+        } else if (playerRotation > 65 && playerRotation < 120) {
             itemFrame.setRotation(Rotation.CLOCKWISE);
-        else if (playerRotation >= 120 && playerRotation <= 139 && playerRotation != 135)
+        } else if (playerRotation > 120 && playerRotation < 140) {
             itemFrame.setRotation(Rotation.CLOCKWISE_135);
-        else if (playerRotation >= 140 && playerRotation <= 180 && playerRotation != 180)
+        } else if (playerRotation > 140 && playerRotation < 180) {
             itemFrame.setRotation(Rotation.FLIPPED);
-        else if (playerRotation >= -26 && playerRotation <= 24 && playerRotation != 0)
+        } else if (playerRotation < 25 && playerRotation > -25) {
             itemFrame.setRotation(Rotation.NONE);
-        else if (playerRotation <= -25 && playerRotation >= -64 && playerRotation != -45)
+        } else if (playerRotation < -25 && playerRotation > -65) {
             itemFrame.setRotation(Rotation.COUNTER_CLOCKWISE_45);
-        else if (playerRotation <= -65 && playerRotation >= -119 && playerRotation != -90)
+        } else if (playerRotation < -65 && playerRotation > -120) {
             itemFrame.setRotation(Rotation.COUNTER_CLOCKWISE);
-        else if (playerRotation <= -120 && playerRotation >= -150 && playerRotation != -135)
+        } else if (playerRotation < -120 && playerRotation > -150) {
             itemFrame.setRotation(Rotation.FLIPPED_45);
-        else if (playerRotation <= -151 && playerRotation >= -179)
+        } else if (playerRotation < -150 && playerRotation > -180) {
             itemFrame.setRotation(Rotation.FLIPPED);
+        }
     }
 }
