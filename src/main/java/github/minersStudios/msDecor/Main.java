@@ -2,6 +2,7 @@ package github.minersStudios.msDecor;
 
 import github.minersStudios.msDecor.crafts.RegCrafts;
 import github.minersStudios.msDecor.listeners.RegEvents;
+import github.minersStudios.msDecor.mechanics.RegMechanicEvents;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import org.bukkit.plugin.Plugin;
@@ -28,6 +29,7 @@ public final class Main extends JavaPlugin {
         coreProtectAPI = getCoreProtect();
         if (coreProtectAPI != null) coreProtectAPI.testAPI();
         new RegEvents();
+        new RegMechanicEvents();
         new RegCrafts();
     }
 }
