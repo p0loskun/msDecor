@@ -1,6 +1,5 @@
 package github.minersStudios.msDecor.listeners;
 
-import github.minersStudios.msDecor.listeners.block.*;
 import github.minersStudios.msDecor.listeners.player.*;
 import org.bukkit.plugin.PluginManager;
 
@@ -12,8 +11,7 @@ public class RegEvents {
      */
     public RegEvents(){
         PluginManager pluginManager = plugin.getServer().getPluginManager();
-
-        pluginManager.registerEvents(new ExplosionListener(), plugin);
+        
         pluginManager.registerEvents(new BreakCustomDecorListener(), plugin);
         pluginManager.registerEvents(new BreakBlockListener(), plugin);
         pluginManager.registerEvents(new PlaceCustomDecorListener(), plugin);

@@ -4,6 +4,7 @@ import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorFacing;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.enums.HitBox;
+import github.minersStudios.msDecor.utils.BlockUtils;
 import github.minersStudios.msDecor.utils.EntityUtils;
 import github.minersStudios.msDecor.utils.PlaySwingAnimation;
 import org.bukkit.GameMode;
@@ -74,7 +75,6 @@ public class CustomDecor {
      * Breaks custom block vanillish
      */
     public void breakCustomDecor() {
-        if(this.player == null) return;
         Location blockLocation = this.block.getLocation();
         World world = this.block.getWorld();
         for (Entity nearbyEntity : this.block.getWorld().getNearbyEntities(blockLocation.clone().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
@@ -84,10 +84,10 @@ public class CustomDecor {
                 if (this.customDecorMaterial.getBreakSound() != null) {
                     world.playSound(blockLocation, customDecorMaterial.getBreakSound(), 1.0f, customDecorMaterial.getPitch());
                 }
-                this.block.setType(Material.AIR);
+                if(BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(this.block.getType()) || this.block.getType() == Material.LIGHT) this.block.setType(Material.AIR);
                 nearbyEntity.remove();
-                coreProtectAPI.logRemoval(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
-                if (this.player.getGameMode() == GameMode.SURVIVAL) {
+                coreProtectAPI.logRemoval(this.player != null ? this.player.getName() : null, this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+                if (this.player != null && this.player.getGameMode() == GameMode.SURVIVAL) {
                     ItemStack itemStack = ((ItemFrame) nearbyEntity).getItem();
                     ItemMeta itemMeta = itemStack.getItemMeta();
                     itemMeta.setDisplayName(nearbyEntity.getName());
@@ -105,10 +105,10 @@ public class CustomDecor {
                 if (this.customDecorMaterial.getBreakSound() != null) {
                     world.playSound(blockLocation, this.customDecorMaterial.getBreakSound(), 1.0f, this.customDecorMaterial.getPitch());
                 }
-                this.block.setType(Material.AIR);
+                if(BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(this.block.getType()) || this.block.getType() == Material.LIGHT) this.block.setType(Material.AIR);
                 nearbyEntity.remove();
-                coreProtectAPI.logRemoval(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
-                if (this.player.getGameMode() == GameMode.SURVIVAL) {
+                coreProtectAPI.logRemoval(this.player != null ? this.player.getName() : null, this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+                if (this.player == null || this.player.getGameMode() == GameMode.SURVIVAL) {
                     ItemStack itemStack = ((ArmorStand) nearbyEntity).getEquipment().getHelmet();
                     ItemMeta itemMeta = itemStack.getItemMeta();
                     assert itemMeta != null;

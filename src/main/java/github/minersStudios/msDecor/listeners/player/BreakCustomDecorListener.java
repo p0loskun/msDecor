@@ -34,8 +34,16 @@ public class BreakCustomDecorListener implements Listener {
     public void onPlayerDamageEntity(@Nonnull EntityDamageByEntityEvent event) {
         Entity damaged = event.getEntity();
         Entity damager = event.getDamager();
-        if(!(damaged instanceof ArmorStand) || CustomDecorMaterial.getCustomDecorMaterialByEntity(damaged, true) == null || damager instanceof Player && ((Player) damager).getGameMode() == GameMode.ADVENTURE) return;
-        CustomDecor customDecor = new CustomDecor(damaged.getLocation().getBlock(), damager instanceof Player ? ((Player) damager) : null);
-        customDecor.breakCustomDecor();
+
+        if(!(damaged instanceof ArmorStand) || CustomDecorMaterial.getCustomDecorMaterialByEntity(damaged, true) == null) return;
+        CustomDecor customDecor = null;
+        if(damager instanceof Player){
+            if((((Player) damager).isSneaking() && ((Player) damager).getGameMode() == GameMode.SURVIVAL) || ((Player) damager).getGameMode() == GameMode.CREATIVE){
+                customDecor = new CustomDecor(damaged.getLocation().getBlock(), (Player) damager);
+            }
+        } else {
+            customDecor = new CustomDecor(damaged.getLocation().getBlock(), null);
+        }
+        if(customDecor != null) customDecor.breakCustomDecor();
     }
 }

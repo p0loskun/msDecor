@@ -217,6 +217,8 @@ public enum CustomDecorMaterial {
     DEER_HEAD("Голова оленя", 1161, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
     HOGLIN_HEAD("Голова борова", 1162, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
     ZOGLIN_HEAD("Голова зомбу борова", 1163, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
+
+    RACOON_PLUSH("Плюшевый Енот", 1164, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
     ;
 
     @Nullable private final String itemName;
