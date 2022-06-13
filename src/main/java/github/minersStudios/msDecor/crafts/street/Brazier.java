@@ -7,20 +7,20 @@ import org.bukkit.inventory.ShapedRecipe;
 
 import static github.minersStudios.msDecor.Main.plugin;
 
-public class FireHydrant {
+public class Brazier {
 
-    public FireHydrant(){
-        craftFireHydrant();
+    public Brazier(){
+        craftBrazier();
     }
 
-    private static void craftFireHydrant(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("fire_hydrant"), CustomDecorMaterial.FIRE_HYDRANT.getItemStack());
+    private static void craftBrazier(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("brazier"), CustomDecorMaterial.BRAZIER.getItemStack());
         shapedRecipe.shape(
-                " B ",
-                " B ",
-                "III"
+                "B B",
+                "BBB",
+                " I "
         );
-        shapedRecipe.setIngredient('B', Material.IRON_BLOCK);
+        shapedRecipe.setIngredient('B', Material.IRON_BARS);
         shapedRecipe.setIngredient('I', Material.IRON_INGOT);
         plugin.getServer().addRecipe(shapedRecipe);
     }

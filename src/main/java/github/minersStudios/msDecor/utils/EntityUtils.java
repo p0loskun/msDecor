@@ -15,7 +15,7 @@ public class EntityUtils {
      * @param armorStand armor stand entity used for rotate
      * @param player player used for rotate armor stand
      */
-    public void rotateArmorStandByPlayer(@Nonnull ArmorStand armorStand, @Nonnull Player player){
+    public static void rotateArmorStandByPlayer(@Nonnull ArmorStand armorStand, @Nonnull Player player){
         Location armorStandLocation = armorStand.getLocation();
         float playerRotation = player.getLocation().getYaw();
         if (playerRotation > 25 && playerRotation < 65) {
@@ -46,7 +46,7 @@ public class EntityUtils {
      * @param itemFrame item frame entity used for rotate item
      * @param player player used for rotate item frame item
      */
-    public void rotateItemFrameByPlayer(@Nonnull ItemFrame itemFrame, @Nonnull Player player){
+    public static void rotateItemFrameByPlayer(@Nonnull ItemFrame itemFrame, @Nonnull Player player){
         float playerRotation = player.getLocation().getYaw();
         if (playerRotation > 25 && playerRotation < 65) {
             itemFrame.setRotation(Rotation.CLOCKWISE_45);

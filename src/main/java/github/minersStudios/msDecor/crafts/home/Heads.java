@@ -15,7 +15,7 @@ public class Heads {
         craftZoglinHead();
     }
 
-    private void craftDeerHead(){
+    private static void craftDeerHead(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("deer_head"), CustomDecorMaterial.DEER_HEAD.getItemStack());
         shapedRecipe.shape(
                 "BBS",
@@ -28,7 +28,7 @@ public class Heads {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftHoglinHead(){
+    private static void craftHoglinHead(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("hoglin_head"), CustomDecorMaterial.HOGLIN_HEAD.getItemStack());
         shapedRecipe.shape(
                 " PS",
@@ -41,7 +41,7 @@ public class Heads {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftZoglinHead(){
+    private static void craftZoglinHead(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("zoglin_head"), CustomDecorMaterial.ZOGLIN_HEAD.getItemStack());
         shapedRecipe.shape(
                 " FS",

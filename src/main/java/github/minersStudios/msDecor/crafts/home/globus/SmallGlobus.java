@@ -13,7 +13,7 @@ public class SmallGlobus {
         craftSmallGlobus();
     }
 
-    private void craftSmallGlobus(){
+    private static void craftSmallGlobus(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_globus"), CustomDecorMaterial.SMALL_GLOBUS.getItemStack());
         shapedRecipe.shape(
                 "   ",

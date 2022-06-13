@@ -13,7 +13,7 @@ public class CoolArmchair {
         craftCoolArmchair();
     }
 
-    private void craftCoolArmchair(){
+    private static void craftCoolArmchair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cool_armchair"), CustomDecorMaterial.COOL_ARMCHAIR.getItemStack());
         shapedRecipe.shape(
                 "L  ",

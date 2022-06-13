@@ -1,6 +1,7 @@
 package github.minersStudios.msDecor.enums;
 
-import github.minersStudios.msDecor.utils.BlockUtils;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -204,8 +205,8 @@ public enum CustomDecorMaterial {
     BANKOMAT("Банкомат", 1152, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 0.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
 
     BMO_PLUSH("Плюшевый Бимо", 1153, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
-
     BROWN_BEAR_PLUSH("Плюшевый мишка", 1154, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+    RACOON_PLUSH("Плюшевый Енот", 1143, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
 
     PIGGYBANK("Копилка", 1155, Sound.BLOCK_GLASS_PLACE, Sound.BLOCK_GLASS_BREAK, 1.5f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
     PIGGYBANK_DIAMOND("Алмазная копилка", 1156, Sound.BLOCK_STONE_PLACE, Sound.BLOCK_STONE_BREAK, 1.5f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
@@ -218,8 +219,61 @@ public enum CustomDecorMaterial {
     HOGLIN_HEAD("Голова борова", 1162, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
     ZOGLIN_HEAD("Голова зомбу борова", 1163, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, null),
 
-    RACOON_PLUSH("Плюшевый Енот", 1164, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT("Кастрюля", 1164, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_HONEY("Кастрюля", 1165, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_HONEY_1("Кастрюля", 1166, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_HONEY_2("Кастрюля", 1167, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_PORTAL("Кастрюля", 1168, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_LAVA("Кастрюля", 1169, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_SNOW("Кастрюля", 1170, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_WATER("Кастрюля", 1171, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_WATER1("Кастрюля", 1172, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    COOKING_POT_WATER2("Кастрюля", 1173, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.5f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+
+    CELL("Клетка", 1174, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+    CELL_BEE("Клетка", 1175, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+    CELL_CHICKEN("Клетка", 1176, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+    CELL_PARROT_BLUE("Клетка", 1177, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+    CELL_PARROT_GREEN("Клетка", 1178, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+    CELL_PARROT_GRAY("Клетка", 1179, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+    CELL_PARROT_RED_BLUE("Клетка", 1180, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+    CELL_PARROT_YELLOW_BLUE("Клетка", 1181, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+    CELL_SLIME("Клетка", 1182, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, null, null),
+
+    BRAZIER("Мангал", 1183, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+    BRAZIER_FIRE("Мангал", 1184, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SMALL_ARMOR_STAND, CustomDecorFacing.FLOOR, null),
+
+    BALL("Новогодняя игрушка", 1185, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
+    BALL_CEILING("Новогодняя игрушка", 1185, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.CEILING, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
+    SANTA_SOCKS("Носок санты", 1186, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.WALL, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
+    SNOWMAN("Снеговик", 1187, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    BROKEN_SNOWMAN("Сломаный снеговик", 1188, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+
+    SKELETON_HAND("Мангал", 1189, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    SKELETON_HAND_DIRT(null, 1190, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    SKELETON_HAND_GRAVEL(null, 1191, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
+    SKELETON_HAND_STONE(null, 1192, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, CustomDecorFacing.FLOOR, null),
     ;
+
+    public static final ImmutableSet<Material> CUSTOM_BLOCK_MATERIALS = Sets.immutableEnumSet(
+            Material.BARRIER,
+            Material.STRUCTURE_VOID
+    );
+
+    public static final ImmutableSet<Material> REPLACE = Sets.immutableEnumSet(
+            Material.AIR,
+            Material.WATER,
+            Material.LAVA,
+            Material.GRASS,
+            Material.FERN,
+            Material.SEAGRASS,
+            Material.TALL_GRASS,
+            Material.LARGE_FERN,
+            Material.TALL_SEAGRASS,
+            Material.VINE,
+            Material.SNOW,
+            Material.FIRE
+    );
 
     @Nullable private final String itemName;
 
@@ -300,7 +354,7 @@ public enum CustomDecorMaterial {
     public static CustomDecorMaterial getCustomDecorMaterialByItem(@Nonnull ItemMeta itemMeta, boolean searchOriginal){
         for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values()) {
             if(customDecorMaterial.itemCustomModelData == itemMeta.getCustomModelData()) {
-                return searchOriginal ? BlockUtils.getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name()) : customDecorMaterial;
+                return searchOriginal ? getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name()) : customDecorMaterial;
             }
         }
         return null;
@@ -311,19 +365,41 @@ public enum CustomDecorMaterial {
      */
     @Nullable
     public static CustomDecorMaterial getCustomDecorMaterialByEntity(@Nonnull Entity entity, boolean searchOriginal){
+        boolean customDecorMaterialWasFound = false;
         for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values()) {
-            if(entity instanceof ArmorStand && ((ArmorStand) entity).getEquipment() != null){
-                ItemStack helmetItem = ((ArmorStand) entity).getEquipment().getHelmet();
-                if(helmetItem != null && helmetItem.getItemMeta() != null && customDecorMaterial.getItemCustomModelData() == helmetItem.getItemMeta().getCustomModelData()){
-                    if(searchOriginal && customDecorMaterial.name().contains("_LEFT") || customDecorMaterial.name().contains("_RIGHT") || customDecorMaterial.name().contains("_MIDDLE")) return BlockUtils.getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name());
-                    return customDecorMaterial;
-                }
-            } else if (entity instanceof ItemFrame && ((ItemFrame) entity).getItem().getType() != Material.AIR){
-                ItemStack item = ((ItemFrame) entity).getItem();
-                if(item.getItemMeta() != null && customDecorMaterial.getItemCustomModelData() == item.getItemMeta().getCustomModelData()){
-                    if(searchOriginal && customDecorMaterial.name().contains("_LEFT") || customDecorMaterial.name().contains("_RIGHT") || customDecorMaterial.name().contains("_MIDDLE")) return BlockUtils.getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name());
-                    return customDecorMaterial;
-                }
+            if(entity instanceof ArmorStand armorStand && armorStand.getEquipment() != null){
+                ItemStack helmetItem = armorStand.getEquipment().getHelmet();
+                customDecorMaterialWasFound = helmetItem != null && helmetItem.getItemMeta() != null && customDecorMaterial.getItemCustomModelData() == helmetItem.getItemMeta().getCustomModelData();
+            } else if (entity instanceof ItemFrame itemFrame && itemFrame.getItem().getType() != Material.AIR){
+                ItemStack item = itemFrame.getItem();
+                customDecorMaterialWasFound = item.getItemMeta() != null && customDecorMaterial.getItemCustomModelData() == item.getItemMeta().getCustomModelData();
+            }
+            if(customDecorMaterialWasFound) {
+                return searchOriginal
+                        && customDecorMaterial.name().contains("_LEFT")
+                        || customDecorMaterial.name().contains("_RIGHT")
+                        || customDecorMaterial.name().contains("_MIDDLE")
+                        || customDecorMaterial.name().contains("_DIRT")
+                        || customDecorMaterial.name().contains("_GRAVEL")
+                        || customDecorMaterial.name().contains("_STONE") ? getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name())
+                        : customDecorMaterial;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param name name of CustomDecorMaterial enum
+     *
+     * @return Original CustomDecorMaterial
+     */
+    @Nullable
+    public static CustomDecorMaterial getCustomDecorMaterialWithoutSuffix(@Nonnull String name){
+        for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values()){
+            if(customDecorMaterial.name().equals(name.replaceAll("_[2-3]_MIDDLE|_[2-3]_RIGHT|_[2-3]_LEFT|_MIDDLE|_RIGHT|_LEFT", ""))){
+                return customDecorMaterial;
+            } else if(customDecorMaterial.name().equals(name)){
+                return customDecorMaterial;
             }
         }
         return null;

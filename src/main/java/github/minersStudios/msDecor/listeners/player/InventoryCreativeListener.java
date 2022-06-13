@@ -16,15 +16,20 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
 
-public class CreativeCopyBlockListener implements Listener {
+public class InventoryCreativeListener implements Listener {
 
     @EventHandler
-    public void onCopyBlock(@Nonnull InventoryCreativeEvent event){
+    public void onInventoryCreative(@Nonnull InventoryCreativeEvent event){
         if(event.getClick() != ClickType.CREATIVE) return;
         Player player = (Player) event.getWhoClicked();
         Block clickedBlock = player.getTargetBlockExact(5);
-        if(clickedBlock == null) return;
-        if(event.getCursor().getType() == Material.BARRIER || event.getCursor().getType() == Material.STRUCTURE_VOID) {
+        if(
+                clickedBlock != null
+                && (
+                        event.getCursor().getType() == Material.BARRIER
+                        || event.getCursor().getType() == Material.STRUCTURE_VOID
+                )
+        ) {
             CustomDecorMaterial customDecorMaterial = null;
             ItemStack itemStack = null;
             ItemMeta itemMeta = null;
@@ -36,10 +41,12 @@ public class CreativeCopyBlockListener implements Listener {
                     itemMeta.setDisplayName(nearbyEntity.getName());
                 }
             }
-            for (Entity nearbyEntity : clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
-                if (nearbyEntity instanceof ArmorStand && ((ArmorStand) nearbyEntity).getEquipment() != null && ((ArmorStand) nearbyEntity).getEquipment().getHelmet() != null) {
-                    customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, true);
-                    itemStack = ((ArmorStand) nearbyEntity).getEquipment().getHelmet();
+            if(customDecorMaterial == null){
+                for (Entity nearbyEntity : clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
+                    if (nearbyEntity instanceof ArmorStand && ((ArmorStand) nearbyEntity).getEquipment() != null && ((ArmorStand) nearbyEntity).getEquipment().getHelmet() != null) {
+                        customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, true);
+                        itemStack = ((ArmorStand) nearbyEntity).getEquipment().getHelmet();
+                    }
                 }
             }
             if(itemStack != null && customDecorMaterial != null){

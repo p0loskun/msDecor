@@ -13,7 +13,7 @@ public class SmallClock {
         craftSmallClock();
     }
 
-    private void craftSmallClock(){
+    private static void craftSmallClock(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_clock"), CustomDecorMaterial.SMALL_CLOCK.getItemStack());
         shapedRecipe.shape(
                 "LLL",

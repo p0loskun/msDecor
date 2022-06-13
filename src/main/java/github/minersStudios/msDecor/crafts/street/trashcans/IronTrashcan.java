@@ -13,7 +13,7 @@ public class IronTrashcan {
         craftIronTrashcan();
     }
 
-    private void craftIronTrashcan(){
+    private static void craftIronTrashcan(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("iron_trashcan"), CustomDecorMaterial.IRON_TRASHCAN.getItemStack());
         shapedRecipe.shape(
                 "III",

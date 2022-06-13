@@ -13,7 +13,7 @@ public class SmallLamp {
         craftSmallLamp();
     }
 
-    private void craftSmallLamp(){
+    private static void craftSmallLamp(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_lamp"), CustomDecorMaterial.SMALL_LAMP.getItemStack());
         shapedRecipe.shape(
                 "   ",

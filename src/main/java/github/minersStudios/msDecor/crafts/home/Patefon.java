@@ -13,7 +13,7 @@ public class Patefon {
         craftPatefon();
     }
 
-    private void craftPatefon(){
+    private static void craftPatefon(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("patefon"), CustomDecorMaterial.PATEFON.getItemStack());
         shapedRecipe.shape(
                 "   ",

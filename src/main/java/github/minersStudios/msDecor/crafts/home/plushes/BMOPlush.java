@@ -13,7 +13,7 @@ public class BMOPlush {
         craftBMOPlush();
     }
 
-    private void craftBMOPlush(){
+    private static void craftBMOPlush(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("bmo_plush"), CustomDecorMaterial.BMO_PLUSH.getItemStack());
         shapedRecipe.shape(
                 "   ",

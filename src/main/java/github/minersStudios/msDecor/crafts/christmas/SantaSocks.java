@@ -1,4 +1,4 @@
-package github.minersStudios.msDecor.crafts.home.lamps;
+package github.minersStudios.msDecor.crafts.christmas;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Material;
@@ -7,20 +7,19 @@ import org.bukkit.inventory.ShapedRecipe;
 
 import static github.minersStudios.msDecor.Main.plugin;
 
-public class BigLamp {
+public class SantaSocks {
 
-    public BigLamp(){
-        craftBigLamp();
+    public SantaSocks(){
+        craftSantaSocks();
     }
 
-    private static void craftBigLamp(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("big_lamp"), CustomDecorMaterial.BIG_LAMP.getItemStack());
+    private static void craftSantaSocks(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("santa_socks"), CustomDecorMaterial.SANTA_SOCKS.getItemStack());
         shapedRecipe.shape(
                 " L ",
-                " S ",
-                " S "
+                " L",
+                " LL"
         );
-        shapedRecipe.setIngredient('S', Material.STICK);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         plugin.getServer().addRecipe(shapedRecipe);
     }

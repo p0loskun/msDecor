@@ -13,7 +13,7 @@ public class Wheelbarrow {
         craftWheelbarrow();
     }
 
-    private void craftWheelbarrow(){
+    private static void craftWheelbarrow(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("wheelbarrow"), CustomDecorMaterial.WHEELBARROW.getItemStack());
         shapedRecipe.shape(
                 "S S",

@@ -7,20 +7,20 @@ import org.bukkit.inventory.ShapedRecipe;
 
 import static github.minersStudios.msDecor.Main.plugin;
 
-public class BrownBearPlush {
+public class RacoonPlush {
 
-    public BrownBearPlush(){
-        craftBrownBearPlush();
+    public RacoonPlush(){
+        craftRacoonPlush();
     }
 
-    private static void craftBrownBearPlush(){
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("brown_bear_plush"), CustomDecorMaterial.BROWN_BEAR_PLUSH.getItemStack());
+    private static void craftRacoonPlush(){
+        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("racoon_plush"), CustomDecorMaterial.RACOON_PLUSH.getItemStack());
         shapedRecipe.shape(
                 "   ",
-                " W ",
-                "W W"
+                "WWW",
+                "WWW"
         );
-        shapedRecipe.setIngredient('W', Material.BROWN_WOOL);
+        shapedRecipe.setIngredient('W', Material.GRAY_WOOL);
         plugin.getServer().addRecipe(shapedRecipe);
     }
 }

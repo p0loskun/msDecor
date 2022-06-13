@@ -20,7 +20,7 @@ public class Chair {
         craftCrimsonChair();
     }
 
-    private void craftOakChair(){
+    private static void craftOakChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_chair"), CustomDecorMaterial.OAK_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -32,7 +32,7 @@ public class Chair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftSpruceChair(){
+    private static void craftSpruceChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_chair"), CustomDecorMaterial.SPRUCE_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -44,7 +44,7 @@ public class Chair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftDarkOakChair(){
+    private static void craftDarkOakChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_chair"), CustomDecorMaterial.DARK_OAK_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -56,7 +56,7 @@ public class Chair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftBirchChair(){
+    private static void craftBirchChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_chair"), CustomDecorMaterial.BIRCH_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -68,7 +68,7 @@ public class Chair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftJungleChair(){
+    private static void craftJungleChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_chair"), CustomDecorMaterial.JUNGLE_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -80,7 +80,7 @@ public class Chair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftAcaciaChair(){
+    private static void craftAcaciaChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_chair"), CustomDecorMaterial.ACACIA_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -92,7 +92,7 @@ public class Chair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftWarpedChair(){
+    private static void craftWarpedChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_chair"), CustomDecorMaterial.WARPED_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -104,7 +104,7 @@ public class Chair {
         plugin.getServer().addRecipe(shapedRecipe);
     }
 
-    private void craftCrimsonChair(){
+    private static void craftCrimsonChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_chair"), CustomDecorMaterial.CRIMSON_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",

@@ -13,7 +13,7 @@ public class OldCamera {
         craftOldCamera();
     }
 
-    private void craftOldCamera(){
+    private static void craftOldCamera(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("old_camera"), CustomDecorMaterial.CAMERA.getItemStack());
         shapedRecipe.shape(
                 " I ",

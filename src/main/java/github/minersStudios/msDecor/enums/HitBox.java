@@ -18,44 +18,29 @@ public enum HitBox {
      * @return True if hitbox of custom decor is barrier
      */
     public boolean isSolidHitBox() {
-        switch (this) {
-            case SOLID_FRAME:
-            case SOLID_SMALL_ARMOR_STAND:
-            case SOLID_NORMAL_ARMOR_STAND:
-                return true;
-            default:
-                return false;
-        }
+        return switch (this) {
+            case SOLID_FRAME, SOLID_SMALL_ARMOR_STAND, SOLID_NORMAL_ARMOR_STAND -> true;
+            default -> false;
+        };
     }
 
     /**
      * @return True if hitbox of custom decor is structure void
      */
     public boolean isStructureHitBox() {
-        switch (this) {
-            case STRUCTURE_FRAME:
-            case STRUCTURE_SMALL_ARMOR_STAND:
-            case STRUCTURE_NORMAL_ARMOR_STAND:
-                return true;
-            default:
-                return false;
-        }
+        return switch (this) {
+            case STRUCTURE_FRAME, STRUCTURE_SMALL_ARMOR_STAND, STRUCTURE_NORMAL_ARMOR_STAND -> true;
+            default -> false;
+        };
     }
 
     /**
      * @return True if hitbox of custom decor is armor stand
      */
     public boolean isArmorStand() {
-        switch (this) {
-            case SOLID_SMALL_ARMOR_STAND:
-            case SOLID_NORMAL_ARMOR_STAND:
-            case NORMAL_ARMOR_STAND:
-            case SMALL_ARMOR_STAND:
-            case STRUCTURE_NORMAL_ARMOR_STAND:
-            case STRUCTURE_SMALL_ARMOR_STAND:
-                return true;
-            default:
-                return false;
-        }
+        return switch (this) {
+            case SOLID_SMALL_ARMOR_STAND, SOLID_NORMAL_ARMOR_STAND, NORMAL_ARMOR_STAND, SMALL_ARMOR_STAND, STRUCTURE_NORMAL_ARMOR_STAND, STRUCTURE_SMALL_ARMOR_STAND -> true;
+            default -> false;
+        };
     }
 }
