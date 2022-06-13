@@ -36,18 +36,19 @@ public class Brazier implements Listener {
         Damageable itemMeta = (Damageable) itemInMainHand.getItemMeta();
         assert itemMeta != null;
         itemMeta.setDamage(itemMeta.getDamage() + 1);
-        itemInMainHand.setItemMeta(itemMeta);
         if(customDecorMaterial == CustomDecorMaterial.BRAZIER && itemInMainHand.getType() == Material.FLINT_AND_STEEL) {
             armorStand.getEquipment().setHelmet(CustomDecorMaterial.BRAZIER_FIRE.getItemStack());
             block.setType(Material.LIGHT);
             new PlaySwingAnimation(player, EquipmentSlot.HAND);
             block.setBlockData(level15, true);
+            itemInMainHand.setItemMeta(itemMeta);
             player.getWorld().playSound(armorStand.getLocation(), Sound.ITEM_FLINTANDSTEEL_USE, 1.0f, 1.0f);
         } else if(customDecorMaterial == CustomDecorMaterial.BRAZIER_FIRE && itemInMainHand.getType().toString().matches(".*_SHOVEL")){
             armorStand.getEquipment().setHelmet(CustomDecorMaterial.BRAZIER.getItemStack());
             block.setType(Material.LIGHT);
             new PlaySwingAnimation(player, EquipmentSlot.HAND);
             block.setBlockData(level0, true);
+            itemInMainHand.setItemMeta(itemMeta);
             player.getWorld().playSound(armorStand.getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f);
         }
     }
