@@ -39,5 +39,14 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.30" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.coreprotect:coreprotect:21.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.24" level="project" />
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="Maven: github.minersStudios:msUtils:0.0.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../msUtils/out/artifacts/msUtils_jar/msUtils.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -3,6 +3,8 @@ package github.minersStudios.msDecor.listeners.player;
 import github.minersStudios.msDecor.enums.CustomDecorFacing;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.objects.CustomDecor;
+import github.minersStudios.msDecor.utils.PlaySwingAnimation;
+import github.minersStudios.msUtils.classes.SitPlayer;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -31,6 +33,7 @@ public class PlayerInteractListener implements Listener {
                 && event.getHand() == EquipmentSlot.HAND
                 && event.getPlayer().getGameMode() != GameMode.ADVENTURE
                 && event.getPlayer().getGameMode() != GameMode.SPECTATOR
+                && (clickedBlock.getType() != Material.BARRIER || clickedBlock.getType() == Material.BARRIER && player.isSneaking())
                 && (!clickedBlock.getType().isInteractable() || (player.isSneaking() && clickedBlock.getType().isInteractable()) || clickedBlock.getType() == Material.NOTE_BLOCK)
                 && CustomDecorMaterial.REPLACE.contains(clickedBlock.getRelative(event.getBlockFace()).getType())
         ) {
@@ -79,6 +82,23 @@ public class PlayerInteractListener implements Listener {
         ) {
             CustomDecor customDecor = new CustomDecor(clickedBlock, player);
             customDecor.breakCustomDecor();
+        } else if (
+                event.getAction() == Action.RIGHT_CLICK_BLOCK
+                && (!itemInMainHand.getType().isBlock() || itemInMainHand.getType() == Material.AIR)
+                && event.getHand() == EquipmentSlot.HAND
+                && event.getPlayer().getGameMode() != GameMode.SPECTATOR
+                && clickedBlock.getType() == Material.BARRIER
+        ) {
+            CustomDecorMaterial customDecorMaterial = null;
+            for (Entity nearbyEntity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)){
+                if(nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame) {
+                    customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, false);
+                    if (customDecorMaterial == null || customDecorMaterial.getHeight() == null) return;
+                }
+            }
+            if(customDecorMaterial == null) return;
+            new SitPlayer(player).setSitting(clickedBlock.getLocation().clone().add(0.5d, customDecorMaterial.getHeight(), 0.5d));
+            new PlaySwingAnimation(player, EquipmentSlot.HAND);
         }
     }
 }

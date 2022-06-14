@@ -4,12 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>msDecor</groupId>
+    <groupId>github.minersStudios</groupId>
     <artifactId>msDecor</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>msDecor</name>
+    <organization>
+        <name>The game development team creates quality content. Currently, creating plugins for WhoMine</name>
+        <url>https://github.com/MinersStudios</url>
+    </organization>
 
     <description>A Minecraft plugin with Decorations for WhoMine</description>
     <properties>
@@ -86,6 +90,13 @@
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>github.minersStudios</groupId>
+            <artifactId>msUtils</artifactId>
+            <scope>system</scope>
+            <systemPath>C:/Users/Богдан/Documents/Miners Studios/WhoMine/msUtils/out/artifacts/msUtils_jar/msUtils.jar</systemPath>
+            <version>0.0.1</version>
         </dependency>
     </dependencies>
 </project>
