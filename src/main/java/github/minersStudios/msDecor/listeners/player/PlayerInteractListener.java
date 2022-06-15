@@ -33,7 +33,6 @@ public class PlayerInteractListener implements Listener {
                 && event.getHand() == EquipmentSlot.HAND
                 && event.getPlayer().getGameMode() != GameMode.ADVENTURE
                 && event.getPlayer().getGameMode() != GameMode.SPECTATOR
-                && (clickedBlock.getType() != Material.BARRIER || clickedBlock.getType() == Material.BARRIER && player.isSneaking())
                 && (!clickedBlock.getType().isInteractable() || (player.isSneaking() && clickedBlock.getType().isInteractable()) || clickedBlock.getType() == Material.NOTE_BLOCK)
                 && CustomDecorMaterial.REPLACE.contains(clickedBlock.getRelative(event.getBlockFace()).getType())
         ) {
@@ -49,7 +48,7 @@ public class PlayerInteractListener implements Listener {
 
             if (itemInMainHand.getItemMeta() == null || !itemInMainHand.getItemMeta().hasCustomModelData()) return;
             CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByItem(itemInMainHand.getItemMeta(), false);
-            if(customDecorMaterial == null) return;
+            if(customDecorMaterial == null || (clickedBlock.getType() == Material.BARRIER && !player.isSneaking() && customDecorMaterial.getHeight() != null)) return;
             for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d))
                 if (!(nearbyEntity instanceof Item) && (customDecorMaterial.getHitBox().isSolidHitBox() || nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame)) return;
             CustomDecor customDecor = new CustomDecor(replaceableBlock, player);
