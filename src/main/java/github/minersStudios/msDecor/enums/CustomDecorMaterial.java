@@ -397,12 +397,14 @@ public enum CustomDecorMaterial {
         for(CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values()) {
             if(entity instanceof ArmorStand armorStand && armorStand.getEquipment() != null){
                 ItemStack helmetItem = armorStand.getEquipment().getHelmet();
-                if(helmetItem == null || helmetItem.getItemMeta() == null || !helmetItem.getItemMeta().hasCustomModelData()) return null;
-                customDecorMaterialWasFound = customDecorMaterial.getItemCustomModelData() == helmetItem.getItemMeta().getCustomModelData();
+                if(helmetItem != null && helmetItem.getItemMeta() != null && helmetItem.getItemMeta().hasCustomModelData()) {
+                    customDecorMaterialWasFound = customDecorMaterial.getItemCustomModelData() == helmetItem.getItemMeta().getCustomModelData();
+                }
             } else if (entity instanceof ItemFrame itemFrame && itemFrame.getItem().getType() != Material.AIR){
                 ItemStack item = itemFrame.getItem();
-                if(item.getItemMeta() == null || !item.getItemMeta().hasCustomModelData()) return null;
-                customDecorMaterialWasFound = customDecorMaterial.getItemCustomModelData() == item.getItemMeta().getCustomModelData();
+                if(item.getItemMeta() != null && item.getItemMeta().hasCustomModelData()) {
+                    customDecorMaterialWasFound = customDecorMaterial.getItemCustomModelData() == item.getItemMeta().getCustomModelData();
+                }
             }
             if(customDecorMaterialWasFound) {
                 return searchOriginal
