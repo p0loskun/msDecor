@@ -1,19 +1,21 @@
 package github.minersStudios.msDecor.crafts.christmas;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class BrokenSnowman {
 
-    public BrokenSnowman(){
-        craftBrokenSnowman();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftBrokenSnowman());
     }
 
-    private static void craftBrokenSnowman(){
+    @Nonnull
+    public static ShapedRecipe craftBrokenSnowman(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("broken_snowman"), CustomDecorMaterial.BROKEN_SNOWMAN.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -22,6 +24,6 @@ public class BrokenSnowman {
         );
         shapedRecipe.setIngredient('S', Material.SNOW_BLOCK);
         shapedRecipe.setIngredient('W', Material.PURPLE_WOOL);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

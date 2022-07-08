@@ -95,8 +95,8 @@
             <groupId>github.minersStudios</groupId>
             <artifactId>msUtils</artifactId>
             <scope>system</scope>
-            <systemPath>C:/Users/Богдан/Documents/Miners Studios/WhoMine/msUtils/out/artifacts/msUtils_jar/msUtils.jar</systemPath>
-            <version>0.0.1</version>
+            <systemPath>C:/Users/Богдан/Documents/Miners Studios/WhoMine/msUtils/target/msUtils-0.0.5.jar</systemPath>
+            <version>0.0.4</version>
         </dependency>
     </dependencies>
 </project>

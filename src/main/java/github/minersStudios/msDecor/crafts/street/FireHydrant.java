@@ -1,19 +1,21 @@
 package github.minersStudios.msDecor.crafts.street;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class FireHydrant {
 
-    public FireHydrant(){
-        craftFireHydrant();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftFireHydrant());
     }
 
-    private static void craftFireHydrant(){
+    @Nonnull
+    public static ShapedRecipe craftFireHydrant(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("fire_hydrant"), CustomDecorMaterial.FIRE_HYDRANT.getItemStack());
         shapedRecipe.shape(
                 " B ",
@@ -22,6 +24,6 @@ public class FireHydrant {
         );
         shapedRecipe.setIngredient('B', Material.IRON_BLOCK);
         shapedRecipe.setIngredient('I', Material.IRON_INGOT);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

@@ -1,34 +1,36 @@
 package github.minersStudios.msDecor.crafts.home.chairs;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class RockingChair {
 
-    public RockingChair(){
-        craftOakRockingChair();
-        craftSpruceRockingChair();
-        craftBirchRockingChair();
-        craftDarkOakRockingChair();
-        craftJungleRockingChair();
-        craftAcaciaRockingChair();
-        craftWarpedRockingChair();
-        craftCrimsonRockingChair();
-        craftOakPaintableRockingChair();
-        craftSprucePaintableRockingChair();
-        craftBirchPaintableRockingChair();
-        craftDarkOakPaintableRockingChair();
-        craftJunglePaintableRockingChair();
-        craftAcaciaPaintableRockingChair();
-        craftWarpedPaintableRockingChair();
-        craftCrimsonPaintableRockingChair();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftOakRockingChair());
+        Bukkit.addRecipe(craftSpruceRockingChair());
+        Bukkit.addRecipe(craftBirchRockingChair());
+        Bukkit.addRecipe(craftDarkOakRockingChair());
+        Bukkit.addRecipe(craftJungleRockingChair());
+        Bukkit.addRecipe(craftAcaciaRockingChair());
+        Bukkit.addRecipe(craftWarpedRockingChair());
+        Bukkit.addRecipe(craftCrimsonRockingChair());
+        Bukkit.addRecipe(craftOakPaintableRockingChair());
+        Bukkit.addRecipe(craftSprucePaintableRockingChair());
+        Bukkit.addRecipe(craftBirchPaintableRockingChair());
+        Bukkit.addRecipe(craftDarkOakPaintableRockingChair());
+        Bukkit.addRecipe(craftJunglePaintableRockingChair());
+        Bukkit.addRecipe(craftAcaciaPaintableRockingChair());
+        Bukkit.addRecipe(craftWarpedPaintableRockingChair());
+        Bukkit.addRecipe(craftCrimsonPaintableRockingChair());
     }
 
-    private static void craftOakRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftOakRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_rocking_chair"), CustomDecorMaterial.OAK_ROCKING_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -36,10 +38,11 @@ public class RockingChair {
                 "PPP"
         );
         shapedRecipe.setIngredient('P', Material.OAK_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftSpruceRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftSpruceRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_rocking_chair"), CustomDecorMaterial.SPRUCE_ROCKING_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -47,10 +50,11 @@ public class RockingChair {
                 "PPP"
         );
         shapedRecipe.setIngredient('P',Material.SPRUCE_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftDarkOakRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftDarkOakRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_rocking_chair"), CustomDecorMaterial.DARK_OAK_ROCKING_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -58,10 +62,11 @@ public class RockingChair {
                 "PPP"
         );
         shapedRecipe.setIngredient('P',Material.DARK_OAK_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftBirchRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftBirchRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_rocking_chair"), CustomDecorMaterial.BIRCH_ROCKING_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -69,10 +74,11 @@ public class RockingChair {
                 "PPP"
         );
         shapedRecipe.setIngredient('P',Material.BIRCH_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftJungleRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftJungleRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_rocking_chair"), CustomDecorMaterial.JUNGLE_ROCKING_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -80,10 +86,11 @@ public class RockingChair {
                 "PPP"
         );
         shapedRecipe.setIngredient('P',Material.JUNGLE_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftAcaciaRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftAcaciaRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_rocking_chair"), CustomDecorMaterial.ACACIA_ROCKING_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -91,10 +98,11 @@ public class RockingChair {
                 "PPP"
         );
         shapedRecipe.setIngredient('P',Material.ACACIA_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftWarpedRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftWarpedRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_rocking_chair"), CustomDecorMaterial.WARPED_ROCKING_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -102,10 +110,11 @@ public class RockingChair {
                 "PPP"
         );
         shapedRecipe.setIngredient('P',Material.WARPED_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftCrimsonRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftCrimsonRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_rocking_chair"), CustomDecorMaterial.CRIMSON_ROCKING_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -113,10 +122,11 @@ public class RockingChair {
                 "PPP"
         );
         shapedRecipe.setIngredient('P',Material.CRIMSON_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftOakPaintableRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftOakPaintableRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_paintable_rocking_chair"), CustomDecorMaterial.OAK_ROCKING_CHAIR_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -125,10 +135,11 @@ public class RockingChair {
         );
         shapedRecipe.setIngredient('P', Material.OAK_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftSprucePaintableRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftSprucePaintableRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_paintable_rocking_chair"), CustomDecorMaterial.SPRUCE_ROCKING_CHAIR_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -137,10 +148,11 @@ public class RockingChair {
         );
         shapedRecipe.setIngredient('P',Material.SPRUCE_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftDarkOakPaintableRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftDarkOakPaintableRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_paintable_rocking_chair"), CustomDecorMaterial.DARK_OAK_ROCKING_CHAIR_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -149,10 +161,11 @@ public class RockingChair {
         );
         shapedRecipe.setIngredient('P',Material.DARK_OAK_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftBirchPaintableRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftBirchPaintableRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_paintable_rocking_chair"), CustomDecorMaterial.BIRCH_ROCKING_CHAIR_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -161,10 +174,11 @@ public class RockingChair {
         );
         shapedRecipe.setIngredient('P',Material.BIRCH_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftJunglePaintableRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftJunglePaintableRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_paintable_rocking_chair"), CustomDecorMaterial.JUNGLE_ROCKING_CHAIR_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -173,10 +187,11 @@ public class RockingChair {
         );
         shapedRecipe.setIngredient('P',Material.JUNGLE_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftAcaciaPaintableRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftAcaciaPaintableRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_paintable_rocking_chair"), CustomDecorMaterial.ACACIA_ROCKING_CHAIR_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -185,10 +200,11 @@ public class RockingChair {
         );
         shapedRecipe.setIngredient('P',Material.ACACIA_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftWarpedPaintableRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftWarpedPaintableRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_paintable_rocking_chair"), CustomDecorMaterial.WARPED_ROCKING_CHAIR_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -197,10 +213,11 @@ public class RockingChair {
         );
         shapedRecipe.setIngredient('P',Material.WARPED_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftCrimsonPaintableRockingChair(){
+    @Nonnull
+    public static ShapedRecipe craftCrimsonPaintableRockingChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_paintable_rocking_chair"), CustomDecorMaterial.CRIMSON_ROCKING_CHAIR_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -209,6 +226,6 @@ public class RockingChair {
         );
         shapedRecipe.setIngredient('P',Material.CRIMSON_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

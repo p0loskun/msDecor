@@ -1,26 +1,28 @@
 package github.minersStudios.msDecor.crafts.home;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class Nightstand {
 
-    public Nightstand(){
-        craftAcaciaNightstand();
-        craftBirchNightstand();
-        craftCrimsonNightstand();
-        craftDarkOakNightstand();
-        craftJungleNightstand();
-        craftOakNightstand();
-        craftSpruceNightstand();
-        craftWarpedNightstand();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftAcaciaNightstand());
+        Bukkit.addRecipe(craftBirchNightstand());
+        Bukkit.addRecipe(craftCrimsonNightstand());
+        Bukkit.addRecipe(craftDarkOakNightstand());
+        Bukkit.addRecipe(craftJungleNightstand());
+        Bukkit.addRecipe(craftOakNightstand());
+        Bukkit.addRecipe(craftSpruceNightstand());
+        Bukkit.addRecipe(craftWarpedNightstand());
     }
 
-    private static void craftAcaciaNightstand(){
+    @Nonnull
+    public static ShapedRecipe craftAcaciaNightstand(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_nightstand"), CustomDecorMaterial.ACACIA_NIGHTSTAND.getItemStack());
         shapedRecipe.shape(
                 "PPP",
@@ -28,10 +30,11 @@ public class Nightstand {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.ACACIA_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftBirchNightstand(){
+    @Nonnull
+    public static ShapedRecipe craftBirchNightstand(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_nightstand"), CustomDecorMaterial.BIRCH_NIGHTSTAND.getItemStack());
         shapedRecipe.shape(
                 "PPP",
@@ -39,10 +42,11 @@ public class Nightstand {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.BIRCH_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftCrimsonNightstand(){
+    @Nonnull
+    public static ShapedRecipe craftCrimsonNightstand(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_nightstand"), CustomDecorMaterial.CRIMSON_NIGHTSTAND.getItemStack());
         shapedRecipe.shape(
                 "PPP",
@@ -50,10 +54,11 @@ public class Nightstand {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.CRIMSON_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftDarkOakNightstand(){
+    @Nonnull
+    public static ShapedRecipe craftDarkOakNightstand(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_nightstand"), CustomDecorMaterial.DARK_OAK_NIGHTSTAND.getItemStack());
         shapedRecipe.shape(
                 "PPP",
@@ -61,10 +66,11 @@ public class Nightstand {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.DARK_OAK_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftJungleNightstand(){
+    @Nonnull
+    public static ShapedRecipe craftJungleNightstand(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_nightstand"), CustomDecorMaterial.JUNGLE_NIGHTSTAND.getItemStack());
         shapedRecipe.shape(
                 "PPP",
@@ -72,10 +78,11 @@ public class Nightstand {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.JUNGLE_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftOakNightstand(){
+    @Nonnull
+    public static ShapedRecipe craftOakNightstand(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_nightstand"), CustomDecorMaterial.OAK_NIGHTSTAND.getItemStack());
         shapedRecipe.shape(
                 "PPP",
@@ -83,10 +90,11 @@ public class Nightstand {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.OAK_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftSpruceNightstand(){
+    @Nonnull
+    public static ShapedRecipe craftSpruceNightstand(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_nightstand"), CustomDecorMaterial.SPRUCE_NIGHTSTAND.getItemStack());
         shapedRecipe.shape(
                 "PPP",
@@ -94,10 +102,11 @@ public class Nightstand {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.SPRUCE_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftWarpedNightstand(){
+    @Nonnull
+    public static ShapedRecipe craftWarpedNightstand(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_nightstand"), CustomDecorMaterial.WARPED_NIGHTSTAND.getItemStack());
         shapedRecipe.shape(
                 "PPP",
@@ -105,6 +114,6 @@ public class Nightstand {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.WARPED_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

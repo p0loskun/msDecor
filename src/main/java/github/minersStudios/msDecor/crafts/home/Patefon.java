@@ -1,19 +1,21 @@
 package github.minersStudios.msDecor.crafts.home;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class Patefon {
 
-    public Patefon(){
-        craftPatefon();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftPatefon());
     }
 
-    private static void craftPatefon(){
+    @Nonnull
+    public static ShapedRecipe craftPatefon(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("patefon"), CustomDecorMaterial.PATEFON.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -22,6 +24,6 @@ public class Patefon {
         );
         shapedRecipe.setIngredient('J', Material.JUKEBOX);
         shapedRecipe.setIngredient('S', Material.SPRUCE_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

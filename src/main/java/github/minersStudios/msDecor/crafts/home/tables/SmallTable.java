@@ -1,34 +1,36 @@
 package github.minersStudios.msDecor.crafts.home.tables;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class SmallTable {
 
-    public SmallTable(){
-        craftOakSmallTable();
-        craftSpruceSmallTable();
-        craftBirchSmallTable();
-        craftDarkOakSmallTable();
-        craftJungleSmallTable();
-        craftAcaciaSmallTable();
-        craftWarpedSmallTable();
-        craftCrimsonSmallTable();
-        craftOakPaintableSmallTable();
-        craftSprucePaintableSmallTable();
-        craftBirchPaintableSmallTable();
-        craftDarkOakPaintableSmallTable();
-        craftJunglePaintableSmallTable();
-        craftAcaciaPaintableSmallTable();
-        craftWarpedPaintableSmallTable();
-        craftCrimsonPaintableSmallTable();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftOakSmallTable());
+        Bukkit.addRecipe(craftSpruceSmallTable());
+        Bukkit.addRecipe(craftBirchSmallTable());
+        Bukkit.addRecipe(craftDarkOakSmallTable());
+        Bukkit.addRecipe(craftJungleSmallTable());
+        Bukkit.addRecipe(craftAcaciaSmallTable());
+        Bukkit.addRecipe(craftWarpedSmallTable());
+        Bukkit.addRecipe(craftCrimsonSmallTable());
+        Bukkit.addRecipe(craftOakPaintableSmallTable());
+        Bukkit.addRecipe(craftSprucePaintableSmallTable());
+        Bukkit.addRecipe(craftBirchPaintableSmallTable());
+        Bukkit.addRecipe(craftDarkOakPaintableSmallTable());
+        Bukkit.addRecipe(craftJunglePaintableSmallTable());
+        Bukkit.addRecipe(craftAcaciaPaintableSmallTable());
+        Bukkit.addRecipe(craftWarpedPaintableSmallTable());
+        Bukkit.addRecipe(craftCrimsonPaintableSmallTable());
     }
 
-    private static void craftOakSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftOakSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_small_table"), CustomDecorMaterial.OAK_SMALL_TABLE.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -36,10 +38,11 @@ public class SmallTable {
                 "P P"
         );
         shapedRecipe.setIngredient('P', Material.OAK_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftSpruceSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftSpruceSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_small_table"), CustomDecorMaterial.SPRUCE_SMALL_TABLE.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -47,10 +50,11 @@ public class SmallTable {
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.SPRUCE_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftDarkOakSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftDarkOakSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_small_table"), CustomDecorMaterial.DARK_OAK_SMALL_TABLE.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -58,10 +62,11 @@ public class SmallTable {
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.DARK_OAK_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftBirchSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftBirchSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_small_table"), CustomDecorMaterial.BIRCH_SMALL_TABLE.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -69,10 +74,11 @@ public class SmallTable {
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.BIRCH_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftJungleSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftJungleSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_small_table"), CustomDecorMaterial.JUNGLE_SMALL_TABLE.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -80,10 +86,11 @@ public class SmallTable {
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.JUNGLE_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftAcaciaSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftAcaciaSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_small_table"), CustomDecorMaterial.ACACIA_SMALL_TABLE.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -91,10 +98,11 @@ public class SmallTable {
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.ACACIA_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftWarpedSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftWarpedSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_small_table"), CustomDecorMaterial.WARPED_SMALL_TABLE.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -102,10 +110,11 @@ public class SmallTable {
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.WARPED_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftCrimsonSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftCrimsonSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_small_table"), CustomDecorMaterial.CRIMSON_SMALL_TABLE.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -113,10 +122,11 @@ public class SmallTable {
                 "P P"
         );
         shapedRecipe.setIngredient('P',Material.CRIMSON_PLANKS);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftOakPaintableSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftOakPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_paintable_small_table"), CustomDecorMaterial.OAK_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -125,10 +135,11 @@ public class SmallTable {
         );
         shapedRecipe.setIngredient('P', Material.OAK_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftSprucePaintableSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftSprucePaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_paintable_small_table"), CustomDecorMaterial.SPRUCE_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -137,10 +148,11 @@ public class SmallTable {
         );
         shapedRecipe.setIngredient('P',Material.SPRUCE_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftDarkOakPaintableSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftDarkOakPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_paintable_small_table"), CustomDecorMaterial.DARK_OAK_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -149,10 +161,11 @@ public class SmallTable {
         );
         shapedRecipe.setIngredient('P',Material.DARK_OAK_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftBirchPaintableSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftBirchPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_paintable_small_table"), CustomDecorMaterial.BIRCH_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -161,10 +174,11 @@ public class SmallTable {
         );
         shapedRecipe.setIngredient('P',Material.BIRCH_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftJunglePaintableSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftJunglePaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_paintable_small_table"), CustomDecorMaterial.JUNGLE_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -173,10 +187,11 @@ public class SmallTable {
         );
         shapedRecipe.setIngredient('P',Material.JUNGLE_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftAcaciaPaintableSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftAcaciaPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_paintable_small_table"), CustomDecorMaterial.ACACIA_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -185,10 +200,11 @@ public class SmallTable {
         );
         shapedRecipe.setIngredient('P',Material.ACACIA_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftWarpedPaintableSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftWarpedPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_paintable_small_table"), CustomDecorMaterial.WARPED_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -197,10 +213,11 @@ public class SmallTable {
         );
         shapedRecipe.setIngredient('P',Material.WARPED_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 
-    private static void craftCrimsonPaintableSmallTable(){
+    @Nonnull
+    public static ShapedRecipe craftCrimsonPaintableSmallTable(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_paintable_small_table"), CustomDecorMaterial.CRIMSON_SMALL_TABLE_PAINTABLE.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -209,6 +226,6 @@ public class SmallTable {
         );
         shapedRecipe.setIngredient('P',Material.CRIMSON_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

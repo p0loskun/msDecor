@@ -1,66 +1,57 @@
 package github.minersStudios.msDecor.crafts;
 
 import github.minersStudios.msDecor.Main;
-import github.minersStudios.msDecor.crafts.christmas.Ball;
-import github.minersStudios.msDecor.crafts.christmas.BrokenSnowman;
-import github.minersStudios.msDecor.crafts.christmas.SantaSocks;
-import github.minersStudios.msDecor.crafts.christmas.Snowman;
-import github.minersStudios.msDecor.crafts.halloween.SkeletonHand;
+import github.minersStudios.msDecor.crafts.christmas.*;
+import github.minersStudios.msDecor.crafts.halloween.*;
 import github.minersStudios.msDecor.crafts.home.*;
-import github.minersStudios.msDecor.crafts.home.cameras.OldCamera;
+import github.minersStudios.msDecor.crafts.home.cameras.*;
 import github.minersStudios.msDecor.crafts.home.chairs.*;
-import github.minersStudios.msDecor.crafts.home.clocks.SmallClock;
-import github.minersStudios.msDecor.crafts.home.globus.SmallGlobus;
-import github.minersStudios.msDecor.crafts.home.lamps.BigLamp;
-import github.minersStudios.msDecor.crafts.home.lamps.SmallLamp;
-import github.minersStudios.msDecor.crafts.home.plushes.BMOPlush;
-import github.minersStudios.msDecor.crafts.home.plushes.BrownBearPlush;
-import github.minersStudios.msDecor.crafts.home.plushes.RacoonPlush;
-import github.minersStudios.msDecor.crafts.home.tables.BigTable;
-import github.minersStudios.msDecor.crafts.home.tables.SmallTable;
-import github.minersStudios.msDecor.crafts.street.Brazier;
-import github.minersStudios.msDecor.crafts.street.FireHydrant;
-import github.minersStudios.msDecor.crafts.street.trashcans.IronTrashcan;
-import github.minersStudios.msDecor.crafts.street.Wheelbarrow;
+import github.minersStudios.msDecor.crafts.home.clocks.*;
+import github.minersStudios.msDecor.crafts.home.globus.*;
+import github.minersStudios.msDecor.crafts.home.lamps.*;
+import github.minersStudios.msDecor.crafts.home.plushes.*;
+import github.minersStudios.msDecor.crafts.home.tables.*;
+import github.minersStudios.msDecor.crafts.street.*;
+import github.minersStudios.msDecor.crafts.street.trashcans.*;
 
 public class RegCrafts {
     public RegCrafts(){
-        new SmallChair();
-        new Chair();
-        new SmallArmchair();
-        new Armchair();
-        new BarStool();
-        new CoolChair();
-        new CoolArmchair();
-        new RockingChair();
-        new Nightstand();
-        new BigTable();
-        new SmallTable();
-        new Wheelbarrow();
-        new SmallLamp();
-        new BigLamp();
-        new SmallGlobus();
-        new SmallClock();
-        new Patefon();
-        new IronTrashcan();
-        new FireHydrant();
-        new OldCamera();
-        new BMOPlush();
-        new BrownBearPlush();
-        new Piggybank();
-        new Heads();
-        new RacoonPlush();
-        new CookingPot();
-        new Cell();
-        new Brazier();
+        Chair.addRecipes();
+        SmallArmchair.addRecipes();
+        Armchair.addRecipes();
+        BarStool.addRecipes();
+        CoolChair.addRecipes();
+        CoolArmchair.addRecipes();
+        RockingChair.addRecipes();
+        Nightstand.addRecipes();
+        BigTable.addRecipes();
+        SmallTable.addRecipes();
+        Wheelbarrow.addRecipes();
+        SmallLamp.addRecipes();
+        BigLamp.addRecipes();
+        SmallGlobus.addRecipes();
+        SmallClock.addRecipes();
+        Patefon.addRecipes();
+        IronTrashcan.addRecipes();
+        FireHydrant.addRecipes();
+        OldCamera.addRecipes();
+        BMOPlush.addRecipes();
+        BrownBearPlush.addRecipes();
+        Piggybank.addRecipes();
+        Heads.addRecipes();
+        RacoonPlush.addRecipes();
+        CookingPot.addRecipes();
+        Cell.addRecipes();
+        Brazier.addRecipes();
+        SmallChair.addRecipes();
         if(Main.isChristmas){
-            new Ball();
-            new BrokenSnowman();
-            new SantaSocks();
-            new Snowman();
+            Ball.addRecipes();
+            BrokenSnowman.addRecipes();
+            SantaSocks.addRecipes();
+            Snowman.addRecipes();
         }
         if(Main.isHalloween){
-            new SkeletonHand();
+            SkeletonHand.addRecipes();
         }
     }
 }

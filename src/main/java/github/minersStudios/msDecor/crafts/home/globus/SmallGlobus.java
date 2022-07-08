@@ -1,19 +1,21 @@
 package github.minersStudios.msDecor.crafts.home.globus;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class SmallGlobus {
 
-    public SmallGlobus(){
-        craftSmallGlobus();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftSmallGlobus());
     }
 
-    private static void craftSmallGlobus(){
+    @Nonnull
+    public static ShapedRecipe craftSmallGlobus(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_globus"), CustomDecorMaterial.SMALL_GLOBUS.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -22,6 +24,6 @@ public class SmallGlobus {
         );
         shapedRecipe.setIngredient('S', Material.STICK);
         shapedRecipe.setIngredient('M', Material.MAP);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

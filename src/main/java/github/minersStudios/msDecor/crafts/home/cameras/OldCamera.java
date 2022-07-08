@@ -1,19 +1,21 @@
 package github.minersStudios.msDecor.crafts.home.cameras;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class OldCamera {
 
-    public OldCamera(){
-        craftOldCamera();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftOldCamera());
     }
 
-    private static void craftOldCamera(){
+    @Nonnull
+    public static ShapedRecipe craftOldCamera(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("old_camera"), CustomDecorMaterial.CAMERA.getItemStack());
         shapedRecipe.shape(
                 " I ",
@@ -22,6 +24,6 @@ public class OldCamera {
         );
         shapedRecipe.setIngredient('S', Material.STICK);
         shapedRecipe.setIngredient('I', Material.IRON_INGOT);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

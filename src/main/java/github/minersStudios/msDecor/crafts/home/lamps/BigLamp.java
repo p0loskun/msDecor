@@ -1,19 +1,21 @@
 package github.minersStudios.msDecor.crafts.home.lamps;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class BigLamp {
 
-    public BigLamp(){
-        craftBigLamp();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftBigLamp());
     }
 
-    private static void craftBigLamp(){
+    @Nonnull
+    public static ShapedRecipe craftBigLamp(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("big_lamp"), CustomDecorMaterial.BIG_LAMP.getItemStack());
         shapedRecipe.shape(
                 " L ",
@@ -22,6 +24,6 @@ public class BigLamp {
         );
         shapedRecipe.setIngredient('S', Material.STICK);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

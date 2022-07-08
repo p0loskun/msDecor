@@ -1,19 +1,21 @@
 package github.minersStudios.msDecor.crafts.home.chairs;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class CoolChair {
 
-    public CoolChair(){
-        craftCoolChair();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftCoolChair());
     }
 
-    private static void craftCoolChair(){
+    @Nonnull
+    public static ShapedRecipe craftCoolChair(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cool_chair"), CustomDecorMaterial.COOL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -22,6 +24,6 @@ public class CoolChair {
         );
         shapedRecipe.setIngredient('I', Material.IRON_NUGGET);
         shapedRecipe.setIngredient('L', Material.LEATHER);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }

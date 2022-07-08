@@ -1,19 +1,21 @@
 package github.minersStudios.msDecor.crafts.home.plushes;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
-import static github.minersStudios.msDecor.Main.plugin;
+import javax.annotation.Nonnull;
 
 public class RacoonPlush {
 
-    public RacoonPlush(){
-        craftRacoonPlush();
+    public static void addRecipes(){
+        Bukkit.addRecipe(craftRacoonPlush());
     }
 
-    private static void craftRacoonPlush(){
+    @Nonnull
+    public static ShapedRecipe craftRacoonPlush(){
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("racoon_plush"), CustomDecorMaterial.RACOON_PLUSH.getItemStack());
         shapedRecipe.shape(
                 "   ",
@@ -21,6 +23,6 @@ public class RacoonPlush {
                 "WWW"
         );
         shapedRecipe.setIngredient('W', Material.GRAY_WOOL);
-        plugin.getServer().addRecipe(shapedRecipe);
+        return shapedRecipe;
     }
 }
