@@ -14,5 +14,6 @@ public class RegMechanicEvents {
 
         pluginManager.registerEvents(new Lamps(), plugin);
         pluginManager.registerEvents(new Brazier(), plugin);
+        pluginManager.registerEvents(new TrashCan(), plugin);
     }
 }

@@ -22,7 +22,7 @@ public class EntityDamageByEntityListener implements Listener {
                 !(event.getDamager() instanceof Player player)
                 || player.getGameMode() == GameMode.ADVENTURE
                 || CustomDecorMaterial.getCustomDecorMaterialByEntity(event.getEntity(), true) == null
-                || entity.getScoreboardTags().contains("customDecor")
+                || !entity.getScoreboardTags().contains("customDecor")
         ) return;
         if(player.isSneaking() && player.getGameMode() == GameMode.SURVIVAL || player.getGameMode() == GameMode.CREATIVE){
             CustomDecor customDecor = new CustomDecor(event.getEntity().getLocation().getBlock(), player);
