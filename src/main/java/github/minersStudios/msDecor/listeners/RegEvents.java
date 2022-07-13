@@ -20,7 +20,6 @@ public class RegEvents {
         pluginManager.registerEvents(new InventoryCreativeListener(), plugin);
         pluginManager.registerEvents(new InventoryDragListener(), plugin);
         pluginManager.registerEvents(new PlayerInteractAtEntityListener(), plugin);
-        pluginManager.registerEvents(new PlayerInteractEntityListener(), plugin);
         pluginManager.registerEvents(new PlayerInteractListener(), plugin);
     }
 }
