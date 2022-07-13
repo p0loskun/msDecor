@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class SmallGlobus {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftSmallGlobus());
     }
 
     @Nonnull
-    public static ShapedRecipe craftSmallGlobus(){
+    public static ShapedRecipe craftSmallGlobus() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_globus"), CustomDecorMaterial.SMALL_GLOBUS.getItemStack());
         shapedRecipe.shape(
                 "   ",

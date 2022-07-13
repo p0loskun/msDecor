@@ -1,13 +1,9 @@
 package github.minersStudios.msDecor.mechanics;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
-import github.minersStudios.msDecor.utils.PlaySwingAnimation;
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.ItemFrame;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -23,7 +19,7 @@ public class TrashCan implements Listener {
 
     @EventHandler
     public void onPlayerInteract(@Nonnull PlayerInteractEvent event) {
-        if(event.getClickedBlock() == null) return;
+        if (event.getClickedBlock() == null) return;
         Player player = event.getPlayer();
         ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
         Block clickedBlock = event.getClickedBlock();
@@ -34,20 +30,22 @@ public class TrashCan implements Listener {
                 && event.getPlayer().getGameMode() != GameMode.SPECTATOR
                 && clickedBlock.getType() == Material.BARRIER
         ) {
-            CustomDecorMaterial customDecorMaterial = null;
-            for (Entity nearbyEntity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d))
-                if(nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame)
-                    customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, false);
-            if(customDecorMaterial != CustomDecorMaterial.IRON_TRASHCAN) return;
-            player.openInventory(Bukkit.createInventory(null, 4 * 9, INV_NAME));
-            player.getWorld().playSound(clickedBlock.getLocation(), Sound.BLOCK_BARREL_OPEN, 1.0f, 1.0f);
-            new PlaySwingAnimation(player, EquipmentSlot.HAND);
+            for (Entity nearbyEntity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
+                if (nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame) {
+                    CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, false);
+                    if (customDecorMaterial == CustomDecorMaterial.IRON_TRASHCAN) {
+                        player.openInventory(Bukkit.createInventory(null, 4 * 9, INV_NAME));
+                        player.getWorld().playSound(clickedBlock.getLocation(), Sound.BLOCK_BARREL_OPEN, 1.0f, 1.0f);
+                        player.swingMainHand();
+                    }
+                }
+            }
         }
     }
 
     @EventHandler
     public void onInventoryClose(@Nonnull InventoryCloseEvent event) {
-        Player player = (Player) event.getPlayer();
+        HumanEntity player = event.getPlayer();
         if (event.getView().getTitle().equalsIgnoreCase(INV_NAME))
             player.getWorld().playSound(player.getLocation(), Sound.BLOCK_BARREL_CLOSE, 1.0f, 1.0f);
     }

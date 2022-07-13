@@ -19,16 +19,13 @@ import javax.annotation.Nonnull;
 public class InventoryCreativeListener implements Listener {
 
     @EventHandler
-    public void onInventoryCreative(@Nonnull InventoryCreativeEvent event){
-        if(event.getClick() != ClickType.CREATIVE) return;
+    public void onInventoryCreative(@Nonnull InventoryCreativeEvent event) {
+        if (event.getClick() != ClickType.CREATIVE) return;
         Player player = (Player) event.getWhoClicked();
         Block clickedBlock = player.getTargetBlockExact(5);
-        if(
+        if (
                 clickedBlock != null
-                && (
-                        event.getCursor().getType() == Material.BARRIER
-                        || event.getCursor().getType() == Material.STRUCTURE_VOID
-                )
+                && (event.getCursor().getType() == Material.BARRIER || event.getCursor().getType() == Material.STRUCTURE_VOID)
         ) {
             CustomDecorMaterial customDecorMaterial = null;
             ItemStack itemStack = null;
@@ -41,7 +38,7 @@ public class InventoryCreativeListener implements Listener {
                     itemMeta.setDisplayName(nearbyEntity.getName());
                 }
             }
-            if(customDecorMaterial == null){
+            if (customDecorMaterial == null) {
                 for (Entity nearbyEntity : clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
                     if (nearbyEntity instanceof ArmorStand && ((ArmorStand) nearbyEntity).getEquipment() != null && ((ArmorStand) nearbyEntity).getEquipment().getHelmet() != null) {
                         customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, true);
@@ -49,9 +46,10 @@ public class InventoryCreativeListener implements Listener {
                     }
                 }
             }
-            if(itemStack != null && customDecorMaterial != null){
+            if (itemStack != null && customDecorMaterial != null) {
                 event.setCancelled(true);
-                if(itemMeta == null) itemMeta = itemStack.getItemMeta();
+                if (itemMeta == null)
+                    itemMeta = itemStack.getItemMeta();
                 assert itemMeta != null;
                 itemMeta.setCustomModelData(customDecorMaterial.getItemCustomModelData());
                 itemStack.setItemMeta(itemMeta);

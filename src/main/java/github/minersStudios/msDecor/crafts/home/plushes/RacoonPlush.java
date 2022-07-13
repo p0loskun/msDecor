@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class RacoonPlush {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftRacoonPlush());
     }
 
     @Nonnull
-    public static ShapedRecipe craftRacoonPlush(){
+    public static ShapedRecipe craftRacoonPlush() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("racoon_plush"), CustomDecorMaterial.RACOON_PLUSH.getItemStack());
         shapedRecipe.shape(
                 "   ",

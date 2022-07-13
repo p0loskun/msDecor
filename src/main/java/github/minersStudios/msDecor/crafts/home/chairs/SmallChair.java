@@ -29,7 +29,7 @@ public class SmallChair {
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P',Material.OAK_PLANKS);
+        shapedRecipe.setIngredient('P', Material.OAK_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         return shapedRecipe;
     }
@@ -42,7 +42,7 @@ public class SmallChair {
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P',Material.SPRUCE_PLANKS);
+        shapedRecipe.setIngredient('P', Material.SPRUCE_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         return shapedRecipe;
     }
@@ -55,7 +55,7 @@ public class SmallChair {
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P',Material.DARK_OAK_PLANKS);
+        shapedRecipe.setIngredient('P', Material.DARK_OAK_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         return shapedRecipe;
     }
@@ -68,7 +68,7 @@ public class SmallChair {
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P',Material.BIRCH_PLANKS);
+        shapedRecipe.setIngredient('P', Material.BIRCH_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         return shapedRecipe;
     }
@@ -81,7 +81,7 @@ public class SmallChair {
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P',Material.JUNGLE_PLANKS);
+        shapedRecipe.setIngredient('P', Material.JUNGLE_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         return shapedRecipe;
     }
@@ -94,7 +94,7 @@ public class SmallChair {
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P',Material.ACACIA_PLANKS);
+        shapedRecipe.setIngredient('P', Material.ACACIA_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         return shapedRecipe;
     }
@@ -107,7 +107,7 @@ public class SmallChair {
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P',Material.WARPED_PLANKS);
+        shapedRecipe.setIngredient('P', Material.WARPED_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         return shapedRecipe;
     }
@@ -120,7 +120,7 @@ public class SmallChair {
                 "PLP",
                 "P P"
         );
-        shapedRecipe.setIngredient('P',Material.CRIMSON_PLANKS);
+        shapedRecipe.setIngredient('P', Material.CRIMSON_PLANKS);
         shapedRecipe.setIngredient('L', Material.LEATHER);
         return shapedRecipe;
     }

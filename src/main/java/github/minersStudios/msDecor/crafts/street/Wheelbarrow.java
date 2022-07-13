@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class Wheelbarrow {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftWheelbarrow());
     }
 
     @Nonnull
-    public static ShapedRecipe craftWheelbarrow(){
+    public static ShapedRecipe craftWheelbarrow() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("wheelbarrow"), CustomDecorMaterial.WHEELBARROW.getItemStack());
         shapedRecipe.shape(
                 "S S",

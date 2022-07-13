@@ -11,6 +11,9 @@ public class PlayerInteractAtEntityListener implements Listener {
 
     @EventHandler
     public void onPlayerInteractAtEntity(@Nonnull PlayerInteractAtEntityEvent event) {
-        event.setCancelled(event.getRightClicked().getScoreboardTags().contains("customDecor") && CustomDecorMaterial.getCustomDecorMaterialByEntity(event.getRightClicked(), false) != null);
+        event.setCancelled(
+                event.getRightClicked().getScoreboardTags().contains("customDecor")
+                && CustomDecorMaterial.getCustomDecorMaterialByEntity(event.getRightClicked(), false) != null
+        );
     }
 }

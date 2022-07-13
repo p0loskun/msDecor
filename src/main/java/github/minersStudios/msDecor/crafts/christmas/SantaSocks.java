@@ -8,15 +8,14 @@ import org.bukkit.inventory.ShapedRecipe;
 
 import javax.annotation.Nonnull;
 
-
 public class SantaSocks {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftSantaSocks());
     }
 
     @Nonnull
-    public static ShapedRecipe craftSantaSocks(){
+    public static ShapedRecipe craftSantaSocks() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("santa_socks"), CustomDecorMaterial.SANTA_SOCKS.getItemStack());
         shapedRecipe.shape(
                 " L ",

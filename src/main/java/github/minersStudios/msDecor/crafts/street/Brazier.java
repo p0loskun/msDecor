@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class Brazier {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftBrazier());
     }
 
     @Nonnull
-    public static ShapedRecipe craftBrazier(){
+    public static ShapedRecipe craftBrazier() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("brazier"), CustomDecorMaterial.BRAZIER.getItemStack());
         shapedRecipe.shape(
                 "B B",

@@ -14,12 +14,10 @@ import javax.annotation.Nonnull;
 public class BlockBreakListener implements Listener {
 
     @EventHandler
-    public void onBlockBreak(@Nonnull BlockBreakEvent event){
+    public void onBlockBreak(@Nonnull BlockBreakEvent event) {
         Block block = event.getBlock();
-        if(CustomDecorMaterial.CUSTOM_BLOCK_MATERIALS.contains(event.getBlock().getType())) {
-            for (Entity nearbyEntity : block.getWorld().getNearbyEntities(block.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)){
+        if (CustomDecorMaterial.CUSTOM_BLOCK_MATERIALS.contains(event.getBlock().getType()))
+            for (Entity nearbyEntity : block.getWorld().getNearbyEntities(block.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d))
                 event.setCancelled((nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame) && nearbyEntity.getScoreboardTags().contains("customDecor"));
-            }
-        }
     }
 }

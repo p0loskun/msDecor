@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class SmallClock {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftSmallClock());
     }
 
     @Nonnull
-    public static ShapedRecipe craftSmallClock(){
+    public static ShapedRecipe craftSmallClock() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_clock"), CustomDecorMaterial.SMALL_CLOCK.getItemStack());
         shapedRecipe.shape(
                 "LLL",

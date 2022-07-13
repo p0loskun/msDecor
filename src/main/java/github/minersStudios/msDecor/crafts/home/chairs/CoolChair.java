@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class CoolChair {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftCoolChair());
     }
 
     @Nonnull
-    public static ShapedRecipe craftCoolChair(){
+    public static ShapedRecipe craftCoolChair() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cool_chair"), CustomDecorMaterial.COOL_CHAIR.getItemStack());
         shapedRecipe.shape(
                 "   ",

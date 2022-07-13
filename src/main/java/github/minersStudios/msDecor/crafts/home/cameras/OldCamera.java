@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class OldCamera {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftOldCamera());
     }
 
     @Nonnull
-    public static ShapedRecipe craftOldCamera(){
+    public static ShapedRecipe craftOldCamera() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("old_camera"), CustomDecorMaterial.CAMERA.getItemStack());
         shapedRecipe.shape(
                 " I ",

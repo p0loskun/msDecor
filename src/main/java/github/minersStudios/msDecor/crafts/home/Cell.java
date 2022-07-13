@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class Cell {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftCell());
     }
 
     @Nonnull
-    public static ShapedRecipe craftCell(){
+    public static ShapedRecipe craftCell() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cell"), CustomDecorMaterial.CELL.getItemStack());
         shapedRecipe.shape(
                 " C ",

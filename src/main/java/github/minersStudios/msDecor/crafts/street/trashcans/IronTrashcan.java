@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class IronTrashcan {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftIronTrashcan());
     }
 
     @Nonnull
-    public static ShapedRecipe craftIronTrashcan(){
+    public static ShapedRecipe craftIronTrashcan() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("iron_trashcan"), CustomDecorMaterial.IRON_TRASHCAN.getItemStack());
         shapedRecipe.shape(
                 "III",

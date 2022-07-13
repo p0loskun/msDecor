@@ -3,17 +3,15 @@ package github.minersStudios.msDecor.enums;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 
-@SuppressWarnings("unused")
 public enum Symbols {
-    PAINTABLE(ChatColor.WHITE + "\uA022"),
-    ;
+    PAINTABLE(ChatColor.WHITE + "\uA022");
 
     @Getter private final String symbol;
 
     /**
      * @param symbol badge symbol that will be replaced by resource pack
      */
-    Symbols(String symbol){
+    Symbols(String symbol) {
         this.symbol = symbol;
     }
 }

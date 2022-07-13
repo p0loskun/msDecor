@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class BMOPlush {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftBMOPlush());
     }
 
     @Nonnull
-    public static ShapedRecipe craftBMOPlush(){
+    public static ShapedRecipe craftBMOPlush() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("bmo_plush"), CustomDecorMaterial.BMO_PLUSH.getItemStack());
         shapedRecipe.shape(
                 "   ",

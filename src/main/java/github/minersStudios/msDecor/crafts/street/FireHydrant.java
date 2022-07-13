@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class FireHydrant {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftFireHydrant());
     }
 
     @Nonnull
-    public static ShapedRecipe craftFireHydrant(){
+    public static ShapedRecipe craftFireHydrant() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("fire_hydrant"), CustomDecorMaterial.FIRE_HYDRANT.getItemStack());
         shapedRecipe.shape(
                 " B ",

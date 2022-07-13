@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class Snowman {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftSnowman());
     }
 
     @Nonnull
-    public static ShapedRecipe craftSnowman(){
+    public static ShapedRecipe craftSnowman() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("snowman"), CustomDecorMaterial.SNOWMAN.getItemStack());
         shapedRecipe.shape(
                 " W ",

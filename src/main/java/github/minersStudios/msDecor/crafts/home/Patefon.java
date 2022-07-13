@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class Patefon {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftPatefon());
     }
 
     @Nonnull
-    public static ShapedRecipe craftPatefon(){
+    public static ShapedRecipe craftPatefon() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("patefon"), CustomDecorMaterial.PATEFON.getItemStack());
         shapedRecipe.shape(
                 "   ",

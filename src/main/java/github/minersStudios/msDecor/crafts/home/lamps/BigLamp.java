@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class BigLamp {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftBigLamp());
     }
 
     @Nonnull
-    public static ShapedRecipe craftBigLamp(){
+    public static ShapedRecipe craftBigLamp() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("big_lamp"), CustomDecorMaterial.BIG_LAMP.getItemStack());
         shapedRecipe.shape(
                 " L ",

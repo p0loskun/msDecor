@@ -18,15 +18,15 @@ public class EntityDamageByEntityListener implements Listener {
     public void onEntityDamageByEntity(@Nonnull EntityDamageByEntityEvent event) {
         Entity entity = event.getEntity();
         event.setCancelled(entity.getScoreboardTags().contains("customDecor"));
-        if(
+        if (
                 !(event.getDamager() instanceof Player player)
                 || player.getGameMode() == GameMode.ADVENTURE
-                || CustomDecorMaterial.getCustomDecorMaterialByEntity(event.getEntity(), true) == null
+                || CustomDecorMaterial.getCustomDecorMaterialByEntity(entity, true) == null
                 || !entity.getScoreboardTags().contains("customDecor")
         ) return;
-        if(player.isSneaking() && player.getGameMode() == GameMode.SURVIVAL || player.getGameMode() == GameMode.CREATIVE){
-            CustomDecor customDecor = new CustomDecor(event.getEntity().getLocation().getBlock(), player);
-            customDecor.breakCustomDecor();
-        }
+        if (
+                player.isSneaking()
+                && player.getGameMode() == GameMode.SURVIVAL || player.getGameMode() == GameMode.CREATIVE
+        ) new CustomDecor(entity.getLocation().getBlock(), player).breakCustomDecor();
     }
 }

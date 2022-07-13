@@ -15,7 +15,7 @@ import github.minersStudios.msDecor.crafts.street.*;
 import github.minersStudios.msDecor.crafts.street.trashcans.*;
 
 public class RegCrafts {
-    public RegCrafts(){
+    public RegCrafts() {
         Chair.addRecipes();
         SmallArmchair.addRecipes();
         Armchair.addRecipes();
@@ -44,13 +44,13 @@ public class RegCrafts {
         Cell.addRecipes();
         Brazier.addRecipes();
         SmallChair.addRecipes();
-        if(Main.isChristmas){
+        if (Main.isChristmas) {
             Ball.addRecipes();
             BrokenSnowman.addRecipes();
             SantaSocks.addRecipes();
             Snowman.addRecipes();
         }
-        if(Main.isHalloween){
+        if (Main.isHalloween) {
             SkeletonHand.addRecipes();
         }
     }

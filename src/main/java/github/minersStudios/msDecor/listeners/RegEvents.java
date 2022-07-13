@@ -8,17 +8,14 @@ import org.bukkit.plugin.PluginManager;
 import static github.minersStudios.msDecor.Main.plugin;
 
 public class RegEvents {
-    /**
-     * Registers default events
-     */
-    public RegEvents(){
+
+    public RegEvents() {
         PluginManager pluginManager = plugin.getServer().getPluginManager();
 
         pluginManager.registerEvents(new EntityDamageByEntityListener(), plugin);
         pluginManager.registerEvents(new HangingBreakListener(), plugin);
 
         pluginManager.registerEvents(new BlockBreakListener(), plugin);
-        pluginManager.registerEvents(new BlockPlaceListener(), plugin);
         pluginManager.registerEvents(new InventoryClickListener(), plugin);
         pluginManager.registerEvents(new InventoryCreativeListener(), plugin);
         pluginManager.registerEvents(new InventoryDragListener(), plugin);

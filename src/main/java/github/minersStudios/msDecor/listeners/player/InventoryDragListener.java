@@ -12,9 +12,9 @@ import javax.annotation.Nonnull;
 public class InventoryDragListener implements Listener {
 
     @EventHandler
-    public void onInventoryDrag(@Nonnull InventoryDragEvent event){
+    public void onInventoryDrag(@Nonnull InventoryDragEvent event) {
         ItemStack itemStack = event.getNewItems().get(1);
-        if(itemStack == null || itemStack.getType() != Material.LEATHER_HORSE_ARMOR) return;
+        if (itemStack == null || itemStack.getType() != Material.LEATHER_HORSE_ARMOR) return;
         event.setCancelled(
                 itemStack.getItemMeta() != null
                 && itemStack.getItemMeta().hasCustomModelData()

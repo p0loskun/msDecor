@@ -10,12 +10,12 @@ import javax.annotation.Nonnull;
 
 public class BarStool {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftBarStool());
     }
 
     @Nonnull
-    public static ShapedRecipe craftBarStool(){
+    public static ShapedRecipe craftBarStool() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("bar_stool"), CustomDecorMaterial.BAR_STOOL.getItemStack());
         shapedRecipe.shape(
                 "ILI",

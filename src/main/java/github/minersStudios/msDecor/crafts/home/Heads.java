@@ -10,14 +10,14 @@ import javax.annotation.Nonnull;
 
 public class Heads {
 
-    public static void addRecipes(){
+    public static void addRecipes() {
         Bukkit.addRecipe(craftDeerHead());
         Bukkit.addRecipe(craftHoglinHead());
         Bukkit.addRecipe(craftZoglinHead());
     }
 
     @Nonnull
-    public static ShapedRecipe craftDeerHead(){
+    public static ShapedRecipe craftDeerHead() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("deer_head"), CustomDecorMaterial.DEER_HEAD.getItemStack());
         shapedRecipe.shape(
                 "BBS",
@@ -31,7 +31,7 @@ public class Heads {
     }
 
     @Nonnull
-    public static ShapedRecipe craftHoglinHead(){
+    public static ShapedRecipe craftHoglinHead() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("hoglin_head"), CustomDecorMaterial.HOGLIN_HEAD.getItemStack());
         shapedRecipe.shape(
                 " PS",
@@ -45,7 +45,7 @@ public class Heads {
     }
 
     @Nonnull
-    public static ShapedRecipe craftZoglinHead(){
+    public static ShapedRecipe craftZoglinHead() {
         ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("zoglin_head"), CustomDecorMaterial.ZOGLIN_HEAD.getItemStack());
         shapedRecipe.shape(
                 " FS",
