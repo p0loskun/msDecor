@@ -2,7 +2,7 @@ package github.minersStudios.msDecor.listeners.player;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.objects.CustomDecor;
-import github.minersStudios.msUtils.classes.SitPlayer;
+//import github.minersStudios.msUtils.classes.SitPlayer;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -89,7 +89,7 @@ public class PlayerInteractListener implements Listener {
                 if (nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame) {
                     CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, false);
                     if (customDecorMaterial != null && customDecorMaterial.getHeight() != null) {
-                        new SitPlayer(player).setSitting(clickedBlock.getLocation().clone().add(0.5d, customDecorMaterial.getHeight(), 0.5d));
+                        //new SitPlayer(player).setSitting(clickedBlock.getLocation().clone().add(0.5d, customDecorMaterial.getHeight(), 0.5d));
                         player.swingMainHand();
                     }
                 }
