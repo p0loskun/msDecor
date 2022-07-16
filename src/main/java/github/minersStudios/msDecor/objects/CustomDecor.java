@@ -47,8 +47,7 @@ public class CustomDecor {
         }
         this.setHitBox();
         this.player.swingMainHand();
-        if (customDecorMaterial.getPlaceSound() != null)
-            this.block.getWorld().playSound(this.block.getLocation(), customDecorMaterial.getPlaceSound(), 1.0f, customDecorMaterial.getPitch());
+        this.playPlaceSound();
         this.itemInMainHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInMainHand.getAmount() - 1 : this.itemInMainHand.getAmount());
         coreProtectAPI.logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
     }
@@ -98,9 +97,7 @@ public class CustomDecor {
                 }
             }
         }
-        if (this.customDecorMaterial == null) return;
-        if (this.customDecorMaterial.getBreakSound() != null)
-            world.playSound(blockLocation, this.customDecorMaterial.getBreakSound(), 1.0f, this.customDecorMaterial.getPitch());
+        this.playBreakSound();
         if (CustomDecorMaterial.CUSTOM_BLOCK_MATERIALS.contains(this.block.getType()) || this.block.getType() == Material.LIGHT)
             this.block.setType(Material.AIR);
         coreProtectAPI.logRemoval(this.player != null ? this.player.getName() : null, this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
@@ -166,8 +163,8 @@ public class CustomDecor {
         if (this.customDecorMaterial == null) return;
         Bukkit.getScheduler().runTask(Main.plugin, () -> {
             this.block.setType(
-                    customDecorMaterial.getHitBox().isStructureHitBox() ? Material.STRUCTURE_VOID
-                    : customDecorMaterial.getHitBox().isSolidHitBox() ? Material.BARRIER
+                    this.customDecorMaterial.getHitBox().isStructureHitBox() ? Material.STRUCTURE_VOID
+                    : this.customDecorMaterial.getHitBox().isSolidHitBox() ? Material.BARRIER
                     : Material.LIGHT
             );
             if (this.block.getType() != Material.LIGHT) return;
@@ -175,5 +172,29 @@ public class CustomDecor {
             level.setLevel(this.customDecorMaterial.name().contains("_FIRE") ? 15 : 0);
             this.block.setBlockData(level, true);
         });
+    }
+
+    /**
+     * Plays custom decor place sound
+     */
+    public void playPlaceSound() {
+        if (this.customDecorMaterial == null || this.customDecorMaterial.getPlaceSound() == null) return;
+        if (this.customDecorMaterial.getPlaceSound() == Sound.BLOCK_WOOD_PLACE) {
+            this.block.getWorld().playSound(this.block.getLocation(), "custom." + this.customDecorMaterial.getPlaceSound().getKey().getKey(), 1.0f, this.customDecorMaterial.getPitch());
+        } else {
+            this.block.getWorld().playSound(this.block.getLocation(), this.customDecorMaterial.getPlaceSound(), 1.0f, this.customDecorMaterial.getPitch());
+        }
+    }
+
+    /**
+     * Plays custom decor break sound
+     */
+    public void playBreakSound() {
+        if (this.customDecorMaterial == null || this.customDecorMaterial.getBreakSound() == null) return;
+        if (this.customDecorMaterial.getBreakSound() == Sound.BLOCK_WOOD_BREAK) {
+            this.block.getWorld().playSound(this.block.getLocation(), "custom." + this.customDecorMaterial.getBreakSound().getKey().getKey(), 1.0f, this.customDecorMaterial.getPitch());
+        } else {
+            this.block.getWorld().playSound(this.block.getLocation(), this.customDecorMaterial.getBreakSound(), 1.0f, this.customDecorMaterial.getPitch());
+        }
     }
 }

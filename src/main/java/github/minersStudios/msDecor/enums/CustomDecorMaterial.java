@@ -317,11 +317,9 @@ public enum CustomDecorMaterial {
     ) {
         this.itemName = itemName;
         this.itemCustomModelData = itemCustomModelData;
-
         this.placeSound = placeSound;
         this.breakSound = breakSound;
         this.pitch = pitch;
-
         this.hitBox = hitBox;
         this.facing = facing;
         this.lore = lore;
