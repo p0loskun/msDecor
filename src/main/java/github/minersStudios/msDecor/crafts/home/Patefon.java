@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class Patefon {
 
     @Nonnull
     public static ShapedRecipe craftPatefon() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("patefon"), CustomDecorMaterial.PATEFON.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PATEFON;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "   ",

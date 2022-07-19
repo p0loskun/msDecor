@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.globus;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class SmallGlobus {
 
     @Nonnull
     public static ShapedRecipe craftSmallGlobus() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_globus"), CustomDecorMaterial.SMALL_GLOBUS.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_GLOBUS;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 " M ",

@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.plushes;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class RacoonPlush {
 
     @Nonnull
     public static ShapedRecipe craftRacoonPlush() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("racoon_plush"), CustomDecorMaterial.RACOON_PLUSH.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.RACOON_PLUSH;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "WWW",

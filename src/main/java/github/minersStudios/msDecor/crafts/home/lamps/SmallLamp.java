@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.lamps;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class SmallLamp {
 
     @Nonnull
     public static ShapedRecipe craftSmallLamp() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_lamp"), CustomDecorMaterial.SMALL_LAMP.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_LAMP;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 " L ",

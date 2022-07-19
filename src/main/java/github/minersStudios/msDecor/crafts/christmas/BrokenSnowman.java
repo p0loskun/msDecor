@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.christmas;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class BrokenSnowman {
 
     @Nonnull
     public static ShapedRecipe craftBrokenSnowman() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("broken_snowman"), CustomDecorMaterial.BROKEN_SNOWMAN.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BROKEN_SNOWMAN;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 " W ",

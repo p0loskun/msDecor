@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.clocks;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class SmallClock {
 
     @Nonnull
     public static ShapedRecipe craftSmallClock() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("small_clock"), CustomDecorMaterial.SMALL_CLOCK.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_CLOCK;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "LLL",
                 "LCL",

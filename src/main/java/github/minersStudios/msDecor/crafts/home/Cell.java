@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class Cell {
 
     @Nonnull
     public static ShapedRecipe craftCell() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cell"), CustomDecorMaterial.CELL.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CELL;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " C ",
                 "BBB",

@@ -180,9 +180,9 @@ public class CustomDecor {
     public void playPlaceSound() {
         if (this.customDecorMaterial == null || this.customDecorMaterial.getPlaceSound() == null) return;
         if (this.customDecorMaterial.getPlaceSound() == Sound.BLOCK_WOOD_PLACE) {
-            this.block.getWorld().playSound(this.block.getLocation(), "custom." + this.customDecorMaterial.getPlaceSound().getKey().getKey(), 1.0f, this.customDecorMaterial.getPitch());
+            this.block.getWorld().playSound(this.block.getLocation().clone().add(0.5d, 0.5d, 0.5d), "custom.block.wood.place", 1.0f, this.customDecorMaterial.getPitch());
         } else {
-            this.block.getWorld().playSound(this.block.getLocation(), this.customDecorMaterial.getPlaceSound(), 1.0f, this.customDecorMaterial.getPitch());
+            this.block.getWorld().playSound(this.block.getLocation().clone().add(0.5d, 0.5d, 0.5d), this.customDecorMaterial.getPlaceSound(), 1.0f, this.customDecorMaterial.getPitch());
         }
     }
 
@@ -192,9 +192,9 @@ public class CustomDecor {
     public void playBreakSound() {
         if (this.customDecorMaterial == null || this.customDecorMaterial.getBreakSound() == null) return;
         if (this.customDecorMaterial.getBreakSound() == Sound.BLOCK_WOOD_BREAK) {
-            this.block.getWorld().playSound(this.block.getLocation(), "custom." + this.customDecorMaterial.getBreakSound().getKey().getKey(), 1.0f, this.customDecorMaterial.getPitch());
+            this.block.getWorld().playSound(this.block.getLocation().clone().add(0.5d, 0.5d, 0.5d), "custom.block.wood.break", 1.0f, this.customDecorMaterial.getPitch());
         } else {
-            this.block.getWorld().playSound(this.block.getLocation(), this.customDecorMaterial.getBreakSound(), 1.0f, this.customDecorMaterial.getPitch());
+            this.block.getWorld().playSound(this.block.getLocation().clone().add(0.5d, 0.5d, 0.5d), this.customDecorMaterial.getBreakSound(), 1.0f, this.customDecorMaterial.getPitch());
         }
     }
 }

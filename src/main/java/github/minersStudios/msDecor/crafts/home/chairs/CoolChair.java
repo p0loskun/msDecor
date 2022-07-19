@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.chairs;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class CoolChair {
 
     @Nonnull
     public static ShapedRecipe craftCoolChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cool_chair"), CustomDecorMaterial.COOL_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.COOL_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "LLL",

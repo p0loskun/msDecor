@@ -38,10 +38,10 @@ public class PlayerInteractListener implements Listener {
         ) {
             Block replaceableBlock = CustomDecorMaterial.REPLACE.contains(clickedBlock.getType()) ? clickedBlock : clickedBlock.getRelative(event.getBlockFace());
             if (
-                    replaceableBlock.getType() == Material.TALL_GRASS && replaceableBlock.getLocation().clone().add(0.0f, -1.0f, 0.0f).getBlock().getType() == Material.TALL_GRASS
-                    || replaceableBlock.getType() == Material.TALL_SEAGRASS && replaceableBlock.getLocation().clone().add(0.0f, -1.0f, 0.0f).getBlock().getType() == Material.TALL_SEAGRASS
+                    replaceableBlock.getType() == Material.TALL_GRASS && replaceableBlock.getLocation().clone().subtract(0.0d, 1.0d, 0.0d).getBlock().getType() == Material.TALL_GRASS
+                    || replaceableBlock.getType() == Material.TALL_SEAGRASS && replaceableBlock.getLocation().clone().subtract(0.0d, 1.0d, 0.0d).getBlock().getType() == Material.TALL_SEAGRASS
             ) {
-                replaceableBlock.getLocation().clone().add(0.0f, -1.0f, 0.0f).getBlock().breakNaturally();
+                replaceableBlock.getLocation().clone().subtract(0.0d, 1.0d, 0.0d).getBlock().breakNaturally();
             }
 
             if (itemInMainHand.getItemMeta() == null || !itemInMainHand.getItemMeta().hasCustomModelData()) return;

@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.halloween;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class SkeletonHand {
 
     @Nonnull
     public static ShapedRecipe craftSkeletonHand() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("skeleton_hand"), CustomDecorMaterial.SKELETON_HAND.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SKELETON_HAND;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "BBB",
                 "BBB",

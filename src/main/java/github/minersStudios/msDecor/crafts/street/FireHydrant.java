@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.street;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class FireHydrant {
 
     @Nonnull
     public static ShapedRecipe craftFireHydrant() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("fire_hydrant"), CustomDecorMaterial.FIRE_HYDRANT.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.FIRE_HYDRANT;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " B ",
                 " B ",

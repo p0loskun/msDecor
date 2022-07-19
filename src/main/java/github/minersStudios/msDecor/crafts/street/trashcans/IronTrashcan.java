@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.street.trashcans;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class IronTrashcan {
 
     @Nonnull
     public static ShapedRecipe craftIronTrashcan() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("iron_trashcan"), CustomDecorMaterial.IRON_TRASHCAN.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.IRON_TRASHCAN;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "III",
                 "I I",

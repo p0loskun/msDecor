@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.street;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class Wheelbarrow {
 
     @Nonnull
     public static ShapedRecipe craftWheelbarrow() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("wheelbarrow"), CustomDecorMaterial.WHEELBARROW.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WHEELBARROW;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "S S",
                 " C ",

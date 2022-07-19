@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -18,7 +19,8 @@ public class Heads {
 
     @Nonnull
     public static ShapedRecipe craftDeerHead() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("deer_head"), CustomDecorMaterial.DEER_HEAD.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DEER_HEAD;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "BBS",
                 " LS",
@@ -32,7 +34,8 @@ public class Heads {
 
     @Nonnull
     public static ShapedRecipe craftHoglinHead() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("hoglin_head"), CustomDecorMaterial.HOGLIN_HEAD.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.HOGLIN_HEAD;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " PS",
                 "BBS",
@@ -46,7 +49,8 @@ public class Heads {
 
     @Nonnull
     public static ShapedRecipe craftZoglinHead() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("zoglin_head"), CustomDecorMaterial.ZOGLIN_HEAD.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ZOGLIN_HEAD;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " FS",
                 "BBS",

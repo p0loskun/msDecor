@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.street;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class Brazier {
 
     @Nonnull
     public static ShapedRecipe craftBrazier() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("brazier"), CustomDecorMaterial.BRAZIER.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BRAZIER;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "B B",
                 "BBB",

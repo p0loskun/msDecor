@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.tables;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -31,7 +32,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftOakBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_big_table"), CustomDecorMaterial.OAK_BIG_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OAK_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PPP",
                 "P P",
@@ -43,7 +45,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftSpruceBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_big_table"), CustomDecorMaterial.SPRUCE_BIG_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SPRUCE_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PPP",
                 "P P",
@@ -55,7 +58,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftDarkOakBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_big_table"), CustomDecorMaterial.DARK_OAK_BIG_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DARK_OAK_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PPP",
                 "P P",
@@ -67,7 +71,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftBirchBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_big_table"), CustomDecorMaterial.BIRCH_BIG_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIRCH_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PPP",
                 "P P",
@@ -79,7 +84,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftJungleBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_big_table"), CustomDecorMaterial.JUNGLE_BIG_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.JUNGLE_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PPP",
                 "P P",
@@ -91,7 +97,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftAcaciaBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_big_table"), CustomDecorMaterial.ACACIA_BIG_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ACACIA_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PPP",
                 "P P",
@@ -103,7 +110,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftWarpedBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_big_table"), CustomDecorMaterial.WARPED_BIG_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WARPED_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PPP",
                 "P P",
@@ -115,7 +123,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftCrimsonBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_big_table"), CustomDecorMaterial.CRIMSON_BIG_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CRIMSON_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PPP",
                 "P P",
@@ -127,7 +136,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftOakPaintableBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_paintable_big_table"), CustomDecorMaterial.OAK_BIG_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OAK_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PLP",
                 "P P",
@@ -140,7 +150,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftSprucePaintableBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_paintable_big_table"), CustomDecorMaterial.SPRUCE_BIG_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SPRUCE_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PLP",
                 "P P",
@@ -153,7 +164,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftDarkOakPaintableBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_paintable_big_table"), CustomDecorMaterial.DARK_OAK_BIG_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DARK_OAK_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PLP",
                 "P P",
@@ -166,7 +178,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftBirchPaintableBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_paintable_big_table"), CustomDecorMaterial.BIRCH_BIG_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIRCH_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PLP",
                 "P P",
@@ -179,7 +192,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftJunglePaintableBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_paintable_big_table"), CustomDecorMaterial.JUNGLE_BIG_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.JUNGLE_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PLP",
                 "P P",
@@ -192,7 +206,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftAcaciaPaintableBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_paintable_big_table"), CustomDecorMaterial.ACACIA_BIG_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ACACIA_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PLP",
                 "P P",
@@ -205,7 +220,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftWarpedPaintableBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_paintable_big_table"), CustomDecorMaterial.WARPED_BIG_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WARPED_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PLP",
                 "P P",
@@ -218,7 +234,8 @@ public class BigTable {
 
     @Nonnull
     public static ShapedRecipe craftCrimsonPaintableBigTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_paintable_big_table"), CustomDecorMaterial.CRIMSON_BIG_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CRIMSON_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "PLP",
                 "P P",

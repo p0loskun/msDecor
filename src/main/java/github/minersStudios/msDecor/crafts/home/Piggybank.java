@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -21,7 +22,8 @@ public class Piggybank {
 
     @Nonnull
     public static ShapedRecipe craftPiggybank() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("piggybank"), CustomDecorMaterial.PIGGYBANK.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PIGGYBANK;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "  P",
                 "PPP",
@@ -33,7 +35,8 @@ public class Piggybank {
 
     @Nonnull
     public static ShapedRecipe craftPiggybankDiamond() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("piggybank_diamond"), CustomDecorMaterial.PIGGYBANK_DIAMOND.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PIGGYBANK_DIAMOND;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "  P",
                 "PPP",
@@ -45,7 +48,8 @@ public class Piggybank {
 
     @Nonnull
     public static ShapedRecipe craftPiggybankEmerald() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("piggybank_emerald"), CustomDecorMaterial.PIGGYBANK_EMERALD.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PIGGYBANK_EMERALD;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "  P",
                 "PPP",
@@ -57,7 +61,8 @@ public class Piggybank {
 
     @Nonnull
     public static ShapedRecipe craftPiggybankGold() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("piggybank_gold"), CustomDecorMaterial.PIGGYBANK_GOLD.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PIGGYBANK_GOLD;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "  P",
                 "PPP",
@@ -69,7 +74,8 @@ public class Piggybank {
 
     @Nonnull
     public static ShapedRecipe craftPiggybankIron() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("piggybank_iron"), CustomDecorMaterial.PIGGYBANK_IRON.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PIGGYBANK_IRON;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "  P",
                 "PPP",
@@ -81,7 +87,8 @@ public class Piggybank {
 
     @Nonnull
     public static ShapedRecipe craftPiggybankNetherite() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("piggybank_netherite"), CustomDecorMaterial.PIGGYBANK_NETHERITE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PIGGYBANK_NETHERITE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "  P",
                 "PPP",

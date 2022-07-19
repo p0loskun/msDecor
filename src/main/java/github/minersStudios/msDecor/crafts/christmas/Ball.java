@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.christmas;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class Ball {
 
     @Nonnull
     public static ShapedRecipe craftBall() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("ball"), CustomDecorMaterial.BALL.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BALL;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " S ",
                 "CCC",

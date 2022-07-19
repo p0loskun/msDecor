@@ -194,7 +194,7 @@ public enum CustomDecorMaterial {
 
     FIRE_HYDRANT("Пожарный гидрант", 1149, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
 
-    CAMERA("Камера", 1150, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.NORMAL_ARMOR_STAND, Facing.FLOOR, null),
+    OLD_CAMERA("Камера", 1150, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.NORMAL_ARMOR_STAND, Facing.FLOOR, null),
 
     BIG_LAMP("Большая лампа", 1151, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.NORMAL_ARMOR_STAND, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
 

@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.chairs;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class BarStool {
 
     @Nonnull
     public static ShapedRecipe craftBarStool() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("bar_stool"), CustomDecorMaterial.BAR_STOOL.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BAR_STOOL;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "ILI",
                 " I ",

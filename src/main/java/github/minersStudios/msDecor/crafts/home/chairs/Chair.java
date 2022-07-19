@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.chairs;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -23,7 +24,8 @@ public class Chair {
 
     @Nonnull
     public static ShapedRecipe craftOakChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_chair"), CustomDecorMaterial.OAK_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OAK_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
                 "PLP",
@@ -36,7 +38,8 @@ public class Chair {
 
     @Nonnull
     public static ShapedRecipe craftSpruceChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_chair"), CustomDecorMaterial.SPRUCE_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SPRUCE_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
                 "PLP",
@@ -49,7 +52,8 @@ public class Chair {
 
     @Nonnull
     public static ShapedRecipe craftDarkOakChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_chair"), CustomDecorMaterial.DARK_OAK_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DARK_OAK_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
                 "PLP",
@@ -62,7 +66,8 @@ public class Chair {
 
     @Nonnull
     public static ShapedRecipe craftBirchChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_chair"), CustomDecorMaterial.BIRCH_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIRCH_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
                 "PLP",
@@ -75,7 +80,8 @@ public class Chair {
 
     @Nonnull
     public static ShapedRecipe craftJungleChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_chair"), CustomDecorMaterial.JUNGLE_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.JUNGLE_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
                 "PLP",
@@ -88,7 +94,8 @@ public class Chair {
 
     @Nonnull
     public static ShapedRecipe craftAcaciaChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_chair"), CustomDecorMaterial.ACACIA_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ACACIA_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
                 "PLP",
@@ -101,7 +108,8 @@ public class Chair {
 
     @Nonnull
     public static ShapedRecipe craftWarpedChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_chair"), CustomDecorMaterial.WARPED_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WARPED_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
                 "PLP",
@@ -114,7 +122,8 @@ public class Chair {
 
     @Nonnull
     public static ShapedRecipe craftCrimsonChair() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_chair"), CustomDecorMaterial.CRIMSON_CHAIR.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CRIMSON_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
                 "PLP",

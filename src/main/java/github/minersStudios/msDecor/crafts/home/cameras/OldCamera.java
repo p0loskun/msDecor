@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.cameras;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class OldCamera {
 
     @Nonnull
     public static ShapedRecipe craftOldCamera() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("old_camera"), CustomDecorMaterial.CAMERA.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OLD_CAMERA;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " I ",
                 " S ",

@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home.tables;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -31,7 +32,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftOakSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_small_table"), CustomDecorMaterial.OAK_SMALL_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OAK_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "PPP",
@@ -43,7 +45,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftSpruceSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_small_table"), CustomDecorMaterial.SPRUCE_SMALL_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SPRUCE_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "PPP",
@@ -55,7 +58,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftDarkOakSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_small_table"), CustomDecorMaterial.DARK_OAK_SMALL_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DARK_OAK_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "PPP",
@@ -67,7 +71,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftBirchSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_small_table"), CustomDecorMaterial.BIRCH_SMALL_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIRCH_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "PPP",
@@ -79,7 +84,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftJungleSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_small_table"), CustomDecorMaterial.JUNGLE_SMALL_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.JUNGLE_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "PPP",
@@ -91,7 +97,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftAcaciaSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_small_table"), CustomDecorMaterial.ACACIA_SMALL_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ACACIA_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "PPP",
@@ -103,7 +110,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftWarpedSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_small_table"), CustomDecorMaterial.WARPED_SMALL_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WARPED_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "PPP",
@@ -115,7 +123,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftCrimsonSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_small_table"), CustomDecorMaterial.CRIMSON_SMALL_TABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CRIMSON_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "PPP",
@@ -127,7 +136,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftOakPaintableSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("oak_paintable_small_table"), CustomDecorMaterial.OAK_SMALL_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OAK_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " L ",
                 "PPP",
@@ -140,7 +150,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftSprucePaintableSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("spruce_paintable_small_table"), CustomDecorMaterial.SPRUCE_SMALL_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SPRUCE_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " L ",
                 "PPP",
@@ -153,7 +164,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftDarkOakPaintableSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("dark_oak_paintable_small_table"), CustomDecorMaterial.DARK_OAK_SMALL_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DARK_OAK_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " L ",
                 "PPP",
@@ -166,7 +178,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftBirchPaintableSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("birch_paintable_small_table"), CustomDecorMaterial.BIRCH_SMALL_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIRCH_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " L ",
                 "PPP",
@@ -179,7 +192,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftJunglePaintableSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("jungle_paintable_small_table"), CustomDecorMaterial.JUNGLE_SMALL_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.JUNGLE_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " L ",
                 "PPP",
@@ -192,7 +206,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftAcaciaPaintableSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("acacia_paintable_small_table"), CustomDecorMaterial.ACACIA_SMALL_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ACACIA_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " L ",
                 "PPP",
@@ -205,7 +220,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftWarpedPaintableSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("warped_paintable_small_table"), CustomDecorMaterial.WARPED_SMALL_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WARPED_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " L ",
                 "PPP",
@@ -218,7 +234,8 @@ public class SmallTable {
 
     @Nonnull
     public static ShapedRecipe craftCrimsonPaintableSmallTable() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("crimson_paintable_small_table"), CustomDecorMaterial.CRIMSON_SMALL_TABLE_PAINTABLE.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CRIMSON_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 " L ",
                 "PPP",

@@ -1,5 +1,6 @@
 package github.minersStudios.msDecor.crafts.home;
 
+import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -16,7 +17,8 @@ public class CookingPot {
 
     @Nonnull
     public static ShapedRecipe craftCookingPot() {
-        ShapedRecipe shapedRecipe = new ShapedRecipe(NamespacedKey.minecraft("cooking_pot"), CustomDecorMaterial.COOKING_POT.getItemStack());
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.COOKING_POT;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "   ",
                 "ISI",
