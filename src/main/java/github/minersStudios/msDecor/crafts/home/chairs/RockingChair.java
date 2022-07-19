@@ -58,7 +58,7 @@ public class RockingChair {
 
     @Nonnull
     public static ShapedRecipe craftDarkOakRockingChair() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DARK_OAK_CHAIR;
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DARK_OAK_ROCKING_CHAIR;
         ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
@@ -84,7 +84,7 @@ public class RockingChair {
 
     @Nonnull
     public static ShapedRecipe craftJungleRockingChair() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.JUNGLE_CHAIR;
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.JUNGLE_ROCKING_CHAIR;
         ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
         shapedRecipe.shape(
                 "P  ",
