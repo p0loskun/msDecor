@@ -22,6 +22,7 @@ public class BigTable {
         Bukkit.addRecipe(craftAcaciaBigTable());
         Bukkit.addRecipe(craftWarpedBigTable());
         Bukkit.addRecipe(craftCrimsonBigTable());
+        Bukkit.addRecipe(craftMangroveBigTable());
         Bukkit.addRecipe(craftOakPaintableBigTable());
         Bukkit.addRecipe(craftSprucePaintableBigTable());
         Bukkit.addRecipe(craftBirchPaintableBigTable());
@@ -30,6 +31,7 @@ public class BigTable {
         Bukkit.addRecipe(craftAcaciaPaintableBigTable());
         Bukkit.addRecipe(craftWarpedPaintableBigTable());
         Bukkit.addRecipe(craftCrimsonPaintableBigTable());
+        Bukkit.addRecipe(craftMangrovePaintableBigTable());
     }
 
     @Nonnull
@@ -140,6 +142,20 @@ public class BigTable {
                         "P P"
                 )
                 .setIngredient('P', Material.CRIMSON_PLANKS);
+        shapedRecipe.setGroup(pluginNameInLowerCase + ":big_table");
+        return shapedRecipe;
+    }
+
+    @Nonnull
+    public static ShapedRecipe craftMangroveBigTable() {
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_BIG_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "PPP",
+                        "P P",
+                        "P P"
+                )
+                .setIngredient('P', Material.MANGROVE_PLANKS);
         shapedRecipe.setGroup(pluginNameInLowerCase + ":big_table");
         return shapedRecipe;
     }
@@ -259,6 +275,21 @@ public class BigTable {
                         "P P"
                 )
                 .setIngredient('P', Material.CRIMSON_PLANKS)
+                .setIngredient('L', Material.LEATHER);
+        shapedRecipe.setGroup(pluginNameInLowerCase + ":paintable_big_table");
+        return shapedRecipe;
+    }
+
+    @Nonnull
+    public static ShapedRecipe craftMangrovePaintableBigTable() {
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_BIG_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "PLP",
+                        "P P",
+                        "P P"
+                )
+                .setIngredient('P', Material.MANGROVE_PLANKS)
                 .setIngredient('L', Material.LEATHER);
         shapedRecipe.setGroup(pluginNameInLowerCase + ":paintable_big_table");
         return shapedRecipe;

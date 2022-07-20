@@ -22,6 +22,7 @@ public class SmallTable {
         Bukkit.addRecipe(craftAcaciaSmallTable());
         Bukkit.addRecipe(craftWarpedSmallTable());
         Bukkit.addRecipe(craftCrimsonSmallTable());
+        Bukkit.addRecipe(craftMangroveSmallTable());
         Bukkit.addRecipe(craftOakPaintableSmallTable());
         Bukkit.addRecipe(craftSprucePaintableSmallTable());
         Bukkit.addRecipe(craftBirchPaintableSmallTable());
@@ -30,6 +31,7 @@ public class SmallTable {
         Bukkit.addRecipe(craftAcaciaPaintableSmallTable());
         Bukkit.addRecipe(craftWarpedPaintableSmallTable());
         Bukkit.addRecipe(craftCrimsonPaintableSmallTable());
+        Bukkit.addRecipe(craftMangrovePaintableSmallTable());
     }
 
     @Nonnull
@@ -115,6 +117,17 @@ public class SmallTable {
         ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
                 .shape("PPP", "PAP")
                 .setIngredient('P', Material.CRIMSON_PLANKS)
+                .setIngredient('A', Material.AIR);
+        shapedRecipe.setGroup(pluginNameInLowerCase + ":small_table");
+        return shapedRecipe;
+    }
+
+    @Nonnull
+    public static ShapedRecipe craftMangroveSmallTable() {
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_SMALL_TABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("PPP", "PAP")
+                .setIngredient('P', Material.MANGROVE_PLANKS)
                 .setIngredient('A', Material.AIR);
         shapedRecipe.setGroup(pluginNameInLowerCase + ":small_table");
         return shapedRecipe;
@@ -210,6 +223,18 @@ public class SmallTable {
         ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
                 .shape("ALA", "PPP", "PAP")
                 .setIngredient('P', Material.CRIMSON_PLANKS)
+                .setIngredient('L', Material.LEATHER)
+                .setIngredient('A', Material.AIR);
+        shapedRecipe.setGroup(pluginNameInLowerCase + ":paintable_small_table");
+        return shapedRecipe;
+    }
+
+    @Nonnull
+    public static ShapedRecipe craftMangrovePaintableSmallTable() {
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_SMALL_TABLE_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("ALA", "PPP", "PAP")
+                .setIngredient('P', Material.MANGROVE_PLANKS)
                 .setIngredient('L', Material.LEATHER)
                 .setIngredient('A', Material.AIR);
         shapedRecipe.setGroup(pluginNameInLowerCase + ":paintable_small_table");

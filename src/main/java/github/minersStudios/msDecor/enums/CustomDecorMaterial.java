@@ -26,6 +26,7 @@ public enum CustomDecorMaterial {
     OAK_SMALL_CHAIR("Дубовый стул", 1005, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.75d),
     SPRUCE_SMALL_CHAIR("Еловый стул", 1006, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.75d),
     WARPED_SMALL_CHAIR("Искажённый стул", 1007, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.75d),
+    MANGROVE_SMALL_CHAIR("Мангровый стул", 1193, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.75d),
 
     ACACIA_CHAIR("Aкациевый стул со спинкой", 1008, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.65d),
     BIRCH_CHAIR("Берёзовый стул со спинкой", 1009, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.65d),
@@ -35,6 +36,7 @@ public enum CustomDecorMaterial {
     OAK_CHAIR("Дубовый стул со спинкой", 1013, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.65d),
     SPRUCE_CHAIR("Еловый стул со спинкой", 1014, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.65d),
     WARPED_CHAIR("Искажённый стул со спинкой", 1015, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.65d),
+    MANGROVE_CHAIR("Мангровый стул со спинкой", 1194, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.65d),
 
     COOL_ARMCHAIR("Стильное кресло", 1016, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.65d),
     COOL_ARMCHAIR_LEFT(null, 1017, Sound.BLOCK_WOOL_PLACE, Sound.BLOCK_WOOL_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null, 0.65d),
@@ -49,6 +51,7 @@ public enum CustomDecorMaterial {
     OAK_SMALL_ARMCHAIR("Дубовое маленькое кресло", 1025, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
     SPRUCE_SMALL_ARMCHAIR("Еловое маленькое кресло", 1026, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
     WARPED_SMALL_ARMCHAIR("Искажённое маленькое кресло", 1027, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
+    MANGROVE_SMALL_ARMCHAIR("Мангровое маленькое кресло", 1195, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
 
     ACACIA_ARMCHAIR("Aкациевое кресло", 1028, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
     BIRCH_ARMCHAIR("Берёзовое кресло", 1029, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
@@ -58,6 +61,7 @@ public enum CustomDecorMaterial {
     OAK_ARMCHAIR("Дубовое кресло", 1033, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
     SPRUCE_ARMCHAIR("Еловое кресло", 1034, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
     WARPED_ARMCHAIR("Искажённое кресло", 1035, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
+    MANGROVE_ARMCHAIR("Мангровое кресло", 1196, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.6d),
 
     BAR_STOOL("Барный стул", 1036, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 1.0d),
 
@@ -79,7 +83,8 @@ public enum CustomDecorMaterial {
     SPRUCE_ROCKING_CHAIR_PAINTABLE("Еловое кресло-качалка", 1051, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.5d),
     WARPED_ROCKING_CHAIR("Искажённое кресло-качалка", 1052, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, null, 0.5d),
     WARPED_ROCKING_CHAIR_PAINTABLE("Искажённое кресло-качалка", 1053, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.5d),
-
+    MANGROVE_ROCKING_CHAIR("Мангровое кресло-качалка", 1197, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, null, 0.5d),
+    MANGROVE_ROCKING_CHAIR_PAINTABLE("Мангровое кресло-качалка", 1198, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol()), 0.5d),
 
     ACACIA_BIG_TABLE("Aкациевый стол", 1054, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
     ACACIA_BIG_TABLE_PAINTABLE("Aкациевый стол со скатерью", 1055, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
@@ -97,6 +102,8 @@ public enum CustomDecorMaterial {
     SPRUCE_BIG_TABLE_PAINTABLE("Еловый стол со скатерью", 1067, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
     WARPED_BIG_TABLE("Искажённый стол", 1068, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
     WARPED_BIG_TABLE_PAINTABLE("Искажённый стол со скатерью", 1069, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
+    MANGROVE_BIG_TABLE("Мангровый стол", 1199, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+    MANGROVE_BIG_TABLE_PAINTABLE("Мангровый стол со скатерью", 1200, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
 
     ACACIA_SMALL_TABLE("Маленький акациевый стол", 1070, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
     ACACIA_SMALL_TABLE_PAINTABLE("Маленький акациевый стол со скатерью", 1071, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
@@ -114,7 +121,8 @@ public enum CustomDecorMaterial {
     SPRUCE_SMALL_TABLE_PAINTABLE("Маленький еловый стол со скатерью", 1083, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
     WARPED_SMALL_TABLE("Маленький искажённый стол", 1084, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
     WARPED_SMALL_TABLE_PAINTABLE("Маленький искажённый стол со скатерью", 1085, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
-
+    MANGROVE_SMALL_TABLE("Маленький мангровый стол", 1201, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+    MANGROVE_SMALL_TABLE_PAINTABLE("Маленький мангровый стол со скатерью", 1202, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 0.5f, HitBox.SOLID_FRAME, Facing.FLOOR, Collections.singletonList(Symbols.PAINTABLE.getSymbol())),
 
     ACACIA_NIGHTSTAND("Акациевая тумбочка", 1086, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
     ACACIA_NIGHTSTAND_2_LEFT(null, 1087, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
@@ -179,6 +187,14 @@ public enum CustomDecorMaterial {
     WARPED_NIGHTSTAND_3_LEFT(null, 1139, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
     WARPED_NIGHTSTAND_3_MIDDLE(null, 1140, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
     WARPED_NIGHTSTAND_3_RIGHT(null, 1141, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+
+    MANGROVE_NIGHTSTAND("Мангровая тумбочка", 1203, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+    MANGROVE_NIGHTSTAND_2_LEFT(null, 1204, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+    MANGROVE_NIGHTSTAND_2_MIDDLE(null, 1205, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+    MANGROVE_NIGHTSTAND_2_RIGHT(null, 1206, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+    MANGROVE_NIGHTSTAND_3_LEFT(null, 1207, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+    MANGROVE_NIGHTSTAND_3_MIDDLE(null, 1208, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+    MANGROVE_NIGHTSTAND_3_RIGHT(null, 1209, Sound.BLOCK_WOOD_PLACE, Sound.BLOCK_WOOD_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
 
     WHEELBARROW("Тачка", 1142, Sound.BLOCK_ANVIL_PLACE, Sound.BLOCK_ANVIL_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
 

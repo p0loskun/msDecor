@@ -22,6 +22,7 @@ public class RockingChair {
         Bukkit.addRecipe(craftAcaciaRockingChair());
         Bukkit.addRecipe(craftWarpedRockingChair());
         Bukkit.addRecipe(craftCrimsonRockingChair());
+        Bukkit.addRecipe(craftMangroveRockingChair());
         Bukkit.addRecipe(craftOakPaintableRockingChair());
         Bukkit.addRecipe(craftSprucePaintableRockingChair());
         Bukkit.addRecipe(craftBirchPaintableRockingChair());
@@ -30,6 +31,7 @@ public class RockingChair {
         Bukkit.addRecipe(craftAcaciaPaintableRockingChair());
         Bukkit.addRecipe(craftWarpedPaintableRockingChair());
         Bukkit.addRecipe(craftCrimsonPaintableRockingChair());
+        Bukkit.addRecipe(craftMangrovePaintableRockingChair());
     }
 
     @Nonnull
@@ -140,6 +142,20 @@ public class RockingChair {
                         "PPP"
                 )
                 .setIngredient('P', Material.CRIMSON_PLANKS);
+        shapedRecipe.setGroup(pluginNameInLowerCase + ":rocking_chair");
+        return shapedRecipe;
+    }
+
+    @Nonnull
+    public static ShapedRecipe craftMangroveRockingChair() {
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_ROCKING_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "P  ",
+                        "PPP",
+                        "PPP"
+                )
+                .setIngredient('P', Material.MANGROVE_PLANKS);
         shapedRecipe.setGroup(pluginNameInLowerCase + ":rocking_chair");
         return shapedRecipe;
     }
@@ -259,6 +275,21 @@ public class RockingChair {
                         "PPP"
                 )
                 .setIngredient('P', Material.CRIMSON_PLANKS)
+                .setIngredient('L', Material.LEATHER);
+        shapedRecipe.setGroup(pluginNameInLowerCase + ":paintable_rocking_chair");
+        return shapedRecipe;
+    }
+
+    @Nonnull
+    public static ShapedRecipe craftMangrovePaintableRockingChair() {
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_ROCKING_CHAIR_PAINTABLE;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "P  ",
+                        "PLP",
+                        "PPP"
+                )
+                .setIngredient('P', Material.MANGROVE_PLANKS)
                 .setIngredient('L', Material.LEATHER);
         shapedRecipe.setGroup(pluginNameInLowerCase + ":paintable_rocking_chair");
         return shapedRecipe;

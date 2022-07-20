@@ -22,6 +22,7 @@ public class SmallChair {
         Bukkit.addRecipe(craftSmallAcaciaChair());
         Bukkit.addRecipe(craftSmallWarpedChair());
         Bukkit.addRecipe(craftSmallCrimsonChair());
+        Bukkit.addRecipe(craftSmallMangroveChair());
     }
 
     @Nonnull
@@ -114,6 +115,18 @@ public class SmallChair {
         ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
                 .shape("PLP", "PAP")
                 .setIngredient('P', Material.CRIMSON_PLANKS)
+                .setIngredient('L', Material.LEATHER)
+                .setIngredient('A', Material.AIR);
+        shapedRecipe.setGroup(pluginNameInLowerCase + ":small_chair");
+        return shapedRecipe;
+    }
+
+    @Nonnull
+    public static ShapedRecipe craftSmallMangroveChair() {
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_SMALL_CHAIR;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("PLP", "PAP")
+                .setIngredient('P', Material.MANGROVE_PLANKS)
                 .setIngredient('L', Material.LEATHER)
                 .setIngredient('A', Material.AIR);
         shapedRecipe.setGroup(pluginNameInLowerCase + ":small_chair");
