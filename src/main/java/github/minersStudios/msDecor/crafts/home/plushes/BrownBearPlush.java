@@ -18,13 +18,9 @@ public class BrownBearPlush {
     @Nonnull
     public static ShapedRecipe craftBrownBearPlush() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BROWN_BEAR_PLUSH;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "   ",
-                " W ",
-                "W W"
-        );
-        shapedRecipe.setIngredient('W', Material.BROWN_WOOL);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("AWA", "WAW")
+                .setIngredient('W', Material.BROWN_WOOL)
+                .setIngredient('A', Material.AIR);
     }
 }

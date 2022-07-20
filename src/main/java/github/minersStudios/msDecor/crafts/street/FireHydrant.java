@@ -18,14 +18,13 @@ public class FireHydrant {
     @Nonnull
     public static ShapedRecipe craftFireHydrant() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.FIRE_HYDRANT;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                " B ",
-                " B ",
-                "III"
-        );
-        shapedRecipe.setIngredient('B', Material.IRON_BLOCK);
-        shapedRecipe.setIngredient('I', Material.IRON_INGOT);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        " B ",
+                        " B ",
+                        "III"
+                )
+                .setIngredient('B', Material.IRON_BLOCK)
+                .setIngredient('I', Material.IRON_INGOT);
     }
 }

@@ -20,45 +20,42 @@ public class Heads {
     @Nonnull
     public static ShapedRecipe craftDeerHead() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DEER_HEAD;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "BBS",
-                " LS",
-                "  S"
-        );
-        shapedRecipe.setIngredient('L', Material.LEATHER);
-        shapedRecipe.setIngredient('B', Material.BONE);
-        shapedRecipe.setIngredient('S', Material.SPRUCE_LOG);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "BBS",
+                        " LS",
+                        "  S"
+                )
+                .setIngredient('L', Material.LEATHER)
+                .setIngredient('B', Material.BONE)
+                .setIngredient('S', Material.SPRUCE_LOG);
     }
 
     @Nonnull
     public static ShapedRecipe craftHoglinHead() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.HOGLIN_HEAD;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                " PS",
-                "BBS",
-                "  S"
-        );
-        shapedRecipe.setIngredient('P', Material.PORKCHOP);
-        shapedRecipe.setIngredient('B', Material.BONE);
-        shapedRecipe.setIngredient('S', Material.SPRUCE_LOG);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        " PS",
+                        "BBS",
+                        "  S"
+                )
+                .setIngredient('P', Material.PORKCHOP)
+                .setIngredient('B', Material.BONE)
+                .setIngredient('S', Material.SPRUCE_LOG);
     }
 
     @Nonnull
     public static ShapedRecipe craftZoglinHead() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ZOGLIN_HEAD;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                " FS",
-                "BBS",
-                "  S"
-        );
-        shapedRecipe.setIngredient('F', Material.ROTTEN_FLESH);
-        shapedRecipe.setIngredient('B', Material.BONE);
-        shapedRecipe.setIngredient('S', Material.SPRUCE_LOG);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        " FS",
+                        "BBS",
+                        "  S"
+                )
+                .setIngredient('F', Material.ROTTEN_FLESH)
+                .setIngredient('B', Material.BONE)
+                .setIngredient('S', Material.SPRUCE_LOG);
     }
 }

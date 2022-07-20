@@ -18,14 +18,9 @@ public class SmallLamp {
     @Nonnull
     public static ShapedRecipe craftSmallLamp() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_LAMP;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "   ",
-                " L ",
-                " S "
-        );
-        shapedRecipe.setIngredient('S', Material.STICK);
-        shapedRecipe.setIngredient('L', Material.LEATHER);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("L", "S")
+                .setIngredient('S', Material.STICK)
+                .setIngredient('L', Material.LEATHER);
     }
 }

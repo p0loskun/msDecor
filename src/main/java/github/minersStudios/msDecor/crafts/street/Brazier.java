@@ -18,14 +18,13 @@ public class Brazier {
     @Nonnull
     public static ShapedRecipe craftBrazier() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BRAZIER;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "B B",
-                "BBB",
-                " I "
-        );
-        shapedRecipe.setIngredient('B', Material.IRON_BARS);
-        shapedRecipe.setIngredient('I', Material.IRON_INGOT);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "B B",
+                        "BBB",
+                        " I "
+                )
+                .setIngredient('B', Material.IRON_BARS)
+                .setIngredient('I', Material.IRON_INGOT);
     }
 }

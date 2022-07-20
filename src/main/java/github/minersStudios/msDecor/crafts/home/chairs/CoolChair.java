@@ -18,14 +18,10 @@ public class CoolChair {
     @Nonnull
     public static ShapedRecipe craftCoolChair() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.COOL_CHAIR;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "   ",
-                "LLL",
-                "I I"
-        );
-        shapedRecipe.setIngredient('I', Material.IRON_NUGGET);
-        shapedRecipe.setIngredient('L', Material.LEATHER);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("LLL", "IAI")
+                .setIngredient('I', Material.IRON_NUGGET)
+                .setIngredient('L', Material.LEATHER)
+                .setIngredient('A', Material.AIR);
     }
 }

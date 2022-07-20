@@ -18,14 +18,9 @@ public class SmallGlobus {
     @Nonnull
     public static ShapedRecipe craftSmallGlobus() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_GLOBUS;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "   ",
-                " M ",
-                " S "
-        );
-        shapedRecipe.setIngredient('S', Material.STICK);
-        shapedRecipe.setIngredient('M', Material.MAP);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("M", "S")
+                .setIngredient('S', Material.STICK)
+                .setIngredient('M', Material.MAP);
     }
 }

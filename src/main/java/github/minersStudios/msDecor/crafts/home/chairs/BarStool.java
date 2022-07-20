@@ -18,14 +18,13 @@ public class BarStool {
     @Nonnull
     public static ShapedRecipe craftBarStool() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BAR_STOOL;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "ILI",
-                " I ",
-                "III"
-        );
-        shapedRecipe.setIngredient('I', Material.IRON_INGOT);
-        shapedRecipe.setIngredient('L', Material.LEATHER);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "ILI",
+                        " I ",
+                        "III"
+                )
+                .setIngredient('I', Material.IRON_INGOT)
+                .setIngredient('L', Material.LEATHER);
     }
 }

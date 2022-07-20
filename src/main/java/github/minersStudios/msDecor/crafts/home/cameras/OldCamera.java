@@ -18,14 +18,11 @@ public class OldCamera {
     @Nonnull
     public static ShapedRecipe craftOldCamera() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OLD_CAMERA;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                " I ",
-                " S ",
-                "S S"
-        );
-        shapedRecipe.setIngredient('S', Material.STICK);
-        shapedRecipe.setIngredient('I', Material.IRON_INGOT);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        " I ",
+                        " S ",
+                        "S S"
+                ).setIngredient('S', Material.STICK).setIngredient('I', Material.IRON_INGOT);
     }
 }

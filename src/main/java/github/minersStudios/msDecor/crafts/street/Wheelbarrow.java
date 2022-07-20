@@ -18,15 +18,14 @@ public class Wheelbarrow {
     @Nonnull
     public static ShapedRecipe craftWheelbarrow() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WHEELBARROW;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "S S",
-                " C ",
-                " I "
-        );
-        shapedRecipe.setIngredient('S', Material.STICK);
-        shapedRecipe.setIngredient('I', Material.IRON_INGOT);
-        shapedRecipe.setIngredient('C', Material.CAULDRON);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "S S",
+                        " C ",
+                        " I "
+                )
+                .setIngredient('S', Material.STICK)
+                .setIngredient('I', Material.IRON_INGOT)
+                .setIngredient('C', Material.CAULDRON);
     }
 }

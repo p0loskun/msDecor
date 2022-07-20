@@ -18,14 +18,9 @@ public class BMOPlush {
     @Nonnull
     public static ShapedRecipe craftBMOPlush() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BMO_PLUSH;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "   ",
-                "II ",
-                "DI "
-        );
-        shapedRecipe.setIngredient('D', Material.LIGHT_BLUE_DYE);
-        shapedRecipe.setIngredient('I', Material.IRON_INGOT);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("II", "DI")
+                .setIngredient('D', Material.LIGHT_BLUE_DYE)
+                .setIngredient('I', Material.IRON_INGOT);
     }
 }

@@ -18,14 +18,9 @@ public class Patefon {
     @Nonnull
     public static ShapedRecipe craftPatefon() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PATEFON;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "   ",
-                "   ",
-                "SJS"
-        );
-        shapedRecipe.setIngredient('J', Material.JUKEBOX);
-        shapedRecipe.setIngredient('S', Material.SPRUCE_PLANKS);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape("SJS")
+                .setIngredient('J', Material.JUKEBOX)
+                .setIngredient('S', Material.SPRUCE_PLANKS);
     }
 }

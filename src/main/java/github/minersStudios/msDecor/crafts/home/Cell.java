@@ -18,14 +18,13 @@ public class Cell {
     @Nonnull
     public static ShapedRecipe craftCell() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CELL;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                " C ",
-                "BBB",
-                "BBB"
-        );
-        shapedRecipe.setIngredient('B', Material.IRON_BARS);
-        shapedRecipe.setIngredient('C', Material.CHAIN);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        " C ",
+                        "BBB",
+                        "BBB"
+                )
+                .setIngredient('B', Material.IRON_BARS)
+                .setIngredient('C', Material.CHAIN);
     }
 }

@@ -18,14 +18,13 @@ public class SmallClock {
     @Nonnull
     public static ShapedRecipe craftSmallClock() {
         CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_CLOCK;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "LLL",
-                "LCL",
-                "LLL"
-        );
-        shapedRecipe.setIngredient('C', Material.CLOCK);
-        shapedRecipe.setIngredient('L', Material.CLAY_BALL);
-        return shapedRecipe;
+        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "LLL",
+                        "LCL",
+                        "LLL"
+                )
+                .setIngredient('C', Material.CLOCK)
+                .setIngredient('L', Material.CLAY_BALL);
     }
 }
