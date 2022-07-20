@@ -22,6 +22,7 @@ public class Nightstand {
         Bukkit.addRecipe(craftOakNightstand());
         Bukkit.addRecipe(craftSpruceNightstand());
         Bukkit.addRecipe(craftWarpedNightstand());
+        Bukkit.addRecipe(craftMangroveNightstand());
     }
 
     @Nonnull
@@ -132,6 +133,20 @@ public class Nightstand {
                         "P P"
                 )
                 .setIngredient('P', Material.WARPED_PLANKS);
+        shapedRecipe.setGroup(pluginNameInLowerCase + ":nightstand");
+        return shapedRecipe;
+    }
+
+    @Nonnull
+    public static ShapedRecipe craftMangroveNightstand() {
+        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_NIGHTSTAND;
+        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+                .shape(
+                        "PPP",
+                        "PPP",
+                        "P P"
+                )
+                .setIngredient('P', Material.MANGROVE_PLANKS);
         shapedRecipe.setGroup(pluginNameInLowerCase + ":nightstand");
         return shapedRecipe;
     }
