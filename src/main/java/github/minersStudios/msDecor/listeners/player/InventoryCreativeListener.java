@@ -3,10 +3,7 @@ package github.minersStudios.msDecor.listeners.player;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.ItemFrame;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
@@ -21,7 +18,7 @@ public class InventoryCreativeListener implements Listener {
     @EventHandler
     public void onInventoryCreative(@Nonnull InventoryCreativeEvent event) {
         if (event.getClick() != ClickType.CREATIVE) return;
-        Player player = (Player) event.getWhoClicked();
+        HumanEntity player = event.getWhoClicked();
         Block clickedBlock = player.getTargetBlockExact(5);
         if (
                 clickedBlock != null

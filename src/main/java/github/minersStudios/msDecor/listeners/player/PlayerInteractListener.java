@@ -2,6 +2,8 @@ package github.minersStudios.msDecor.listeners.player;
 
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.objects.CustomDecor;
+import github.minersStudios.msDecor.utils.BlockUtils;
+import github.minersStudios.msDecor.utils.PlayerUtils;
 import github.minersStudios.msUtils.classes.SitPlayer;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -22,31 +24,39 @@ public class PlayerInteractListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
     public void onPlayerInteract(@Nonnull PlayerInteractEvent event) {
-        if(event.getClickedBlock() == null) return;
-        Player player = event.getPlayer();
-        ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
+        if (event.getClickedBlock() == null || event.getHand() == null) return;
         Block clickedBlock = event.getClickedBlock(),
-                blockAtFace = clickedBlock.getRelative(event.getBlockFace());
+                blockAtFace = clickedBlock.getRelative(event.getBlockFace()),
+                replaceableBlock = BlockUtils.REPLACE.contains(clickedBlock.getType()) ? clickedBlock : clickedBlock.getRelative(event.getBlockFace());
+        Player player = event.getPlayer();
+        GameMode gameMode = player.getGameMode();
+        EquipmentSlot hand = event.getHand();
+        ItemStack itemInHand,
+                itemInMainHand = player.getInventory().getItemInMainHand();
+        if (PlayerUtils.isItemCustomBlock(itemInMainHand)) return;
+        if (hand != EquipmentSlot.HAND && PlayerUtils.isItemCustomDecor(itemInMainHand))
+            hand = EquipmentSlot.HAND;
+        itemInHand = player.getInventory().getItem(hand);
+        if (itemInHand == null) return;
         if (
                 event.getAction() == Action.RIGHT_CLICK_BLOCK
-                && itemInMainHand.getType() == Material.LEATHER_HORSE_ARMOR
-                && event.getHand() == EquipmentSlot.HAND
-                && player.getGameMode() != GameMode.ADVENTURE
-                && player.getGameMode() != GameMode.SPECTATOR
+                && PlayerUtils.isItemCustomDecor(itemInHand)
+                && (event.getHand() == EquipmentSlot.HAND || hand == EquipmentSlot.OFF_HAND)
+                && gameMode != GameMode.ADVENTURE
+                && gameMode != GameMode.SPECTATOR
                 && (!clickedBlock.getType().isInteractable() || (player.isSneaking() && clickedBlock.getType().isInteractable()) || clickedBlock.getType() == Material.NOTE_BLOCK)
-                && CustomDecorMaterial.REPLACE.contains(clickedBlock.getRelative(event.getBlockFace()).getType())
+                && BlockUtils.REPLACE.contains(clickedBlock.getRelative(event.getBlockFace()).getType())
         ) {
-            Block replaceableBlock = CustomDecorMaterial.REPLACE.contains(clickedBlock.getType()) ? clickedBlock : clickedBlock.getRelative(event.getBlockFace());
-            if (
-                    replaceableBlock.getType() == Material.TALL_GRASS && replaceableBlock.getLocation().clone().subtract(0.0d, 1.0d, 0.0d).getBlock().getType() == Material.TALL_GRASS
-                    || replaceableBlock.getType() == Material.TALL_SEAGRASS && replaceableBlock.getLocation().clone().subtract(0.0d, 1.0d, 0.0d).getBlock().getType() == Material.TALL_SEAGRASS
-            ) {
-                replaceableBlock.getLocation().clone().subtract(0.0d, 1.0d, 0.0d).getBlock().breakNaturally();
+            BlockUtils.removeBlock(replaceableBlock.getLocation());
+            if (clickedBlock.getType() == Material.BARRIER) {
+                for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
+                    CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, false);
+                    if (customDecorMaterial != null && customDecorMaterial.getHeight() != null)
+                        return;
+                }
             }
-
-            if (itemInMainHand.getItemMeta() == null || !itemInMainHand.getItemMeta().hasCustomModelData()) return;
-            CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByItem(itemInMainHand.getItemMeta(), false);
-            if (customDecorMaterial == null || (clickedBlock.getType() == Material.BARRIER && !player.isSneaking() && customDecorMaterial.getHeight() != null)) return;
+            CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByItem(itemInHand, false);
+            if (customDecorMaterial == null) return;
             for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d))
                 if (!(nearbyEntity instanceof Item) && (customDecorMaterial.getHitBox().isSolidHitBox() || nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame)) return;
             CustomDecor customDecor = new CustomDecor(replaceableBlock, player);
@@ -55,35 +65,37 @@ public class PlayerInteractListener implements Listener {
                     && replaceableBlock.getLocation().add(0.5d, -1.0d, 0.5d).getBlock().getType().isSolid()
                     && customDecorMaterial.getFacing() == CustomDecorMaterial.Facing.FLOOR
             ) {
-                customDecor.setCustomDecor(customDecorMaterial, BlockFace.UP);
+                customDecor.setCustomDecor(customDecorMaterial, BlockFace.UP, hand);
             } else if (
                     event.getBlockFace() != BlockFace.UP
                     && replaceableBlock.getLocation().add(0.5d, 1.0d, 0.5d).getBlock().getType().isSolid()
                     && customDecorMaterial.getFacing() == CustomDecorMaterial.Facing.CEILING
             ) {
-                customDecor.setCustomDecor(customDecorMaterial, BlockFace.DOWN);
+                customDecor.setCustomDecor(customDecorMaterial, BlockFace.DOWN, hand);
             } else if (
                     event.getBlockFace() != BlockFace.UP
                     && event.getBlockFace() != BlockFace.DOWN
                     && customDecorMaterial.getFacing() == CustomDecorMaterial.Facing.WALL
             ) {
-                customDecor.setCustomDecor(customDecorMaterial, event.getBlockFace());
+                customDecor.setCustomDecor(customDecorMaterial, event.getBlockFace(), hand);
             }
         } else if (
                 event.getAction() == Action.LEFT_CLICK_BLOCK
-                && CustomDecorMaterial.CUSTOM_BLOCK_MATERIALS.contains(clickedBlock.getType())
+                && BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(clickedBlock.getType())
                 && (player.isSneaking() && player.getGameMode() == GameMode.SURVIVAL
-                || player.getGameMode() == GameMode.SURVIVAL && clickedBlock.getType() == Material.STRUCTURE_VOID
-                || player.getGameMode() == GameMode.CREATIVE)
+                || gameMode == GameMode.SURVIVAL && clickedBlock.getType() == Material.STRUCTURE_VOID
+                || gameMode == GameMode.CREATIVE)
         ) {
             CustomDecor customDecor = new CustomDecor(clickedBlock, player);
             customDecor.breakCustomDecor();
         } else if (
                 event.getAction() == Action.RIGHT_CLICK_BLOCK
-                && (!itemInMainHand.getType().isBlock() || itemInMainHand.getType() == Material.AIR)
-                && event.getHand() == EquipmentSlot.HAND
-                && player.getGameMode() != GameMode.SPECTATOR
                 && clickedBlock.getType() == Material.BARRIER
+                && (!itemInHand.getType().isBlock() || itemInHand.getType() == Material.AIR)
+                && !PlayerUtils.isItemCustomBlock(itemInHand)
+                && event.getHand() == EquipmentSlot.HAND
+                && gameMode != GameMode.SPECTATOR
+                && !clickedBlock.getRelative(BlockFace.UP).getType().isSolid()
         ) {
             for (Entity nearbyEntity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
                 if (nearbyEntity instanceof ArmorStand || nearbyEntity instanceof ItemFrame) {
@@ -95,9 +107,6 @@ public class PlayerInteractListener implements Listener {
                 }
             }
         }
-
-        if (event.getAction() == Action.RIGHT_CLICK_BLOCK && (blockAtFace.getType() == Material.STRUCTURE_VOID || blockAtFace.getType() == Material.LIGHT)) {
-            event.setCancelled(true);
-        }
+        event.setCancelled(event.getAction() == Action.RIGHT_CLICK_BLOCK && (blockAtFace.getType() == Material.STRUCTURE_VOID || blockAtFace.getType() == Material.LIGHT));
     }
 }

@@ -1,6 +1,5 @@
 package github.minersStudios.msDecor.listeners.player;
 
-import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
@@ -11,9 +10,6 @@ public class PlayerInteractAtEntityListener implements Listener {
 
     @EventHandler
     public void onPlayerInteractAtEntity(@Nonnull PlayerInteractAtEntityEvent event) {
-        event.setCancelled(
-                event.getRightClicked().getScoreboardTags().contains("customDecor")
-                && CustomDecorMaterial.getCustomDecorMaterialByEntity(event.getRightClicked(), false) != null
-        );
+        event.setCancelled(event.getRightClicked().getScoreboardTags().contains("customDecor"));
     }
 }

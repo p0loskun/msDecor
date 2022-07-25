@@ -1,7 +1,5 @@
 package github.minersStudios.msDecor.enums;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -267,26 +265,6 @@ public enum CustomDecorMaterial {
     SKELETON_HAND_STONE(null, 1192, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
     ;
 
-    public static final ImmutableSet<Material> CUSTOM_BLOCK_MATERIALS = Sets.immutableEnumSet(
-            Material.BARRIER,
-            Material.STRUCTURE_VOID
-    );
-
-    public static final ImmutableSet<Material> REPLACE = Sets.immutableEnumSet(
-            Material.AIR,
-            Material.WATER,
-            Material.LAVA,
-            Material.GRASS,
-            Material.FERN,
-            Material.SEAGRASS,
-            Material.TALL_GRASS,
-            Material.LARGE_FERN,
-            Material.TALL_SEAGRASS,
-            Material.VINE,
-            Material.SNOW,
-            Material.FIRE
-    );
-
     @Nullable private final String itemName;
     @Getter private final int itemCustomModelData;
     @Nullable private final List<String> lore;
@@ -363,9 +341,11 @@ public enum CustomDecorMaterial {
      * @return Custom decor material by item in hand
      */
     @Nullable
-    public static CustomDecorMaterial getCustomDecorMaterialByItem(@Nonnull ItemMeta itemMeta, boolean searchOriginal) {
+    public static CustomDecorMaterial getCustomDecorMaterialByItem(@Nonnull ItemStack item, boolean searchOriginal) {
+        if (item.getItemMeta() == null)
+            return null;
         for (CustomDecorMaterial customDecorMaterial : CustomDecorMaterial.values())
-            if (customDecorMaterial.itemCustomModelData == itemMeta.getCustomModelData())
+            if (customDecorMaterial.itemCustomModelData == item.getItemMeta().getCustomModelData())
                 return searchOriginal ? getCustomDecorMaterialWithoutSuffix(customDecorMaterial.name()) : customDecorMaterial;
         return null;
     }
@@ -411,6 +391,8 @@ public enum CustomDecorMaterial {
                 return customDecorMaterial;
         return null;
     }
+
+
 
     public enum Facing {
         CEILING, FLOOR, WALL

@@ -2,7 +2,9 @@ package github.minersStudios.msDecor.objects;
 
 import github.minersStudios.msDecor.Main;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
+import github.minersStudios.msDecor.utils.BlockUtils;
 import github.minersStudios.msDecor.utils.EntityUtils;
+import github.minersStudios.msDecor.utils.PlayerUtils;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -11,6 +13,7 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -36,22 +39,23 @@ public class CustomDecor {
      * @param customDecorMaterial custom decor that will be placed
      * @param blockFace block face on which the frame is to be spawned
      */
-    public void setCustomDecor(@Nonnull CustomDecorMaterial customDecorMaterial, @Nonnull BlockFace blockFace) {
+    public void setCustomDecor(@Nonnull CustomDecorMaterial customDecorMaterial, @Nonnull BlockFace blockFace, @Nonnull EquipmentSlot hand) {
         if (this.player == null) return;
-        this.customDecorMaterial = customDecorMaterial;
-        this.itemInMainHand = this.player.getInventory().getItemInMainHand();
-        if (customDecorMaterial.getHitBox().isArmorStand()) {
-            this.summonArmorStand();
-        } else {
-            this.summonItemFrame(blockFace);
-        }
-        this.setHitBox();
-        this.player.swingMainHand();
-        this.playPlaceSound();
-        this.itemInMainHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInMainHand.getAmount() - 1 : this.itemInMainHand.getAmount());
-        coreProtectAPI.logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+        Bukkit.getScheduler().runTask(Main.plugin, () -> {
+            this.customDecorMaterial = customDecorMaterial;
+            this.itemInMainHand = this.player.getInventory().getItemInMainHand();
+            if (customDecorMaterial.getHitBox().isArmorStand()) {
+                this.summonArmorStand();
+            } else {
+                this.summonItemFrame(blockFace);
+            }
+            this.setHitBox();
+            PlayerUtils.swingHand(player, hand);
+            this.playPlaceSound();
+            this.itemInMainHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInMainHand.getAmount() - 1 : this.itemInMainHand.getAmount());
+            coreProtectAPI.logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+        });
     }
-
     /**
      * Breaks custom block vanillish
      */
@@ -98,7 +102,7 @@ public class CustomDecor {
             }
         }
         this.playBreakSound();
-        if (CustomDecorMaterial.CUSTOM_BLOCK_MATERIALS.contains(this.block.getType()) || this.block.getType() == Material.LIGHT)
+        if (BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(this.block.getType()) || this.block.getType() == Material.LIGHT)
             this.block.setType(Material.AIR);
         coreProtectAPI.logRemoval(this.player != null ? this.player.getName() : null, this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
     }
