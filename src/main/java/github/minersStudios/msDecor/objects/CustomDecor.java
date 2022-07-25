@@ -25,7 +25,7 @@ import static github.minersStudios.msDecor.Main.coreProtectAPI;
 public class CustomDecor {
     private final Block block;
     private final Player player;
-    private ItemStack itemInMainHand;
+    private ItemStack itemInHand;
     @Nullable private CustomDecorMaterial customDecorMaterial;
 
     public CustomDecor(@Nonnull Block block, @Nullable Player player) {
@@ -43,7 +43,7 @@ public class CustomDecor {
         if (this.player == null) return;
         Bukkit.getScheduler().runTask(Main.plugin, () -> {
             this.customDecorMaterial = customDecorMaterial;
-            this.itemInMainHand = this.player.getInventory().getItemInMainHand();
+            this.itemInHand = this.player.getInventory().getItem(hand);
             if (customDecorMaterial.getHitBox().isArmorStand()) {
                 this.summonArmorStand();
             } else {
@@ -52,7 +52,7 @@ public class CustomDecor {
             this.setHitBox();
             PlayerUtils.swingHand(player, hand);
             this.playPlaceSound();
-            this.itemInMainHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInMainHand.getAmount() - 1 : this.itemInMainHand.getAmount());
+            this.itemInHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInHand.getAmount() - 1 : this.itemInHand.getAmount());
             coreProtectAPI.logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
         });
     }
@@ -121,7 +121,7 @@ public class CustomDecor {
             armorStand.setCollidable(false);
             armorStand.addScoreboardTag("customDecor");
 
-            ItemStack itemStack = this.itemInMainHand.clone();
+            ItemStack itemStack = this.itemInHand.clone();
             ItemMeta itemMeta = itemStack.getItemMeta();
             assert itemMeta != null;
             itemMeta.setDisplayName(itemStack.getItemMeta().getDisplayName());
@@ -138,17 +138,17 @@ public class CustomDecor {
      * @param blockFace block face on which the frame is to be spawned
      */
     private void summonItemFrame(BlockFace blockFace) {
-        if (this.player == null || this.customDecorMaterial == null || this.itemInMainHand.getItemMeta() == null) return;
+        if (this.player == null || this.customDecorMaterial == null || this.itemInHand.getItemMeta() == null) return;
         this.block.getWorld().spawn(this.block.getLocation().add(0.5d, 0.0d, 0.5d), ItemFrame.class, (itemFrame) -> {
             itemFrame.setItemDropChance(0.0f);
-            itemFrame.setCustomName(this.itemInMainHand.getItemMeta().getDisplayName());
+            itemFrame.setCustomName(this.itemInHand.getItemMeta().getDisplayName());
             itemFrame.setVisible(false);
             itemFrame.setSilent(true);
             itemFrame.setFixed(this.customDecorMaterial.getHitBox() != CustomDecorMaterial.HitBox.FRAME);
             itemFrame.setFacingDirection(blockFace);
             itemFrame.addScoreboardTag("customDecor");
 
-            ItemStack itemStack = this.itemInMainHand.clone();
+            ItemStack itemStack = this.itemInHand.clone();
             ItemMeta itemMeta = itemStack.getItemMeta();
             assert itemMeta != null;
             itemMeta.setDisplayName(null);
