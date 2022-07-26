@@ -1,4 +1,4 @@
-package github.minersStudios.msDecor.listeners.player;
+package github.minersStudios.msDecor.listeners.block;
 
 import github.minersStudios.msDecor.utils.BlockUtils;
 import org.bukkit.block.Block;

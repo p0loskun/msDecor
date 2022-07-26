@@ -11,7 +11,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -22,7 +21,7 @@ import javax.annotation.Nonnull;
 
 public class PlayerInteractListener implements Listener {
 
-    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+    @EventHandler
     public void onPlayerInteract(@Nonnull PlayerInteractEvent event) {
         if (event.getClickedBlock() == null || event.getHand() == null) return;
         Block clickedBlock = event.getClickedBlock(),
@@ -48,13 +47,6 @@ public class PlayerInteractListener implements Listener {
                 && BlockUtils.REPLACE.contains(clickedBlock.getRelative(event.getBlockFace()).getType())
         ) {
             BlockUtils.removeBlock(replaceableBlock.getLocation());
-            if (clickedBlock.getType() == Material.BARRIER) {
-                for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
-                    CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, false);
-                    if (customDecorMaterial != null && customDecorMaterial.getHeight() != null)
-                        return;
-                }
-            }
             CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByItem(itemInHand, false);
             if (customDecorMaterial == null) return;
             for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d))
@@ -90,6 +82,7 @@ public class PlayerInteractListener implements Listener {
             customDecor.breakCustomDecor();
         } else if (
                 event.getAction() == Action.RIGHT_CLICK_BLOCK
+                && !player.isSneaking()
                 && clickedBlock.getType() == Material.BARRIER
                 && (!itemInHand.getType().isBlock() || itemInHand.getType() == Material.AIR)
                 && !PlayerUtils.isItemCustomBlock(itemInHand)
