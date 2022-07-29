@@ -11,20 +11,20 @@ import javax.annotation.Nonnull;
 
 public class CoolArmchair {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftCoolArmchair());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftCoolArmchair());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftCoolArmchair() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.COOL_ARMCHAIR;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape(
-                        "L  ",
-                        "LLL",
-                        "I I"
-                )
-                .setIngredient('I', Material.IRON_NUGGET)
-                .setIngredient('L', Material.LEATHER);
-    }
+	@Nonnull
+	public static ShapedRecipe craftCoolArmchair() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.COOL_ARMCHAIR;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape(
+						"L  ",
+						"LLL",
+						"I I"
+				)
+				.setIngredient('I', Material.IRON_NUGGET)
+				.setIngredient('L', Material.LEATHER);
+	}
 }

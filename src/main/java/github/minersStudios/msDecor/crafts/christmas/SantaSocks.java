@@ -11,20 +11,20 @@ import javax.annotation.Nonnull;
 
 public class SantaSocks {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftSantaSocks());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftSantaSocks());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftSantaSocks() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SANTA_SOCKS;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                " L ",
-                " L",
-                " LL"
-        );
-        shapedRecipe.setIngredient('L', Material.LEATHER);
-        return shapedRecipe;
-    }
+	@Nonnull
+	public static ShapedRecipe craftSantaSocks() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SANTA_SOCKS;
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
+		shapedRecipe.shape(
+				" L ",
+				" L",
+				" LL"
+		);
+		shapedRecipe.setIngredient('L', Material.LEATHER);
+		return shapedRecipe;
+	}
 }

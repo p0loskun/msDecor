@@ -11,16 +11,16 @@ import javax.annotation.Nonnull;
 
 public class Patefon {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftPatefon());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftPatefon());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftPatefon() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PATEFON;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape("SJS")
-                .setIngredient('J', Material.JUKEBOX)
-                .setIngredient('S', Material.SPRUCE_PLANKS);
-    }
+	@Nonnull
+	public static ShapedRecipe craftPatefon() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.PATEFON;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape("SJS")
+				.setIngredient('J', Material.JUKEBOX)
+				.setIngredient('S', Material.SPRUCE_PLANKS);
+	}
 }

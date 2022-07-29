@@ -11,20 +11,20 @@ import javax.annotation.Nonnull;
 
 public class SkeletonHand {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftSkeletonHand());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftSkeletonHand());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftSkeletonHand() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SKELETON_HAND;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "BBB",
-                "BBB",
-                " B "
-        );
-        shapedRecipe.setIngredient('B', Material.BONE);
-        return shapedRecipe;
-    }
+	@Nonnull
+	public static ShapedRecipe craftSkeletonHand() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SKELETON_HAND;
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
+		shapedRecipe.shape(
+				"BBB",
+				"BBB",
+				" B "
+		);
+		shapedRecipe.setIngredient('B', Material.BONE);
+		return shapedRecipe;
+	}
 }

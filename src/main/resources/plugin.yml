@@ -1,12 +1,10 @@
 name: msDecor
 description: A Minecraft plugin with Decorations for WhoMine
-authors: [MinersStudios, p0loskun]
+authors: [ MinersStudios, p0loskun ]
 website: minersstudios.github.io
 
 version: ${project.version}
 main: github.minersStudios.msDecor.Main
 api-version: 1.19
 database: false
-softdepend:
-  - CoreProtect
-  - msUtils
+softdepend: [ CoreProtect, msUtils ]

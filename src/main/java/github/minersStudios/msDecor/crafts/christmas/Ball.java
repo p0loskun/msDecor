@@ -11,21 +11,21 @@ import javax.annotation.Nonnull;
 
 public class Ball {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftBall());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftBall());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftBall() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BALL;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                " S ",
-                "CCC",
-                "CCC"
-        );
-        shapedRecipe.setIngredient('S', Material.STRING);
-        shapedRecipe.setIngredient('C', Material.CLAY_BALL);
-        return shapedRecipe;
-    }
+	@Nonnull
+	public static ShapedRecipe craftBall() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BALL;
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
+		shapedRecipe.shape(
+				" S ",
+				"CCC",
+				"CCC"
+		);
+		shapedRecipe.setIngredient('S', Material.STRING);
+		shapedRecipe.setIngredient('C', Material.CLAY_BALL);
+		return shapedRecipe;
+	}
 }

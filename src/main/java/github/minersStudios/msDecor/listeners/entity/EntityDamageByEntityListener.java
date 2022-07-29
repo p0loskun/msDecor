@@ -14,19 +14,20 @@ import javax.annotation.Nonnull;
 
 public class EntityDamageByEntityListener implements Listener {
 
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-    public void onEntityDamageByEntity(@Nonnull EntityDamageByEntityEvent event) {
-        Entity entity = event.getEntity();
-        event.setCancelled(entity.getScoreboardTags().contains("customDecor"));
-        if (
-                !(event.getDamager() instanceof Player player)
-                || player.getGameMode() == GameMode.ADVENTURE
-                || CustomDecorMaterial.getCustomDecorMaterialByEntity(entity, true) == null
-                || !entity.getScoreboardTags().contains("customDecor")
-        ) return;
-        if (
-                player.isSneaking()
-                && player.getGameMode() == GameMode.SURVIVAL || player.getGameMode() == GameMode.CREATIVE
-        ) new CustomDecor(entity.getLocation().getBlock(), player).breakCustomDecor();
-    }
+	@EventHandler(priority = EventPriority.LOW)
+	public void onEntityDamageByEntity(@Nonnull EntityDamageByEntityEvent event) {
+		Entity entity = event.getEntity();
+		event.setCancelled(entity.getScoreboardTags().contains("customDecor"));
+		if (
+				!(event.getDamager() instanceof Player player)
+				|| player.getGameMode() == GameMode.ADVENTURE
+				|| CustomDecorMaterial.getCustomDecorMaterialByEntity(entity, true) == null
+				|| !entity.getScoreboardTags().contains("customDecor")
+		) return;
+		if (
+				player.isSneaking()
+				&& player.getGameMode() == GameMode.SURVIVAL
+				|| player.getGameMode() == GameMode.CREATIVE
+		) new CustomDecor(entity.getLocation().getBlock(), player).breakCustomDecor();
+	}
 }

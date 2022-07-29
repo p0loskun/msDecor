@@ -11,16 +11,16 @@ import javax.annotation.Nonnull;
 
 public class SmallGlobus {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftSmallGlobus());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftSmallGlobus());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftSmallGlobus() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_GLOBUS;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape("M", "S")
-                .setIngredient('S', Material.STICK)
-                .setIngredient('M', Material.MAP);
-    }
+	@Nonnull
+	public static ShapedRecipe craftSmallGlobus() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_GLOBUS;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape("M", "S")
+				.setIngredient('S', Material.STICK)
+				.setIngredient('M', Material.MAP);
+	}
 }

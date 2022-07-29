@@ -11,16 +11,16 @@ import javax.annotation.Nonnull;
 
 public class BigLamp {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftBigLamp());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftBigLamp());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftBigLamp() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIG_LAMP;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape("L", "S", "S")
-                .setIngredient('S', Material.STICK)
-                .setIngredient('L', Material.LEATHER);
-    }
+	@Nonnull
+	public static ShapedRecipe craftBigLamp() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIG_LAMP;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape("L", "S", "S")
+				.setIngredient('S', Material.STICK)
+				.setIngredient('L', Material.LEATHER);
+	}
 }

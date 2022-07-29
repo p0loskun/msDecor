@@ -10,8 +10,8 @@ import javax.annotation.Nonnull;
 
 public class HangingBreakListener implements Listener {
 
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-    public void onHangingBreak(@Nonnull HangingBreakEvent event) {
-        event.setCancelled(event.getEntity() instanceof ItemFrame itemFrame && itemFrame.getScoreboardTags().contains("customDecor"));
-    }
+	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	public void onHangingBreak(@Nonnull HangingBreakEvent event) {
+		event.setCancelled(event.getEntity() instanceof ItemFrame itemFrame && itemFrame.getScoreboardTags().contains("customDecor"));
+	}
 }

@@ -11,21 +11,21 @@ import javax.annotation.Nonnull;
 
 public class BrokenSnowman {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftBrokenSnowman());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftBrokenSnowman());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftBrokenSnowman() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BROKEN_SNOWMAN;
-        ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
-        shapedRecipe.shape(
-                "   ",
-                " W ",
-                "SSS"
-        );
-        shapedRecipe.setIngredient('S', Material.SNOW_BLOCK);
-        shapedRecipe.setIngredient('W', Material.PURPLE_WOOL);
-        return shapedRecipe;
-    }
+	@Nonnull
+	public static ShapedRecipe craftBrokenSnowman() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BROKEN_SNOWMAN;
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack());
+		shapedRecipe.shape(
+				"   ",
+				" W ",
+				"SSS"
+		);
+		shapedRecipe.setIngredient('S', Material.SNOW_BLOCK);
+		shapedRecipe.setIngredient('W', Material.PURPLE_WOOL);
+		return shapedRecipe;
+	}
 }

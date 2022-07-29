@@ -11,18 +11,18 @@ import javax.annotation.Nonnull;
 
 public class OldCamera {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftOldCamera());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftOldCamera());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftOldCamera() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OLD_CAMERA;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape(
-                        " I ",
-                        " S ",
-                        "S S"
-                ).setIngredient('S', Material.STICK).setIngredient('I', Material.IRON_INGOT);
-    }
+	@Nonnull
+	public static ShapedRecipe craftOldCamera() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OLD_CAMERA;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape(
+						" I ",
+						" S ",
+						"S S"
+				).setIngredient('S', Material.STICK).setIngredient('I', Material.IRON_INGOT);
+	}
 }

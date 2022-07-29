@@ -15,7 +15,8 @@ import github.minersStudios.msDecor.crafts.street.*;
 import github.minersStudios.msDecor.crafts.street.trashcans.*;
 
 public class RegCrafts {
-    public RegCrafts() {
+
+    public static void init() {
         Chair.addRecipes();
         SmallArmchair.addRecipes();
         Armchair.addRecipes();

@@ -11,20 +11,20 @@ import javax.annotation.Nonnull;
 
 public class Brazier {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftBrazier());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftBrazier());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftBrazier() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BRAZIER;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape(
-                        "B B",
-                        "BBB",
-                        " I "
-                )
-                .setIngredient('B', Material.IRON_BARS)
-                .setIngredient('I', Material.IRON_INGOT);
-    }
+	@Nonnull
+	public static ShapedRecipe craftBrazier() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BRAZIER;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape(
+						"B B",
+						"BBB",
+						" I "
+				)
+				.setIngredient('B', Material.IRON_BARS)
+				.setIngredient('I', Material.IRON_INGOT);
+	}
 }

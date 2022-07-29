@@ -11,20 +11,20 @@ import javax.annotation.Nonnull;
 
 public class SmallClock {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftSmallClock());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftSmallClock());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftSmallClock() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_CLOCK;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape(
-                        "LLL",
-                        "LCL",
-                        "LLL"
-                )
-                .setIngredient('C', Material.CLOCK)
-                .setIngredient('L', Material.CLAY_BALL);
-    }
+	@Nonnull
+	public static ShapedRecipe craftSmallClock() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_CLOCK;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape(
+						"LLL",
+						"LCL",
+						"LLL"
+				)
+				.setIngredient('C', Material.CLOCK)
+				.setIngredient('L', Material.CLAY_BALL);
+	}
 }

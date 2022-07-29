@@ -11,20 +11,20 @@ import javax.annotation.Nonnull;
 
 public class BarStool {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftBarStool());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftBarStool());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftBarStool() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BAR_STOOL;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape(
-                        "ILI",
-                        " I ",
-                        "III"
-                )
-                .setIngredient('I', Material.IRON_INGOT)
-                .setIngredient('L', Material.LEATHER);
-    }
+	@Nonnull
+	public static ShapedRecipe craftBarStool() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BAR_STOOL;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape(
+						"ILI",
+						" I ",
+						"III"
+				)
+				.setIngredient('I', Material.IRON_INGOT)
+				.setIngredient('L', Material.LEATHER);
+	}
 }

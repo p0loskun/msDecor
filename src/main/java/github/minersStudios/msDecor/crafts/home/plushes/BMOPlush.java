@@ -11,16 +11,16 @@ import javax.annotation.Nonnull;
 
 public class BMOPlush {
 
-    public static void addRecipes() {
-        Bukkit.addRecipe(craftBMOPlush());
-    }
+	public static void addRecipes() {
+		Bukkit.addRecipe(craftBMOPlush());
+	}
 
-    @Nonnull
-    public static ShapedRecipe craftBMOPlush() {
-        CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BMO_PLUSH;
-        return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
-                .shape("II", "DI")
-                .setIngredient('D', Material.LIGHT_BLUE_DYE)
-                .setIngredient('I', Material.IRON_INGOT);
-    }
+	@Nonnull
+	public static ShapedRecipe craftBMOPlush() {
+		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BMO_PLUSH;
+		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+				.shape("II", "DI")
+				.setIngredient('D', Material.LIGHT_BLUE_DYE)
+				.setIngredient('I', Material.IRON_INGOT);
+	}
 }
