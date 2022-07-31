@@ -10,7 +10,6 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -23,7 +22,7 @@ import javax.annotation.Nonnull;
 public class TrashCan implements Listener {
 	private static final String INV_NAME = ChatColor.DARK_GRAY + "Мусорка";
 
-	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+	@EventHandler
 	public void onPlayerInteract(@Nonnull PlayerInteractEvent event) {
 		if (event.getClickedBlock() == null) return;
 		Player player = event.getPlayer();

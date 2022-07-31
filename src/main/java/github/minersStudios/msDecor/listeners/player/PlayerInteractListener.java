@@ -10,7 +10,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -21,7 +20,7 @@ import javax.annotation.Nonnull;
 
 public class PlayerInteractListener implements Listener {
 
-	@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+	@EventHandler
 	public void onPlayerInteract(@Nonnull PlayerInteractEvent event) {
 		if (event.getClickedBlock() == null || event.getHand() == null) return;
 		Block clickedBlock = event.getClickedBlock(),

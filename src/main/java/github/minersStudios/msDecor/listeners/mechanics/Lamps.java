@@ -7,7 +7,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 
@@ -15,7 +14,7 @@ import javax.annotation.Nonnull;
 
 public class Lamps implements Listener {
 
-	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+	@EventHandler
 	public void onInteractWithArmorStand(@Nonnull PlayerInteractAtEntityEvent event) {
 		if (!(event.getRightClicked() instanceof ArmorStand armorStand)) return;
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(armorStand, false);

@@ -3,7 +3,6 @@ package github.minersStudios.msDecor.listeners.player;
 import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import github.minersStudios.msDecor.utils.PlayerUtils;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.HorseInventory;
@@ -14,7 +13,7 @@ import javax.annotation.Nonnull;
 
 public class InventoryClickListener implements Listener {
 
-	@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+	@EventHandler
 	public void onInventoryClick(@Nonnull InventoryClickEvent event) {
 		ItemStack cursor = event.getCursor(),
 				currentItem = event.getCurrentItem();

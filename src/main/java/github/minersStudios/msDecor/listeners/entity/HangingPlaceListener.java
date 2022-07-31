@@ -4,7 +4,6 @@ import github.minersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.hanging.HangingPlaceEvent;
 
@@ -12,7 +11,7 @@ import javax.annotation.Nonnull;
 
 public class HangingPlaceListener implements Listener {
 
-	@EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+	@EventHandler
 	public void onHangingPlace(@Nonnull HangingPlaceEvent event) {
 		if (event.getItemStack() == null || event.getPlayer() == null) return;
 		Block clickedBlock = event.getBlock();

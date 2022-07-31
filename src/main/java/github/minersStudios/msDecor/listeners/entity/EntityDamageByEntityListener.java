@@ -6,7 +6,6 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
@@ -14,7 +13,7 @@ import javax.annotation.Nonnull;
 
 public class EntityDamageByEntityListener implements Listener {
 
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler
 	public void onEntityDamageByEntity(@Nonnull EntityDamageByEntityEvent event) {
 		Entity entity = event.getEntity();
 		event.setCancelled(entity.getScoreboardTags().contains("customDecor"));

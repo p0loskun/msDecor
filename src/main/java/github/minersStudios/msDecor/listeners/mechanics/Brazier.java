@@ -8,7 +8,6 @@ import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.inventory.ItemStack;
@@ -18,7 +17,7 @@ import javax.annotation.Nonnull;
 
 public class Brazier implements Listener {
 
-	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+	@EventHandler
 	public void onPlayerInteractAtEntity(@Nonnull PlayerInteractAtEntityEvent event) {
 		if (!(event.getRightClicked() instanceof ArmorStand armorStand)) return;
 		Player player = event.getPlayer();
