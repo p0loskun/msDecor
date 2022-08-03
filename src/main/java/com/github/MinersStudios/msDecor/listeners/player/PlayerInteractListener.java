@@ -100,7 +100,7 @@ public class PlayerInteractListener implements Listener {
 				if (nearbyEntity.getType() == EntityType.ARMOR_STAND || nearbyEntity.getType() == EntityType.ITEM_FRAME) {
 					CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, false);
 					if (customDecorMaterial != null && customDecorMaterial.getHeight() != null) {
-						com.github.MinersStudios.msUtils.utils.PlayerUtils.setSitting(player, clickedBlock.getLocation().clone().add(0.5d, customDecorMaterial.getHeight(), 0.5d));
+						com.github.MinersStudios.msUtils.utils.PlayerUtils.setSitting(player, clickedBlock.getLocation().clone().add(0.5d, customDecorMaterial.getHeight(), 0.5d), null);
 						player.swingMainHand();
 					}
 				}
