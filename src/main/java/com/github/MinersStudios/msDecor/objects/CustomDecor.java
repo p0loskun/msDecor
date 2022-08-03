@@ -20,8 +20,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import static com.github.MinersStudios.msDecor.Main.coreProtectAPI;
-
 public class CustomDecor {
 	private final Block block;
 	private final Player player;
@@ -41,7 +39,7 @@ public class CustomDecor {
 	 */
 	public void setCustomDecor(@Nonnull CustomDecorMaterial customDecorMaterial, @Nonnull BlockFace blockFace, @Nonnull EquipmentSlot hand) {
 		if (this.player == null) return;
-		Bukkit.getScheduler().runTask(Main.plugin, () -> {
+		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
 			this.customDecorMaterial = customDecorMaterial;
 			this.itemInHand = this.player.getInventory().getItem(hand);
 			if (customDecorMaterial.getHitBox().isArmorStand()) {
@@ -53,7 +51,7 @@ public class CustomDecor {
 			PlayerUtils.swingHand(player, hand);
 			this.playPlaceSound();
 			this.itemInHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInHand.getAmount() - 1 : this.itemInHand.getAmount());
-			coreProtectAPI.logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+			Main.getCoreProtectAPI().logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
 		});
 	}
 
@@ -105,7 +103,7 @@ public class CustomDecor {
 		if (BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(this.block.getType()) || this.block.getType() == Material.LIGHT) {
 			this.block.setType(Material.AIR);
 		}
-		coreProtectAPI.logRemoval(this.player != null ? this.player.getName() : null, this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+		Main.getCoreProtectAPI().logRemoval(this.player != null ? this.player.getName() : null, this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
 	}
 
 	/**
@@ -166,7 +164,7 @@ public class CustomDecor {
 	 */
 	private void setHitBox() {
 		if (this.customDecorMaterial == null) return;
-		Bukkit.getScheduler().runTask(Main.plugin, () -> {
+		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
 			this.block.setType(
 					this.customDecorMaterial.getHitBox().isStructureHitBox() ? Material.STRUCTURE_VOID
 							: this.customDecorMaterial.getHitBox().isSolidHitBox() ? Material.BARRIER

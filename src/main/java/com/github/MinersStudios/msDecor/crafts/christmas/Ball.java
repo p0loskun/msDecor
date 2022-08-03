@@ -18,7 +18,7 @@ public class Ball {
 	@Nonnull
 	public static ShapedRecipe craftBall() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BALL;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						" S ",
 						"CCC",

@@ -18,7 +18,7 @@ public class OldCamera {
 	@Nonnull
 	public static ShapedRecipe craftOldCamera() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OLD_CAMERA;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						" I ",
 						" S ",

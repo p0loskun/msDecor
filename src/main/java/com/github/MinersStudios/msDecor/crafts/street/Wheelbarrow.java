@@ -18,7 +18,7 @@ public class Wheelbarrow {
 	@Nonnull
 	public static ShapedRecipe craftWheelbarrow() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WHEELBARROW;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"S S",
 						" C ",

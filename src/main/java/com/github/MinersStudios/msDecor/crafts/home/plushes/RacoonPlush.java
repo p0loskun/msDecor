@@ -18,7 +18,7 @@ public class RacoonPlush {
 	@Nonnull
 	public static ShapedRecipe craftRacoonPlush() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.RACOON_PLUSH;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape("WWW", "WWW")
 				.setIngredient('W', Material.GRAY_WOOL);
 	}

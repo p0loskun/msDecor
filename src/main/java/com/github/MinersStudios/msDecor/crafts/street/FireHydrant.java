@@ -18,7 +18,7 @@ public class FireHydrant {
 	@Nonnull
 	public static ShapedRecipe craftFireHydrant() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.FIRE_HYDRANT;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						" B ",
 						" B ",

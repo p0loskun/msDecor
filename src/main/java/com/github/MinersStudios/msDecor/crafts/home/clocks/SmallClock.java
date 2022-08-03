@@ -18,7 +18,7 @@ public class SmallClock {
 	@Nonnull
 	public static ShapedRecipe craftSmallClock() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SMALL_CLOCK;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"LLL",
 						"LCL",

@@ -2,6 +2,7 @@ package com.github.MinersStudios.msDecor;
 
 import com.github.MinersStudios.msDecor.crafts.RegCrafts;
 import com.github.MinersStudios.msDecor.listeners.RegEvents;
+import lombok.Getter;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import org.bukkit.plugin.Plugin;
@@ -10,18 +11,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 import javax.annotation.Nullable;
 
 public final class Main extends JavaPlugin {
-    public static Main plugin;
-    public static String pluginNameInLowerCase;
-    public static CoreProtectAPI coreProtectAPI = new CoreProtectAPI();
+    @Getter private static Main instance;
+    @Getter private static String pluginNameInLowerCase;
+    @Getter private static CoreProtectAPI coreProtectAPI = new CoreProtectAPI();
     public static final boolean
             isChristmas = false,
             isHalloween = false;
 
     @Override
     public void onEnable() {
-        plugin = this;
+        instance = this;
         coreProtectAPI = getCoreProtect();
-        pluginNameInLowerCase = plugin.getName().toLowerCase();
+        pluginNameInLowerCase = instance.getName().toLowerCase();
         if (coreProtectAPI != null) {
             coreProtectAPI.testAPI();
         }

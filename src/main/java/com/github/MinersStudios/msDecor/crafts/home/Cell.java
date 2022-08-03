@@ -18,7 +18,7 @@ public class Cell {
 	@Nonnull
 	public static ShapedRecipe craftCell() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CELL;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						" C ",
 						"BBB",

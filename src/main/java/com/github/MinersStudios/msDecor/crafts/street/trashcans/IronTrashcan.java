@@ -18,7 +18,7 @@ public class IronTrashcan {
 	@Nonnull
 	public static ShapedRecipe craftIronTrashcan() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.IRON_TRASHCAN;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"III",
 						"I I",

@@ -18,7 +18,7 @@ public class CookingPot {
 	@Nonnull
 	public static ShapedRecipe craftCookingPot() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.COOKING_POT;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape("ISI", "III")
 				.setIngredient('I', Material.IRON_INGOT)
 				.setIngredient('S', Material.STICK);

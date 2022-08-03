@@ -1,5 +1,6 @@
 package com.github.MinersStudios.msDecor.listeners;
 
+import com.github.MinersStudios.msDecor.Main;
 import com.github.MinersStudios.msDecor.listeners.block.BlockBreakListener;
 import com.github.MinersStudios.msDecor.listeners.entity.EntityDamageByEntityListener;
 import com.github.MinersStudios.msDecor.listeners.entity.HangingBreakListener;
@@ -10,28 +11,27 @@ import com.github.MinersStudios.msDecor.listeners.mechanics.TrashCan;
 import com.github.MinersStudios.msDecor.listeners.player.*;
 import org.bukkit.plugin.PluginManager;
 
-import static com.github.MinersStudios.msDecor.Main.plugin;
 
 public class RegEvents {
 
 	public static void init() {
-		PluginManager pluginManager = plugin.getServer().getPluginManager();
+		PluginManager pluginManager = Main.getInstance().getServer().getPluginManager();
 
-		pluginManager.registerEvents(new BlockBreakListener(), plugin);
+		pluginManager.registerEvents(new BlockBreakListener(), Main.getInstance());
 
-		pluginManager.registerEvents(new EntityDamageByEntityListener(), plugin);
-		pluginManager.registerEvents(new HangingBreakListener(), plugin);
-		pluginManager.registerEvents(new HangingPlaceListener(), plugin);
+		pluginManager.registerEvents(new EntityDamageByEntityListener(), Main.getInstance());
+		pluginManager.registerEvents(new HangingBreakListener(), Main.getInstance());
+		pluginManager.registerEvents(new HangingPlaceListener(), Main.getInstance());
 
-		pluginManager.registerEvents(new InventoryClickListener(), plugin);
-		pluginManager.registerEvents(new InventoryCreativeListener(), plugin);
-		pluginManager.registerEvents(new InventoryDragListener(), plugin);
-		pluginManager.registerEvents(new PlayerInteractAtEntityListener(), plugin);
-		pluginManager.registerEvents(new PlayerInteractEntityListener(), plugin);
-		pluginManager.registerEvents(new PlayerInteractListener(), plugin);
+		pluginManager.registerEvents(new InventoryClickListener(), Main.getInstance());
+		pluginManager.registerEvents(new InventoryCreativeListener(), Main.getInstance());
+		pluginManager.registerEvents(new InventoryDragListener(), Main.getInstance());
+		pluginManager.registerEvents(new PlayerInteractAtEntityListener(), Main.getInstance());
+		pluginManager.registerEvents(new PlayerInteractEntityListener(), Main.getInstance());
+		pluginManager.registerEvents(new PlayerInteractListener(), Main.getInstance());
 
-		pluginManager.registerEvents(new Lamps(), plugin);
-		pluginManager.registerEvents(new Brazier(), plugin);
-		pluginManager.registerEvents(new TrashCan(), plugin);
+		pluginManager.registerEvents(new Lamps(), Main.getInstance());
+		pluginManager.registerEvents(new Brazier(), Main.getInstance());
+		pluginManager.registerEvents(new TrashCan(), Main.getInstance());
 	}
 }

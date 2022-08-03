@@ -1,5 +1,6 @@
 package com.github.MinersStudios.msDecor.crafts.home.chairs;
 
+import com.github.MinersStudios.msDecor.Main;
 import com.github.MinersStudios.msDecor.enums.CustomDecorMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -7,9 +8,6 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapedRecipe;
 
 import javax.annotation.Nonnull;
-
-import static com.github.MinersStudios.msDecor.Main.plugin;
-import static com.github.MinersStudios.msDecor.Main.pluginNameInLowerCase;
 
 public class Chair {
 
@@ -28,7 +26,7 @@ public class Chair {
 	@Nonnull
 	public static ShapedRecipe craftOakChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.OAK_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -36,14 +34,14 @@ public class Chair {
 				)
 				.setIngredient('P', Material.OAK_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 
 	@Nonnull
 	public static ShapedRecipe craftSpruceChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SPRUCE_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -51,14 +49,14 @@ public class Chair {
 				)
 				.setIngredient('P', Material.SPRUCE_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 
 	@Nonnull
 	public static ShapedRecipe craftDarkOakChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DARK_OAK_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -66,14 +64,14 @@ public class Chair {
 				)
 				.setIngredient('P', Material.DARK_OAK_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 
 	@Nonnull
 	public static ShapedRecipe craftBirchChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIRCH_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -81,14 +79,14 @@ public class Chair {
 				)
 				.setIngredient('P', Material.BIRCH_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 
 	@Nonnull
 	public static ShapedRecipe craftJungleChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.JUNGLE_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -96,14 +94,14 @@ public class Chair {
 				)
 				.setIngredient('P', Material.JUNGLE_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 
 	@Nonnull
 	public static ShapedRecipe craftAcaciaChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ACACIA_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -111,14 +109,14 @@ public class Chair {
 				)
 				.setIngredient('P', Material.ACACIA_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 
 	@Nonnull
 	public static ShapedRecipe craftWarpedChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.WARPED_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -126,14 +124,14 @@ public class Chair {
 				)
 				.setIngredient('P', Material.WARPED_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 
 	@Nonnull
 	public static ShapedRecipe craftCrimsonChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.CRIMSON_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -141,14 +139,14 @@ public class Chair {
 				)
 				.setIngredient('P', Material.CRIMSON_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 
 	@Nonnull
 	public static ShapedRecipe craftMangroveChair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.MANGROVE_CHAIR;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		ShapedRecipe shapedRecipe = new ShapedRecipe(new NamespacedKey(Main.getInstance() , customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"P  ",
 						"PLP",
@@ -156,7 +154,7 @@ public class Chair {
 				)
 				.setIngredient('P', Material.MANGROVE_PLANKS)
 				.setIngredient('L', Material.LEATHER);
-		shapedRecipe.setGroup(pluginNameInLowerCase + ":chair");
+		shapedRecipe.setGroup(Main.getPluginNameInLowerCase() + ":chair");
 		return shapedRecipe;
 	}
 }

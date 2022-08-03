@@ -18,7 +18,7 @@ public class BigLamp {
 	@Nonnull
 	public static ShapedRecipe craftBigLamp() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BIG_LAMP;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape("L", "S", "S")
 				.setIngredient('S', Material.STICK)
 				.setIngredient('L', Material.LEATHER);

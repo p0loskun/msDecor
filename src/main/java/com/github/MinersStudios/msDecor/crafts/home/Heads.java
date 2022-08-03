@@ -20,7 +20,7 @@ public class Heads {
 	@Nonnull
 	public static ShapedRecipe craftDeerHead() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.DEER_HEAD;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"BBS",
 						" LS",
@@ -34,7 +34,7 @@ public class Heads {
 	@Nonnull
 	public static ShapedRecipe craftHoglinHead() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.HOGLIN_HEAD;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						" PS",
 						"BBS",
@@ -48,7 +48,7 @@ public class Heads {
 	@Nonnull
 	public static ShapedRecipe craftZoglinHead() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.ZOGLIN_HEAD;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						" FS",
 						"BBS",

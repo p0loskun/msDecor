@@ -18,7 +18,7 @@ public class SantaSocks {
 	@Nonnull
 	public static ShapedRecipe craftSantaSocks() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SANTA_SOCKS;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape("L", "L", "LL")
 				.setIngredient('L', Material.LEATHER);
 	}

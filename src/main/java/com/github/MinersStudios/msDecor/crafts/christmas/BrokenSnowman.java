@@ -18,7 +18,7 @@ public class BrokenSnowman {
 	@Nonnull
 	public static ShapedRecipe craftBrokenSnowman() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BROKEN_SNOWMAN;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"   ",
 						" W ",

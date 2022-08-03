@@ -18,7 +18,7 @@ public class Brazier {
 	@Nonnull
 	public static ShapedRecipe craftBrazier() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BRAZIER;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"B B",
 						"BBB",

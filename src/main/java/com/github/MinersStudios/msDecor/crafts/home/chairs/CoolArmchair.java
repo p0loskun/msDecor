@@ -18,7 +18,7 @@ public class CoolArmchair {
 	@Nonnull
 	public static ShapedRecipe craftCoolArmchair() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.COOL_ARMCHAIR;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"L  ",
 						"LLL",

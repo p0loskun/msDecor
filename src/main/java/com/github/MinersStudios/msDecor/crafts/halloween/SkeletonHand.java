@@ -18,7 +18,7 @@ public class SkeletonHand {
 	@Nonnull
 	public static ShapedRecipe craftSkeletonHand() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.SKELETON_HAND;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"BBB",
 						"BBB",

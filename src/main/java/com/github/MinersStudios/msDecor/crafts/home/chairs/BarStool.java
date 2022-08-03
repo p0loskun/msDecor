@@ -18,7 +18,7 @@ public class BarStool {
 	@Nonnull
 	public static ShapedRecipe craftBarStool() {
 		CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.BAR_STOOL;
-		return new ShapedRecipe(new NamespacedKey(Main.plugin, customDecorMaterial.name()), customDecorMaterial.getItemStack())
+		return new ShapedRecipe(new NamespacedKey(Main.getInstance(), customDecorMaterial.name()), customDecorMaterial.getItemStack())
 				.shape(
 						"ILI",
 						" I ",
