@@ -95,13 +95,15 @@ public class PlayerInteractListener implements Listener {
 				&& gameMode != GameMode.SPECTATOR
 				&& !clickedBlock.getRelative(BlockFace.UP).getType().isSolid()
 		) {
-			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
-				if (nearbyEntity.getType() == EntityType.PLAYER) continue;
+			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().clone().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
 				if (nearbyEntity.getType() == EntityType.ARMOR_STAND || nearbyEntity.getType() == EntityType.ITEM_FRAME) {
 					CustomDecorMaterial customDecorMaterial = CustomDecorMaterial.getCustomDecorMaterialByEntity(nearbyEntity, false);
 					if (customDecorMaterial != null && customDecorMaterial.getHeight() != null) {
-						com.github.MinersStudios.msUtils.utils.PlayerUtils.setSitting(player, clickedBlock.getLocation().clone().add(0.5d, customDecorMaterial.getHeight(), 0.5d), null);
 						player.swingMainHand();
+						for (Entity entity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().clone().add(0.5d, customDecorMaterial.getHeight(), 0.5d), 0.5d, 0.5d, 0.5d)) {
+							if (entity.getType() == EntityType.PLAYER) return;
+						}
+						com.github.MinersStudios.msUtils.utils.PlayerUtils.setSitting(player, clickedBlock.getLocation().clone().add(0.5d, customDecorMaterial.getHeight(), 0.5d), null);
 					}
 				}
 			}
