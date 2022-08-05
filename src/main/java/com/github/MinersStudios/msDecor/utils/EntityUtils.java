@@ -6,6 +6,7 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 
+import java.util.TreeMap;
 import javax.annotation.Nonnull;
 
 public class EntityUtils {
@@ -41,6 +42,24 @@ public class EntityUtils {
 		armorStand.teleport(armorStandLocation);
 	}
 
+	private int playerDirHandler() {
+		private float player_yaw = player.getLocation().getYaw();
+		NavigableMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
+		// Second half (0..-180)
+		map.put(-180,5);
+		map.put(-135,6);
+		map.put(-90,7);
+		map.put(-45,8);
+		// First half (0..180)
+		map.put(0,0);
+		map.put(45,1);
+		map.put(90,2);
+		map.put(135,3);
+		map.put(180,4);
+
+		return map.floorEntry(player_yaw).getValue();
+	}
+
 	/**
 	 * Rotates item frame item by player yaw
 	 *
@@ -48,25 +67,29 @@ public class EntityUtils {
 	 * @param player    player used for rotate item frame item
 	 */
 	public static void rotateItemFrameByPlayer(@Nonnull ItemFrame itemFrame, @Nonnull Player player) {
-		float playerRotation = player.getLocation().getYaw();
-		if (playerRotation > 25 && playerRotation < 65) {
-			itemFrame.setRotation(Rotation.CLOCKWISE_45);
-		} else if (playerRotation > 65 && playerRotation < 120) {
-			itemFrame.setRotation(Rotation.CLOCKWISE);
-		} else if (playerRotation > 120 && playerRotation < 140) {
-			itemFrame.setRotation(Rotation.CLOCKWISE_135);
-		} else if (playerRotation > 140 && playerRotation < 180) {
-			itemFrame.setRotation(Rotation.FLIPPED);
-		} else if (playerRotation < 25 && playerRotation > -25) {
-			itemFrame.setRotation(Rotation.NONE);
-		} else if (playerRotation < -25 && playerRotation > -65) {
-			itemFrame.setRotation(Rotation.COUNTER_CLOCKWISE_45);
-		} else if (playerRotation < -65 && playerRotation > -120) {
-			itemFrame.setRotation(Rotation.COUNTER_CLOCKWISE);
-		} else if (playerRotation < -120 && playerRotation > -150) {
-			itemFrame.setRotation(Rotation.FLIPPED_45);
-		} else if (playerRotation < -150 && playerRotation > -180) {
-			itemFrame.setRotation(Rotation.FLIPPED);
+		int value = playerDirHander();
+		if (value == 1) {
+			frame.setRotation(Rotation.CLOCKWISE_45);
+			return;
+		} if (value == 2) {
+			frame.setRotation(Rotation.CLOCKWISE);
+			return;
+		} if (value == 3) {
+			frame.setRotation(Rotation.CLOCKWISE_135);
+			return;
+		} if (value == 4) {
+			frame.setRotation(Rotation.FLIPPED);
+			return;
+		} if (value == 5) {
+			frame.setRotation(Rotation.FLIPPED_45);
+			return;
+		} if (value == 6) {
+			frame.setRotation(Rotation.COUNTER_CLOCKWISE);
+			return;
+		} if (value == 7) {
+			frame.setRotation(Rotation.COUNTER_CLOCKWISE_45);
+			return;
 		}
+		frame.setRotation(Rotation.NONE);
 	}
 }
