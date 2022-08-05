@@ -6,6 +6,7 @@ import com.github.MinersStudios.msDecor.objects.CustomDecor;
 import com.github.MinersStudios.msDecor.utils.BlockUtils;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.*;
@@ -42,7 +43,7 @@ public class PlayerInteractListener implements Listener {
 				&& (event.getHand() == EquipmentSlot.HAND || hand == EquipmentSlot.OFF_HAND)
 				&& gameMode != GameMode.ADVENTURE
 				&& gameMode != GameMode.SPECTATOR
-				&& (!clickedBlock.getType().isInteractable() || (player.isSneaking() && clickedBlock.getType().isInteractable()) || clickedBlock.getType() == Material.NOTE_BLOCK)
+				&& ((!clickedBlock.getType().isInteractable() || Tag.STAIRS.isTagged(clickedBlock.getType())) || (player.isSneaking() && clickedBlock.getType().isInteractable()) || clickedBlock.getType() == Material.NOTE_BLOCK)
 				&& BlockUtils.REPLACE.contains(clickedBlock.getRelative(event.getBlockFace()).getType())
 		) {
 			BlockUtils.removeBlock(replaceableBlock.getLocation());
