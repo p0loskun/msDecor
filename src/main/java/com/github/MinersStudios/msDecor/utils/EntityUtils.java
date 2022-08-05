@@ -6,6 +6,7 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 
+import java.util.TreeMap;
 import java.util.NavigableMap;
 import javax.annotation.Nonnull;
 
@@ -43,7 +44,7 @@ public class EntityUtils {
 	}
 
 	private static int playerDirHandler(Player player) {
-		float player_yaw = player.getLocation().getYaw();
+		int player_yaw = (int) player.getLocation().getYaw();
 		NavigableMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
 		// Second half (0..-180)
 		map.put(-180,5);
@@ -67,7 +68,7 @@ public class EntityUtils {
 	 * @param player    player used for rotate item frame item
 	 */
 	public static void rotateItemFrameByPlayer(@Nonnull ItemFrame frame, @Nonnull Player player) {
-		int value = playerDirHander(player);
+		int value = playerDirHandler(player);
 		if (value == 1) {
 			frame.setRotation(Rotation.CLOCKWISE_45);
 			return;
