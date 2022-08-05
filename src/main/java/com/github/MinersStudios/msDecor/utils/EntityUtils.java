@@ -69,28 +69,23 @@ public class EntityUtils {
 	 */
 	public static void rotateItemFrameByPlayer(@Nonnull ItemFrame frame, @Nonnull Player player) {
 		int value = playerDirHandler(player);
-		if (value == 1) {
-			frame.setRotation(Rotation.CLOCKWISE_45);
-			return;
-		} if (value == 2) {
-			frame.setRotation(Rotation.CLOCKWISE);
-			return;
-		} if (value == 3) {
-			frame.setRotation(Rotation.CLOCKWISE_135);
-			return;
-		} if (value == 4) {
-			frame.setRotation(Rotation.FLIPPED);
-			return;
-		} if (value == 5) {
-			frame.setRotation(Rotation.FLIPPED_45);
-			return;
-		} if (value == 6) {
-			frame.setRotation(Rotation.COUNTER_CLOCKWISE);
-			return;
-		} if (value == 7) {
-			frame.setRotation(Rotation.COUNTER_CLOCKWISE_45);
-			return;
+		switch (value) {
+			case 1:
+				frame.setRotation(Rotation.CLOCKWISE_45); break;
+			case 2:
+				frame.setRotation(Rotation.CLOCKWISE); break;
+			case 3:
+				frame.setRotation(Rotation.CLOCKWISE_135); break;
+			case 4:
+				frame.setRotation(Rotation.FLIPPED); break;
+			case 5:
+				frame.setRotation(Rotation.FLIPPED_45); break;
+			case 6:
+				frame.setRotation(Rotation.COUNTER_CLOCKWISE); break;
+			case 7:
+				frame.setRotation(Rotation.COUNTER_CLOCKWISE_45); break;
+			case 8:
+				frame.setRotation(Rotation.NONE); break;
 		}
-		frame.setRotation(Rotation.NONE);
 	}
 }
