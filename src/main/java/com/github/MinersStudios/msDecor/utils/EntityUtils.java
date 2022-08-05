@@ -42,8 +42,8 @@ public class EntityUtils {
 		armorStand.teleport(armorStandLocation);
 	}
 
-	private int playerDirHandler() {
-		private float player_yaw = player.getLocation().getYaw();
+	private static int playerDirHandler() {
+		float player_yaw = player.getLocation().getYaw();
 		NavigableMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
 		// Second half (0..-180)
 		map.put(-180,5);
