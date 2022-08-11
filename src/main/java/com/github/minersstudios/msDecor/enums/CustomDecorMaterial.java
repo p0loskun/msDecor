@@ -265,6 +265,8 @@ public enum CustomDecorMaterial {
 	SKELETON_HAND_DIRT(null, 1190, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
 	SKELETON_HAND_GRAVEL(null, 1191, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
 	SKELETON_HAND_STONE(null, 1192, Sound.BLOCK_CHAIN_PLACE, Sound.BLOCK_CHAIN_BREAK, 1.0f, HitBox.SOLID_FRAME, Facing.FLOOR, null),
+
+	POOP("Какашка", 1210, Sound.BLOCK_MUD_PLACE, Sound.BLOCK_MUD_BREAK, 1.0f, HitBox.FRAME, Facing.FLOOR, null),
 	//</editor-fold>
 	;
 
