@@ -1,10 +1,10 @@
 package com.github.minersstudios.msDecor.objects;
 
-import com.github.minersstudios.msDecor.enums.CustomDecorMaterial;
-import com.github.minersstudios.msDecor.utils.PlayerUtils;
 import com.github.minersstudios.msDecor.Main;
+import com.github.minersstudios.msDecor.enums.CustomDecorMaterial;
 import com.github.minersstudios.msDecor.utils.BlockUtils;
 import com.github.minersstudios.msDecor.utils.EntityUtils;
+import com.github.minersstudios.msDecor.utils.PlayerUtils;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -37,21 +37,23 @@ public class CustomDecor {
 	 * @param customDecorMaterial custom decor that will be placed
 	 * @param blockFace           block face on which the frame is to be spawned
 	 */
-	public void setCustomDecor(@Nonnull CustomDecorMaterial customDecorMaterial, @Nonnull BlockFace blockFace, @Nonnull EquipmentSlot hand) {
+	public void setCustomDecor(@Nonnull CustomDecorMaterial customDecorMaterial, @Nonnull BlockFace blockFace, @Nullable EquipmentSlot hand) {
 		if (this.player == null) return;
 		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
 			this.customDecorMaterial = customDecorMaterial;
-			this.itemInHand = this.player.getInventory().getItem(hand);
 			if (customDecorMaterial.getHitBox().isArmorStand()) {
 				this.summonArmorStand();
 			} else {
 				this.summonItemFrame(blockFace);
 			}
 			this.setHitBox();
-			PlayerUtils.swingHand(player, hand);
 			this.playPlaceSound();
-			this.itemInHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInHand.getAmount() - 1 : this.itemInHand.getAmount());
 			Main.getCoreProtectAPI().logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+			if (hand != null) {
+				this.itemInHand = this.player.getInventory().getItem(hand);
+				this.itemInHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInHand.getAmount() - 1 : this.itemInHand.getAmount());
+				PlayerUtils.swingHand(player, hand);
+			}
 		});
 	}
 
