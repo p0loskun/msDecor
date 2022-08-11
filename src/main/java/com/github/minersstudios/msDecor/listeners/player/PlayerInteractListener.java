@@ -51,10 +51,10 @@ public class PlayerInteractListener implements Listener {
 			if (customDecorMaterial == null) return;
 			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
 				if (
-						!(nearbyEntity instanceof Item)
+						nearbyEntity.getType() != EntityType.DROPPED_ITEM
 						&& (customDecorMaterial.getHitBox().isSolidHitBox()
-						|| nearbyEntity instanceof ArmorStand
-						|| nearbyEntity instanceof ItemFrame)
+						|| nearbyEntity.getType() == EntityType.ARMOR_STAND
+						|| nearbyEntity.getType() == EntityType.ITEM_FRAME)
 				) return;
 			}
 			CustomDecor customDecor = new CustomDecor(replaceableBlock, player);

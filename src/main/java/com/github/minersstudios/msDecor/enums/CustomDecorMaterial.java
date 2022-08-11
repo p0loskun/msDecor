@@ -2,7 +2,9 @@ package com.github.minersstudios.msDecor.enums;
 
 import com.github.minersstudios.msUtils.utils.Config;
 import net.kyori.adventure.text.Component;
-import org.bukkit.ChatColor;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.Style;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.ArmorStand;
@@ -327,7 +329,14 @@ public enum CustomDecorMaterial {
 		assert itemMeta != null;
 		itemMeta.setCustomModelData(this.itemCustomModelData);
 		if (this.itemName != null) {
-			itemMeta.displayName(Component.text(ChatColor.WHITE + this.itemName));
+			itemMeta.displayName(Component.text(this.itemName).style(Style.style(
+					NamedTextColor.WHITE,
+					TextDecoration.OBFUSCATED.withState(false),
+					TextDecoration.BOLD.withState(false),
+					TextDecoration.ITALIC.withState(false),
+					TextDecoration.STRIKETHROUGH.withState(false),
+					TextDecoration.UNDERLINED.withState(false)))
+			);
 		}
 		if (this.lore != null) {
 			itemMeta.lore(this.lore);

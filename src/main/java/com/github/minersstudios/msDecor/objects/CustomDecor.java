@@ -42,19 +42,19 @@ public class CustomDecor {
 		if (this.player == null) return;
 		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
 			this.customDecorMaterial = customDecorMaterial;
+			this.itemInHand = hand != null ? this.player.getInventory().getItem(hand) : customDecorMaterial.getItemStack();
 			if (customDecorMaterial.getHitBox().isArmorStand()) {
 				this.summonArmorStand(customName);
 			} else {
 				this.summonItemFrame(blockFace, customName);
 			}
-			this.setHitBox();
-			this.playPlaceSound();
-			Main.getCoreProtectAPI().logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
 			if (hand != null) {
-				this.itemInHand = this.player.getInventory().getItem(hand);
 				this.itemInHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInHand.getAmount() - 1 : this.itemInHand.getAmount());
 				PlayerUtils.swingHand(player, hand);
 			}
+			this.setHitBox();
+			this.playPlaceSound();
+			Main.getCoreProtectAPI().logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
 		});
 	}
 
@@ -146,7 +146,7 @@ public class CustomDecor {
 			itemFrame.setVisible(false);
 			itemFrame.setSilent(true);
 			itemFrame.setFixed(this.customDecorMaterial.getHitBox() != CustomDecorMaterial.HitBox.FRAME);
-			itemFrame.setFacingDirection(blockFace);
+			itemFrame.setFacingDirection(blockFace, true);
 			itemFrame.addScoreboardTag("customDecor");
 
 			ItemStack itemStack = this.itemInHand.clone();
