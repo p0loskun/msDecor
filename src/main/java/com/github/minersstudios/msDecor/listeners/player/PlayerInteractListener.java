@@ -63,19 +63,19 @@ public class PlayerInteractListener implements Listener {
 					&& replaceableBlock.getLocation().add(0.5d, -1.0d, 0.5d).getBlock().getType().isSolid()
 					&& customDecorMaterial.getFacing() == CustomDecorMaterial.Facing.FLOOR
 			) {
-				customDecor.setCustomDecor(customDecorMaterial, BlockFace.UP, hand);
+				customDecor.setCustomDecor(customDecorMaterial, BlockFace.UP, hand, null);
 			} else if (
 					event.getBlockFace() != BlockFace.UP
 					&& replaceableBlock.getLocation().add(0.5d, 1.0d, 0.5d).getBlock().getType().isSolid()
 					&& customDecorMaterial.getFacing() == CustomDecorMaterial.Facing.CEILING
 			) {
-				customDecor.setCustomDecor(customDecorMaterial, BlockFace.DOWN, hand);
+				customDecor.setCustomDecor(customDecorMaterial, BlockFace.DOWN, hand, null);
 			} else if (
 					event.getBlockFace() != BlockFace.UP
 					&& event.getBlockFace() != BlockFace.DOWN
 					&& customDecorMaterial.getFacing() == CustomDecorMaterial.Facing.WALL
 			) {
-				customDecor.setCustomDecor(customDecorMaterial, event.getBlockFace(), hand);
+				customDecor.setCustomDecor(customDecorMaterial, event.getBlockFace(), hand, null);
 			}
 		} else if (
 				event.getAction() == Action.LEFT_CLICK_BLOCK

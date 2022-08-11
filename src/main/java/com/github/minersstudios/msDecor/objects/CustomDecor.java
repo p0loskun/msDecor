@@ -5,6 +5,7 @@ import com.github.minersstudios.msDecor.enums.CustomDecorMaterial;
 import com.github.minersstudios.msDecor.utils.BlockUtils;
 import com.github.minersstudios.msDecor.utils.EntityUtils;
 import com.github.minersstudios.msDecor.utils.PlayerUtils;
+import net.kyori.adventure.text.Component;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -37,14 +38,14 @@ public class CustomDecor {
 	 * @param customDecorMaterial custom decor that will be placed
 	 * @param blockFace           block face on which the frame is to be spawned
 	 */
-	public void setCustomDecor(@Nonnull CustomDecorMaterial customDecorMaterial, @Nonnull BlockFace blockFace, @Nullable EquipmentSlot hand) {
+	public void setCustomDecor(@Nonnull CustomDecorMaterial customDecorMaterial, @Nonnull BlockFace blockFace, @Nullable EquipmentSlot hand, @Nullable Component customName) {
 		if (this.player == null) return;
 		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
 			this.customDecorMaterial = customDecorMaterial;
 			if (customDecorMaterial.getHitBox().isArmorStand()) {
-				this.summonArmorStand();
+				this.summonArmorStand(customName);
 			} else {
-				this.summonItemFrame(blockFace);
+				this.summonItemFrame(blockFace, customName);
 			}
 			this.setHitBox();
 			this.playPlaceSound();
@@ -111,7 +112,7 @@ public class CustomDecor {
 	/**
 	 * Summons armor stand with custom decor item like hat
 	 */
-	private void summonArmorStand() {
+	private void summonArmorStand(@Nullable Component customName) {
 		if (this.player == null || this.customDecorMaterial == null) return;
 		this.block.getWorld().spawn(this.block.getLocation().add(0.5d, 0.0d, 0.5d), ArmorStand.class, (armorStand) -> {
 			armorStand.setGravity(false);
@@ -124,7 +125,7 @@ public class CustomDecor {
 			ItemStack itemStack = this.itemInHand.clone();
 			ItemMeta itemMeta = itemStack.getItemMeta();
 			assert itemMeta != null;
-			itemMeta.displayName(itemMeta.displayName());
+			itemMeta.displayName(customName != null ? customName : itemMeta.displayName());
 			itemStack.setItemMeta(itemMeta);
 			armorStand.getEquipment().setHelmet(itemStack);
 
@@ -137,11 +138,11 @@ public class CustomDecor {
 	 *
 	 * @param blockFace block face on which the frame is to be spawned
 	 */
-	private void summonItemFrame(BlockFace blockFace) {
+	private void summonItemFrame(BlockFace blockFace, @Nullable Component customName) {
 		if (this.player == null || this.customDecorMaterial == null || this.itemInHand.getItemMeta() == null) return;
 		this.block.getWorld().spawn(this.block.getLocation().add(0.5d, 0.0d, 0.5d), ItemFrame.class, (itemFrame) -> {
 			itemFrame.setItemDropChance(0.0f);
-			itemFrame.customName(this.itemInHand.getItemMeta().displayName());
+			itemFrame.customName(customName != null ? customName : this.itemInHand.getItemMeta().displayName());
 			itemFrame.setVisible(false);
 			itemFrame.setSilent(true);
 			itemFrame.setFixed(this.customDecorMaterial.getHitBox() != CustomDecorMaterial.HitBox.FRAME);
