@@ -6,4 +6,4 @@ website: ${url}
 
 main: ${mainClass}
 api-version: ${apiVersion}
-softdepend: [ CoreProtect, msUtils ]
+softdepend: [ CoreProtect ]
