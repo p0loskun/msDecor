@@ -61,13 +61,15 @@ public interface Typed extends CustomDecorData {
 
 		int getCustomModelData();
 
-		@Nullable
-		List<Component> getLore();
+		default @Nullable List<Component> getLore() {
+			return null;
+		}
 
 		@NotNull
 		HitBox getHitBox();
 
-		@Nullable
-		Facing getFacing();
+		default @Nullable Facing getFacing() {
+			return null;
+		}
 	}
 }

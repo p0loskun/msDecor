@@ -4,8 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
-
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 public final class PlayerUtils {
 
@@ -19,7 +18,7 @@ public final class PlayerUtils {
      * @param player        player
      * @param equipmentSlot hand
      */
-    public static void swingHand(@Nonnull Player player, @Nonnull EquipmentSlot equipmentSlot) {
+    public static void swingHand(@NotNull Player player, @NotNull EquipmentSlot equipmentSlot) {
         if (equipmentSlot == EquipmentSlot.HAND) {
             player.swingMainHand();
         } else {
@@ -31,7 +30,7 @@ public final class PlayerUtils {
      * @param itemStack item
      * @return True if item is custom block
      */
-    public static boolean isItemCustomBlock(@Nonnull ItemStack itemStack) {
+    public static boolean isItemCustomBlock(@NotNull ItemStack itemStack) {
         return itemStack.getType() == Material.PAPER
                 && itemStack.getItemMeta() != null
                 && itemStack.getItemMeta().hasCustomModelData();
@@ -41,7 +40,7 @@ public final class PlayerUtils {
      * @param itemStack item
      * @return True if item is custom block
      */
-    public static boolean isItemCustomDecor(@Nonnull ItemStack itemStack) {
+    public static boolean isItemCustomDecor(@NotNull ItemStack itemStack) {
         return itemStack.getType() == Material.LEATHER_HORSE_ARMOR
                 && itemStack.getItemMeta() != null
                 && itemStack.getItemMeta().hasCustomModelData();

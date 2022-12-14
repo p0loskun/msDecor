@@ -3,10 +3,13 @@ package com.github.minersstudios.msdecor.utils;
 import org.bukkit.Location;
 import org.bukkit.Rotation;
 import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
@@ -22,7 +25,7 @@ public final class EntityUtils {
 	 * @param armorStand armor stand entity used for rotate
 	 * @param player     player used for rotate armor stand
 	 */
-	public static void rotateArmorStandByPlayer(@Nonnull ArmorStand armorStand, @Nonnull Player player) {
+	public static void rotateArmorStandByPlayer(@NotNull ArmorStand armorStand, @NotNull Player player) {
 		Location armorStandLocation = armorStand.getLocation();
 		switch (playerDirectionHandler(player.getLocation().getYaw())) {
 			case NONE -> armorStandLocation.setYaw(0.0f);
@@ -37,13 +40,19 @@ public final class EntityUtils {
 		armorStand.teleport(armorStandLocation);
 	}
 
+	@Contract("null -> false")
+	public static boolean isCustomDecorEntity(@Nullable Entity entity) {
+		if (entity == null) return false;
+		return entity.getScoreboardTags().contains("customDecor");
+	}
+
 	/**
 	 * Rotates item frame item by player yaw
 	 *
 	 * @param itemFrame item frame entity used for rotate item
 	 * @param player    player used for rotate item frame item
 	 */
-	public static void rotateItemFrameByPlayer(@Nonnull ItemFrame itemFrame, @Nonnull Player player) {
+	public static void rotateItemFrameByPlayer(@NotNull ItemFrame itemFrame, @NotNull Player player) {
 		itemFrame.setRotation(playerDirectionHandler(player.getLocation().getYaw()));
 	}
 

@@ -14,13 +14,12 @@ import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryCreativeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 public class InventoryCreativeListener implements Listener {
 
 	@EventHandler
-	public void onInventoryCreative(@Nonnull InventoryCreativeEvent event) {
+	public void onInventoryCreative(@NotNull InventoryCreativeEvent event) {
 		if (event.getClick() != ClickType.CREATIVE) return;
 		HumanEntity player = event.getWhoClicked();
 		Block clickedBlock = player.getTargetBlockExact(5);

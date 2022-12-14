@@ -8,13 +8,12 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.HorseInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 public class InventoryClickListener implements Listener {
 
 	@EventHandler
-	public void onInventoryClick(@Nonnull InventoryClickEvent event) {
+	public void onInventoryClick(@NotNull InventoryClickEvent event) {
 		ItemStack cursor = event.getCursor(),
 				currentItem = event.getCurrentItem();
 		event.setCancelled(

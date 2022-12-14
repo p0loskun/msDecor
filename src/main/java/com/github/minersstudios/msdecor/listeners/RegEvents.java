@@ -2,6 +2,8 @@ package com.github.minersstudios.msdecor.listeners;
 
 import com.github.minersstudios.msdecor.Main;
 import com.github.minersstudios.msdecor.listeners.block.BlockBreakListener;
+import com.github.minersstudios.msdecor.listeners.block.BlockPlaceListener;
+import com.github.minersstudios.msdecor.listeners.entity.EntityChangeBlockListener;
 import com.github.minersstudios.msdecor.listeners.entity.EntityDamageByEntityListener;
 import com.github.minersstudios.msdecor.listeners.entity.HangingBreakListener;
 import com.github.minersstudios.msdecor.listeners.entity.HangingPlaceListener;
@@ -21,7 +23,9 @@ public final class RegEvents {
 		PluginManager pluginManager = Main.getInstance().getServer().getPluginManager();
 
 		pluginManager.registerEvents(new BlockBreakListener(), Main.getInstance());
+		pluginManager.registerEvents(new BlockPlaceListener(), Main.getInstance());
 
+		pluginManager.registerEvents(new EntityChangeBlockListener(), Main.getInstance());
 		pluginManager.registerEvents(new EntityDamageByEntityListener(), Main.getInstance());
 		pluginManager.registerEvents(new HangingBreakListener(), Main.getInstance());
 		pluginManager.registerEvents(new HangingPlaceListener(), Main.getInstance());

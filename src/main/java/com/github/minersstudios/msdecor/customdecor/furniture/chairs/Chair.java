@@ -1,4 +1,4 @@
-package com.github.minersstudios.msdecor.customdecor.decorations;
+package com.github.minersstudios.msdecor.customdecor.furniture.chairs;
 
 import com.github.minersstudios.msdecor.Main;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
@@ -19,82 +19,105 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Locale;
 
-public class SmallChair implements Sittable, Typed {
+public class Chair implements Sittable, Typed {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @Nullable SoundGroup soundGroup;
-	private @NotNull HitBox hitBox;
-	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 	private double height;
 
-	public SmallChair() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "small_chair");
+	public Chair() {
+		this.namespacedKey = new NamespacedKey(Main.getInstance(), "chair");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 0.5f, 1.0f,
 				"custom.block.wood.break", 0.5f, 1.0f
 		);
-		this.hitBox = HitBox.SOLID_FRAME;
-		this.facing = Facing.FLOOR;
 		//<editor-fold desc="Recipes">
 		ShapedRecipe acacia = new ShapedRecipe(Type.ACACIA.namespacedKey, this.createItemStack(Type.ACACIA))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.ACACIA_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		acacia.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		acacia.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		ShapedRecipe birch = new ShapedRecipe(Type.BIRCH.namespacedKey, this.createItemStack(Type.BIRCH))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.BIRCH_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		birch.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		birch.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		ShapedRecipe crimson = new ShapedRecipe(Type.CRIMSON.namespacedKey, this.createItemStack(Type.CRIMSON))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.CRIMSON_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		crimson.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		crimson.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		ShapedRecipe darkOak = new ShapedRecipe(Type.DARK_OAK.namespacedKey, this.createItemStack(Type.DARK_OAK))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.DARK_OAK_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		darkOak.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		darkOak.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		ShapedRecipe jungle = new ShapedRecipe(Type.JUNGLE.namespacedKey, this.createItemStack(Type.JUNGLE))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.JUNGLE_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		jungle.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		jungle.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		ShapedRecipe oak = new ShapedRecipe(Type.OAK.namespacedKey, this.createItemStack(Type.OAK))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.OAK_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		oak.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		oak.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		ShapedRecipe spruce = new ShapedRecipe(Type.SPRUCE.namespacedKey, this.createItemStack(Type.SPRUCE))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.SPRUCE_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		spruce.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		spruce.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		ShapedRecipe warped = new ShapedRecipe(Type.WARPED.namespacedKey, this.createItemStack(Type.WARPED))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.WARPED_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		warped.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		warped.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		ShapedRecipe mangrove = new ShapedRecipe(Type.MANGROVE.namespacedKey, this.createItemStack(Type.MANGROVE))
-				.shape("PLP", "PAP")
+				.shape(
+						"P  ",
+						"PLP",
+						"P P"
+				)
 				.setIngredient('P', Material.MANGROVE_PLANKS)
-				.setIngredient('L', Material.LEATHER)
-				.setIngredient('A', Material.AIR);
-		mangrove.setGroup(this.namespacedKey.getNamespace() + ":small_chair");
+				.setIngredient('L', Material.LEATHER);
+		mangrove.setGroup(this.namespacedKey.getNamespace() + ":chair");
 		//</editor-fold>
 		this.recipes = Lists.newArrayList(acacia, birch, crimson, darkOak, jungle, oak, spruce, warped, mangrove);
-		this.height = 0.75f;
+		this.height = 0.65d;
 	}
 
 	@Override
@@ -125,26 +148,6 @@ public class SmallChair implements Sittable, Typed {
 	@Override
 	public void setSoundGroup(@Nullable SoundGroup soundGroup) {
 		this.soundGroup = soundGroup;
-	}
-
-	@Override
-	public @NotNull CustomDecorData.HitBox getHitBox() {
-		return this.hitBox;
-	}
-
-	@Override
-	public void setHitBox(@NotNull CustomDecorData.HitBox hitBox) {
-		this.hitBox = hitBox;
-	}
-
-	@Override
-	public @Nullable CustomDecorData.Facing getFacing() {
-		return this.facing;
-	}
-
-	@Override
-	public void setFacing(@Nullable CustomDecorData.Facing facing) {
-		this.facing = facing;
 	}
 
 	@Override
@@ -183,15 +186,15 @@ public class SmallChair implements Sittable, Typed {
 
 	enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
-		ACACIA("Aкациевый стул", 1000),
-		BIRCH("Берёзовый стул", 1001),
-		CRIMSON( "Багровый стул", 1002),
-		DARK_OAK("Стул из тёмного дуба", 1003),
-		JUNGLE("Тропический стул", 1004),
-		OAK("Дубовый стул", 1005),
-		SPRUCE("Еловый стул", 1006),
-		WARPED("Искажённый стул", 1007),
-		MANGROVE("Мангровый стул", 1193);
+		ACACIA("Aкациевый стул со спинкой", 1008),
+		BIRCH("Берёзовый стул со спинкой", 1009),
+		CRIMSON( "Багровый стул со спинкой", 1010),
+		DARK_OAK("Стул со спинкой из тёмного дуба", 1011),
+		JUNGLE("Тропический стул со спинкой", 1012),
+		OAK("Дубовый стул со спинкой", 1013),
+		SPRUCE("Еловый стул со спинкой", 1014),
+		WARPED("Искажённый стул со спинкой", 1015),
+		MANGROVE("Мангровый стул со спинкой", 1194);
 		//</editor-fold>
 
 		private final @NotNull NamespacedKey namespacedKey;
@@ -207,7 +210,7 @@ public class SmallChair implements Sittable, Typed {
 				@NotNull String itemName,
 				int customModelData
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_small_chair");
+			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_chair");
 			this.itemName = itemName;
 			this.customModelData = customModelData;
 			this.lore = ChatUtils.PAINTABLE_LORE_COMPONENT;

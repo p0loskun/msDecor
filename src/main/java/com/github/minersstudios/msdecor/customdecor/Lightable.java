@@ -2,15 +2,11 @@ package com.github.minersstudios.msdecor.customdecor;
 
 @SuppressWarnings("unused")
 public interface Lightable extends CustomDecorData {
-	default int getFirstLightLevel() {
-		return 0;
-	}
+	int getFirstLightLevel();
 
-	default void setFirstLightLevel(int level) {}
+	void setFirstLightLevel(int level);
 
-	default int getSecondLightLevel() {
-		return 0;
-	}
+	int getSecondLightLevel();
 
-	default void setSecondLightLevel(int level) {}
+	void setSecondLightLevel(int level);
 }

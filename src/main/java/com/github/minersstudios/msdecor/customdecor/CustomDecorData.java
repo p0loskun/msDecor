@@ -1,8 +1,10 @@
 package com.github.minersstudios.msdecor.customdecor;
 
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
+import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
+import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.jetbrains.annotations.Contract;
@@ -23,20 +25,19 @@ public interface CustomDecorData extends Cloneable {
 
 	void setItemStack(@NotNull ItemStack itemStack);
 
-	@Nullable
-	default SoundGroup getSoundGroup() {
+	default @Nullable SoundGroup getSoundGroup() {
 		return null;
 	}
 
 	default void setSoundGroup(@Nullable SoundGroup soundGroup) {}
 
-	@NotNull
-	HitBox getHitBox();
+	default @NotNull HitBox getHitBox() {
+		return HitBox.SOLID_FRAME;
+	}
 
-	void setHitBox(@NotNull HitBox hitBox);
+	default void setHitBox(@NotNull HitBox hitBox) {}
 
-	@Nullable
-	default Facing getFacing() {
+	default @Nullable Facing getFacing() {
 		return null;
 	}
 
@@ -55,11 +56,17 @@ public interface CustomDecorData extends Cloneable {
 	default void setShowInCraftsMenu(boolean showInCraftsMenu) {}
 
 	default void register() {
+		this.register(true);
+	}
+
+	default void register(boolean regRecipes) {
 		CustomDecorUtils.CUSTOM_DECORS.put(this.getNamespacedKey().getKey(), this);
-		List<Recipe> recipes = this.getRecipes();
-		if (recipes == null) return;
-		for (Recipe recipe : recipes) {
-			Bukkit.addRecipe(recipe);
+		if (regRecipes) {
+			List<Recipe> recipes = this.getRecipes();
+			if (recipes == null) return;
+			for (Recipe recipe : recipes) {
+				Bukkit.addRecipe(recipe);
+			}
 		}
 	}
 
@@ -78,7 +85,21 @@ public interface CustomDecorData extends Cloneable {
 	CustomDecorData clone();
 
 	enum Facing {
-		CEILING, FLOOR, WALL
+		CEILING(Lists.newArrayList(BlockFace.DOWN)),
+		FLOOR(Lists.newArrayList(BlockFace.UP)),
+		WALL(Lists.newArrayList(BlockFace.WEST, BlockFace.EAST, BlockFace.NORTH, BlockFace.SOUTH));
+
+		private final List<BlockFace> blockFaces;
+
+		Facing(@NotNull List<BlockFace> blockFaces) {
+			this.blockFaces = blockFaces;
+		}
+
+		@Contract("null -> false")
+		public boolean hasFace(@Nullable BlockFace blockFace) {
+			if (blockFace == null) return false;
+			return this.blockFaces.contains(blockFace);
+		}
 	}
 
 	enum HitBox {

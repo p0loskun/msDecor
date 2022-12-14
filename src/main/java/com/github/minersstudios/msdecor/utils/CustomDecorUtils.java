@@ -2,7 +2,23 @@ package com.github.minersstudios.msdecor.utils;
 
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Typed;
-import com.github.minersstudios.msdecor.customdecor.decorations.SmallChair;
+import com.github.minersstudios.msdecor.customdecor.christmas.Ball;
+import com.github.minersstudios.msdecor.customdecor.christmas.SantaSock;
+import com.github.minersstudios.msdecor.customdecor.decorations.home.*;
+import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.DeerHead;
+import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.HoglinHead;
+import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.ZoglinHead;
+import com.github.minersstudios.msdecor.customdecor.decorations.home.plushes.BMOPlush;
+import com.github.minersstudios.msdecor.customdecor.decorations.home.plushes.BrownBearPlush;
+import com.github.minersstudios.msdecor.customdecor.decorations.home.plushes.RacoonPlush;
+import com.github.minersstudios.msdecor.customdecor.decorations.street.*;
+import com.github.minersstudios.msdecor.customdecor.furniture.chairs.*;
+import com.github.minersstudios.msdecor.customdecor.furniture.lamps.BigLamp;
+import com.github.minersstudios.msdecor.customdecor.furniture.lamps.SmallLamp;
+import com.github.minersstudios.msdecor.customdecor.furniture.tables.BigTable;
+import com.github.minersstudios.msdecor.customdecor.furniture.tables.SmallTable;
+import com.github.minersstudios.msdecor.customdecor.halloween.SkeletonHand;
+import com.github.minersstudios.msdecor.customdecor.other.Poop;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
@@ -16,12 +32,57 @@ import java.util.Map;
 public final class CustomDecorUtils {
 	public static final Map<String, CustomDecorData> CUSTOM_DECORS = new HashMap<>();
 
+	public static final boolean isChristmas = true;
+	public static final boolean isHalloween = false;
+
 	private CustomDecorUtils() {
 		throw new IllegalStateException("Utility class");
 	}
 
 	public static void registerCustomDecors() {
+		new Ball().register(isChristmas);
+		new SantaSock().register(isChristmas);
+
+		new DeerHead().register();
+		new HoglinHead().register();
+		new ZoglinHead().register();
+
+		new BMOPlush().register();
+		new BrownBearPlush().register();
+		new RacoonPlush().register();
+
+		new Cell().register();
+		new CookingPot().register();
+		new OldCamera().register();
+		new Patefon().register();
+		new Piggybank().register();
+		new SmallClock().register();
+		new SmallGlobus().register();
+
+		new Bankomat().register();
+		new Brazier().register();
+		new FireHydrant().register();
+		new IronTrashcan().register();
+		new Wheelbarrow().register();
+
+		new Armchair().register();
+		new BarStool().register();
+		new Chair().register();
+		new CoolArmchair().register();
+		new CoolChair().register();
+		new RockingChair().register();
+		new SmallArmchair().register();
 		new SmallChair().register();
+
+		new BigLamp().register();
+		new SmallLamp().register();
+
+		new BigTable().register();
+		new SmallTable().register();
+
+		new SkeletonHand().register(isHalloween);
+
+		new Poop().register();
 	}
 
 	@Contract("null -> null")

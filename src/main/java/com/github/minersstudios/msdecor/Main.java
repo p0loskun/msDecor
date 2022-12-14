@@ -8,8 +8,8 @@ import net.coreprotect.CoreProtectAPI;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.logging.Level;
 
 public final class Main extends JavaPlugin {
@@ -35,8 +35,7 @@ public final class Main extends JavaPlugin {
         RegEvents.init();
     }
 
-    @Nullable
-    private CoreProtectAPI getCoreProtect() {
+    private @Nullable CoreProtectAPI getCoreProtect() {
         Plugin coreProtect = getServer().getPluginManager().getPlugin("CoreProtect");
         if (coreProtect == null) return null;
         CoreProtectAPI api = ((CoreProtect)coreProtect).getAPI();

@@ -17,9 +17,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class CustomDecor {
 	private final Block block;
@@ -27,7 +26,7 @@ public class CustomDecor {
 	private ItemStack itemInHand;
 	@Nullable private CustomDecorData customDecorData;
 
-	public CustomDecor(@Nonnull Block block, @Nullable Player player) {
+	public CustomDecor(@NotNull Block block, @Nullable Player player) {
 		this.block = block;
 		this.player = player;
 	}
@@ -38,7 +37,7 @@ public class CustomDecor {
 	 * @param customDecorData custom decor that will be placed
 	 * @param blockFace           block face on which the frame is to be spawned
 	 */
-	public void setCustomDecor(@Nonnull CustomDecorData customDecorData, @Nonnull BlockFace blockFace, @Nullable EquipmentSlot hand, @Nullable Component customName) {
+	public void setCustomDecor(@NotNull CustomDecorData customDecorData, @NotNull BlockFace blockFace, @Nullable EquipmentSlot hand, @Nullable Component customName) {
 		if (this.player == null) return;
 		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
 			this.customDecorData = customDecorData;
@@ -98,7 +97,7 @@ public class CustomDecor {
 			}
 		}
 		this.playBreakSound();
-		if (BlockUtils.CUSTOM_BLOCK_MATERIALS.contains(this.block.getType()) || this.block.getType() == Material.LIGHT) {
+		if (BlockUtils.isCustomDecorMaterial(this.block.getType())) {
 			this.block.setType(Material.AIR);
 		}
 		Main.getCoreProtectAPI().logRemoval(this.player != null ? this.player.getName() : null, this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
@@ -161,9 +160,9 @@ public class CustomDecor {
 							: this.customDecorData.getHitBox().isSolidHitBox() ? Material.BARRIER
 							: Material.LIGHT
 			);
-			if (this.block.getType() != Material.LIGHT || !(this.customDecorData instanceof Lightable lightable)) return;
+			if (this.block.getType() != Material.LIGHT) return;
 			Levelled level = (Levelled) this.block.getBlockData();
-			level.setLevel(lightable.getFirstLightLevel());
+			level.setLevel(this.customDecorData instanceof Lightable lightable ? lightable.getFirstLightLevel() : 0);
 			this.block.setBlockData(level, true);
 		});
 	}
