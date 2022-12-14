@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor;
 
+import com.github.minersstudios.msdecor.commands.RegCommands;
 import com.github.minersstudios.msdecor.listeners.RegEvents;
 import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
@@ -33,6 +34,7 @@ public final class Main extends JavaPlugin {
         }
         CustomDecorUtils.registerCustomDecors();
         RegEvents.init();
+        RegCommands.init(this);
     }
 
     private @Nullable CoreProtectAPI getCoreProtect() {

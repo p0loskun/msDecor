@@ -16,10 +16,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Locale;
 
-public class CoolArmchair implements Sittable, Typed, Wrenchable {
+public class CoolArmchair implements Sittable, Wrenchable {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @Nullable SoundGroup soundGroup;
+	private @NotNull HitBox hitBox;
+	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 	private double height;
 
@@ -30,6 +32,7 @@ public class CoolArmchair implements Sittable, Typed, Wrenchable {
 				"block.wool.place", 0.75f, 1.0f,
 				"block.wool.break", 0.75f, 1.0f
 		);
+		this.hitBox = HitBox.SOLID_FRAME;
 		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.createItemStack(Type.DEFAULT))
 				.shape(
 						"L  ",
@@ -73,6 +76,26 @@ public class CoolArmchair implements Sittable, Typed, Wrenchable {
 	}
 
 	@Override
+	public @NotNull HitBox getHitBox() {
+		return this.hitBox;
+	}
+
+	@Override
+	public void setHitBox(@NotNull HitBox hitBox) {
+		this.hitBox = hitBox;
+	}
+
+	@Override
+	public @Nullable Facing getFacing() {
+		return this.facing;
+	}
+
+	@Override
+	public void setFacing(@Nullable Facing facing) {
+		this.facing = facing;
+	}
+
+	@Override
 	public @Nullable List<Recipe> getRecipes() {
 		return this.recipes;
 	}
@@ -106,7 +129,7 @@ public class CoolArmchair implements Sittable, Typed, Wrenchable {
 		return Type.types;
 	}
 
-	enum Type implements Typed.Type {
+	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
 		DEFAULT(1016),
 		LEFT(1017),
@@ -123,9 +146,7 @@ public class CoolArmchair implements Sittable, Typed, Wrenchable {
 
 		private static final Type @NotNull [] types = values();
 
-		Type(
-				int customModelData
-		) {
+		Type(int customModelData) {
 			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_cool_armchair");
 			this.itemName = "Стильное кресло";
 			this.customModelData = customModelData;

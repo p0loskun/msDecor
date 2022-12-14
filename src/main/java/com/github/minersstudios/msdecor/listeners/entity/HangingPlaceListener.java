@@ -16,7 +16,7 @@ public class HangingPlaceListener implements Listener {
 	public void onHangingPlace(@NotNull HangingPlaceEvent event) {
 		if (event.getItemStack() == null || event.getPlayer() == null) return;
 		Block clickedBlock = event.getBlock();
-		for (Entity nearbyEntity : clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
+		for (Entity nearbyEntity : clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
 			if (EntityUtils.isCustomDecorEntity(nearbyEntity)) {
 				if (CustomDecorUtils.getCustomDecorDataByEntity(nearbyEntity) instanceof Sittable) {
 					event.setCancelled(true);

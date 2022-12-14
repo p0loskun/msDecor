@@ -23,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class PlayerInteractListener implements Listener {
 
-	@EventHandler(priority = EventPriority.MONITOR)
+	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerInteract(@NotNull PlayerInteractEvent event) {
 		if (event.getClickedBlock() == null || event.getHand() == null) return;
 		BlockFace blockFace = event.getBlockFace();
@@ -52,7 +52,7 @@ public class PlayerInteractListener implements Listener {
 			BlockUtils.removeBlock(replaceableBlock.getLocation());
 			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByItem(itemInHand);
 			if (customDecorData == null) return;
-			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
+			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
 				if (
 						nearbyEntity.getType() != EntityType.DROPPED_ITEM
 						&& (customDecorData.getHitBox().isSolidHitBox()

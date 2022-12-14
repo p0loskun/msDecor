@@ -20,15 +20,19 @@ public class CookingPot implements Typed {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @Nullable SoundGroup soundGroup;
+	private @NotNull HitBox hitBox;
+	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 
 	public CookingPot() {
 		this.namespacedKey = new NamespacedKey(Main.getInstance(), "cooking_pot");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
+		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
 		this.soundGroup = new SoundGroup(
 				"block.anvil.place", 1.5f, 1.0f,
 				"block.anvil.break", 1.5f, 1.0f
 		);
+		this.hitBox = HitBox.SOLID_FRAME;
 		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.createItemStack(Type.DEFAULT))
 				.shape("ISI", "III")
 				.setIngredient('I', Material.IRON_INGOT)
@@ -67,6 +71,26 @@ public class CookingPot implements Typed {
 	}
 
 	@Override
+	public @NotNull HitBox getHitBox() {
+		return this.hitBox;
+	}
+
+	@Override
+	public void setHitBox(@NotNull HitBox hitBox) {
+		this.hitBox = hitBox;
+	}
+
+	@Override
+	public @Nullable Facing getFacing() {
+		return this.facing;
+	}
+
+	@Override
+	public void setFacing(@Nullable Facing facing) {
+		this.facing = facing;
+	}
+
+	@Override
 	public @Nullable List<Recipe> getRecipes() {
 		return this.recipes;
 	}
@@ -90,7 +114,7 @@ public class CookingPot implements Typed {
 		return Type.types;
 	}
 
-	enum Type implements Typed.Type {
+	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
 		DEFAULT(1164),
 		HONEY(1165),
@@ -108,7 +132,7 @@ public class CookingPot implements Typed {
 		private final @NotNull String itemName;
 		private final int customModelData;
 		private final @NotNull HitBox hitBox;
-		private final @NotNull Facing facing;
+		private final @Nullable Facing facing;
 
 		private static final Type @NotNull [] types = values();
 
@@ -141,7 +165,7 @@ public class CookingPot implements Typed {
 		}
 
 		@Override
-		public @NotNull Facing getFacing() {
+		public @Nullable Facing getFacing() {
 			return this.facing;
 		}
 	}

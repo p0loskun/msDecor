@@ -31,17 +31,13 @@ public interface CustomDecorData extends Cloneable {
 
 	default void setSoundGroup(@Nullable SoundGroup soundGroup) {}
 
-	default @NotNull HitBox getHitBox() {
-		return HitBox.SOLID_FRAME;
-	}
+	@NotNull HitBox getHitBox();
 
-	default void setHitBox(@NotNull HitBox hitBox) {}
+	void setHitBox(@NotNull HitBox hitBox);
 
-	default @Nullable Facing getFacing() {
-		return null;
-	}
+	@Nullable Facing getFacing();
 
-	default void setFacing(@Nullable Facing facing) {}
+	void setFacing(@Nullable Facing facing);
 
 	default @Nullable List<Recipe> getRecipes() {
 		return null;
@@ -60,7 +56,13 @@ public interface CustomDecorData extends Cloneable {
 	}
 
 	default void register(boolean regRecipes) {
-		CustomDecorUtils.CUSTOM_DECORS.put(this.getNamespacedKey().getKey(), this);
+		if (this instanceof FullTyped fullTyped) {
+			for (Typed.Type type : fullTyped.getTypes()) {
+				CustomDecorUtils.CUSTOM_DECORS.put(type.getNamespacedKey().getKey(), fullTyped.createCustomDecorData(type));
+			}
+		} else {
+			CustomDecorUtils.CUSTOM_DECORS.put(this.getNamespacedKey().getKey(), this);
+		}
 		if (regRecipes) {
 			List<Recipe> recipes = this.getRecipes();
 			if (recipes == null) return;

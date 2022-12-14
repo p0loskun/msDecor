@@ -48,7 +48,11 @@ public class CustomDecor {
 				this.summonItemFrame(blockFace, customName);
 			}
 			if (hand != null) {
-				this.itemInHand.setAmount(this.player.getGameMode() == GameMode.SURVIVAL ? this.itemInHand.getAmount() - 1 : this.itemInHand.getAmount());
+				this.itemInHand.setAmount(
+						this.player.getGameMode() == GameMode.SURVIVAL
+								? this.itemInHand.getAmount() - 1
+								: this.itemInHand.getAmount()
+				);
 				PlayerUtils.swingHand(player, hand);
 			}
 			this.setHitBox();
@@ -63,7 +67,7 @@ public class CustomDecor {
 	public void breakCustomDecor() {
 		Location blockLocation = this.block.getLocation();
 		World world = this.block.getWorld();
-		for (Entity nearbyEntity : this.block.getWorld().getNearbyEntities(blockLocation.clone().add(0.5d, 0.5d, 0.5d), 0.5d, 0.5d, 0.5d)) {
+		for (Entity nearbyEntity : this.block.getWorld().getNearbyEntities(blockLocation.clone().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
 			if (
 					nearbyEntity instanceof ItemFrame itemFrame
 					&& itemFrame.getItem().getItemMeta() != null
@@ -82,16 +86,18 @@ public class CustomDecor {
 		}
 		if (this.customDecorData == null) {
 			for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.clone().add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
-				if (
-						nearbyEntity instanceof ArmorStand armorStand
-						&& armorStand.getEquipment().getHelmet() != null
-						&& armorStand.getEquipment().getHelmet().getItemMeta() != null
-				) {
-					this.customDecorData = CustomDecorUtils.getCustomDecorDataByEntity(armorStand);
-					if (this.customDecorData == null) return;
-					armorStand.remove();
-					if (this.player == null || this.player.getGameMode() == GameMode.SURVIVAL) {
-						world.dropItemNaturally(blockLocation, this.customDecorData.getItemStack());
+				if (nearbyEntity instanceof ArmorStand armorStand) {
+					ItemStack helmet = armorStand.getEquipment().getHelmet();
+					if (
+							helmet != null
+							&& helmet.getItemMeta() != null
+					) {
+						this.customDecorData = CustomDecorUtils.getCustomDecorDataByEntity(armorStand);
+						if (this.customDecorData == null) return;
+						armorStand.remove();
+						if (this.player == null || this.player.getGameMode() == GameMode.SURVIVAL) {
+							world.dropItemNaturally(blockLocation, this.customDecorData.getItemStack());
+						}
 					}
 				}
 			}

@@ -49,6 +49,14 @@ public interface Typed extends CustomDecorData {
 		customDecorData.setItemStack(this.createItemStack(type));
 		customDecorData.setHitBox(type.getHitBox());
 		customDecorData.setFacing(type.getFacing());
+		if (
+				type instanceof LightableType lightableType
+				&& customDecorData instanceof Lightable lightable
+		) {
+			lightable.setFirstLightLevel(lightableType.getFirstLightLevel());
+			lightable.setSecondLightLevel(lightableType.getSecondLightLevel());
+			return lightable;
+		}
 		return customDecorData;
 	}
 
@@ -71,5 +79,11 @@ public interface Typed extends CustomDecorData {
 		default @Nullable Facing getFacing() {
 			return null;
 		}
+	}
+
+	interface LightableType extends Type {
+		int getFirstLightLevel();
+
+		int getSecondLightLevel();
 	}
 }

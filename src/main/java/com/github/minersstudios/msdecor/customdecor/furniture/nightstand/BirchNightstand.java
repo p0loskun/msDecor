@@ -1,9 +1,10 @@
-package com.github.minersstudios.msdecor.customdecor.decorations.home;
+package com.github.minersstudios.msdecor.customdecor.furniture.nightstand;
 
 import com.github.minersstudios.msdecor.Main;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
 import com.github.minersstudios.msdecor.customdecor.Typed;
+import com.github.minersstudios.msdecor.customdecor.Wrenchable;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -16,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Locale;
 
-public class Cell implements Typed {
+public class BirchNightstand implements Wrenchable {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @Nullable SoundGroup soundGroup;
@@ -24,22 +25,23 @@ public class Cell implements Typed {
 	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 
-	public Cell() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "cell");
+	public BirchNightstand() {
+		this.namespacedKey = new NamespacedKey(Main.getInstance(), "birch_nightstand");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
 		this.soundGroup = new SoundGroup(
-				"block.chain.place", 1.0f, 1.0f,
-				"block.chain.break", 1.0f, 1.0f
+				"custom.block.wood.place", 0.5f, 1.0f,
+				"custom.block.wood.break", 0.5f, 1.0f
 		);
 		this.hitBox = HitBox.SOLID_FRAME;
 		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.createItemStack(Type.DEFAULT))
 				.shape(
-						" C ",
-						"BBB",
-						"BBB"
-				).setIngredient('B', Material.IRON_BARS)
-				.setIngredient('C', Material.CHAIN);
+						"PPP",
+						"PPP",
+						"P P"
+				)
+				.setIngredient('P', Material.BIRCH_PLANKS);
+		shapedRecipe.setGroup(this.namespacedKey.getNamespace() + "nightstand");
 		this.recipes = Lists.newArrayList(shapedRecipe);
 	}
 
@@ -119,29 +121,29 @@ public class Cell implements Typed {
 
 	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
-		DEFAULT(1174),
-		BEE(1175),
-		CHICKEN(1176),
-		PARROT_BLUE(1177),
-		PARROT_GREEN(1178),
-		PARROT_GRAY(1179),
-		PARROT_RED_BLUE(1180),
-		PARROT_YELLOW_BLUE(1181),
-		SLIME(1182);
+		DEFAULT(1093),
+		SECOND_LEFT(1094),
+		SECOND_MIDDLE(1095),
+		SECOND_RIGHT(1096),
+		THIRD_LEFT(1097),
+		THIRD_MIDDLE(1098),
+		THIRD_RIGHT(1099);
 		//</editor-fold>
 
 		private final @NotNull NamespacedKey namespacedKey;
 		private final @NotNull String itemName;
 		private final int customModelData;
 		private final @NotNull HitBox hitBox;
+		private final @Nullable Facing facing;
 
 		private static final Type @NotNull [] types = values();
 
 		Type(int customModelData) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_cell");
-			this.itemName = "Клетка";
+			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_birch_nightstand");
+			this.itemName = "Берёзовая тумбочка";
 			this.customModelData = customModelData;
 			this.hitBox = HitBox.SOLID_FRAME;
+			this.facing = Facing.FLOOR;
 		}
 
 		@Override
@@ -162,6 +164,11 @@ public class Cell implements Typed {
 		@Override
 		public @NotNull HitBox getHitBox() {
 			return this.hitBox;
+		}
+
+		@Override
+		public @Nullable Facing getFacing() {
+			return this.facing;
 		}
 	}
 }

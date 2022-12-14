@@ -21,6 +21,8 @@ public class Brazier implements Lightable, Typed {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @Nullable SoundGroup soundGroup;
+	private @NotNull HitBox hitBox;
+	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 	private int firstLightLevel;
 	private int secondLightLevel;
@@ -28,10 +30,12 @@ public class Brazier implements Lightable, Typed {
 	public Brazier() {
 		this.namespacedKey = new NamespacedKey(Main.getInstance(), "brazier");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
+		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
 		this.soundGroup = new SoundGroup(
 				"block.chain.place", 1.0f, 1.0f,
 				"block.chain.break", 1.0f, 1.0f
 		);
+		this.hitBox = HitBox.SMALL_ARMOR_STAND;
 		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.createItemStack(Type.DEFAULT))
 				.shape(
 						"B B",
@@ -41,8 +45,6 @@ public class Brazier implements Lightable, Typed {
 				.setIngredient('B', Material.IRON_BARS)
 				.setIngredient('I', Material.IRON_INGOT);
 		this.recipes = Lists.newArrayList(shapedRecipe);
-		this.firstLightLevel = 0;
-		this.secondLightLevel = 15;
 	}
 
 	@Override
@@ -73,6 +75,26 @@ public class Brazier implements Lightable, Typed {
 	@Override
 	public void setSoundGroup(@Nullable SoundGroup soundGroup) {
 		this.soundGroup = soundGroup;
+	}
+
+	@Override
+	public @NotNull HitBox getHitBox() {
+		return this.hitBox;
+	}
+
+	@Override
+	public void setHitBox(@NotNull HitBox hitBox) {
+		this.hitBox = hitBox;
+	}
+
+	@Override
+	public @Nullable Facing getFacing() {
+		return this.facing;
+	}
+
+	@Override
+	public void setFacing(@Nullable Facing facing) {
+		this.facing = facing;
 	}
 
 	@Override
@@ -119,10 +141,10 @@ public class Brazier implements Lightable, Typed {
 		return Type.types;
 	}
 
-	enum Type implements Typed.Type {
+	public enum Type implements Typed.LightableType {
 		//<editor-fold desc="Types">
-		DEFAULT( 1008),
-		FIRED(1009);
+		DEFAULT( 1183, 0, 15),
+		FIRED(1184, 15, 0);
 		//</editor-fold>
 
 		private final @NotNull NamespacedKey namespacedKey;
@@ -130,15 +152,23 @@ public class Brazier implements Lightable, Typed {
 		private final int customModelData;
 		private final @NotNull HitBox hitBox;
 		private final @Nullable Facing facing;
+		private final int firstLightLevel;
+		private final int secondLightLevel;
 
 		private static final Type @NotNull [] types = values();
 
-		Type(int customModelData) {
+		Type(
+				int customModelData,
+				int firstLightLevel,
+				int secondLightLevel
+		) {
 			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_brazier");
 			this.itemName = "Мангал";
 			this.customModelData = customModelData;
 			this.hitBox = HitBox.SMALL_ARMOR_STAND;
 			this.facing = Facing.FLOOR;
+			this.firstLightLevel = firstLightLevel;
+			this.secondLightLevel = secondLightLevel;
 		}
 
 		@Override
@@ -164,6 +194,16 @@ public class Brazier implements Lightable, Typed {
 		@Override
 		public @Nullable Facing getFacing() {
 			return this.facing;
+		}
+
+		@Override
+		public int getFirstLightLevel() {
+			return this.firstLightLevel;
+		}
+
+		@Override
+		public int getSecondLightLevel() {
+			return this.secondLightLevel;
 		}
 	}
 }

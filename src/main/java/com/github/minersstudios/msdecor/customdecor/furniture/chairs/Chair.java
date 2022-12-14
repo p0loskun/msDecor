@@ -1,10 +1,7 @@
 package com.github.minersstudios.msdecor.customdecor.furniture.chairs;
 
 import com.github.minersstudios.msdecor.Main;
-import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
-import com.github.minersstudios.msdecor.customdecor.Sittable;
-import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.customdecor.Typed;
+import com.github.minersstudios.msdecor.customdecor.*;
 import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import net.kyori.adventure.text.Component;
@@ -19,10 +16,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Locale;
 
-public class Chair implements Sittable, Typed {
+public class Chair implements Sittable, FullTyped {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @Nullable SoundGroup soundGroup;
+	private @NotNull HitBox hitBox;
+	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 	private double height;
 
@@ -33,6 +32,7 @@ public class Chair implements Sittable, Typed {
 				"custom.block.wood.place", 0.5f, 1.0f,
 				"custom.block.wood.break", 0.5f, 1.0f
 		);
+		this.hitBox = HitBox.SOLID_FRAME;
 		//<editor-fold desc="Recipes">
 		ShapedRecipe acacia = new ShapedRecipe(Type.ACACIA.namespacedKey, this.createItemStack(Type.ACACIA))
 				.shape(
@@ -151,6 +151,26 @@ public class Chair implements Sittable, Typed {
 	}
 
 	@Override
+	public @NotNull HitBox getHitBox() {
+		return this.hitBox;
+	}
+
+	@Override
+	public void setHitBox(@NotNull HitBox hitBox) {
+		this.hitBox = hitBox;
+	}
+
+	@Override
+	public @Nullable Facing getFacing() {
+		return this.facing;
+	}
+
+	@Override
+	public void setFacing(@Nullable Facing facing) {
+		this.facing = facing;
+	}
+
+	@Override
 	public @Nullable List<Recipe> getRecipes() {
 		return this.recipes;
 	}
@@ -184,7 +204,7 @@ public class Chair implements Sittable, Typed {
 		return Type.types;
 	}
 
-	enum Type implements Typed.Type {
+	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
 		ACACIA("Aкациевый стул со спинкой", 1008),
 		BIRCH("Берёзовый стул со спинкой", 1009),

@@ -4,6 +4,7 @@ import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Typed;
 import com.github.minersstudios.msdecor.customdecor.christmas.Ball;
 import com.github.minersstudios.msdecor.customdecor.christmas.SantaSock;
+import com.github.minersstudios.msdecor.customdecor.christmas.Snowman;
 import com.github.minersstudios.msdecor.customdecor.decorations.home.*;
 import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.DeerHead;
 import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.HoglinHead;
@@ -15,6 +16,7 @@ import com.github.minersstudios.msdecor.customdecor.decorations.street.*;
 import com.github.minersstudios.msdecor.customdecor.furniture.chairs.*;
 import com.github.minersstudios.msdecor.customdecor.furniture.lamps.BigLamp;
 import com.github.minersstudios.msdecor.customdecor.furniture.lamps.SmallLamp;
+import com.github.minersstudios.msdecor.customdecor.furniture.nightstand.*;
 import com.github.minersstudios.msdecor.customdecor.furniture.tables.BigTable;
 import com.github.minersstudios.msdecor.customdecor.furniture.tables.SmallTable;
 import com.github.minersstudios.msdecor.customdecor.halloween.SkeletonHand;
@@ -40,8 +42,10 @@ public final class CustomDecorUtils {
 	}
 
 	public static void registerCustomDecors() {
+		//<editor-fold desc="Custom decors">
 		new Ball().register(isChristmas);
 		new SantaSock().register(isChristmas);
+		new Snowman().register(isChristmas);
 
 		new DeerHead().register();
 		new HoglinHead().register();
@@ -83,6 +87,17 @@ public final class CustomDecorUtils {
 		new SkeletonHand().register(isHalloween);
 
 		new Poop().register();
+
+		new AcaciaNightstand().register();
+		new BirchNightstand().register();
+		new CrimsonNightstand().register();
+		new DarkOakNightstand().register();
+		new JungleNightstand().register();
+		new MangroveNightstand().register();
+		new OakNightstand().register();
+		new SpruceNightstand().register();
+		new WarpedNightstand().register();
+		//</editor-fold>
 	}
 
 	@Contract("null -> null")

@@ -30,6 +30,7 @@ public class Ball implements FaceableByType {
 	public Ball() {
 		this.namespacedKey = new NamespacedKey(Main.getInstance(), "christmas_ball");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
+		this.itemStack.setItemMeta(this.createItemStack(Type.WALL).getItemMeta());
 		this.soundGroup = new SoundGroup(
 				"block.glass.place", 1.0f, 1.0f,
 				"block.glass.break", 1.0f, 1.0f
@@ -121,7 +122,7 @@ public class Ball implements FaceableByType {
 		return Type.types;
 	}
 
-	enum Type implements Typed.Type {
+	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
 		WALL(HitBox.FRAME, Facing.WALL),
 		CEILING(HitBox.STRUCTURE_SMALL_ARMOR_STAND, Facing.CEILING);
