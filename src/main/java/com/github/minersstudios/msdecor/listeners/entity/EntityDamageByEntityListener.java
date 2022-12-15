@@ -1,6 +1,7 @@
 package com.github.minersstudios.msdecor.listeners.entity;
 
 import com.github.minersstudios.msdecor.customdecor.CustomDecor;
+import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import com.github.minersstudios.msdecor.utils.EntityUtils;
 import org.bukkit.GameMode;
@@ -29,7 +30,9 @@ public class EntityDamageByEntityListener implements Listener {
 				&& player.getGameMode() == GameMode.SURVIVAL
 				|| player.getGameMode() == GameMode.CREATIVE
 		) {
-			new CustomDecor(entity.getLocation().getBlock(), player).breakCustomDecor();
+			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByEntity(entity);
+			if (customDecorData == null) return;
+			new CustomDecor(entity.getLocation().getBlock(), player, customDecorData).breakCustomDecor();
 		}
 	}
 }

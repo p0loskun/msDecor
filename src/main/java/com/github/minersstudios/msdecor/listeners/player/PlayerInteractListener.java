@@ -1,6 +1,8 @@
 package com.github.minersstudios.msdecor.listeners.player;
 
-import com.github.minersstudios.msdecor.customdecor.*;
+import com.github.minersstudios.msdecor.customdecor.CustomDecor;
+import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
+import com.github.minersstudios.msdecor.customdecor.Sittable;
 import com.github.minersstudios.msdecor.utils.BlockUtils;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import com.github.minersstudios.msdecor.utils.PlayerUtils;
@@ -9,6 +11,7 @@ import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.Directional;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -26,6 +29,7 @@ public class PlayerInteractListener implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerInteract(@NotNull PlayerInteractEvent event) {
 		if (event.getClickedBlock() == null || event.getHand() == null) return;
+		Action action = event.getAction();
 		BlockFace blockFace = event.getBlockFace();
 		Block clickedBlock = event.getClickedBlock(),
 				blockAtFace = clickedBlock.getRelative(blockFace),
@@ -41,7 +45,7 @@ public class PlayerInteractListener implements Listener {
 		}
 		itemInHand = player.getInventory().getItem(hand);
 		if (
-				event.getAction() == Action.RIGHT_CLICK_BLOCK
+				action == Action.RIGHT_CLICK_BLOCK
 				&& PlayerUtils.isItemCustomDecor(itemInHand)
 				&& (event.getHand() == EquipmentSlot.HAND || hand == EquipmentSlot.OFF_HAND)
 				&& gameMode != GameMode.ADVENTURE
@@ -50,7 +54,7 @@ public class PlayerInteractListener implements Listener {
 				&& BlockUtils.REPLACE.contains(clickedBlock.getRelative(blockFace).getType())
 		) {
 			BlockUtils.removeBlock(replaceableBlock.getLocation());
-			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByItem(itemInHand);
+			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataWithFace(itemInHand, blockFace);
 			if (customDecorData == null) return;
 			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
 				if (
@@ -60,44 +64,39 @@ public class PlayerInteractListener implements Listener {
 						|| nearbyEntity.getType() == EntityType.ITEM_FRAME)
 				) return;
 			}
-			CustomDecor customDecor = new CustomDecor(replaceableBlock, player);
-			if (customDecorData instanceof FaceableByType faceableByType) {
-				Typed.Type type = faceableByType.getTypeByFace(blockFace);
-				if (type != null) {
-					customDecorData = faceableByType.createCustomDecorData(type);
-				}
-			}
+			CustomDecor customDecor = new CustomDecor(replaceableBlock, player, customDecorData);
 			CustomDecorData.Facing facing = customDecorData.getFacing();
 			if (
 					facing == null || blockFace != BlockFace.DOWN
 					&& replaceableBlock.getLocation().add(0.5d, -1.0d, 0.5d).getBlock().getType().isSolid()
 					&& facing == CustomDecorData.Facing.FLOOR
 			) {
-				customDecor.setCustomDecor(customDecorData, BlockFace.UP, hand, null);
+				customDecor.setCustomDecor(BlockFace.UP, hand, null);
 			} else if (
 					blockFace != BlockFace.UP
 					&& replaceableBlock.getLocation().add(0.5d, 1.0d, 0.5d).getBlock().getType().isSolid()
 					&& facing == CustomDecorData.Facing.CEILING
 			) {
-				customDecor.setCustomDecor(customDecorData, BlockFace.DOWN, hand, null);
+				customDecor.setCustomDecor(BlockFace.DOWN, hand, null);
 			} else if (
 					blockFace != BlockFace.UP
 					&& blockFace != BlockFace.DOWN
 					&& facing == CustomDecorData.Facing.WALL
 			) {
-				customDecor.setCustomDecor(customDecorData, blockFace, hand, null);
+				customDecor.setCustomDecor(blockFace, hand, null);
 			}
 		} else if (
-				event.getAction() == Action.LEFT_CLICK_BLOCK
+				action == Action.LEFT_CLICK_BLOCK
 				&& BlockUtils.isCustomDecorMaterial(clickedBlock.getType())
 				&& (player.isSneaking() && player.getGameMode() == GameMode.SURVIVAL
 				|| gameMode == GameMode.SURVIVAL && clickedBlock.getType() == Material.STRUCTURE_VOID
 				|| gameMode == GameMode.CREATIVE)
 		) {
-			CustomDecor customDecor = new CustomDecor(clickedBlock, player);
-			customDecor.breakCustomDecor();
+			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByLocation(clickedBlock.getLocation().toCenterLocation());
+			if (customDecorData == null) return;
+			new CustomDecor(clickedBlock, player, customDecorData).breakCustomDecor();
 		} else if (
-				event.getAction() == Action.RIGHT_CLICK_BLOCK
+				action == Action.RIGHT_CLICK_BLOCK
 				&& !player.isSneaking()
 				&& clickedBlock.getType() == Material.BARRIER
 				&& (!itemInHand.getType().isBlock() || itemInHand.getType() == Material.AIR)
@@ -119,10 +118,23 @@ public class PlayerInteractListener implements Listener {
 				}
 			}
 		}
+
 		event.setCancelled(
-				event.getAction() == Action.RIGHT_CLICK_BLOCK
+				action == Action.RIGHT_CLICK_BLOCK
 				&& itemInHand.getType() == Material.LAVA_BUCKET
 				&& BlockUtils.isCustomDecorMaterial(blockAtFace.getType())
+		);
+	}
+
+	@EventHandler
+	public void onShulkerInteract(@NotNull PlayerInteractEvent event) {
+		if (event.getClickedBlock() == null) return;
+		Block clickedBlock = event.getClickedBlock();
+		event.setCancelled(
+				event.getAction() == Action.RIGHT_CLICK_BLOCK
+				&& Tag.SHULKER_BOXES.isTagged(clickedBlock.getType())
+				&& clickedBlock.getBlockData() instanceof Directional directional
+				&& BlockUtils.isCustomDecorMaterial(clickedBlock.getRelative(directional.getFacing()).getType())
 		);
 	}
 }

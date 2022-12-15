@@ -2,9 +2,9 @@ package com.github.minersstudios.msdecor.customdecor;
 
 import com.github.minersstudios.msdecor.Main;
 import com.github.minersstudios.msdecor.utils.BlockUtils;
-import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import com.github.minersstudios.msdecor.utils.EntityUtils;
 import com.github.minersstudios.msdecor.utils.PlayerUtils;
+import com.google.common.base.Preconditions;
 import net.kyori.adventure.text.Component;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -21,28 +21,23 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class CustomDecor {
-	private final Block block;
-	private final Player player;
-	private ItemStack itemInHand;
-	@Nullable private CustomDecorData customDecorData;
+	@NotNull private final Block block;
+	@NotNull private final Player player;
+	@Nullable private ItemStack itemInHand;
+	@NotNull private final CustomDecorData customDecorData;
 
-	public CustomDecor(@NotNull Block block, @Nullable Player player) {
+	public CustomDecor(@NotNull Block block, @NotNull Player player, @NotNull CustomDecorData customDecorData) {
 		this.block = block;
 		this.player = player;
+		this.customDecorData = customDecorData;
 	}
 
-	/**
-	 * Sets custom decor
-	 *
-	 * @param customDecorData custom decor that will be placed
-	 * @param blockFace           block face on which the frame is to be spawned
-	 */
-	public void setCustomDecor(@NotNull CustomDecorData customDecorData, @NotNull BlockFace blockFace, @Nullable EquipmentSlot hand, @Nullable Component customName) {
-		if (this.player == null) return;
+	public void setCustomDecor(@NotNull BlockFace blockFace, @Nullable EquipmentSlot hand, @Nullable Component customName) {
 		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
-			this.customDecorData = customDecorData;
-			this.itemInHand = hand != null ? this.player.getInventory().getItem(hand) : customDecorData.getItemStack();
-			if (customDecorData.getHitBox().isArmorStand()) {
+			this.itemInHand = hand != null
+							? this.player.getInventory().getItem(hand)
+							: this.customDecorData.getItemStack();
+			if (this.customDecorData.getHitBox().isArmorStand()) {
 				this.summonArmorStand(customName);
 			} else {
 				this.summonItemFrame(blockFace, customName);
@@ -61,56 +56,47 @@ public class CustomDecor {
 		});
 	}
 
-	/**
-	 * Breaks custom block vanillish
-	 */
 	public void breakCustomDecor() {
 		Location blockLocation = this.block.getLocation();
 		World world = this.block.getWorld();
 		for (Entity nearbyEntity : this.block.getWorld().getNearbyEntities(blockLocation.clone().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
-			if (
-					nearbyEntity instanceof ItemFrame itemFrame
-					&& itemFrame.getItem().getItemMeta() != null
-			) {
-				this.customDecorData = CustomDecorUtils.getCustomDecorDataByEntity(nearbyEntity);
-				if (this.customDecorData == null) return;
+			if (nearbyEntity instanceof ItemFrame itemFrame) {
+				ItemStack itemStack = itemFrame.getItem();
+				if (itemStack.getItemMeta() == null) return;
 				itemFrame.remove();
-				if (this.player == null || this.player.getGameMode() == GameMode.SURVIVAL) {
-					ItemStack itemStack = this.customDecorData.getItemStack();
+				if (this.player.getGameMode() == GameMode.SURVIVAL) {
 					ItemMeta itemMeta = itemStack.getItemMeta();
 					itemMeta.displayName(nearbyEntity.name());
 					itemStack.setItemMeta(itemMeta);
 					world.dropItemNaturally(blockLocation, itemStack);
 				}
+				break;
 			}
 		}
-		if (this.customDecorData == null) {
-			for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.clone().add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
-				if (nearbyEntity instanceof ArmorStand armorStand) {
-					ItemStack helmet = armorStand.getEquipment().getHelmet();
-					if (
-							helmet != null
-							&& helmet.getItemMeta() != null
-					) {
-						this.customDecorData = CustomDecorUtils.getCustomDecorDataByEntity(armorStand);
-						if (this.customDecorData == null) return;
-						armorStand.remove();
-						if (this.player == null || this.player.getGameMode() == GameMode.SURVIVAL) {
-							world.dropItemNaturally(blockLocation, this.customDecorData.getItemStack());
-						}
+		for (Entity nearbyEntity : block.getWorld().getNearbyEntities(blockLocation.clone().add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
+			if (nearbyEntity instanceof ArmorStand armorStand) {
+				ItemStack helmet = armorStand.getEquipment().getHelmet();
+				if (
+						helmet != null
+						&& helmet.getItemMeta() != null
+				) {
+					armorStand.remove();
+					if (this.player.getGameMode() == GameMode.SURVIVAL) {
+						world.dropItemNaturally(blockLocation, helmet);
 					}
 				}
+				break;
 			}
 		}
 		this.playBreakSound();
 		if (BlockUtils.isCustomDecorMaterial(this.block.getType())) {
 			this.block.setType(Material.AIR);
 		}
-		Main.getCoreProtectAPI().logRemoval(this.player != null ? this.player.getName() : null, this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+		Main.getCoreProtectAPI().logRemoval(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
 	}
 
 	private void summonArmorStand(@Nullable Component customName) {
-		if (this.player == null || this.customDecorData == null) return;
+		Preconditions.checkArgument(this.itemInHand != null, "Item in hand must be NotNull!");
 		this.block.getWorld().spawn(this.block.getLocation().add(0.5d, 0.0d, 0.5d), ArmorStand.class, (armorStand) -> {
 			armorStand.setGravity(false);
 			armorStand.setMarker(this.customDecorData.getHitBox().isSolidHitBox() || this.customDecorData.getHitBox().isStructureHitBox());
@@ -135,10 +121,14 @@ public class CustomDecor {
 	}
 
 	private void summonItemFrame(BlockFace blockFace, @Nullable Component customName) {
-		if (this.player == null || this.customDecorData == null || this.itemInHand.getItemMeta() == null) return;
+		Preconditions.checkArgument(this.itemInHand != null, "Item in hand must be NotNull!");
 		this.block.getWorld().spawn(this.block.getLocation().add(0.5d, 0.0d, 0.5d), ItemFrame.class, (itemFrame) -> {
 			itemFrame.setItemDropChance(0.0f);
-			itemFrame.customName(customName != null ? customName : this.itemInHand.getItemMeta().displayName());
+			itemFrame.customName(
+					customName != null
+							? customName
+							: this.itemInHand.getItemMeta().displayName()
+			);
 			itemFrame.setVisible(false);
 			itemFrame.setSilent(true);
 			itemFrame.setFixed(this.customDecorData.getHitBox() != CustomDecorData.HitBox.FRAME);
@@ -159,7 +149,6 @@ public class CustomDecor {
 	}
 
 	private void setHitBox() {
-		if (this.customDecorData == null) return;
 		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
 			this.block.setType(
 					this.customDecorData.getHitBox().isStructureHitBox() ? Material.STRUCTURE_VOID
@@ -174,7 +163,6 @@ public class CustomDecor {
 	}
 
 	public void playPlaceSound() {
-		if (this.customDecorData == null) return;
 		SoundGroup soundGroup = this.customDecorData.getSoundGroup();
 		if (soundGroup == null || soundGroup.getPlaceSound() == null) return;
 		this.block.getWorld().playSound(
@@ -186,7 +174,6 @@ public class CustomDecor {
 	}
 
 	public void playBreakSound() {
-		if (this.customDecorData == null) return;
 		SoundGroup soundGroup = this.customDecorData.getSoundGroup();
 		if (soundGroup == null || soundGroup.getBreakSound() == null) return;
 		this.block.getWorld().playSound(
