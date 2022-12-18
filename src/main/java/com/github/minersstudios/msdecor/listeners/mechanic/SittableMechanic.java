@@ -1,0 +1,62 @@
+package com.github.minersstudios.msdecor.listeners.mechanic;
+
+import com.github.minersstudios.msdecor.customdecor.Sittable;
+import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
+import com.github.minersstudios.msdecor.utils.PlayerUtils;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
+
+public class SittableMechanic implements Listener {
+
+	@EventHandler
+	public void onPlayerInteract(@NotNull PlayerInteractEvent event) {
+		if (
+				event.getClickedBlock() == null
+				|| event.getHand() == null
+				|| event.getPlayer().isInsideVehicle()
+		) return;
+		Block clickedBlock = event.getClickedBlock();
+		Player player = event.getPlayer();
+		GameMode gameMode = player.getGameMode();
+		EquipmentSlot hand = event.getHand();
+		ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
+		if (PlayerUtils.isItemCustomBlock(itemInMainHand)) return;
+		if (hand != EquipmentSlot.HAND && PlayerUtils.isItemCustomDecor(itemInMainHand)) {
+			hand = EquipmentSlot.HAND;
+		}
+		ItemStack itemInHand = player.getInventory().getItem(hand);
+		if (
+				event.getAction() == Action.RIGHT_CLICK_BLOCK
+				&& !player.isSneaking()
+				&& clickedBlock.getType() == Material.BARRIER
+				&& (!itemInHand.getType().isBlock() || itemInHand.getType() == Material.AIR)
+				&& !PlayerUtils.isItemCustomBlock(itemInHand)
+				&& event.getHand() == EquipmentSlot.HAND
+				&& gameMode != GameMode.SPECTATOR
+				&& !clickedBlock.getRelative(BlockFace.UP).getType().isSolid()
+				&& CustomDecorUtils.getCustomDecorDataByLocation(clickedBlock.getLocation().toCenterLocation()) instanceof Sittable sittable
+		) {
+			Location sitLocation = clickedBlock.getLocation().clone().add(0.5d, sittable.getHeight(), 0.5d);
+			for (Entity entity : player.getWorld().getNearbyEntities(sitLocation, 0.5d, 0.5d, 0.5d)) {
+				if (entity.getType() == EntityType.PLAYER && !entity.equals(player)) return;
+			}
+			sitLocation.getWorld().playSound(sitLocation, Sound.ENTITY_PIG_SADDLE, 0.15f, 1.0f);
+			com.github.minersstudios.msUtils.utils.PlayerUtils.setSitting(player, sitLocation, null);
+			player.swingHand(hand);
+		}
+	}
+}

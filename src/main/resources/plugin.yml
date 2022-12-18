@@ -7,3 +7,15 @@ website: ${url}
 main: ${mainClass}
 api-version: ${apiVersion}
 softdepend: [ CoreProtect, msUtils ]
+commands:
+  msdecor:
+    usage: " ꀑ §cИспользуй: /<command> [параметры]"
+    permission: msDecor.msdecor
+    description: Прочья хуйня
+permissions:
+  msdecor.*:
+    default: op
+    children:
+      msDecor.msdecor: true
+  msDecor.msdecor:
+    default: op
