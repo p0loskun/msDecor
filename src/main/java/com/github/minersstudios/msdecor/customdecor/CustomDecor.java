@@ -3,7 +3,6 @@ package com.github.minersstudios.msdecor.customdecor;
 import com.github.minersstudios.msdecor.Main;
 import com.github.minersstudios.msdecor.utils.BlockUtils;
 import com.github.minersstudios.msdecor.utils.EntityUtils;
-import com.github.minersstudios.msdecor.utils.PlayerUtils;
 import com.google.common.base.Preconditions;
 import net.kyori.adventure.text.Component;
 import org.bukkit.*;
@@ -48,7 +47,7 @@ public class CustomDecor {
 								? this.itemInHand.getAmount() - 1
 								: this.itemInHand.getAmount()
 				);
-				PlayerUtils.swingHand(player, hand);
+				player.swingHand(hand);
 			}
 			this.setHitBox();
 			this.playPlaceSound();

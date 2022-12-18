@@ -6,10 +6,13 @@ import com.github.minersstudios.msdecor.listeners.block.BlockPlaceListener;
 import com.github.minersstudios.msdecor.listeners.entity.EntityChangeBlockListener;
 import com.github.minersstudios.msdecor.listeners.entity.EntityDamageByEntityListener;
 import com.github.minersstudios.msdecor.listeners.entity.HangingBreakListener;
-import com.github.minersstudios.msdecor.listeners.entity.HangingPlaceListener;
 import com.github.minersstudios.msdecor.listeners.inventory.InventoryClickListener;
 import com.github.minersstudios.msdecor.listeners.inventory.InventoryCreativeListener;
 import com.github.minersstudios.msdecor.listeners.inventory.InventoryDragListener;
+import com.github.minersstudios.msdecor.listeners.mechanic.BrazierMechanic;
+import com.github.minersstudios.msdecor.listeners.mechanic.LampsMechanic;
+import com.github.minersstudios.msdecor.listeners.mechanic.SittableMechanic;
+import com.github.minersstudios.msdecor.listeners.mechanic.TrashcanMechanic;
 import com.github.minersstudios.msdecor.listeners.player.*;
 import org.bukkit.plugin.PluginManager;
 
@@ -28,7 +31,6 @@ public final class RegEvents {
 		pluginManager.registerEvents(new EntityChangeBlockListener(), Main.getInstance());
 		pluginManager.registerEvents(new EntityDamageByEntityListener(), Main.getInstance());
 		pluginManager.registerEvents(new HangingBreakListener(), Main.getInstance());
-		pluginManager.registerEvents(new HangingPlaceListener(), Main.getInstance());
 
 		pluginManager.registerEvents(new InventoryClickListener(), Main.getInstance());
 		pluginManager.registerEvents(new InventoryCreativeListener(), Main.getInstance());
@@ -37,5 +39,10 @@ public final class RegEvents {
 		pluginManager.registerEvents(new PlayerInteractAtEntityListener(), Main.getInstance());
 		pluginManager.registerEvents(new PlayerInteractEntityListener(), Main.getInstance());
 		pluginManager.registerEvents(new PlayerInteractListener(), Main.getInstance());
+
+		pluginManager.registerEvents(new SittableMechanic(), Main.getInstance());
+		pluginManager.registerEvents(new BrazierMechanic(), Main.getInstance());
+		pluginManager.registerEvents(new LampsMechanic(), Main.getInstance());
+		pluginManager.registerEvents(new TrashcanMechanic(), Main.getInstance());
 	}
 }

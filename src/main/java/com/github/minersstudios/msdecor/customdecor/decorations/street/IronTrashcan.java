@@ -5,6 +5,8 @@ import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
 import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -23,6 +25,7 @@ public class IronTrashcan implements CustomDecorData {
 	private @NotNull HitBox hitBox;
 	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
+	public static final Component INV_NAME = Component.text("Мусорка").color(NamedTextColor.DARK_GRAY);
 
 	public IronTrashcan() {
 		this.namespacedKey = new NamespacedKey(Main.getInstance(), "iron_trashcan");

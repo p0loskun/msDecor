@@ -22,16 +22,12 @@ public class EntityDamageByEntityListener implements Listener {
 		if (
 				!(event.getDamager() instanceof Player player)
 				|| player.getGameMode() == GameMode.ADVENTURE
-				|| CustomDecorUtils.getCustomDecorDataByEntity(entity) == null
-				|| !EntityUtils.isCustomDecorEntity(entity)
+				|| ((!player.isSneaking()
+				|| player.getGameMode() != GameMode.SURVIVAL)
+				&& player.getGameMode() != GameMode.CREATIVE)
 		) return;
-		if (
-				player.isSneaking()
-				&& player.getGameMode() == GameMode.SURVIVAL
-				|| player.getGameMode() == GameMode.CREATIVE
-		) {
-			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByEntity(entity);
-			if (customDecorData == null) return;
+		CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByEntity(entity);
+		if (customDecorData != null) {
 			new CustomDecor(entity.getLocation().getBlock(), player, customDecorData).breakCustomDecor();
 		}
 	}

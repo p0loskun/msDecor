@@ -149,6 +149,7 @@ public final class CustomDecorUtils {
 
 	@Contract("null -> null")
 	public static @Nullable CustomDecorData getCustomDecorDataByEntity(@Nullable Entity entity) {
+		if (!EntityUtils.isCustomDecorEntity(entity)) return null;
 		if (entity instanceof ArmorStand armorStand) {
 			return getCustomDecorDataByItem(armorStand.getEquipment().getHelmet());
 		} else if (entity instanceof ItemFrame itemFrame) {

@@ -2,7 +2,6 @@ package com.github.minersstudios.msdecor.listeners.player;
 
 import com.github.minersstudios.msdecor.customdecor.CustomDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
-import com.github.minersstudios.msdecor.customdecor.Sittable;
 import com.github.minersstudios.msdecor.utils.BlockUtils;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import com.github.minersstudios.msdecor.utils.PlayerUtils;
@@ -16,7 +15,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -26,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class PlayerInteractListener implements Listener {
 
-	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	@EventHandler
 	public void onPlayerInteract(@NotNull PlayerInteractEvent event) {
 		if (event.getClickedBlock() == null || event.getHand() == null) return;
 		Action action = event.getAction();
@@ -37,13 +35,12 @@ public class PlayerInteractListener implements Listener {
 		Player player = event.getPlayer();
 		GameMode gameMode = player.getGameMode();
 		EquipmentSlot hand = event.getHand();
-		ItemStack itemInHand,
-				itemInMainHand = player.getInventory().getItemInMainHand();
+		ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
 		if (PlayerUtils.isItemCustomBlock(itemInMainHand)) return;
 		if (hand != EquipmentSlot.HAND && PlayerUtils.isItemCustomDecor(itemInMainHand)) {
 			hand = EquipmentSlot.HAND;
 		}
-		itemInHand = player.getInventory().getItem(hand);
+		ItemStack itemInHand = player.getInventory().getItem(hand);
 		if (
 				action == Action.RIGHT_CLICK_BLOCK
 				&& PlayerUtils.isItemCustomDecor(itemInHand)
@@ -95,28 +92,6 @@ public class PlayerInteractListener implements Listener {
 			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByLocation(clickedBlock.getLocation().toCenterLocation());
 			if (customDecorData == null) return;
 			new CustomDecor(clickedBlock, player, customDecorData).breakCustomDecor();
-		} else if (
-				action == Action.RIGHT_CLICK_BLOCK
-				&& !player.isSneaking()
-				&& clickedBlock.getType() == Material.BARRIER
-				&& (!itemInHand.getType().isBlock() || itemInHand.getType() == Material.AIR)
-				&& !PlayerUtils.isItemCustomBlock(itemInHand)
-				&& event.getHand() == EquipmentSlot.HAND
-				&& gameMode != GameMode.SPECTATOR
-				&& !clickedBlock.getRelative(BlockFace.UP).getType().isSolid()
-		) {
-			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
-				if (nearbyEntity.getType() == EntityType.ARMOR_STAND || nearbyEntity.getType() == EntityType.ITEM_FRAME) {
-					CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByEntity(nearbyEntity);
-					if (customDecorData instanceof Sittable sittable) {
-						player.swingMainHand();
-						for (Entity entity : player.getWorld().getNearbyEntities(clickedBlock.getLocation().clone().add(0.5d, sittable.getHeight(), 0.5d), 0.5d, 0.5d, 0.5d)) {
-							if (entity.getType() == EntityType.PLAYER && !entity.equals(player)) return;
-						}
-						com.github.minersstudios.msUtils.utils.PlayerUtils.setSitting(player, clickedBlock.getLocation().clone().add(0.5d, sittable.getHeight(), 0.5d), null);
-					}
-				}
-			}
 		}
 
 		event.setCancelled(
@@ -124,14 +99,9 @@ public class PlayerInteractListener implements Listener {
 				&& itemInHand.getType() == Material.LAVA_BUCKET
 				&& BlockUtils.isCustomDecorMaterial(blockAtFace.getType())
 		);
-	}
 
-	@EventHandler
-	public void onShulkerInteract(@NotNull PlayerInteractEvent event) {
-		if (event.getClickedBlock() == null) return;
-		Block clickedBlock = event.getClickedBlock();
 		event.setCancelled(
-				event.getAction() == Action.RIGHT_CLICK_BLOCK
+				action == Action.RIGHT_CLICK_BLOCK
 				&& Tag.SHULKER_BOXES.isTagged(clickedBlock.getType())
 				&& clickedBlock.getBlockData() instanceof Directional directional
 				&& BlockUtils.isCustomDecorMaterial(clickedBlock.getRelative(directional.getFacing()).getType())
