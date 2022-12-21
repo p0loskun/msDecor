@@ -28,15 +28,19 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public final class CustomDecorUtils {
 	public static final Map<String, CustomDecorData> CUSTOM_DECORS = new HashMap<>();
+	public static final List<Recipe> CUSTOM_DECOR_RECIPES = new ArrayList<>();
 
 	public static final boolean isChristmas = true;
 	public static final boolean isHalloween = false;

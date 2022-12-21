@@ -1,7 +1,7 @@
 package com.github.minersstudios.msdecor.commands;
 
 import com.github.minersstudios.msdecor.Main;
-import com.github.minersstudios.msdecor.tabCompleters.TabCommandHandler;
+import com.github.minersstudios.msdecor.tabcompleters.TabCommandHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;

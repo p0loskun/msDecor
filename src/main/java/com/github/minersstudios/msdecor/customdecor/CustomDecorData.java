@@ -68,6 +68,7 @@ public interface CustomDecorData extends Cloneable {
 			if (recipes == null) return;
 			for (Recipe recipe : recipes) {
 				Bukkit.addRecipe(recipe);
+				CustomDecorUtils.CUSTOM_DECOR_RECIPES.add(recipe);
 			}
 		}
 	}

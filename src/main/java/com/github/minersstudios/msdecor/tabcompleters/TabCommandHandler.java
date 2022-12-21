@@ -1,4 +1,4 @@
-package com.github.minersstudios.msdecor.tabCompleters;
+package com.github.minersstudios.msdecor.tabcompleters;
 
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Typed;
