@@ -3,9 +3,7 @@ package com.github.minersstudios.msdecor.utils;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.FaceableByType;
 import com.github.minersstudios.msdecor.customdecor.Typed;
-import com.github.minersstudios.msdecor.customdecor.christmas.Ball;
-import com.github.minersstudios.msdecor.customdecor.christmas.SantaSock;
-import com.github.minersstudios.msdecor.customdecor.christmas.Snowman;
+import com.github.minersstudios.msdecor.customdecor.christmas.*;
 import com.github.minersstudios.msdecor.customdecor.decorations.home.*;
 import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.DeerHead;
 import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.HoglinHead;
@@ -52,8 +50,17 @@ public final class CustomDecorUtils {
 	public static void registerCustomDecors() {
 		//<editor-fold desc="Custom decors">
 		new Ball().register(isChristmas);
+		new TallBall().register(isChristmas);
+		new SnowmanBall().register(isChristmas);
+		new SnowflakeOnString().register(isChristmas);
+		new StarOnString().register(isChristmas);
 		new SantaSock().register(isChristmas);
 		new Snowman().register(isChristmas);
+		new TreeStar().register(isChristmas);
+
+		new SkeletonHand().register(isHalloween);
+
+		new Poop().register();
 
 		new DeerHead().register();
 		new HoglinHead().register();
@@ -77,6 +84,12 @@ public final class CustomDecorUtils {
 		new IronTrashcan().register();
 		new Wheelbarrow().register();
 
+		new BigLamp().register();
+		new SmallLamp().register();
+
+		new BigTable().register();
+		new SmallTable().register();
+
 		new Armchair().register();
 		new BarStool().register();
 		new Chair().register();
@@ -85,16 +98,6 @@ public final class CustomDecorUtils {
 		new RockingChair().register();
 		new SmallArmchair().register();
 		new SmallChair().register();
-
-		new BigLamp().register();
-		new SmallLamp().register();
-
-		new BigTable().register();
-		new SmallTable().register();
-
-		new SkeletonHand().register(isHalloween);
-
-		new Poop().register();
 
 		new AcaciaNightstand().register();
 		new BirchNightstand().register();
@@ -109,14 +112,14 @@ public final class CustomDecorUtils {
 	}
 
 	public static @Nullable CustomDecorData getCustomDecorDataByLocation(@NotNull Location location) {
-		for (Entity nearbyEntity : location.getWorld().getNearbyEntities(location, 0.5d, 0.5d, 0.5d)) {
-			if (nearbyEntity instanceof ItemFrame itemFrame) {
-				return getCustomDecorDataByEntity(itemFrame);
-			}
-		}
-		for (Entity nearbyEntity : location.getWorld().getNearbyEntities(location, 0.2d, 0.3d, 0.2d)) {
+		for (Entity nearbyEntity : location.getWorld().getNearbyEntities(location.clone().add(0.5d, 0.0d, 0.5d), 0.2d, 0.3d, 0.2d)) {
 			if (nearbyEntity instanceof ArmorStand armorStand) {
 				return getCustomDecorDataByEntity(armorStand);
+			}
+		}
+		for (Entity nearbyEntity : location.getWorld().getNearbyEntities(location.toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
+			if (nearbyEntity instanceof ItemFrame itemFrame) {
+				return getCustomDecorDataByEntity(itemFrame);
 			}
 		}
 		return null;

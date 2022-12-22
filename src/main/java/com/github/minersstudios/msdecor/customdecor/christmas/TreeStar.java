@@ -3,23 +3,20 @@ package com.github.minersstudios.msdecor.customdecor.christmas;
 import com.github.minersstudios.msdecor.Main;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.customdecor.Typed;
-import com.github.minersstudios.msdecor.customdecor.Wrenchable;
 import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Locale;
 
-public class Snowman implements Wrenchable {
+public class TreeStar implements CustomDecorData {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @Nullable SoundGroup soundGroup;
@@ -27,23 +24,26 @@ public class Snowman implements Wrenchable {
 	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 
-	public Snowman() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "snowman");
+	public TreeStar() {
+		this.namespacedKey = new NamespacedKey(Main.getInstance(), "tree_star");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
-		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
+		ItemMeta itemMeta = this.itemStack.getItemMeta();
+		itemMeta.setCustomModelData(1259);
+		itemMeta.displayName(ChatUtils.createDefaultStyledName("Новогодняя звезда"));
+		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
-				"block.snow.place", 1.0f, 1.0f,
-				"block.snow.break", 1.0f, 1.0f
+				"block.stone.place", 1.0f, 1.0f,
+				"block.stone.break", 1.0f, 1.0f
 		);
 		this.hitBox = HitBox.NORMAL_ARMOR_STAND;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.createItemStack(Type.DEFAULT))
+		this.facing = Facing.FLOOR;
+		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.itemStack)
 				.shape(
-						" W ",
-						"SBS",
+						" I ",
+						"III",
 						" B "
-				).setIngredient('S', Material.STICK)
-				.setIngredient('B', Material.SNOW_BLOCK)
-				.setIngredient('W', Material.PURPLE_WOOL);
+				).setIngredient('I', Material.GOLD_INGOT)
+				.setIngredient('B', Material.GOLD_BLOCK);
 		this.recipes = Lists.newArrayList(shapedRecipe);
 	}
 
@@ -113,72 +113,6 @@ public class Snowman implements Wrenchable {
 			return (CustomDecorData) super.clone();
 		} catch (CloneNotSupportedException e) {
 			throw new RuntimeException(e);
-		}
-	}
-
-	@Override
-	public Type @NotNull [] getTypes() {
-		return Type.types;
-	}
-
-	public enum Type implements Typed.Type {
-		//<editor-fold desc="Types">
-		DEFAULT("Снеговик", 1187),
-		BROKEN("Сломаный снеговик", 1188);
-		//</editor-fold>
-
-		private final @NotNull NamespacedKey namespacedKey;
-		private final @NotNull String itemName;
-		private final int customModelData;
-		private final @Nullable List<Component> lore;
-		private final @NotNull HitBox hitBox;
-		private final @Nullable Facing facing;
-
-		private static final Type @NotNull [] types = values();
-
-		Type(
-				@NotNull String itemName,
-				int customModelData
-		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_snowman");
-			this.itemName = itemName;
-			this.customModelData = customModelData;
-			this.lore = Lists.newArrayList(
-					ChatUtils.PAINTABLE_LORE_COMPONENT.get(0),
-					ChatUtils.WRENCHABLE_LORE_COMPONENT.get(0)
-			);
-			this.hitBox = HitBox.NORMAL_ARMOR_STAND;
-			this.facing = Facing.FLOOR;
-		}
-
-		@Override
-		public @NotNull NamespacedKey getNamespacedKey() {
-			return this.namespacedKey;
-		}
-
-		@Override
-		public @NotNull String getItemName() {
-			return this.itemName;
-		}
-
-		@Override
-		public int getCustomModelData() {
-			return this.customModelData;
-		}
-
-		@Override
-		public @Nullable List<Component> getLore() {
-			return this.lore;
-		}
-
-		@Override
-		public @NotNull HitBox getHitBox() {
-			return this.hitBox;
-		}
-
-		@Override
-		public @Nullable Facing getFacing() {
-			return this.facing;
 		}
 	}
 }

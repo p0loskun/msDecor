@@ -48,7 +48,7 @@ public class SittableMechanic implements Listener {
 				&& event.getHand() == EquipmentSlot.HAND
 				&& gameMode != GameMode.SPECTATOR
 				&& !clickedBlock.getRelative(BlockFace.UP).getType().isSolid()
-				&& CustomDecorUtils.getCustomDecorDataByLocation(clickedBlock.getLocation().toCenterLocation()) instanceof Sittable sittable
+				&& CustomDecorUtils.getCustomDecorDataByLocation(clickedBlock.getLocation()) instanceof Sittable sittable
 		) {
 			Location sitLocation = clickedBlock.getLocation().clone().add(0.5d, sittable.getHeight(), 0.5d);
 			for (Entity entity : player.getWorld().getNearbyEntities(sitLocation, 0.5d, 0.5d, 0.5d)) {

@@ -150,7 +150,10 @@ public class CoolArmchair implements Sittable, Wrenchable {
 			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_cool_armchair");
 			this.itemName = "Стильное кресло";
 			this.customModelData = customModelData;
-			this.lore = ChatUtils.PAINTABLE_LORE_COMPONENT;
+			this.lore = Lists.newArrayList(
+					ChatUtils.PAINTABLE_LORE_COMPONENT.get(0),
+					ChatUtils.WRENCHABLE_LORE_COMPONENT.get(0)
+			);
 			this.hitBox = HitBox.SOLID_FRAME;
 			this.facing = Facing.FLOOR;
 		}

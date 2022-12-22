@@ -9,7 +9,6 @@ import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -36,8 +35,8 @@ public final class ChatUtils {
 			TextDecoration.UNDERLINED.withState(false)
 	);
 
-	public static final List<String> PAINTABLE_LORE = Lists.newArrayList(ChatColor.WHITE + "ꀢ");
 	public static final List<Component> PAINTABLE_LORE_COMPONENT = Lists.newArrayList(createDefaultStyledName("ꀢ"));
+	public static final List<Component> WRENCHABLE_LORE_COMPONENT = Lists.newArrayList(createDefaultStyledName("ꀳ"));
 
 	/**
 	 * Sends info message to target

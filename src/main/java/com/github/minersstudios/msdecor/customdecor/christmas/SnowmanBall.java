@@ -1,10 +1,10 @@
-package com.github.minersstudios.msdecor.customdecor.furniture.nightstand;
+package com.github.minersstudios.msdecor.customdecor.christmas;
 
 import com.github.minersstudios.msdecor.Main;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
+import com.github.minersstudios.msdecor.customdecor.FaceableByType;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
 import com.github.minersstudios.msdecor.customdecor.Typed;
-import com.github.minersstudios.msdecor.customdecor.Wrenchable;
 import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import net.kyori.adventure.text.Component;
@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Locale;
 
-public class BirchNightstand implements Wrenchable {
+public class SnowmanBall implements FaceableByType {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @Nullable SoundGroup soundGroup;
@@ -27,23 +27,25 @@ public class BirchNightstand implements Wrenchable {
 	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 
-	public BirchNightstand() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "birch_nightstand");
+	public SnowmanBall() {
+		this.namespacedKey = new NamespacedKey(Main.getInstance(), "snowman_ball");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
-		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
+		this.itemStack.setItemMeta(this.createItemStack(Type.WALL).getItemMeta());
 		this.soundGroup = new SoundGroup(
-				"custom.block.wood.place", 0.5f, 1.0f,
-				"custom.block.wood.break", 0.5f, 1.0f
+				"block.glass.place", 1.0f, 1.0f,
+				"block.glass.break", 1.0f, 1.0f
 		);
 		this.hitBox = HitBox.SOLID_FRAME;
-		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.createItemStack(Type.DEFAULT))
+		this.facing = Facing.WALL;
+		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.createItemStack(Type.WALL))
 				.shape(
-						"PPP",
-						"PPP",
-						"P P"
+						" S ",
+						"BLB",
+						"BBB"
 				)
-				.setIngredient('P', Material.BIRCH_PLANKS);
-		shapedRecipe.setGroup(this.namespacedKey.getNamespace() + "nightstand");
+				.setIngredient('S', Material.STRING)
+				.setIngredient('B', Material.SNOWBALL)
+				.setIngredient('L', Material.LEATHER);
 		this.recipes = Lists.newArrayList(shapedRecipe);
 	}
 
@@ -123,13 +125,8 @@ public class BirchNightstand implements Wrenchable {
 
 	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
-		DEFAULT(1093),
-		SECOND_LEFT(1094),
-		SECOND_MIDDLE(1095),
-		SECOND_RIGHT(1096),
-		THIRD_LEFT(1097),
-		THIRD_MIDDLE(1098),
-		THIRD_RIGHT(1099);
+		WALL(HitBox.FRAME, Facing.WALL),
+		CEILING(HitBox.STRUCTURE_SMALL_ARMOR_STAND, Facing.CEILING);
 		//</editor-fold>
 
 		private final @NotNull NamespacedKey namespacedKey;
@@ -141,13 +138,16 @@ public class BirchNightstand implements Wrenchable {
 
 		private static final Type @NotNull [] types = values();
 
-		Type(int customModelData) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_birch_nightstand");
-			this.itemName = "Берёзовая тумбочка";
-			this.customModelData = customModelData;
-			this.lore = ChatUtils.WRENCHABLE_LORE_COMPONENT;
-			this.hitBox = HitBox.SOLID_FRAME;
-			this.facing = Facing.FLOOR;
+		Type(
+				@NotNull HitBox hitBox,
+				@Nullable Facing facing
+		) {
+			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_snowman_ball");
+			this.itemName = "Новогодний шар в виде снеговика";
+			this.customModelData = 1255;
+			this.lore = ChatUtils.PAINTABLE_LORE_COMPONENT;
+			this.hitBox = hitBox;
+			this.facing = facing;
 		}
 
 		@Override

@@ -6,6 +6,7 @@ import com.github.minersstudios.msdecor.utils.BlockUtils;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import com.github.minersstudios.msdecor.utils.PlayerUtils;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
@@ -32,6 +33,7 @@ public class PlayerInteractListener implements Listener {
 		Block clickedBlock = event.getClickedBlock(),
 				blockAtFace = clickedBlock.getRelative(blockFace),
 				replaceableBlock = BlockUtils.REPLACE.contains(clickedBlock.getType()) ? clickedBlock : clickedBlock.getRelative(blockFace);
+		Location replaceableBlockLocation = replaceableBlock.getLocation();
 		Player player = event.getPlayer();
 		GameMode gameMode = player.getGameMode();
 		EquipmentSlot hand = event.getHand();
@@ -50,10 +52,10 @@ public class PlayerInteractListener implements Listener {
 				&& ((!clickedBlock.getType().isInteractable() || Tag.STAIRS.isTagged(clickedBlock.getType())) || (player.isSneaking() && clickedBlock.getType().isInteractable()) || clickedBlock.getType() == Material.NOTE_BLOCK)
 				&& BlockUtils.REPLACE.contains(clickedBlock.getRelative(blockFace).getType())
 		) {
-			BlockUtils.removeBlock(replaceableBlock.getLocation());
+			BlockUtils.removeBlock(replaceableBlockLocation);
 			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataWithFace(itemInHand, blockFace);
 			if (customDecorData == null) return;
-			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlock.getLocation().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
+			for (Entity nearbyEntity : player.getWorld().getNearbyEntities(replaceableBlockLocation.toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
 				if (
 						nearbyEntity.getType() != EntityType.DROPPED_ITEM
 						&& (customDecorData.getHitBox().isSolidHitBox()
@@ -65,13 +67,13 @@ public class PlayerInteractListener implements Listener {
 			CustomDecorData.Facing facing = customDecorData.getFacing();
 			if (
 					facing == null || blockFace != BlockFace.DOWN
-					&& replaceableBlock.getLocation().add(0.5d, -1.0d, 0.5d).getBlock().getType().isSolid()
+					&& replaceableBlockLocation.clone().add(0.5d, -1.0d, 0.5d).getBlock().getType().isSolid()
 					&& facing == CustomDecorData.Facing.FLOOR
 			) {
 				customDecor.setCustomDecor(BlockFace.UP, hand, null);
 			} else if (
 					blockFace != BlockFace.UP
-					&& replaceableBlock.getLocation().add(0.5d, 1.0d, 0.5d).getBlock().getType().isSolid()
+					&& replaceableBlockLocation.clone().add(0.5d, 1.0d, 0.5d).getBlock().getType().isSolid()
 					&& facing == CustomDecorData.Facing.CEILING
 			) {
 				customDecor.setCustomDecor(BlockFace.DOWN, hand, null);
@@ -89,7 +91,7 @@ public class PlayerInteractListener implements Listener {
 				|| gameMode == GameMode.SURVIVAL && clickedBlock.getType() == Material.STRUCTURE_VOID
 				|| gameMode == GameMode.CREATIVE)
 		) {
-			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByLocation(clickedBlock.getLocation().toCenterLocation());
+			CustomDecorData customDecorData = CustomDecorUtils.getCustomDecorDataByLocation(clickedBlock.getLocation());
 			if (customDecorData == null) return;
 			new CustomDecor(clickedBlock, player, customDecorData).breakCustomDecor();
 		}

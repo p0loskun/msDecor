@@ -5,7 +5,9 @@ import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
 import com.github.minersstudios.msdecor.customdecor.Typed;
 import com.github.minersstudios.msdecor.customdecor.Wrenchable;
+import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -133,6 +135,7 @@ public class OakNightstand implements Wrenchable {
 		private final @NotNull NamespacedKey namespacedKey;
 		private final @NotNull String itemName;
 		private final int customModelData;
+		private final @Nullable List<Component> lore;
 		private final @NotNull HitBox hitBox;
 		private final @Nullable Facing facing;
 
@@ -142,6 +145,7 @@ public class OakNightstand implements Wrenchable {
 			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_oak_nightstand");
 			this.itemName = "Дубовая тумбочка";
 			this.customModelData = customModelData;
+			this.lore = ChatUtils.WRENCHABLE_LORE_COMPONENT;
 			this.hitBox = HitBox.SOLID_FRAME;
 			this.facing = Facing.FLOOR;
 		}
@@ -159,6 +163,11 @@ public class OakNightstand implements Wrenchable {
 		@Override
 		public int getCustomModelData() {
 			return this.customModelData;
+		}
+
+		@Override
+		public @Nullable List<Component> getLore() {
+			return this.lore;
 		}
 
 		@Override
