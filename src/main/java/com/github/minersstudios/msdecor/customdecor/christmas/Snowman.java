@@ -38,12 +38,12 @@ public class Snowman implements Wrenchable {
 		this.hitBox = HitBox.NORMAL_ARMOR_STAND;
 		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.createItemStack(Type.DEFAULT))
 				.shape(
-						" W ",
+						" L ",
 						"SBS",
 						" B "
 				).setIngredient('S', Material.STICK)
 				.setIngredient('B', Material.SNOW_BLOCK)
-				.setIngredient('W', Material.PURPLE_WOOL);
+				.setIngredient('L', Material.LEATHER);
 		this.recipes = Lists.newArrayList(shapedRecipe);
 	}
 
