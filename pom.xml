@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>com.github.MinersStudios</groupId>
 			<artifactId>msUtils</artifactId>
-			<version>release-01c48782e9-1</version>
+			<version>release-458df938f9-1</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

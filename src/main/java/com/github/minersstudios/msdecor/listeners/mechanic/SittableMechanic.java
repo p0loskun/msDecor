@@ -55,7 +55,7 @@ public class SittableMechanic implements Listener {
 				if (entity.getType() == EntityType.PLAYER && !entity.equals(player)) return;
 			}
 			sitLocation.getWorld().playSound(sitLocation, Sound.ENTITY_PIG_SADDLE, 0.15f, 1.0f);
-			com.github.minersstudios.msUtils.utils.PlayerUtils.setSitting(player, sitLocation, null);
+			com.github.minersstudios.msutils.utils.PlayerUtils.setSitting(player, sitLocation, null);
 			player.swingHand(hand);
 		}
 	}
