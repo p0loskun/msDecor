@@ -35,7 +35,7 @@ public class RacoonPlush implements CustomDecorData {
 				"block.wool.place", 1.0f, 1.0f,
 				"block.wool.break", 1.0f, 1.0f
 		);
-		this.hitBox = HitBox.SMALL_ARMOR_STAND;
+		this.hitBox = HitBox.SOLID_FRAME;
 		this.facing = Facing.FLOOR;
 		ShapedRecipe shapedRecipe = new ShapedRecipe(this.namespacedKey, this.itemStack)
 				.shape("WWW", "WWW")
