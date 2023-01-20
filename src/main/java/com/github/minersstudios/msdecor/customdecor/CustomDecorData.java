@@ -65,11 +65,12 @@ public interface CustomDecorData extends Cloneable {
 		}
 		if (regRecipes) {
 			List<Recipe> recipes = this.getRecipes();
-			if (recipes == null) return;
-			for (Recipe recipe : recipes) {
-				Bukkit.addRecipe(recipe);
+			if (recipes != null) {
+				for (Recipe recipe : recipes) {
+					Bukkit.addRecipe(recipe);
+				}
 				if (isShowInCraftsMenu()) {
-					CustomDecorUtils.CUSTOM_DECOR_RECIPES.add(recipe);
+					CustomDecorUtils.CUSTOM_DECOR_RECIPES.addAll(recipes);
 				}
 			}
 		}

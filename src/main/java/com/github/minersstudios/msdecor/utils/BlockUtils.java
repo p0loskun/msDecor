@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -55,16 +56,17 @@ public final class BlockUtils {
 				bottomBlock = location.clone().subtract(0.0d, 1.0d, 0.0d).getBlock();
 		World world = topBlock.getWorld();
 		if (BREAK_ON_BLOCK_PLACE.contains(topBlock.getType())) {
-			SoundGroup tobBlockSoundGroup = topBlock.getBlockData().getSoundGroup();
-			world.spawnParticle(Particle.BLOCK_CRACK, topBlock.getLocation().clone().add(0.5d, 0.25d, 0.5d), 80, 0.35d, 0.35d, 0.35d, topBlock.getBlockData());
-			world.playSound(topBlock.getLocation(), tobBlockSoundGroup.getBreakSound(), tobBlockSoundGroup.getVolume(), tobBlockSoundGroup.getPitch());
-			topBlock.breakNaturally();
+			removeBlockNaturally(topBlock, world);
+		} else if (BREAK_ON_BLOCK_PLACE.contains(bottomBlock.getType())) {
+			removeBlockNaturally(bottomBlock, world);
 		}
-		if (BREAK_ON_BLOCK_PLACE.contains(bottomBlock.getType())) {
-			SoundGroup bottomBlockSoundGroup = bottomBlock.getBlockData().getSoundGroup();
-			world.spawnParticle(Particle.BLOCK_CRACK, bottomBlock.getLocation().clone().add(0.5d, 0.25d, 0.5d), 80, 0.35d, 0.35d, 0.35d, bottomBlock.getBlockData());
-			world.playSound(bottomBlock.getLocation(), bottomBlockSoundGroup.getBreakSound(), bottomBlockSoundGroup.getVolume(), bottomBlockSoundGroup.getPitch());
-			bottomBlock.breakNaturally();
-		}
+	}
+
+	public static void removeBlockNaturally(@NotNull Block block, @NotNull World world) {
+		BlockData blockData = block.getBlockData();
+		SoundGroup soundGroup = blockData.getSoundGroup();
+		world.spawnParticle(Particle.BLOCK_CRACK, block.getLocation().clone().add(0.5d, 0.25d, 0.5d), 80, 0.35d, 0.35d, 0.35d, blockData);
+		world.playSound(block.getLocation(), soundGroup.getBreakSound(), soundGroup.getVolume(), soundGroup.getPitch());
+		block.breakNaturally();
 	}
 }
