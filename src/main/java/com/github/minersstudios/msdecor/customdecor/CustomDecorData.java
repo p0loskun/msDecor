@@ -25,11 +25,9 @@ public interface CustomDecorData extends Cloneable {
 
 	void setItemStack(@NotNull ItemStack itemStack);
 
-	default @Nullable SoundGroup getSoundGroup() {
-		return null;
-	}
+	@NotNull SoundGroup getSoundGroup();
 
-	default void setSoundGroup(@Nullable SoundGroup soundGroup) {}
+	void setSoundGroup(@NotNull SoundGroup soundGroup);
 
 	@NotNull HitBox getHitBox();
 

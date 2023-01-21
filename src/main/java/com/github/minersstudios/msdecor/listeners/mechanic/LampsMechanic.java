@@ -7,6 +7,7 @@ import com.github.minersstudios.msdecor.customdecor.furniture.lamps.SmallLamp;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.ArmorStand;
@@ -30,10 +31,10 @@ public class LampsMechanic implements Listener {
 			Lightable lightable = (Lightable) customDecorData;
 			if (levelled.getLevel() == lightable.getFirstLightLevel()) {
 				levelled.setLevel(lightable.getSecondLightLevel());
-				armorStand.getWorld().playSound(armorStand.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 1.0f, 2.0f);
+				armorStand.getWorld().playSound(armorStand.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, SoundCategory.PLAYERS, 1.0f, 2.0f);
 			} else {
 				levelled.setLevel(lightable.getFirstLightLevel());
-				armorStand.getWorld().playSound(armorStand.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_ON, 1.0f, 2.0f);
+				armorStand.getWorld().playSound(armorStand.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.PLAYERS, 1.0f, 2.0f);
 			}
 			block.setType(Material.LIGHT);
 			block.setBlockData(levelled, true);

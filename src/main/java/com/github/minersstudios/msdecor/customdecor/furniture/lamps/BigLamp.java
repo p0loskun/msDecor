@@ -20,7 +20,7 @@ import java.util.List;
 public class BigLamp implements Lightable {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
-	private @Nullable SoundGroup soundGroup;
+	private @NotNull SoundGroup soundGroup;
 	private @NotNull HitBox hitBox;
 	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
@@ -71,12 +71,12 @@ public class BigLamp implements Lightable {
 	}
 
 	@Override
-	public @Nullable SoundGroup getSoundGroup() {
+	public @NotNull SoundGroup getSoundGroup() {
 		return this.soundGroup;
 	}
 
 	@Override
-	public void setSoundGroup(@Nullable SoundGroup soundGroup) {
+	public void setSoundGroup(@NotNull SoundGroup soundGroup) {
 		this.soundGroup = soundGroup;
 	}
 

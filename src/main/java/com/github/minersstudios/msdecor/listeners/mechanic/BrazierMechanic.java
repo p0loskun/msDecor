@@ -6,6 +6,7 @@ import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.SoundCategory;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.ArmorStand;
@@ -41,13 +42,13 @@ public class BrazierMechanic implements Listener {
 				&& heldItem.getType() == Material.FLINT_AND_STEEL
 		) {
 			armorStand.getEquipment().setHelmet(brazier.createItemStack(Brazier.Type.FIRED));
-			block.getWorld().playSound(armorStand.getLocation(), Sound.ITEM_FLINTANDSTEEL_USE, 1.0f, 1.0f);
+			block.getWorld().playSound(armorStand.getLocation(), Sound.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0f, 1.0f);
 		} else if (
 				type == Brazier.Type.FIRED
 				&& heldItem.getType().toString().matches(".*_SHOVEL")
 		) {
 			armorStand.getEquipment().setHelmet(brazier.createItemStack(Brazier.Type.DEFAULT));
-			player.getWorld().playSound(armorStand.getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f);
+			player.getWorld().playSound(armorStand.getLocation(), Sound.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 1.0f, 1.0f);
 		} else {
 			return;
 		}

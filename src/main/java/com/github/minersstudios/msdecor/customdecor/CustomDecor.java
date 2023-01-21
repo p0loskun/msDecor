@@ -50,7 +50,7 @@ public class CustomDecor {
 				player.swingHand(hand);
 			}
 			this.setHitBox();
-			this.playPlaceSound();
+			this.customDecorData.getSoundGroup().playPlaceSound(this.block.getLocation().toCenterLocation());
 			Main.getCoreProtectAPI().logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
 		});
 	}
@@ -87,7 +87,7 @@ public class CustomDecor {
 				break;
 			}
 		}
-		this.playBreakSound();
+		this.customDecorData.getSoundGroup().playBreakSound(blockLocation.toCenterLocation());
 		if (BlockUtils.isCustomDecorMaterial(this.block.getType())) {
 			this.block.setType(Material.AIR);
 		}
@@ -159,27 +159,5 @@ public class CustomDecor {
 			level.setLevel(this.customDecorData instanceof Lightable lightable ? lightable.getFirstLightLevel() : 0);
 			this.block.setBlockData(level, true);
 		});
-	}
-
-	public void playPlaceSound() {
-		SoundGroup soundGroup = this.customDecorData.getSoundGroup();
-		if (soundGroup == null || soundGroup.getPlaceSound() == null) return;
-		this.block.getWorld().playSound(
-				this.block.getLocation().toCenterLocation(),
-				soundGroup.getPlaceSound(),
-				soundGroup.getPlaceSoundVolume(),
-				soundGroup.getPlaceSoundPitch()
-		);
-	}
-
-	public void playBreakSound() {
-		SoundGroup soundGroup = this.customDecorData.getSoundGroup();
-		if (soundGroup == null || soundGroup.getBreakSound() == null) return;
-		this.block.getWorld().playSound(
-				this.block.getLocation().toCenterLocation(),
-				soundGroup.getBreakSound(),
-				soundGroup.getBreakSoundVolume(),
-				soundGroup.getBreakSoundPitch()
-		);
 	}
 }

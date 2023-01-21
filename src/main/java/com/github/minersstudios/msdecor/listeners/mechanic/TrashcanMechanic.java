@@ -3,10 +3,7 @@ package com.github.minersstudios.msdecor.listeners.mechanic;
 import com.github.minersstudios.msdecor.customdecor.decorations.street.IronTrashcan;
 import com.github.minersstudios.msdecor.utils.BlockUtils;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
@@ -40,7 +37,7 @@ public class TrashcanMechanic implements Listener {
 		) {
 			player.swingMainHand();
 			player.openInventory(Bukkit.createInventory(null, 4 * 9, IronTrashcan.INV_NAME));
-			player.getWorld().playSound(location, Sound.BLOCK_BARREL_OPEN, 1.0f, 1.0f);
+			player.getWorld().playSound(location, Sound.BLOCK_BARREL_OPEN, SoundCategory.PLAYERS, 1.0f, 1.0f);
 		}
 	}
 
@@ -48,7 +45,7 @@ public class TrashcanMechanic implements Listener {
 	public void onInventoryClose(@NotNull InventoryCloseEvent event) {
 		HumanEntity player = event.getPlayer();
 		if (event.getView().title().contains(IronTrashcan.INV_NAME)) {
-			player.getWorld().playSound(player.getLocation(), Sound.BLOCK_BARREL_CLOSE, 1.0f, 1.0f);
+			player.getWorld().playSound(player.getLocation(), Sound.BLOCK_BARREL_CLOSE, SoundCategory.PLAYERS, 1.0f, 1.0f);
 		}
 	}
 }

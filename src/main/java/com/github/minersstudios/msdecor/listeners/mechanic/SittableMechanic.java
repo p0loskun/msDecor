@@ -3,10 +3,7 @@ package com.github.minersstudios.msdecor.listeners.mechanic;
 import com.github.minersstudios.msdecor.customdecor.Sittable;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import com.github.minersstudios.msdecor.utils.PlayerUtils;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
@@ -54,7 +51,7 @@ public class SittableMechanic implements Listener {
 			for (Entity entity : player.getWorld().getNearbyEntities(sitLocation, 0.5d, 0.5d, 0.5d)) {
 				if (entity.getType() == EntityType.PLAYER && !entity.equals(player)) return;
 			}
-			sitLocation.getWorld().playSound(sitLocation, Sound.ENTITY_PIG_SADDLE, 0.15f, 1.0f);
+			sitLocation.getWorld().playSound(sitLocation, Sound.ENTITY_PIG_SADDLE, SoundCategory.PLAYERS, 0.15f, 1.0f);
 			com.github.minersstudios.msutils.utils.PlayerUtils.setSitting(player, sitLocation, null);
 			player.swingHand(hand);
 		}

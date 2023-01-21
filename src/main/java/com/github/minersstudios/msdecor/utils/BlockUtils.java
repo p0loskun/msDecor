@@ -66,7 +66,7 @@ public final class BlockUtils {
 		BlockData blockData = block.getBlockData();
 		SoundGroup soundGroup = blockData.getSoundGroup();
 		world.spawnParticle(Particle.BLOCK_CRACK, block.getLocation().clone().add(0.5d, 0.25d, 0.5d), 80, 0.35d, 0.35d, 0.35d, blockData);
-		world.playSound(block.getLocation(), soundGroup.getBreakSound(), soundGroup.getVolume(), soundGroup.getPitch());
+		world.playSound(block.getLocation(), soundGroup.getBreakSound(), SoundCategory.BLOCKS, soundGroup.getVolume(), soundGroup.getPitch());
 		block.breakNaturally();
 	}
 }

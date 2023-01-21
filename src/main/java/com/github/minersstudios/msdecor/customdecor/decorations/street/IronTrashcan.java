@@ -21,7 +21,7 @@ import java.util.List;
 public class IronTrashcan implements CustomDecorData {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
-	private @Nullable SoundGroup soundGroup;
+	private @NotNull SoundGroup soundGroup;
 	private @NotNull HitBox hitBox;
 	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
@@ -67,12 +67,12 @@ public class IronTrashcan implements CustomDecorData {
 	}
 
 	@Override
-	public @Nullable SoundGroup getSoundGroup() {
+	public @NotNull SoundGroup getSoundGroup() {
 		return this.soundGroup;
 	}
 
 	@Override
-	public void setSoundGroup(@Nullable SoundGroup soundGroup) {
+	public void setSoundGroup(@NotNull SoundGroup soundGroup) {
 		this.soundGroup = soundGroup;
 	}
 

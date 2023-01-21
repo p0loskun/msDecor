@@ -19,7 +19,7 @@ import java.util.List;
 public class SmallClock implements CustomDecorData {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
-	private @Nullable SoundGroup soundGroup;
+	private @NotNull SoundGroup soundGroup;
 	private @NotNull HitBox hitBox;
 	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
@@ -70,12 +70,12 @@ public class SmallClock implements CustomDecorData {
 	}
 
 	@Override
-	public @Nullable SoundGroup getSoundGroup() {
+	public @NotNull SoundGroup getSoundGroup() {
 		return this.soundGroup;
 	}
 
 	@Override
-	public void setSoundGroup(@Nullable SoundGroup soundGroup) {
+	public void setSoundGroup(@NotNull SoundGroup soundGroup) {
 		this.soundGroup = soundGroup;
 	}
 

@@ -1,6 +1,7 @@
 package com.github.minersstudios.msdecor.customdecor;
 
 import org.bukkit.Location;
+import org.bukkit.SoundCategory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -79,11 +80,11 @@ public class SoundGroup {
 
 	public void playPlaceSound(@NotNull Location location) {
 		if (this.placeSound == null) return;
-		location.getWorld().playSound(location, this.placeSound, this.placeSoundVolume, this.placeSoundPitch);
+		location.getWorld().playSound(location, this.placeSound, SoundCategory.BLOCKS, this.placeSoundVolume, this.placeSoundPitch);
 	}
 
 	public void playBreakSound(@NotNull Location location) {
 		if (this.breakSound == null) return;
-		location.getWorld().playSound(location, this.breakSound, this.breakSoundVolume, this.breakSoundPitch);
+		location.getWorld().playSound(location, this.breakSound, SoundCategory.BLOCKS, this.breakSoundVolume, this.breakSoundPitch);
 	}
 }
