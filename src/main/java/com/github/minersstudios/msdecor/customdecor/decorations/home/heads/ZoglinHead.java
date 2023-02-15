@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.home.heads;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -25,11 +25,11 @@ public class ZoglinHead implements CustomDecorData {
 	private @Nullable List<Recipe> recipes;
 
 	public ZoglinHead() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "zoglin_head");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "zoglin_head");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1163);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Голова зомбу борова"));
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Голова зомбу борова"));
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 1.0f, 1.0f,

@@ -1,10 +1,10 @@
 package com.github.minersstudios.msdecor.customdecor.halloween;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Sittable;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -27,11 +27,11 @@ public class SkeletonHand implements Sittable {
 	private double height;
 
 	public SkeletonHand() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "skeleton_hand");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "skeleton_hand");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1189);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Рука скелета"));
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Рука скелета"));
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"block.bone.place", 0.75f, 1.0f,

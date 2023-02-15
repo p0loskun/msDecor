@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.customdecor;
 
-import com.github.minersstudios.msdecor.utils.ChatUtils;
+import com.github.minersstudios.mscore.utils.ChatUtils;
 import net.kyori.adventure.text.Component;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -37,7 +37,7 @@ public interface Typed extends CustomDecorData {
 		ItemStack itemStack = this.getItemStack().clone();
 		ItemMeta itemMeta = itemStack.getItemMeta();
 		itemMeta.setCustomModelData(type.getCustomModelData());
-		itemMeta.displayName(ChatUtils.createDefaultStyledName(type.getItemName()));
+		itemMeta.displayName(ChatUtils.createDefaultStyledText(type.getItemName()));
 		itemMeta.lore(type.getLore());
 		itemStack.setItemMeta(itemMeta);
 		return itemStack;

@@ -1,6 +1,8 @@
 package com.github.minersstudios.msdecor.customdecor;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.msdecor.MSDecor;
+import com.github.minersstudios.msdecor.events.CustomDecorBreakEvent;
+import com.github.minersstudios.msdecor.events.CustomDecorPlaceEvent;
 import com.github.minersstudios.msdecor.utils.BlockUtils;
 import com.github.minersstudios.msdecor.utils.EntityUtils;
 import com.google.common.base.Preconditions;
@@ -32,7 +34,11 @@ public class CustomDecor {
 	}
 
 	public void setCustomDecor(@NotNull BlockFace blockFace, @Nullable EquipmentSlot hand, @Nullable Component customName) {
-		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
+		CustomDecorPlaceEvent customDecorPlaceEvent = new CustomDecorPlaceEvent(this, this.block.getState(), this.player, hand);
+		Bukkit.getPluginManager().callEvent(customDecorPlaceEvent);
+		if (customDecorPlaceEvent.isCancelled()) return;
+
+		Bukkit.getScheduler().runTask(MSDecor.getInstance(), () -> {
 			this.itemInHand = hand != null
 							? this.player.getInventory().getItem(hand)
 							: this.customDecorData.getItemStack();
@@ -44,18 +50,22 @@ public class CustomDecor {
 			if (hand != null) {
 				this.itemInHand.setAmount(
 						this.player.getGameMode() == GameMode.SURVIVAL
-								? this.itemInHand.getAmount() - 1
-								: this.itemInHand.getAmount()
+						? this.itemInHand.getAmount() - 1
+						: this.itemInHand.getAmount()
 				);
 				player.swingHand(hand);
 			}
 			this.setHitBox();
 			this.customDecorData.getSoundGroup().playPlaceSound(this.block.getLocation().toCenterLocation());
-			Main.getCoreProtectAPI().logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+			MSDecor.getCoreProtectAPI().logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
 		});
 	}
 
 	public void breakCustomDecor() {
+		CustomDecorBreakEvent customDecorBreakEvent = new CustomDecorBreakEvent(this, this.player);
+		Bukkit.getPluginManager().callEvent(customDecorBreakEvent);
+		if (customDecorBreakEvent.isCancelled()) return;
+
 		Location blockLocation = this.block.getLocation();
 		World world = this.block.getWorld();
 		for (Entity nearbyEntity : this.block.getWorld().getNearbyEntities(blockLocation.clone().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
@@ -91,7 +101,7 @@ public class CustomDecor {
 		if (BlockUtils.isCustomDecorMaterial(this.block.getType())) {
 			this.block.setType(Material.AIR);
 		}
-		Main.getCoreProtectAPI().logRemoval(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+		MSDecor.getCoreProtectAPI().logRemoval(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
 	}
 
 	private void summonArmorStand(@Nullable Component customName) {
@@ -110,7 +120,6 @@ public class CustomDecor {
 
 			ItemStack itemStack = this.itemInHand.clone();
 			ItemMeta itemMeta = itemStack.getItemMeta();
-			assert itemMeta != null;
 			itemMeta.displayName(customName != null ? customName : itemMeta.displayName());
 			itemStack.setItemMeta(itemMeta);
 			armorStand.getEquipment().setHelmet(itemStack);
@@ -125,8 +134,8 @@ public class CustomDecor {
 			itemFrame.setItemDropChance(0.0f);
 			itemFrame.customName(
 					customName != null
-							? customName
-							: this.itemInHand.getItemMeta().displayName()
+					? customName
+					: this.itemInHand.getItemMeta().displayName()
 			);
 			itemFrame.setVisible(false);
 			itemFrame.setSilent(true);
@@ -136,9 +145,9 @@ public class CustomDecor {
 
 			ItemStack itemStack = this.itemInHand.clone();
 			ItemMeta itemMeta = itemStack.getItemMeta();
-			assert itemMeta != null;
 			itemMeta.displayName(null);
 			itemStack.setItemMeta(itemMeta);
+
 			itemFrame.setItem(itemStack);
 
 			if (this.customDecorData.getFacing() != CustomDecorData.Facing.WALL) {
@@ -148,11 +157,13 @@ public class CustomDecor {
 	}
 
 	private void setHitBox() {
-		Bukkit.getScheduler().runTask(Main.getInstance(), () -> {
+		Bukkit.getScheduler().runTask(MSDecor.getInstance(), () -> {
 			this.block.setType(
-					this.customDecorData.getHitBox().isStructureHitBox() ? Material.STRUCTURE_VOID
-							: this.customDecorData.getHitBox().isSolidHitBox() ? Material.BARRIER
-							: Material.LIGHT
+					this.customDecorData.getHitBox().isStructureHitBox()
+					? Material.STRUCTURE_VOID
+					: this.customDecorData.getHitBox().isSolidHitBox()
+					? Material.BARRIER
+					: Material.LIGHT
 			);
 			if (this.block.getType() != Material.LIGHT) return;
 			Levelled level = (Levelled) this.block.getBlockData();

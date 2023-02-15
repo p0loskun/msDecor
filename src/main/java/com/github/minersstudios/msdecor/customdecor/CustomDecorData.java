@@ -118,7 +118,7 @@ public interface CustomDecorData extends Cloneable {
 		STRUCTURE_NORMAL_ARMOR_STAND;
 
 		/**
-		 * @return True if hitbox of custom decor is barrier
+		 * @return True if hit-box of custom decor is barrier
 		 */
 		public boolean isSolidHitBox() {
 			return switch (this) {
@@ -130,7 +130,7 @@ public interface CustomDecorData extends Cloneable {
 		}
 
 		/**
-		 * @return True if hitbox of custom decor is structure void
+		 * @return True if hit-box of custom decor is structure void
 		 */
 		public boolean isStructureHitBox() {
 			return switch (this) {
@@ -142,7 +142,7 @@ public interface CustomDecorData extends Cloneable {
 		}
 
 		/**
-		 * @return True if hitbox of custom decor is armor stand
+		 * @return True if hit-box of custom decor is armor stand
 		 */
 		public boolean isArmorStand() {
 			return switch (this) {

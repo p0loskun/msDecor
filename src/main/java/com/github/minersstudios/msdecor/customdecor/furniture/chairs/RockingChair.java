@@ -1,8 +1,8 @@
 package com.github.minersstudios.msdecor.customdecor.furniture.chairs;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.*;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
@@ -26,7 +26,7 @@ public class RockingChair implements Sittable, FullTyped {
 	private double height;
 
 	public RockingChair() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "rocking_chair");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "rocking_chair");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 0.5f, 1.0f,
@@ -281,24 +281,24 @@ public class RockingChair implements Sittable, FullTyped {
 
 	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
-		ACACIA("Aкациевое кресло-качалка", 1038, null),
-		PAINTABLE_ACACIA("Aкациевое кресло-качалка", 1039, ChatUtils.PAINTABLE_LORE_COMPONENT),
+		ACACIA("Акациевое кресло-качалка", 1038, null),
+		PAINTABLE_ACACIA("Акациевое кресло-качалка", 1039, Badges.PAINTABLE_LORE_COMPONENT),
 		BIRCH("Берёзовое кресло-качалка", 1040, null),
-		PAINTABLE_BIRCH("Берёзовое кресло-качалка", 1041, ChatUtils.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_BIRCH("Берёзовое кресло-качалка", 1041, Badges.PAINTABLE_LORE_COMPONENT),
 		CRIMSON( "Багровое кресло-качалка", 1042, null),
-		PAINTABLE_CRIMSON( "Багровое кресло-качалка", 1043, ChatUtils.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_CRIMSON( "Багровое кресло-качалка", 1043, Badges.PAINTABLE_LORE_COMPONENT),
 		DARK_OAK("Кресло-качалка из тёмного дуба", 1044, null),
-		PAINTABLE_DARK_OAK("Кресло-качалка из тёмного дуба", 1045, ChatUtils.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_DARK_OAK("Кресло-качалка из тёмного дуба", 1045, Badges.PAINTABLE_LORE_COMPONENT),
 		JUNGLE("Тропическое кресло-качалка", 1046, null),
-		PAINTABLE_JUNGLE("Тропическое кресло-качалка", 1047, ChatUtils.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_JUNGLE("Тропическое кресло-качалка", 1047, Badges.PAINTABLE_LORE_COMPONENT),
 		OAK("Дубовое кресло-качалка", 1048, null),
-		PAINTABLE_OAK("Дубовое кресло-качалка", 1049, ChatUtils.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_OAK("Дубовое кресло-качалка", 1049, Badges.PAINTABLE_LORE_COMPONENT),
 		SPRUCE("Еловое кресло-качалка", 1050, null),
-		PAINTABLE_SPRUCE("Еловое кресло-качалка", 1051, ChatUtils.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_SPRUCE("Еловое кресло-качалка", 1051, Badges.PAINTABLE_LORE_COMPONENT),
 		WARPED("Искажённое кресло-качалка", 1052, null),
-		PAINTABLE_WARPED("Искажённое кресло-качалка", 1053, ChatUtils.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_WARPED("Искажённое кресло-качалка", 1053, Badges.PAINTABLE_LORE_COMPONENT),
 		MANGROVE("Мангровое кресло-качалка", 1197, null),
-		PAINTABLE_MANGROVE("Мангровое кресло-качалка", 1198, ChatUtils.PAINTABLE_LORE_COMPONENT);
+		PAINTABLE_MANGROVE("Мангровое кресло-качалка", 1198, Badges.PAINTABLE_LORE_COMPONENT);
 		//</editor-fold>
 
 		private final @NotNull NamespacedKey namespacedKey;
@@ -315,7 +315,7 @@ public class RockingChair implements Sittable, FullTyped {
 				int customModelData,
 				@Nullable List<Component> lore
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_rocking_chair");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_rocking_chair");
 			this.itemName = itemName;
 			this.customModelData = customModelData;
 			this.lore = lore;

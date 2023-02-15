@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.entity;
 
+import com.github.minersstudios.mscore.MSListener;
 import com.github.minersstudios.msdecor.customdecor.CustomDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
@@ -13,12 +14,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.jetbrains.annotations.NotNull;
 
+@MSListener
 public class EntityDamageByEntityListener implements Listener {
 
-	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onEntityDamageByEntity(@NotNull EntityDamageByEntityEvent event) {
 		Entity entity = event.getEntity();
-		event.setCancelled(EntityUtils.isCustomDecorEntity(entity));
+		if (EntityUtils.isCustomDecorEntity(entity)) {
+			event.setCancelled(true);
+		}
 		if (
 				!(event.getDamager() instanceof Player player)
 				|| player.getGameMode() == GameMode.ADVENTURE

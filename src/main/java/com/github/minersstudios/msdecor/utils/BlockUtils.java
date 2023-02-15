@@ -52,18 +52,18 @@ public final class BlockUtils {
 	 * @param location location around which the blocks break
 	 */
 	public static void removeBlock(@NotNull Location location) {
-		Block topBlock = location.clone().add(0.0d, 1.0d, 0.0d).getBlock(),
-				bottomBlock = location.clone().subtract(0.0d, 1.0d, 0.0d).getBlock();
-		World world = topBlock.getWorld();
+		Block topBlock = location.clone().add(0.0d, 1.0d, 0.0d).getBlock();
+		Block bottomBlock = location.clone().subtract(0.0d, 1.0d, 0.0d).getBlock();
 		if (BREAK_ON_BLOCK_PLACE.contains(topBlock.getType())) {
-			removeBlockNaturally(topBlock, world);
+			removeBlockNaturally(topBlock);
 		} else if (BREAK_ON_BLOCK_PLACE.contains(bottomBlock.getType())) {
-			removeBlockNaturally(bottomBlock, world);
+			removeBlockNaturally(bottomBlock);
 		}
 	}
 
-	public static void removeBlockNaturally(@NotNull Block block, @NotNull World world) {
+	public static void removeBlockNaturally(@NotNull Block block) {
 		BlockData blockData = block.getBlockData();
+		World world = block.getWorld();
 		SoundGroup soundGroup = blockData.getSoundGroup();
 		world.spawnParticle(Particle.BLOCK_CRACK, block.getLocation().clone().add(0.5d, 0.25d, 0.5d), 80, 0.35d, 0.35d, 0.35d, blockData);
 		world.playSound(block.getLocation(), soundGroup.getBreakSound(), SoundCategory.BLOCKS, soundGroup.getVolume(), soundGroup.getPitch());

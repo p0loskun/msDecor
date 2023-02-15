@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
+import com.github.minersstudios.mscore.MSListener;
 import com.github.minersstudios.msdecor.customdecor.other.Poop;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import com.github.minersstudios.msdecor.utils.PlayerUtils;
@@ -15,6 +16,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+@MSListener
 public class PoopMechanic implements Listener {
 
 	@EventHandler

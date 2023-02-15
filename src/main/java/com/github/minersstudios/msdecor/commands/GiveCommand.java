@@ -1,8 +1,8 @@
-package com.github.minersstudios.msdecor.commands.other;
+package com.github.minersstudios.msdecor.commands;
 
+import com.github.minersstudios.mscore.utils.ChatUtils;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Typed;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -49,7 +49,7 @@ public class GiveCommand {
 			ItemStack itemStack = customDecorData.getItemStack();
 			itemStack.setAmount(amount);
 			player.getInventory().addItem(itemStack);
-			return ChatUtils.sendInfo(sender, Component.text("Выдано " + amount + " " + ChatUtils.convertPlainComponentToString(Objects.requireNonNull(itemStack.displayName())) + " Игроку : " + player.getName()));
+			return ChatUtils.sendInfo(sender, Component.text("Выдано " + amount + " " + ChatUtils.serializePlainComponent(Objects.requireNonNull(itemStack.displayName())) + " Игроку : " + player.getName()));
 		}
 		return ChatUtils.sendWarning(sender, Component.text("Ник не может состоять менее чем из 3 символов!"));
 	}

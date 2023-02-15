@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
+import com.github.minersstudios.mscore.MSListener;
 import com.github.minersstudios.msdecor.customdecor.decorations.street.IronTrashcan;
 import com.github.minersstudios.msdecor.utils.BlockUtils;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
@@ -8,6 +9,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -16,9 +18,10 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+@MSListener
 public class TrashcanMechanic implements Listener {
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onPlayerInteract(@NotNull PlayerInteractEvent event) {
 		if (
 				event.getClickedBlock() == null

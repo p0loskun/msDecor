@@ -76,9 +76,9 @@ public final class CustomDecorUtils {
 		new Patefon().register();
 		new Piggybank().register();
 		new SmallClock().register();
-		new SmallGlobus().register();
+		new SmallGlobe().register();
 
-		new Bankomat().register();
+		new ATM().register();
 		new Brazier().register();
 		new FireHydrant().register();
 		new IronTrashcan().register();

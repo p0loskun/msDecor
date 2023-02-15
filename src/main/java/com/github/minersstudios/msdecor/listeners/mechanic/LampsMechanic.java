@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
+import com.github.minersstudios.mscore.MSListener;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Lightable;
 import com.github.minersstudios.msdecor.customdecor.furniture.lamps.BigLamp;
@@ -16,6 +17,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.jetbrains.annotations.NotNull;
 
+@MSListener
 public class LampsMechanic implements Listener {
 
 	@EventHandler

@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.home;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SmallGlobus implements CustomDecorData {
+public class SmallGlobe implements CustomDecorData {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @NotNull SoundGroup soundGroup;
@@ -24,12 +24,12 @@ public class SmallGlobus implements CustomDecorData {
 	private @Nullable Facing facing;
 	private @Nullable List<Recipe> recipes;
 
-	public SmallGlobus() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "small_globus");
+	public SmallGlobe() {
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "small_globe");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1145);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Маленький глобус"));
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Маленький глобус"));
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 1.0f, 1.0f,

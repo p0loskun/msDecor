@@ -6,7 +6,7 @@
 
 	<groupId>com.github.minersstudios</groupId>
 	<artifactId>msDecor</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<packaging>jar</packaging>
 
 	<name>msDecor</name>
@@ -31,7 +31,7 @@
 
 	<properties>
 		<authors>[Poloskun_, PackmanDude]</authors>
-		<mainClass>com.github.minersstudios.msdecor.Main</mainClass>
+		<mainClass>com.github.minersstudios.msdecor.MSDecor</mainClass>
 		<apiVersion>1.19</apiVersion>
 		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -87,6 +87,12 @@
 			<groupId>net.coreprotect</groupId>
 			<artifactId>coreprotect</artifactId>
 			<version>21.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.MinersStudios</groupId>
+			<artifactId>msCore</artifactId>
+			<version>release-25aec9367a-1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>

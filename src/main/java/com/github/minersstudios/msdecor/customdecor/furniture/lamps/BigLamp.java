@@ -1,10 +1,11 @@
 package com.github.minersstudios.msdecor.customdecor.furniture.lamps;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Lightable;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -28,12 +29,12 @@ public class BigLamp implements Lightable {
 	private int secondLightLevel;
 
 	public BigLamp() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "big_lamp");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "big_lamp");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1151);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Большая лампа"));
-		itemMeta.lore(ChatUtils.PAINTABLE_LORE_COMPONENT);
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Большая лампа"));
+		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 1.0f, 1.0f,

@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.customdecor.christmas;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -25,11 +25,11 @@ public class TreeStar implements CustomDecorData {
 	private @Nullable List<Recipe> recipes;
 
 	public TreeStar() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "tree_star");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "tree_star");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1259);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Новогодняя звезда"));
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Новогодняя звезда"));
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"block.stone.place", 1.0f, 1.0f,

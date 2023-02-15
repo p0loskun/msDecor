@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.customdecor.furniture.tables;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.FullTyped;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
@@ -26,7 +26,7 @@ public class BigTable implements FullTyped {
 	private @Nullable List<Recipe> recipes;
 
 	public BigTable() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "big_table");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "big_table");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 0.5f, 1.0f,
@@ -186,7 +186,7 @@ public class BigTable implements FullTyped {
 
 	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
-		ACACIA("Aкациевый стол", 1054),
+		ACACIA("Акациевый стол", 1054),
 		BIRCH("Берёзовый стол", 1056),
 		CRIMSON( "Багровый стол", 1058),
 		DARK_OAK("Стол из тёмного дуба", 1060),
@@ -209,7 +209,7 @@ public class BigTable implements FullTyped {
 				@NotNull String itemName,
 				int customModelData
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_big_table");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_big_table");
 			this.itemName = itemName;
 			this.customModelData = customModelData;
 			this.hitBox = HitBox.SOLID_FRAME;

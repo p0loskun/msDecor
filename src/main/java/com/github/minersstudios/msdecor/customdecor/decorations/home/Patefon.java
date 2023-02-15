@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.home;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -25,11 +25,11 @@ public class Patefon implements CustomDecorData {
 	private @Nullable List<Recipe> recipes;
 
 	public Patefon() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "patefon");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "patefon");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1147);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Патефон"));
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Патефон"));
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"block.anvil.place", 0.5f, 1.0f,

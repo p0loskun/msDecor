@@ -1,11 +1,11 @@
 package com.github.minersstudios.msdecor.customdecor.christmas;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.FaceableByType;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
 import com.github.minersstudios.msdecor.customdecor.Typed;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
@@ -28,7 +28,7 @@ public class SnowflakeOnString implements FaceableByType {
 	private @Nullable List<Recipe> recipes;
 
 	public SnowflakeOnString() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "snowflake_on_string");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "snowflake_on_string");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.itemStack.setItemMeta(this.createItemStack(Type.WALL).getItemMeta());
 		this.soundGroup = new SoundGroup(
@@ -141,10 +141,10 @@ public class SnowflakeOnString implements FaceableByType {
 				@NotNull HitBox hitBox,
 				@Nullable Facing facing
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_snowflake_on_string");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_snowflake_on_string");
 			this.itemName = "Снежинка на верёвке";
 			this.customModelData = 1254;
-			this.lore = ChatUtils.PAINTABLE_LORE_COMPONENT;
+			this.lore = Badges.PAINTABLE_LORE_COMPONENT;
 			this.hitBox = hitBox;
 			this.facing = facing;
 		}

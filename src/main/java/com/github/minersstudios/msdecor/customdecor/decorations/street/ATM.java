@@ -1,9 +1,10 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.street;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -11,20 +12,20 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class Bankomat implements CustomDecorData {
+public class ATM implements CustomDecorData {
 	private @NotNull NamespacedKey namespacedKey;
 	private @NotNull ItemStack itemStack;
 	private @NotNull SoundGroup soundGroup;
 	private @NotNull HitBox hitBox;
 	private @Nullable Facing facing;
 
-	public Bankomat() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "bankomat");
+	public ATM() {
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "atm");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1152);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Банкомат"));
-		itemMeta.lore(ChatUtils.PAINTABLE_LORE_COMPONENT);
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Банкомат"));
+		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"block.anvil.place", 0.5f, 1.0f,

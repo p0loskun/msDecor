@@ -1,11 +1,11 @@
 package com.github.minersstudios.msdecor.customdecor.furniture.nightstand;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
 import com.github.minersstudios.msdecor.customdecor.Typed;
 import com.github.minersstudios.msdecor.customdecor.Wrenchable;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
@@ -28,7 +28,7 @@ public class DarkOakNightstand implements Wrenchable {
 	private @Nullable List<Recipe> recipes;
 
 	public DarkOakNightstand() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "dark_oak_nightstand");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "dark_oak_nightstand");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
 		this.soundGroup = new SoundGroup(
@@ -142,10 +142,10 @@ public class DarkOakNightstand implements Wrenchable {
 		private static final Type @NotNull [] types = values();
 
 		Type(int customModelData) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_dark_oak_nightstand");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_dark_oak_nightstand");
 			this.itemName = "Тумбочка из тёмного дуба";
 			this.customModelData = customModelData;
-			this.lore = ChatUtils.WRENCHABLE_LORE_COMPONENT;
+			this.lore = Badges.WRENCHABLE_LORE_COMPONENT;
 			this.hitBox = HitBox.SOLID_FRAME;
 			this.facing = Facing.FLOOR;
 		}

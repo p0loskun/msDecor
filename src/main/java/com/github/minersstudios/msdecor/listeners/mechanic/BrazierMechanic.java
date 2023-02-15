@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
+import com.github.minersstudios.mscore.MSListener;
 import com.github.minersstudios.msdecor.customdecor.Typed;
 import com.github.minersstudios.msdecor.customdecor.decorations.street.Brazier;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
@@ -19,6 +20,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.jetbrains.annotations.NotNull;
 
+@MSListener
 public class BrazierMechanic implements Listener {
 
 	@EventHandler

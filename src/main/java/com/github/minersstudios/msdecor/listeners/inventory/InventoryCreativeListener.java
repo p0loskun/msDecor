@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.inventory;
 
+import com.github.minersstudios.mscore.MSListener;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import org.bukkit.Material;
@@ -16,6 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
+@MSListener
 public class InventoryCreativeListener implements Listener {
 
 	@EventHandler

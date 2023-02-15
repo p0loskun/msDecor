@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.street;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Lightable;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
@@ -28,7 +28,7 @@ public class Brazier implements Lightable, Typed {
 	private int secondLightLevel;
 
 	public Brazier() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "brazier");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "brazier");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
 		this.soundGroup = new SoundGroup(
@@ -162,7 +162,7 @@ public class Brazier implements Lightable, Typed {
 				int firstLightLevel,
 				int secondLightLevel
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_brazier");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_brazier");
 			this.itemName = "Мангал";
 			this.customModelData = customModelData;
 			this.hitBox = HitBox.SMALL_ARMOR_STAND;

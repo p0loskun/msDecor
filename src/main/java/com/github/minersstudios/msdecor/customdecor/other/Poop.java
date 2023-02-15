@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.customdecor.other;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -19,12 +19,11 @@ public class Poop implements CustomDecorData {
 	private @Nullable Facing facing;
 
 	public Poop() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "poop");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "poop");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1210);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Какашка"));
-		itemMeta.lore(ChatUtils.PAINTABLE_LORE_COMPONENT);
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Какашка"));
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"block.mud.place", 1.0f, 1.0f,

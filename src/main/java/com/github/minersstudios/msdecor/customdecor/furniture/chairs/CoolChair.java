@@ -1,10 +1,11 @@
 package com.github.minersstudios.msdecor.customdecor.furniture.chairs;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Sittable;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -27,12 +28,12 @@ public class CoolChair implements Sittable {
 	private double height;
 
 	public CoolChair() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "cool_chair");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "cool_chair");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1037);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Стильный стул"));
-		itemMeta.lore(ChatUtils.PAINTABLE_LORE_COMPONENT);
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Стильный стул"));
+		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"block.wool.place", 1.0f, 1.0f,

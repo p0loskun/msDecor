@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.home;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.FullTyped;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
@@ -26,7 +26,7 @@ public class Piggybank implements FullTyped {
 	private @Nullable List<Recipe> recipes;
 
 	public Piggybank() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "piggybank");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "piggybank");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.soundGroup = new SoundGroup(
 				"block.glass.place", 1.5f, 1.0f,
@@ -176,7 +176,7 @@ public class Piggybank implements FullTyped {
 				@NotNull String itemName,
 				int customModelData
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_piggybank");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_piggybank");
 			this.itemName = itemName;
 			this.customModelData = customModelData;
 			this.hitBox = HitBox.SMALL_ARMOR_STAND;

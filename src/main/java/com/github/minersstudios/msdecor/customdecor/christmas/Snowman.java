@@ -1,11 +1,11 @@
 package com.github.minersstudios.msdecor.customdecor.christmas;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
 import com.github.minersstudios.msdecor.customdecor.Typed;
 import com.github.minersstudios.msdecor.customdecor.Wrenchable;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
@@ -28,7 +28,7 @@ public class Snowman implements Wrenchable {
 	private @Nullable List<Recipe> recipes;
 
 	public Snowman() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "snowman");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "snowman");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
 		this.soundGroup = new SoundGroup(
@@ -124,7 +124,7 @@ public class Snowman implements Wrenchable {
 	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
 		DEFAULT("Снеговик", 1187),
-		BROKEN("Сломаный снеговик", 1188);
+		BROKEN("Сломанный снеговик", 1188);
 		//</editor-fold>
 
 		private final @NotNull NamespacedKey namespacedKey;
@@ -140,12 +140,12 @@ public class Snowman implements Wrenchable {
 				@NotNull String itemName,
 				int customModelData
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_snowman");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_snowman");
 			this.itemName = itemName;
 			this.customModelData = customModelData;
 			this.lore = Lists.newArrayList(
-					ChatUtils.PAINTABLE_LORE_COMPONENT.get(0),
-					ChatUtils.WRENCHABLE_LORE_COMPONENT.get(0)
+					Badges.PAINTABLE_LORE_COMPONENT.get(0),
+					Badges.WRENCHABLE_LORE_COMPONENT.get(0)
 			);
 			this.hitBox = HitBox.NORMAL_ARMOR_STAND;
 			this.facing = Facing.FLOOR;

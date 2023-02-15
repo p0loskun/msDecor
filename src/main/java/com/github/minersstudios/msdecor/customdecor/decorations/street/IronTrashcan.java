@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.street;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -28,11 +28,11 @@ public class IronTrashcan implements CustomDecorData {
 	public static final Component INV_NAME = Component.text("Мусорка").color(NamedTextColor.DARK_GRAY);
 
 	public IronTrashcan() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "iron_trashcan");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "iron_trashcan");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1148);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Железная мусорка"));
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Железная мусорка"));
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"block.anvil.place", 1.0f, 1.0f,

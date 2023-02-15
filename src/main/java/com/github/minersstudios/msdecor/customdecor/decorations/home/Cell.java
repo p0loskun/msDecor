@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.home;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
 import com.github.minersstudios.msdecor.customdecor.Typed;
@@ -25,7 +25,7 @@ public class Cell implements Typed {
 	private @Nullable List<Recipe> recipes;
 
 	public Cell() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "cell");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "cell");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
 		this.soundGroup = new SoundGroup(
@@ -138,7 +138,7 @@ public class Cell implements Typed {
 		private static final Type @NotNull [] types = values();
 
 		Type(int customModelData) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_cell");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_cell");
 			this.itemName = "Клетка";
 			this.customModelData = customModelData;
 			this.hitBox = HitBox.SOLID_FRAME;

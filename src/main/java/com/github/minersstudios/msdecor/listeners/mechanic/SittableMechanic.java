@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
+import com.github.minersstudios.mscore.MSListener;
 import com.github.minersstudios.msdecor.customdecor.Sittable;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import com.github.minersstudios.msdecor.utils.PlayerUtils;
@@ -17,6 +18,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+@MSListener
 public class SittableMechanic implements Listener {
 
 	@EventHandler
@@ -42,11 +44,13 @@ public class SittableMechanic implements Listener {
 				&& clickedBlock.getType() == Material.BARRIER
 				&& (!itemInHand.getType().isBlock() || itemInHand.getType() == Material.AIR)
 				&& !PlayerUtils.isItemCustomBlock(itemInHand)
+				&& !PlayerUtils.isItemCustomDecor(itemInHand)
 				&& event.getHand() == EquipmentSlot.HAND
 				&& gameMode != GameMode.SPECTATOR
 				&& !clickedBlock.getRelative(BlockFace.UP).getType().isSolid()
 				&& CustomDecorUtils.getCustomDecorDataByLocation(clickedBlock.getLocation()) instanceof Sittable sittable
 		) {
+			event.setCancelled(true);
 			Location sitLocation = clickedBlock.getLocation().clone().add(0.5d, sittable.getHeight(), 0.5d);
 			for (Entity entity : player.getWorld().getNearbyEntities(sitLocation, 0.5d, 0.5d, 0.5d)) {
 				if (entity.getType() == EntityType.PLAYER && !entity.equals(player)) return;
@@ -54,6 +58,7 @@ public class SittableMechanic implements Listener {
 			sitLocation.getWorld().playSound(sitLocation, Sound.ENTITY_PIG_SADDLE, SoundCategory.PLAYERS, 0.15f, 1.0f);
 			com.github.minersstudios.msutils.utils.PlayerUtils.setSitting(player, sitLocation, null);
 			player.swingHand(hand);
+			player.updateInventory();
 		}
 	}
 }

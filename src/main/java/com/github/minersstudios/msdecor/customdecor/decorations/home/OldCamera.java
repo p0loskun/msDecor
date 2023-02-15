@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.customdecor.decorations.home;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -25,11 +25,11 @@ public class OldCamera implements CustomDecorData {
 	private @Nullable List<Recipe> recipes;
 
 	public OldCamera() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "old_camera");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "old_camera");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1150);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Камера"));
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Камера"));
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 1.0f, 1.0f,

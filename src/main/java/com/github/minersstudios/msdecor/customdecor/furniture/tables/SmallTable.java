@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.customdecor.furniture.tables;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.FullTyped;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
@@ -26,7 +26,7 @@ public class SmallTable implements FullTyped {
 	private @Nullable List<Recipe> recipes;
 
 	public SmallTable() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "small_table");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "small_table");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 0.5f, 1.0f,
@@ -182,7 +182,7 @@ public class SmallTable implements FullTyped {
 				@NotNull String itemName,
 				int customModelData
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_small_table");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_small_table");
 			this.itemName = itemName;
 			this.customModelData = customModelData;
 			this.hitBox = HitBox.SOLID_FRAME;

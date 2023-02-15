@@ -1,9 +1,10 @@
 package com.github.minersstudios.msdecor.customdecor.christmas;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.mscore.utils.ChatUtils;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.SoundGroup;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -25,12 +26,12 @@ public class SantaSock implements CustomDecorData {
 	private @Nullable List<Recipe> recipes;
 
 	public SantaSock() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "santa_sock");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "santa_sock");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1186);
-		itemMeta.displayName(ChatUtils.createDefaultStyledName("Носок санты"));
-		itemMeta.lore(ChatUtils.PAINTABLE_LORE_COMPONENT);
+		itemMeta.displayName(ChatUtils.createDefaultStyledText("Носок санты"));
+		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
 		this.itemStack.setItemMeta(itemMeta);
 		this.soundGroup = new SoundGroup(
 				"block.wool.place", 1.0f, 1.0f,

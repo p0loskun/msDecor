@@ -1,8 +1,8 @@
 package com.github.minersstudios.msdecor.customdecor.furniture.chairs;
 
-import com.github.minersstudios.msdecor.Main;
+import com.github.minersstudios.mscore.utils.Badges;
+import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.customdecor.*;
-import com.github.minersstudios.msdecor.utils.ChatUtils;
 import com.google.common.collect.Lists;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
@@ -26,7 +26,7 @@ public class SmallChair implements Sittable, FullTyped {
 	private double height;
 
 	public SmallChair() {
-		this.namespacedKey = new NamespacedKey(Main.getInstance(), "small_chair");
+		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "small_chair");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
 		this.soundGroup = new SoundGroup(
 				"custom.block.wood.place", 0.5f, 1.0f,
@@ -179,7 +179,7 @@ public class SmallChair implements Sittable, FullTyped {
 
 	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
-		ACACIA("Aкациевый стул", 1000),
+		ACACIA("Акациевый стул", 1000),
 		BIRCH("Берёзовый стул", 1001),
 		CRIMSON( "Багровый стул", 1002),
 		DARK_OAK("Стул из тёмного дуба", 1003),
@@ -203,10 +203,10 @@ public class SmallChair implements Sittable, FullTyped {
 				@NotNull String itemName,
 				int customModelData
 		) {
-			this.namespacedKey = new NamespacedKey(Main.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_small_chair");
+			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_small_chair");
 			this.itemName = itemName;
 			this.customModelData = customModelData;
-			this.lore = ChatUtils.PAINTABLE_LORE_COMPONENT;
+			this.lore = Badges.PAINTABLE_LORE_COMPONENT;
 			this.hitBox = HitBox.SOLID_FRAME;
 			this.facing = Facing.FLOOR;
 		}
