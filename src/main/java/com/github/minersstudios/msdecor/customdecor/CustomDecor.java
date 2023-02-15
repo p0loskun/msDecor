@@ -22,12 +22,16 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class CustomDecor {
-	@NotNull private final Block block;
-	@NotNull private final Player player;
-	@Nullable private ItemStack itemInHand;
-	@NotNull private final CustomDecorData customDecorData;
+	private final @NotNull Block block;
+	private final @NotNull Player player;
+	private @Nullable ItemStack itemInHand;
+	private final @NotNull CustomDecorData customDecorData;
 
-	public CustomDecor(@NotNull Block block, @NotNull Player player, @NotNull CustomDecorData customDecorData) {
+	public CustomDecor(
+			@NotNull Block block,
+			@NotNull Player player,
+			@NotNull CustomDecorData customDecorData
+	) {
 		this.block = block;
 		this.player = player;
 		this.customDecorData = customDecorData;
@@ -128,7 +132,7 @@ public class CustomDecor {
 		});
 	}
 
-	private void summonItemFrame(BlockFace blockFace, @Nullable Component customName) {
+	private void summonItemFrame(@NotNull BlockFace blockFace, @Nullable Component customName) {
 		Preconditions.checkArgument(this.itemInHand != null, "Item in hand must be NotNull!");
 		this.block.getWorld().spawn(this.block.getLocation().add(0.5d, 0.0d, 0.5d), ItemFrame.class, (itemFrame) -> {
 			itemFrame.setItemDropChance(0.0f);
@@ -170,5 +174,21 @@ public class CustomDecor {
 			level.setLevel(this.customDecorData instanceof Lightable lightable ? lightable.getFirstLightLevel() : 0);
 			this.block.setBlockData(level, true);
 		});
+	}
+
+	public @NotNull Block getBlock() {
+		return this.block;
+	}
+
+	public @NotNull Player getPlayer() {
+		return this.player;
+	}
+
+	public @Nullable ItemStack getItemInHand() {
+		return this.itemInHand;
+	}
+
+	public @NotNull CustomDecorData getCustomDecorData() {
+		return this.customDecorData;
 	}
 }

@@ -15,13 +15,11 @@ import java.util.List;
 
 @SuppressWarnings("unused")
 public interface CustomDecorData extends Cloneable {
-	@NotNull
-	NamespacedKey getNamespacedKey();
+	@NotNull NamespacedKey getNamespacedKey();
 
 	void setNamespacedKey(@NotNull NamespacedKey namespacedKey);
 
-	@NotNull
-	ItemStack getItemStack();
+	@NotNull ItemStack getItemStack();
 
 	void setItemStack(@NotNull ItemStack itemStack);
 

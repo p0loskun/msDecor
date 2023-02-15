@@ -61,11 +61,9 @@ public interface Typed extends CustomDecorData {
 	}
 
 	interface Type {
-		@NotNull
-		NamespacedKey getNamespacedKey();
+		@NotNull NamespacedKey getNamespacedKey();
 
-		@NotNull
-		String getItemName();
+		@NotNull String getItemName();
 
 		int getCustomModelData();
 
@@ -73,8 +71,7 @@ public interface Typed extends CustomDecorData {
 			return null;
 		}
 
-		@NotNull
-		HitBox getHitBox();
+		@NotNull HitBox getHitBox();
 
 		default @Nullable Facing getFacing() {
 			return null;
