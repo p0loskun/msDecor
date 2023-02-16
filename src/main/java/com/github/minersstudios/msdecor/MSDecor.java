@@ -15,7 +15,7 @@ public final class MSDecor extends MSPlugin {
     public void enable() {
         instance = this;
 
-        coreProtectAPI = getCoreProtect();
+        coreProtectAPI = this.getCoreProtect();
         if (coreProtectAPI != null) {
             coreProtectAPI.testAPI();
         }

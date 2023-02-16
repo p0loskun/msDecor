@@ -14,7 +14,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
@@ -33,11 +32,11 @@ public class TrashcanMechanic implements Listener {
 		Location location = clickedBlock.getLocation().toCenterLocation();
 		ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
 		if (
-				event.getHand() == EquipmentSlot.HAND
-				&& BlockUtils.isCustomDecorMaterial(clickedBlock.getType())
+				BlockUtils.isCustomDecorMaterial(clickedBlock.getType())
 				&& (!itemInMainHand.getType().isBlock() || itemInMainHand.getType() == Material.AIR)
 				&& CustomDecorUtils.getCustomDecorDataByLocation(location) instanceof IronTrashcan
 		) {
+			event.setCancelled(true);
 			player.swingMainHand();
 			player.openInventory(Bukkit.createInventory(null, 4 * 9, IronTrashcan.INV_NAME));
 			player.getWorld().playSound(location, Sound.BLOCK_BARREL_OPEN, SoundCategory.PLAYERS, 1.0f, 1.0f);
