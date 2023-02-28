@@ -28,6 +28,7 @@ public class CoolArmchair implements Sittable, Wrenchable {
 	public CoolArmchair() {
 		this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), "cool_armchair");
 		this.itemStack = new ItemStack(Material.LEATHER_HORSE_ARMOR);
+		this.itemStack.setItemMeta(this.createItemStack(Type.DEFAULT).getItemMeta());
 		this.soundGroup = new SoundGroup(
 				"block.wool.place", 0.75f, 1.0f,
 				"block.wool.break", 0.75f, 1.0f

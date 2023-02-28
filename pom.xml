@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>com.github.MinersStudios</groupId>
 			<artifactId>msCore</artifactId>
-			<version>release-25aec9367a-1</version>
+			<version>release-57848d08d1-1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>

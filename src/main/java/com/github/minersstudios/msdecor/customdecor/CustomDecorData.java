@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.customdecor;
 
-import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
+import com.github.minersstudios.mscore.MSCore;
 import com.google.common.collect.Lists;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -54,19 +54,29 @@ public interface CustomDecorData extends Cloneable {
 	default void register(boolean regRecipes) {
 		if (this instanceof FullTyped fullTyped) {
 			for (Typed.Type type : fullTyped.getTypes()) {
-				CustomDecorUtils.CUSTOM_DECORS.put(type.getNamespacedKey().getKey(), fullTyped.createCustomDecorData(type));
+				MSCore.getConfigCache().customDecorMap.put(
+						type.getNamespacedKey().getKey(),
+						type.getCustomModelData(),
+						fullTyped.createCustomDecorData(type)
+				);
 			}
 		} else {
-			CustomDecorUtils.CUSTOM_DECORS.put(this.getNamespacedKey().getKey(), this);
+			MSCore.getConfigCache().customDecorMap.put(
+					this.getNamespacedKey().getKey(),
+					this.getItemStack().getItemMeta().getCustomModelData(),
+					this
+			);
 		}
+
 		if (regRecipes) {
 			List<Recipe> recipes = this.getRecipes();
 			if (recipes != null) {
 				for (Recipe recipe : recipes) {
 					Bukkit.addRecipe(recipe);
 				}
-				if (isShowInCraftsMenu()) {
-					CustomDecorUtils.CUSTOM_DECOR_RECIPES.addAll(recipes);
+				if (this.isShowInCraftsMenu()) {
+					System.out.println(this.getNamespacedKey().getKey());
+					MSCore.getConfigCache().customDecorRecipes.addAll(recipes);
 				}
 			}
 		}

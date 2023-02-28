@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.commands;
 
+import com.github.minersstudios.mscore.MSCore;
 import com.github.minersstudios.mscore.utils.ChatUtils;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Typed;
-import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -29,7 +29,7 @@ public class GiveCommand {
 				return ChatUtils.sendError(sender, Component.text("Данный игрок не на сервере!"));
 			}
 
-			CustomDecorData customDecorData = CustomDecorUtils.CUSTOM_DECORS.get(args[2]);
+			CustomDecorData customDecorData = MSCore.getConfigCache().customDecorMap.getByPrimaryKey(args[2]);
 			if (customDecorData == null) {
 				return ChatUtils.sendError(sender, Component.text("Такого декора не существует!"));
 			}

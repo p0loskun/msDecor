@@ -1,7 +1,7 @@
 package com.github.minersstudios.msdecor;
 
 import com.github.minersstudios.mscore.MSPlugin;
-import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
+import com.github.minersstudios.msdecor.utils.ConfigCache;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import org.bukkit.plugin.Plugin;
@@ -10,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 public final class MSDecor extends MSPlugin {
     private static MSDecor instance;
     private static CoreProtectAPI coreProtectAPI = new CoreProtectAPI();
+    private static ConfigCache configCache;
 
     @Override
     public void enable() {
@@ -20,7 +21,14 @@ public final class MSDecor extends MSPlugin {
             coreProtectAPI.testAPI();
         }
 
-        CustomDecorUtils.registerCustomDecors();
+        reloadConfigs();
+    }
+
+    public static void reloadConfigs() {
+        instance.saveDefaultConfig();
+        instance.reloadConfig();
+        configCache = new ConfigCache();
+        configCache.registerCustomDecors();
     }
 
     private @Nullable CoreProtectAPI getCoreProtect() {
@@ -36,5 +44,9 @@ public final class MSDecor extends MSPlugin {
 
     public static CoreProtectAPI getCoreProtectAPI() {
         return coreProtectAPI;
+    }
+
+    public static ConfigCache getConfigCache() {
+        return configCache;
     }
 }

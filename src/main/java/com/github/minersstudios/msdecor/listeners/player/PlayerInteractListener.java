@@ -16,6 +16,7 @@ import org.bukkit.block.data.Directional;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -35,13 +36,10 @@ public class PlayerInteractListener implements Listener {
 				event.getAction() != Action.RIGHT_CLICK_BLOCK
 				|| event.getClickedBlock() == null
 				|| event.getHand() == null
+				|| !BlockUtils.isCustomDecorMaterial(event.getClickedBlock().getRelative(event.getBlockFace()).getType())
+				|| !PlayerUtils.isItemCustomDecor(event.getPlayer().getInventory().getItemInMainHand())
 		) return;
-		if (
-				BlockUtils.isCustomDecorMaterial(event.getClickedBlock().getRelative(event.getBlockFace()).getType())
-				|| PlayerUtils.isItemCustomDecor(event.getPlayer().getInventory().getItemInMainHand())
-		) {
-			event.setCancelled(true);
-		}
+		event.setUseItemInHand(Event.Result.DENY);
 	}
 
 	@EventHandler
