@@ -36,7 +36,6 @@ public class PlayerInteractListener implements Listener {
 				event.getAction() != Action.RIGHT_CLICK_BLOCK
 				|| event.getClickedBlock() == null
 				|| event.getHand() == null
-				|| !MSDecorUtils.isCustomDecorMaterial(event.getClickedBlock().getRelative(event.getBlockFace()).getType())
 				|| !MSDecorUtils.isCustomDecor(event.getPlayer().getInventory().getItemInMainHand())
 		) return;
 		event.setUseItemInHand(Event.Result.DENY);
