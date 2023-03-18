@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
 import com.github.minersstudios.mscore.MSListener;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import com.github.minersstudios.msdecor.customdecor.Typed;
-import com.github.minersstudios.msdecor.customdecor.decorations.street.Brazier;
-import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.street.Brazier;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -34,7 +34,7 @@ public class BrazierMechanic implements Listener {
 		if (
 				(heldItem.getType() != Material.FLINT_AND_STEEL
 				&& !heldItem.getType().toString().matches(".*_SHOVEL"))
-				|| !(CustomDecorUtils.getCustomDecorDataByItem(helmet) instanceof Brazier brazier)
+				|| !(MSDecorUtils.getCustomDecorData(helmet) instanceof Brazier brazier)
 				|| !(block.getBlockData() instanceof Levelled levelled)
 				|| !(heldItem.getItemMeta() instanceof Damageable itemMeta)
 		) return;

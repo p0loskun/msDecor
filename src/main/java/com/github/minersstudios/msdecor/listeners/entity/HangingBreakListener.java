@@ -1,7 +1,7 @@
 package com.github.minersstudios.msdecor.listeners.entity;
 
 import com.github.minersstudios.mscore.MSListener;
-import com.github.minersstudios.msdecor.utils.EntityUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -16,7 +16,7 @@ public class HangingBreakListener implements Listener {
 	public void onHangingBreak(@NotNull HangingBreakEvent event) {
 		if (
 				event.getEntity() instanceof ItemFrame itemFrame
-				&& EntityUtils.isCustomDecorEntity(itemFrame)
+				&& MSDecorUtils.isCustomDecorEntity(itemFrame)
 		) {
 			event.setCancelled(true);
 		}

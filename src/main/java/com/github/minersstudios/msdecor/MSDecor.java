@@ -1,10 +1,13 @@
 package com.github.minersstudios.msdecor;
 
 import com.github.minersstudios.mscore.MSPlugin;
+import com.github.minersstudios.mscore.utils.MSPluginUtils;
+import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.utils.ConfigCache;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.Nullable;
 
 public final class MSDecor extends MSPlugin {
@@ -29,6 +32,20 @@ public final class MSDecor extends MSPlugin {
         instance.reloadConfig();
         configCache = new ConfigCache();
         configCache.registerCustomDecors();
+        instance.loadedCustoms = true;
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (MSPluginUtils.isLoadedCustoms()) {
+                    for (CustomDecorData customDecorData : configCache.recipeDecors) {
+                        customDecorData.registerRecipes();
+                    }
+                    configCache.recipeDecors.clear();
+                    this.cancel();
+                }
+            }
+        }.runTaskTimer(instance, 0L, 10L);
     }
 
     private @Nullable CoreProtectAPI getCoreProtect() {

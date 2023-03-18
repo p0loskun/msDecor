@@ -1,9 +1,10 @@
 package com.github.minersstudios.msdecor.customdecor;
 
+import com.github.minersstudios.mscore.utils.BlockUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import com.github.minersstudios.msdecor.MSDecor;
 import com.github.minersstudios.msdecor.events.CustomDecorBreakEvent;
 import com.github.minersstudios.msdecor.events.CustomDecorPlaceEvent;
-import com.github.minersstudios.msdecor.utils.BlockUtils;
 import com.github.minersstudios.msdecor.utils.EntityUtils;
 import com.google.common.base.Preconditions;
 import net.kyori.adventure.text.Component;
@@ -62,6 +63,7 @@ public class CustomDecor {
 			this.setHitBox();
 			this.customDecorData.getSoundGroup().playPlaceSound(this.block.getLocation().toCenterLocation());
 			MSDecor.getCoreProtectAPI().logPlacement(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());
+			BlockUtils.removeBlocksAround(this.block);
 		});
 	}
 
@@ -102,7 +104,7 @@ public class CustomDecor {
 			}
 		}
 		this.customDecorData.getSoundGroup().playBreakSound(blockLocation.toCenterLocation());
-		if (BlockUtils.isCustomDecorMaterial(this.block.getType())) {
+		if (MSDecorUtils.isCustomDecorMaterial(this.block.getType())) {
 			this.block.setType(Material.AIR);
 		}
 		MSDecor.getCoreProtectAPI().logRemoval(this.player.getName(), this.block.getLocation(), Material.VOID_AIR, this.block.getBlockData());

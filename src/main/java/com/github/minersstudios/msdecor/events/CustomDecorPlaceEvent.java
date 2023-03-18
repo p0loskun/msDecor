@@ -12,9 +12,9 @@ import org.jetbrains.annotations.Nullable;
 public class CustomDecorPlaceEvent extends CustomDecorEvent implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 	protected boolean cancel;
-	protected BlockState replacedBlockState;
-	protected Player player;
-	protected EquipmentSlot hand;
+	protected final BlockState replacedBlockState;
+	protected final Player player;
+	protected final EquipmentSlot hand;
 
 	public CustomDecorPlaceEvent(
 			@NotNull final CustomDecor placedCustomDecor,

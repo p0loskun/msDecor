@@ -1,9 +1,11 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
 import com.github.minersstudios.mscore.MSListener;
+import com.github.minersstudios.mscore.utils.MSBlockUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
+import com.github.minersstudios.mscore.utils.PlayerUtils;
 import com.github.minersstudios.msdecor.customdecor.Sittable;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
-import com.github.minersstudios.msdecor.utils.PlayerUtils;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -33,8 +35,8 @@ public class SittableMechanic implements Listener {
 		GameMode gameMode = player.getGameMode();
 		EquipmentSlot hand = event.getHand();
 		ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-		if (PlayerUtils.isItemCustomBlock(itemInMainHand)) return;
-		if (hand != EquipmentSlot.HAND && PlayerUtils.isItemCustomDecor(itemInMainHand)) {
+		if (MSBlockUtils.isCustomBlock(itemInMainHand)) return;
+		if (hand != EquipmentSlot.HAND && MSDecorUtils.isCustomDecor(itemInMainHand)) {
 			hand = EquipmentSlot.HAND;
 		}
 		ItemStack itemInHand = player.getInventory().getItem(hand);
@@ -43,8 +45,8 @@ public class SittableMechanic implements Listener {
 				&& !player.isSneaking()
 				&& clickedBlock.getType() == Material.BARRIER
 				&& (!itemInHand.getType().isBlock() || itemInHand.getType() == Material.AIR)
-				&& !PlayerUtils.isItemCustomBlock(itemInHand)
-				&& !PlayerUtils.isItemCustomDecor(itemInHand)
+				&& !MSBlockUtils.isCustomBlock(itemInHand)
+				&& !MSDecorUtils.isCustomDecor(itemInHand)
 				&& event.getHand() == EquipmentSlot.HAND
 				&& gameMode != GameMode.SPECTATOR
 				&& !clickedBlock.getRelative(BlockFace.UP).getType().isSolid()
@@ -56,7 +58,7 @@ public class SittableMechanic implements Listener {
 				if (entity.getType() == EntityType.PLAYER && !entity.equals(player)) return;
 			}
 			sitLocation.getWorld().playSound(sitLocation, Sound.ENTITY_PIG_SADDLE, SoundCategory.PLAYERS, 0.15f, 1.0f);
-			com.github.minersstudios.msutils.utils.PlayerUtils.setSitting(player, sitLocation, null);
+			PlayerUtils.setSitting(player, sitLocation);
 			player.swingHand(hand);
 			player.updateInventory();
 		}

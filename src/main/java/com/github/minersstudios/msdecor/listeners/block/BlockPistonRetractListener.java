@@ -1,7 +1,7 @@
 package com.github.minersstudios.msdecor.listeners.block;
 
 import com.github.minersstudios.mscore.MSListener;
-import org.bukkit.Material;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -15,7 +15,7 @@ public class BlockPistonRetractListener implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onBlockPistonRetract(@NotNull BlockPistonRetractEvent event) {
 		for (Block block : event.getBlocks()) {
-			if (block.getType() == Material.STRUCTURE_VOID) {
+			if (MSDecorUtils.isCustomDecorMaterial(block.getType())) {
 				event.setCancelled(true);
 			}
 		}

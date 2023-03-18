@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class CustomDecorBreakEvent extends CustomDecorEvent implements Cancellable {
 	private static final HandlerList handlers = new HandlerList();
 	protected boolean cancel;
-	protected Player player;
+	protected final Player player;
 
 	public CustomDecorBreakEvent(
 			@NotNull final CustomDecor breakedCustomDecor,

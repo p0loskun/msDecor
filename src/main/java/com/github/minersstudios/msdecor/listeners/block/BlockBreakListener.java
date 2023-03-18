@@ -1,8 +1,7 @@
 package com.github.minersstudios.msdecor.listeners.block;
 
 import com.github.minersstudios.mscore.MSListener;
-import com.github.minersstudios.msdecor.utils.BlockUtils;
-import com.github.minersstudios.msdecor.utils.EntityUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -16,9 +15,9 @@ public class BlockBreakListener implements Listener {
 	@EventHandler
 	public void onBlockBreak(@NotNull BlockBreakEvent event) {
 		Block block = event.getBlock();
-		if (BlockUtils.isCustomDecorMaterial(event.getBlock().getType())) {
+		if (MSDecorUtils.isCustomDecorMaterial(event.getBlock().getType())) {
 			for (Entity nearbyEntity : block.getWorld().getNearbyEntities(block.getLocation().toCenterLocation(), 0.5d, 0.5d, 0.5d)) {
-				if (EntityUtils.isCustomDecorEntity(nearbyEntity)) {
+				if (MSDecorUtils.isCustomDecorEntity(nearbyEntity)) {
 					event.setCancelled(true);
 				}
 			}

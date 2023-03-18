@@ -1,34 +1,39 @@
 package com.github.minersstudios.msdecor.utils;
 
 import com.github.minersstudios.msdecor.MSDecor;
-import com.github.minersstudios.msdecor.customdecor.christmas.*;
-import com.github.minersstudios.msdecor.customdecor.decorations.home.*;
-import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.DeerHead;
-import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.HoglinHead;
-import com.github.minersstudios.msdecor.customdecor.decorations.home.heads.ZoglinHead;
-import com.github.minersstudios.msdecor.customdecor.decorations.home.plushes.BMOPlush;
-import com.github.minersstudios.msdecor.customdecor.decorations.home.plushes.BrownBearPlush;
-import com.github.minersstudios.msdecor.customdecor.decorations.home.plushes.RacoonPlush;
-import com.github.minersstudios.msdecor.customdecor.decorations.street.*;
-import com.github.minersstudios.msdecor.customdecor.furniture.chairs.*;
-import com.github.minersstudios.msdecor.customdecor.furniture.lamps.BigLamp;
-import com.github.minersstudios.msdecor.customdecor.furniture.lamps.SmallLamp;
-import com.github.minersstudios.msdecor.customdecor.furniture.nightstand.*;
-import com.github.minersstudios.msdecor.customdecor.furniture.tables.BigTable;
-import com.github.minersstudios.msdecor.customdecor.furniture.tables.SmallTable;
-import com.github.minersstudios.msdecor.customdecor.halloween.SkeletonHand;
-import com.github.minersstudios.msdecor.customdecor.other.Poop;
+import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
+import com.github.minersstudios.msdecor.customdecor.register.christmas.*;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.home.*;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.home.heads.DeerHead;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.home.heads.HoglinHead;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.home.heads.ZoglinHead;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.home.plushes.BMOPlush;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.home.plushes.BrownBearPlush;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.home.plushes.RacoonPlush;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.street.*;
+import com.github.minersstudios.msdecor.customdecor.register.furniture.chairs.*;
+import com.github.minersstudios.msdecor.customdecor.register.furniture.lamps.BigLamp;
+import com.github.minersstudios.msdecor.customdecor.register.furniture.lamps.SmallLamp;
+import com.github.minersstudios.msdecor.customdecor.register.furniture.nightstand.*;
+import com.github.minersstudios.msdecor.customdecor.register.furniture.tables.BigTable;
+import com.github.minersstudios.msdecor.customdecor.register.furniture.tables.SmallTable;
+import com.github.minersstudios.msdecor.customdecor.register.halloween.SkeletonHand;
+import com.github.minersstudios.msdecor.customdecor.register.other.Poop;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ConfigCache {
+public final class ConfigCache {
 	public final @NotNull File configFile;
 	public final @NotNull YamlConfiguration configYaml;
 
 	public final boolean isChristmas;
 	public final boolean isHalloween;
+
+	public final List<CustomDecorData> recipeDecors = new ArrayList<>();
 
 	public ConfigCache() {
 		this.configFile = new File(MSDecor.getInstance().getPluginFolder(), "config.yml");
@@ -81,11 +86,11 @@ public class ConfigCache {
 		new BigTable().register();
 		new SmallTable().register();
 
-		new Armchair().register();
 		new BarStool().register();
-		new Chair().register();
 		new CoolArmchair().register();
 		new CoolChair().register();
+		new Armchair().register();
+		new Chair().register();
 		new RockingChair().register();
 		new SmallArmchair().register();
 		new SmallChair().register();

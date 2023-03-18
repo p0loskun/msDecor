@@ -1,8 +1,8 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
 import com.github.minersstudios.mscore.MSListener;
-import com.github.minersstudios.msdecor.customdecor.decorations.street.IronTrashcan;
-import com.github.minersstudios.msdecor.utils.BlockUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
+import com.github.minersstudios.msdecor.customdecor.register.decorations.street.IronTrashcan;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -32,7 +32,7 @@ public class TrashcanMechanic implements Listener {
 		Location location = clickedBlock.getLocation().toCenterLocation();
 		ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
 		if (
-				BlockUtils.isCustomDecorMaterial(clickedBlock.getType())
+				MSDecorUtils.isCustomDecorMaterial(clickedBlock.getType())
 				&& (!itemInMainHand.getType().isBlock() || itemInMainHand.getType() == Material.AIR)
 				&& CustomDecorUtils.getCustomDecorDataByLocation(location) instanceof IronTrashcan
 		) {

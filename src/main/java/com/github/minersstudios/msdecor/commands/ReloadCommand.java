@@ -1,5 +1,6 @@
 package com.github.minersstudios.msdecor.commands;
 
+import com.github.minersstudios.mscore.MSCore;
 import com.github.minersstudios.mscore.utils.ChatUtils;
 import com.github.minersstudios.msdecor.MSDecor;
 import net.kyori.adventure.text.Component;
@@ -22,6 +23,7 @@ public class ReloadCommand {
 				Bukkit.removeRecipe(shapedRecipe.getKey());
 			}
 		}
+		MSCore.getConfigCache().customDecorRecipes.clear();
 		MSDecor.reloadConfigs();
 		if (MSDecor.getInstance().isEnabled()) {
 			return ChatUtils.sendFine(sender, Component.text("Плагин был успешно перезагружён за " + (System.currentTimeMillis() - time) + "ms"));

@@ -1,7 +1,7 @@
 package com.github.minersstudios.msdecor.listeners.entity;
 
 import com.github.minersstudios.mscore.MSListener;
-import com.github.minersstudios.msdecor.utils.BlockUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.block.Block;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.event.EventHandler;
@@ -18,7 +18,7 @@ public class EntityChangeBlockListener implements Listener {
 		Block block = event.getBlock();
 		if (
 				event.getEntity() instanceof FallingBlock
-				&& BlockUtils.isCustomDecorMaterial(block.getType())
+				&& MSDecorUtils.isCustomDecorMaterial(block.getType())
 		) {
 			event.setCancelled(true);
 			block.getWorld().dropItemNaturally(block.getLocation(), new ItemStack(event.getTo()));

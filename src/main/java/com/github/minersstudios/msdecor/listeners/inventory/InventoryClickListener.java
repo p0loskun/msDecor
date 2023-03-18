@@ -1,8 +1,7 @@
 package com.github.minersstudios.msdecor.listeners.inventory;
 
 import com.github.minersstudios.mscore.MSListener;
-import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
-import com.github.minersstudios.msdecor.utils.PlayerUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -24,14 +23,14 @@ public class InventoryClickListener implements Listener {
 				&& !(event.getClickedInventory() instanceof PlayerInventory)
 				&& cursor.getItemMeta() != null
 				&& cursor.getItemMeta().hasCustomModelData()
-				&& PlayerUtils.isItemCustomDecor(cursor)
-				&& CustomDecorUtils.getCustomDecorDataByItem(cursor) != null
+				&& MSDecorUtils.isCustomDecor(cursor)
+				&& MSDecorUtils.getCustomDecorData(cursor) != null
 				|| event.getClick().isShiftClick()
 				&& currentItem != null
 				&& currentItem.getItemMeta() != null
 				&& currentItem.getItemMeta().hasCustomModelData()
-				&& PlayerUtils.isItemCustomDecor(currentItem)
-				&& CustomDecorUtils.getCustomDecorDataByItem(currentItem) != null)
+				&& MSDecorUtils.isCustomDecor(currentItem)
+				&& MSDecorUtils.getCustomDecorData(currentItem) != null)
 		);
 	}
 }

@@ -5,7 +5,7 @@ import org.bukkit.event.Event;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class CustomDecorEvent extends Event {
-	protected CustomDecor customDecor;
+	protected final CustomDecor customDecor;
 
 	public CustomDecorEvent(
 			final @NotNull CustomDecor customDecor

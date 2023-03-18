@@ -1,7 +1,7 @@
 package com.github.minersstudios.msdecor.listeners.inventory;
 
 import com.github.minersstudios.mscore.MSListener;
-import com.github.minersstudios.msdecor.utils.PlayerUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryDragEvent;
@@ -16,10 +16,9 @@ public class InventoryDragListener implements Listener {
 	public void onInventoryDrag(@NotNull InventoryDragEvent event) {
 		ItemStack itemStack = event.getNewItems().get(1);
 		if (
-				itemStack != null
-				&& event.getInventory() instanceof HorseInventory
+				event.getInventory() instanceof HorseInventory
 				&& event.getRawSlots().contains(1)
-				&& PlayerUtils.isItemCustomDecor(itemStack)
+				&& MSDecorUtils.isCustomDecor(itemStack)
 		) {
 			event.setCancelled(true);
 		}

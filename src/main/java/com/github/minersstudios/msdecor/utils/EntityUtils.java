@@ -3,18 +3,17 @@ package com.github.minersstudios.msdecor.utils;
 import org.bukkit.Location;
 import org.bukkit.Rotation;
 import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
 public final class EntityUtils {
 
+	@Contract(value = " -> fail")
 	private EntityUtils() {
 		throw new IllegalStateException("Utility class");
 	}
@@ -38,12 +37,6 @@ public final class EntityUtils {
 			case COUNTER_CLOCKWISE_45 -> armorStandLocation.setYaw(-45.0f);
 		}
 		armorStand.teleport(armorStandLocation);
-	}
-
-	@Contract("null -> false")
-	public static boolean isCustomDecorEntity(@Nullable Entity entity) {
-		if (entity == null) return false;
-		return entity.getScoreboardTags().contains("customDecor");
 	}
 
 	/**

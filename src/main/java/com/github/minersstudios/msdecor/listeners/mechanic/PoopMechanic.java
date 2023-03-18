@@ -1,9 +1,9 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
 import com.github.minersstudios.mscore.MSListener;
-import com.github.minersstudios.msdecor.customdecor.other.Poop;
-import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
-import com.github.minersstudios.msdecor.utils.PlayerUtils;
+import com.github.minersstudios.mscore.utils.MSBlockUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
+import com.github.minersstudios.msdecor.customdecor.register.other.Poop;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -32,8 +32,8 @@ public class PoopMechanic implements Listener {
 		GameMode gameMode = player.getGameMode();
 		EquipmentSlot hand = event.getHand();
 		ItemStack itemInMainHand = player.getInventory().getItemInMainHand();
-		if (PlayerUtils.isItemCustomBlock(itemInMainHand)) return;
-		if (hand != EquipmentSlot.HAND && PlayerUtils.isItemCustomDecor(itemInMainHand)) {
+		if (MSBlockUtils.isCustomBlock(itemInMainHand)) return;
+		if (hand != EquipmentSlot.HAND && MSDecorUtils.isCustomDecor(itemInMainHand)) {
 			hand = EquipmentSlot.HAND;
 		}
 		ItemStack itemInHand = player.getInventory().getItem(hand);
@@ -43,7 +43,7 @@ public class PoopMechanic implements Listener {
 				&& !player.isSneaking()
 				&& clickedBlock.getBlockData() instanceof Levelled levelled
 				&& (!itemInHand.getType().isBlock() || itemInHand.getType() == Material.AIR)
-				&& CustomDecorUtils.getCustomDecorDataByItem(itemInHand) instanceof Poop
+				&& MSDecorUtils.getCustomDecorData(itemInHand) instanceof Poop
 				&& levelled.getLevel() < levelled.getMaximumLevel()
 		) {
 			levelled.setLevel(levelled.getLevel() + 1);

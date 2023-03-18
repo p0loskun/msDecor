@@ -6,11 +6,9 @@ website: ${url}
 
 main: ${mainClass}
 api-version: ${apiVersion}
-depend:
-  - CoreProtect
 softdepend:
   - msCore
-  - ProtocolLib
+  - CoreProtect
 commands:
   msdecor:
     usage: " ꀑ §cИспользуй: /<command> [параметры]"

@@ -5,6 +5,8 @@ import org.bukkit.SoundCategory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.security.SecureRandom;
+
 @SuppressWarnings("unused")
 public class SoundGroup {
 	private @Nullable String placeSound;
@@ -13,6 +15,8 @@ public class SoundGroup {
 	private @Nullable String breakSound;
 	private float breakSoundPitch;
 	private float breakSoundVolume;
+
+	private final SecureRandom random = new SecureRandom();
 
 	public SoundGroup(
 			@Nullable String placeSound,
@@ -80,11 +84,23 @@ public class SoundGroup {
 
 	public void playPlaceSound(@NotNull Location location) {
 		if (this.placeSound == null) return;
-		location.getWorld().playSound(location, this.placeSound, SoundCategory.BLOCKS, this.placeSoundVolume, this.placeSoundPitch);
+		location.getWorld().playSound(
+				location,
+				this.placeSound,
+				SoundCategory.BLOCKS,
+				this.placeSoundVolume,
+				this.random.nextFloat() * 0.1f + this.placeSoundPitch
+		);
 	}
 
 	public void playBreakSound(@NotNull Location location) {
 		if (this.breakSound == null) return;
-		location.getWorld().playSound(location, this.breakSound, SoundCategory.BLOCKS, this.breakSoundVolume, this.breakSoundPitch);
+		location.getWorld().playSound(
+				location,
+				this.breakSound,
+				SoundCategory.BLOCKS,
+				this.breakSoundVolume,
+				this.random.nextFloat() * 0.1f + this.breakSoundPitch
+		);
 	}
 }

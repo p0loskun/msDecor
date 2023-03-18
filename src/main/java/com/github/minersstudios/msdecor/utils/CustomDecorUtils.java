@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.utils;
 
-import com.github.minersstudios.mscore.MSCore;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.FaceableByType;
 import com.github.minersstudios.msdecor.customdecor.Typed;
@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 public final class CustomDecorUtils {
 
+	@Contract(value = " -> fail")
 	private CustomDecorUtils() {
 		throw new IllegalStateException("Utility class");
 	}
@@ -36,42 +37,18 @@ public final class CustomDecorUtils {
 
 	@Contract("null -> null")
 	public static @Nullable CustomDecorData getCustomDecorDataByEntity(@Nullable Entity entity) {
-		if (!EntityUtils.isCustomDecorEntity(entity)) return null;
+		if (!MSDecorUtils.isCustomDecorEntity(entity)) return null;
 		if (entity instanceof ArmorStand armorStand) {
-			return getCustomDecorDataByItem(armorStand.getEquipment().getHelmet());
+			return MSDecorUtils.getCustomDecorData(armorStand.getEquipment().getHelmet());
 		} else if (entity instanceof ItemFrame itemFrame) {
-			return getCustomDecorDataByItem(itemFrame.getItem());
+			return MSDecorUtils.getCustomDecorData(itemFrame.getItem());
 		}
 		return null;
 	}
 
-	@Contract("null -> null")
-	public static @Nullable CustomDecorData getCustomDecorDataByItem(@Nullable ItemStack itemStack) {
-		if (itemStack == null || itemStack.getItemMeta() == null) return null;
-		CustomDecorData customDecorData = MSCore.getConfigCache().customDecorMap.getBySecondaryKey(itemStack.getItemMeta().getCustomModelData());
-		if (customDecorData == null) return null;
-
-		if (customDecorData.getItemStack().getType() != itemStack.getType()) {
-			for (CustomDecorData anotherCDD : MSCore.getConfigCache().customDecorMap.values()) {
-				if (anotherCDD.isSimilar(itemStack)) {
-					customDecorData = anotherCDD;
-					break;
-				}
-			}
-		}
-
-		if (customDecorData instanceof Typed typed) {
-			Typed.Type type = typed.getType(itemStack);
-			if (type != null) {
-				return typed.createCustomDecorData(type);
-			}
-		}
-		return customDecorData;
-	}
-
 	@Contract("null, _ -> null")
 	public static @Nullable CustomDecorData getCustomDecorDataWithFace(@Nullable ItemStack itemStack, @Nullable BlockFace blockFace) {
-		CustomDecorData customDecorData = getCustomDecorDataByItem(itemStack);
+		CustomDecorData customDecorData = MSDecorUtils.getCustomDecorData(itemStack);
 		if (customDecorData instanceof FaceableByType faceableByType) {
 			Typed.Type type = faceableByType.getTypeByFace(blockFace);
 			if (type != null) {

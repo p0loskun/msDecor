@@ -1,8 +1,7 @@
 package com.github.minersstudios.msdecor.listeners.block;
 
 import com.github.minersstudios.mscore.MSListener;
-import com.github.minersstudios.msdecor.utils.BlockUtils;
-import com.github.minersstudios.msdecor.utils.PlayerUtils;
+import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -15,8 +14,8 @@ public class BlockPlaceListener implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onBlockPlace(@NotNull BlockPlaceEvent event) {
 		if (
-				BlockUtils.isCustomDecorMaterial(event.getBlockReplacedState().getType())
-				|| PlayerUtils.isItemCustomDecor(event.getPlayer().getInventory().getItemInMainHand())
+				MSDecorUtils.isCustomDecorMaterial(event.getBlockReplacedState().getType())
+				|| MSDecorUtils.isCustomDecor(event.getPlayer().getInventory().getItemInMainHand())
 		) {
 			event.setCancelled(true);
 		}
