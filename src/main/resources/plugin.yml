@@ -9,6 +9,7 @@ api-version: ${apiVersion}
 softdepend:
   - msCore
   - CoreProtect
+
 commands:
   msdecor:
     usage: " ꀑ §cИспользуй: /<command> [параметры]"

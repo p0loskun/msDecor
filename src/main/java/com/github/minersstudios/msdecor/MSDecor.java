@@ -6,23 +6,19 @@ import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.utils.ConfigCache;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 public final class MSDecor extends MSPlugin {
     private static MSDecor instance;
-    private static CoreProtectAPI coreProtectAPI = new CoreProtectAPI();
+    private static CoreProtectAPI coreProtectAPI;
     private static ConfigCache configCache;
 
     @Override
     public void enable() {
         instance = this;
-
-        coreProtectAPI = this.getCoreProtect();
-        if (coreProtectAPI != null) {
-            coreProtectAPI.testAPI();
-        }
+        coreProtectAPI = CoreProtect.getInstance().getAPI();
 
         reloadConfigs();
     }
@@ -48,22 +44,18 @@ public final class MSDecor extends MSPlugin {
         }.runTaskTimer(instance, 0L, 10L);
     }
 
-    private @Nullable CoreProtectAPI getCoreProtect() {
-        Plugin coreProtect = getServer().getPluginManager().getPlugin("CoreProtect");
-        if (coreProtect == null) return null;
-        CoreProtectAPI api = ((CoreProtect)coreProtect).getAPI();
-        return !api.isEnabled() || api.APIVersion() < 9 ? null : api;
-    }
-
-    public static MSDecor getInstance() {
+    @Contract(pure = true)
+    public static @NotNull MSDecor getInstance() {
         return instance;
     }
 
-    public static CoreProtectAPI getCoreProtectAPI() {
+    @Contract(pure = true)
+    public static @NotNull CoreProtectAPI getCoreProtectAPI() {
         return coreProtectAPI;
     }
 
-    public static ConfigCache getConfigCache() {
+    @Contract(pure = true)
+    public static @NotNull ConfigCache getConfigCache() {
         return configCache;
     }
 }
