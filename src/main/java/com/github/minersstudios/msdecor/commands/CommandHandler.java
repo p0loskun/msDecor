@@ -5,6 +5,7 @@ import com.github.minersstudios.mscore.command.MSCommand;
 import com.github.minersstudios.mscore.command.MSCommandExecutor;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Typed;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.tree.CommandNode;
 import org.bukkit.Bukkit;
@@ -80,7 +81,10 @@ public class CommandHandler implements MSCommandExecutor {
 						literal("give")
 						.then(
 								argument("nametag", StringArgumentType.word())
-								.then(argument("decor id", StringArgumentType.word()))
+								.then(
+										argument("decor id", StringArgumentType.word())
+										.then(argument("amount", IntegerArgumentType.integer()))
+								)
 						)
 				)
 				.build();
