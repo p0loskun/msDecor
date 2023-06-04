@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
-import com.github.minersstudios.mscore.MSListener;
+import com.github.minersstudios.mscore.listener.MSListener;
 import com.github.minersstudios.mscore.utils.MSBlockUtils;
 import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import com.github.minersstudios.mscore.utils.PlayerUtils;

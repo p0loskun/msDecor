@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.inventory;
 
-import com.github.minersstudios.mscore.MSListener;
+import com.github.minersstudios.mscore.listener.MSListener;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;
 import org.bukkit.Material;

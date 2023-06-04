@@ -9,16 +9,3 @@ api-version: ${apiVersion}
 softdepend:
   - msCore
   - CoreProtect
-
-commands:
-  msdecor:
-    usage: " ꀑ §cИспользуй: /<command> [параметры]"
-    permission: msDecor.msdecor
-    description: Прочья хуйня
-permissions:
-  msdecor.*:
-    default: op
-    children:
-      msDecor.msdecor: true
-  msDecor.msdecor:
-    default: op

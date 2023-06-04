@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.player;
 
-import com.github.minersstudios.mscore.MSListener;
+import com.github.minersstudios.mscore.listener.MSListener;
 import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
-import com.github.minersstudios.mscore.MSListener;
+import com.github.minersstudios.mscore.listener.MSListener;
 import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.customdecor.Lightable;
 import com.github.minersstudios.msdecor.customdecor.register.furniture.lamps.BigLamp;

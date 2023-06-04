@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.mechanic;
 
-import com.github.minersstudios.mscore.MSListener;
+import com.github.minersstudios.mscore.listener.MSListener;
 import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import com.github.minersstudios.msdecor.customdecor.register.decorations.street.IronTrashcan;
 import com.github.minersstudios.msdecor.utils.CustomDecorUtils;

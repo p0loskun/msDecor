@@ -26,12 +26,14 @@ public class GiveCommand {
 					? Integer.parseInt(args[4])
 					: 1;
 			if (player == null) {
-				return ChatUtils.sendError(sender, Component.text("Данный игрок не на сервере!"));
+				ChatUtils.sendError(sender, Component.text("Данный игрок не на сервере!"));
+				return true;
 			}
 
 			CustomDecorData customDecorData = MSCore.getConfigCache().customDecorMap.getByPrimaryKey(args[2]);
 			if (customDecorData == null) {
-				return ChatUtils.sendError(sender, Component.text("Такого декора не существует!"));
+				ChatUtils.sendError(sender, Component.text("Такого декора не существует!"));
+				return true;
 			}
 
 			if (
@@ -49,8 +51,10 @@ public class GiveCommand {
 			ItemStack itemStack = customDecorData.getItemStack();
 			itemStack.setAmount(amount);
 			player.getInventory().addItem(itemStack);
-			return ChatUtils.sendInfo(sender, Component.text("Выдано " + amount + " " + ChatUtils.serializePlainComponent(Objects.requireNonNull(itemStack.displayName())) + " Игроку : " + player.getName()));
+			ChatUtils.sendInfo(sender, Component.text("Выдано " + amount + " " + ChatUtils.serializePlainComponent(Objects.requireNonNull(itemStack.displayName())) + " Игроку : " + player.getName()));
+			return true;
 		}
-		return ChatUtils.sendWarning(sender, Component.text("Ник не может состоять менее чем из 3 символов!"));
+		ChatUtils.sendWarning(sender, Component.text("Ник не может состоять менее чем из 3 символов!"));
+		return true;
 	}
 }

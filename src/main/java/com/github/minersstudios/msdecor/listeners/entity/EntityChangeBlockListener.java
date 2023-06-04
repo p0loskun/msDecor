@@ -1,6 +1,6 @@
 package com.github.minersstudios.msdecor.listeners.entity;
 
-import com.github.minersstudios.mscore.MSListener;
+import com.github.minersstudios.mscore.listener.MSListener;
 import com.github.minersstudios.mscore.utils.MSDecorUtils;
 import org.bukkit.block.Block;
 import org.bukkit.entity.FallingBlock;
