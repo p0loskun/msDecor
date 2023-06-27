@@ -146,8 +146,8 @@ public class Snowman implements Wrenchable {
 			this.itemName = itemName;
 			this.customModelData = customModelData;
 			this.lore = Lists.newArrayList(
-					Badges.PAINTABLE_LORE_COMPONENT.get(0),
-					Badges.WRENCHABLE_LORE_COMPONENT.get(0)
+					Badges.PAINTABLE_LORE_LIST.get(0),
+					Badges.WRENCHABLE_LORE_LIST.get(0)
 			);
 			this.hitBox = HitBox.NORMAL_ARMOR_STAND;
 			this.facing = Facing.FLOOR;

@@ -33,7 +33,7 @@ public class SantaSock implements CustomDecorData {
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1186);
 		itemMeta.displayName(ChatUtils.createDefaultStyledText("Носок санты"));
-		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
+		itemMeta.lore(Badges.PAINTABLE_LORE_LIST);
 		itemMeta.getPersistentDataContainer().set(
 				MSDecorUtils.CUSTOM_DECOR_TYPE_NAMESPACED_KEY,
 				PersistentDataType.STRING,

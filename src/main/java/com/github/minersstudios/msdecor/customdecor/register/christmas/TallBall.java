@@ -146,7 +146,7 @@ public class TallBall implements FaceableByType {
 			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_christmas_tall_ball");
 			this.itemName = "Новогодний шар-сосулька";
 			this.customModelData = 1257;
-			this.lore = Badges.PAINTABLE_LORE_COMPONENT;
+			this.lore = Badges.PAINTABLE_LORE_LIST;
 			this.hitBox = hitBox;
 			this.facing = facing;
 		}

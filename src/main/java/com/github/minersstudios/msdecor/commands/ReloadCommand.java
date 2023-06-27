@@ -27,6 +27,7 @@ public class ReloadCommand {
 		MSDecor.reloadConfigs();
 		if (MSDecor.getInstance().isEnabled()) {
 			ChatUtils.sendFine(sender, Component.text("Плагин был успешно перезагружён за " + (System.currentTimeMillis() - time) + "ms"));
+			return;
 		}
 		ChatUtils.sendError(sender, Component.text("Плагин был перезагружён неудачно"));
 	}

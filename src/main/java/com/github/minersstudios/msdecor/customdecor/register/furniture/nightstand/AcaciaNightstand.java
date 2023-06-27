@@ -146,7 +146,7 @@ public class AcaciaNightstand implements Wrenchable {
 			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_acacia_nightstand");
 			this.itemName = "Акациевая тумбочка";
 			this.customModelData = customModelData;
-			this.lore = Badges.WRENCHABLE_LORE_COMPONENT;
+			this.lore = Badges.WRENCHABLE_LORE_LIST;
 			this.hitBox = HitBox.SOLID_FRAME;
 			this.facing = Facing.FLOOR;
 		}

@@ -33,7 +33,7 @@ public class SmallClock implements CustomDecorData {
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1146);
 		itemMeta.displayName(ChatUtils.createDefaultStyledText("Маленькие настенные часы"));
-		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
+		itemMeta.lore(Badges.PAINTABLE_LORE_LIST);
 		itemMeta.getPersistentDataContainer().set(
 				MSDecorUtils.CUSTOM_DECOR_TYPE_NAMESPACED_KEY,
 				PersistentDataType.STRING,

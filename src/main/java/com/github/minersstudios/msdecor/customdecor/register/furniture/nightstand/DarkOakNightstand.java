@@ -146,7 +146,7 @@ public class DarkOakNightstand implements Wrenchable {
 			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_dark_oak_nightstand");
 			this.itemName = "Тумбочка из тёмного дуба";
 			this.customModelData = customModelData;
-			this.lore = Badges.WRENCHABLE_LORE_COMPONENT;
+			this.lore = Badges.WRENCHABLE_LORE_LIST;
 			this.hitBox = HitBox.SOLID_FRAME;
 			this.facing = Facing.FLOOR;
 		}

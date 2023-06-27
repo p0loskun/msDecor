@@ -146,7 +146,7 @@ public class StarOnString implements FaceableByType {
 			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_star_on_string");
 			this.itemName = "Звезда на верёвке";
 			this.customModelData = 1256;
-			this.lore = Badges.PAINTABLE_LORE_COMPONENT;
+			this.lore = Badges.PAINTABLE_LORE_LIST;
 			this.hitBox = hitBox;
 			this.facing = facing;
 		}

@@ -287,23 +287,23 @@ public class RockingChair implements Sittable, Typed {
 	public enum Type implements Typed.Type {
 		//<editor-fold desc="Types">
 		ACACIA("Акациевое кресло-качалка", 1038, null),
-		PAINTABLE_ACACIA("Акациевое кресло-качалка", 1039, Badges.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_ACACIA("Акациевое кресло-качалка", 1039, Badges.PAINTABLE_LORE_LIST),
 		BIRCH("Берёзовое кресло-качалка", 1040, null),
-		PAINTABLE_BIRCH("Берёзовое кресло-качалка", 1041, Badges.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_BIRCH("Берёзовое кресло-качалка", 1041, Badges.PAINTABLE_LORE_LIST),
 		CRIMSON( "Багровое кресло-качалка", 1042, null),
-		PAINTABLE_CRIMSON( "Багровое кресло-качалка", 1043, Badges.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_CRIMSON( "Багровое кресло-качалка", 1043, Badges.PAINTABLE_LORE_LIST),
 		DARK_OAK("Кресло-качалка из тёмного дуба", 1044, null),
-		PAINTABLE_DARK_OAK("Кресло-качалка из тёмного дуба", 1045, Badges.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_DARK_OAK("Кресло-качалка из тёмного дуба", 1045, Badges.PAINTABLE_LORE_LIST),
 		JUNGLE("Тропическое кресло-качалка", 1046, null),
-		PAINTABLE_JUNGLE("Тропическое кресло-качалка", 1047, Badges.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_JUNGLE("Тропическое кресло-качалка", 1047, Badges.PAINTABLE_LORE_LIST),
 		OAK("Дубовое кресло-качалка", 1048, null),
-		PAINTABLE_OAK("Дубовое кресло-качалка", 1049, Badges.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_OAK("Дубовое кресло-качалка", 1049, Badges.PAINTABLE_LORE_LIST),
 		SPRUCE("Еловое кресло-качалка", 1050, null),
-		PAINTABLE_SPRUCE("Еловое кресло-качалка", 1051, Badges.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_SPRUCE("Еловое кресло-качалка", 1051, Badges.PAINTABLE_LORE_LIST),
 		WARPED("Искажённое кресло-качалка", 1052, null),
-		PAINTABLE_WARPED("Искажённое кресло-качалка", 1053, Badges.PAINTABLE_LORE_COMPONENT),
+		PAINTABLE_WARPED("Искажённое кресло-качалка", 1053, Badges.PAINTABLE_LORE_LIST),
 		MANGROVE("Мангровое кресло-качалка", 1197, null),
-		PAINTABLE_MANGROVE("Мангровое кресло-качалка", 1198, Badges.PAINTABLE_LORE_COMPONENT);
+		PAINTABLE_MANGROVE("Мангровое кресло-качалка", 1198, Badges.PAINTABLE_LORE_LIST);
 		//</editor-fold>
 
 		private final @NotNull NamespacedKey namespacedKey;

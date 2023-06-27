@@ -157,8 +157,8 @@ public class CoolArmchair implements Sittable, Wrenchable {
 			this.itemName = "Стильное кресло";
 			this.customModelData = customModelData;
 			this.lore = Lists.newArrayList(
-					Badges.PAINTABLE_LORE_COMPONENT.get(0),
-					Badges.WRENCHABLE_LORE_COMPONENT.get(0)
+					Badges.PAINTABLE_LORE_LIST.get(0),
+					Badges.WRENCHABLE_LORE_LIST.get(0)
 			);
 			this.hitBox = HitBox.SOLID_FRAME;
 			this.facing = Facing.FLOOR;

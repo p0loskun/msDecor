@@ -146,7 +146,7 @@ public class Ball implements FaceableByType {
 			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_christmas_ball");
 			this.itemName = "Новогодний шар";
 			this.customModelData = 1185;
-			this.lore = Badges.PAINTABLE_LORE_COMPONENT;
+			this.lore = Badges.PAINTABLE_LORE_LIST;
 			this.hitBox = hitBox;
 			this.facing = facing;
 		}

@@ -27,7 +27,7 @@ public class ATM implements CustomDecorData {
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1152);
 		itemMeta.displayName(ChatUtils.createDefaultStyledText("Банкомат"));
-		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
+		itemMeta.lore(Badges.PAINTABLE_LORE_LIST);
 		itemMeta.getPersistentDataContainer().set(
 				MSDecorUtils.CUSTOM_DECOR_TYPE_NAMESPACED_KEY,
 				PersistentDataType.STRING,

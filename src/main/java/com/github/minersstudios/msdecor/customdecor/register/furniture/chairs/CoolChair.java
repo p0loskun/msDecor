@@ -35,7 +35,7 @@ public class CoolChair implements Sittable {
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1037);
 		itemMeta.displayName(ChatUtils.createDefaultStyledText("Стильный стул"));
-		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
+		itemMeta.lore(Badges.PAINTABLE_LORE_LIST);
 		itemMeta.getPersistentDataContainer().set(
 				MSDecorUtils.CUSTOM_DECOR_TYPE_NAMESPACED_KEY,
 				PersistentDataType.STRING,

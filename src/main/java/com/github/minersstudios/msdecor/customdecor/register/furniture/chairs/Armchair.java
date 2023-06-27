@@ -238,7 +238,7 @@ public class Armchair implements Sittable, Typed {
 			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_armchair");
 			this.itemName = itemName;
 			this.customModelData = customModelData;
-			this.lore = Badges.PAINTABLE_LORE_COMPONENT;
+			this.lore = Badges.PAINTABLE_LORE_LIST;
 			this.hitBox = HitBox.SOLID_FRAME;
 			this.facing = Facing.FLOOR;
 		}

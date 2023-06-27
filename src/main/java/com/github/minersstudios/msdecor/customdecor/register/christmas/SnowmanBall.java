@@ -147,7 +147,7 @@ public class SnowmanBall implements FaceableByType {
 			this.namespacedKey = new NamespacedKey(MSDecor.getInstance(), this.name().toLowerCase(Locale.ROOT) + "_snowman_ball");
 			this.itemName = "Новогодний шар в виде снеговика";
 			this.customModelData = 1255;
-			this.lore = Badges.PAINTABLE_LORE_COMPONENT;
+			this.lore = Badges.PAINTABLE_LORE_LIST;
 			this.hitBox = hitBox;
 			this.facing = facing;
 		}

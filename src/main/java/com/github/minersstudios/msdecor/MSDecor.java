@@ -6,7 +6,7 @@ import com.github.minersstudios.msdecor.customdecor.CustomDecorData;
 import com.github.minersstudios.msdecor.utils.ConfigCache;
 import net.coreprotect.CoreProtect;
 import net.coreprotect.CoreProtectAPI;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.Bukkit;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -27,21 +27,17 @@ public final class MSDecor extends MSPlugin {
         instance.saveDefaultConfig();
         instance.reloadConfig();
         configCache = new ConfigCache();
+
         configCache.registerCustomDecors();
         instance.loadedCustoms = true;
 
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                if (MSPluginUtils.isLoadedCustoms()) {
-                    for (CustomDecorData customDecorData : configCache.recipeDecors) {
-                        customDecorData.registerRecipes();
-                    }
-                    configCache.recipeDecors.clear();
-                    this.cancel();
-                }
+        Bukkit.getScheduler().runTaskTimer(instance, task -> {
+            if (MSPluginUtils.isLoadedCustoms()) {
+                configCache.recipeDecors.forEach(CustomDecorData::registerRecipes);
+                configCache.recipeDecors.clear();
+                task.cancel();
             }
-        }.runTaskTimer(instance, 0L, 10L);
+        }, 0L, 10L);
     }
 
     @Contract(pure = true)

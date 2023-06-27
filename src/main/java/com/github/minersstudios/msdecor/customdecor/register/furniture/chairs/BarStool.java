@@ -35,7 +35,7 @@ public class BarStool implements Sittable {
 		ItemMeta itemMeta = this.itemStack.getItemMeta();
 		itemMeta.setCustomModelData(1036);
 		itemMeta.displayName(ChatUtils.createDefaultStyledText("Барный стул"));
-		itemMeta.lore(Badges.PAINTABLE_LORE_COMPONENT);
+		itemMeta.lore(Badges.PAINTABLE_LORE_LIST);
 		itemMeta.getPersistentDataContainer().set(
 				MSDecorUtils.CUSTOM_DECOR_TYPE_NAMESPACED_KEY,
 				PersistentDataType.STRING,
