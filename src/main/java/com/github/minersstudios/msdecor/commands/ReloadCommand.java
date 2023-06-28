@@ -23,7 +23,7 @@ public class ReloadCommand {
 				Bukkit.removeRecipe(shapedRecipe.getKey());
 			}
 		}
-		MSCore.getConfigCache().customDecorRecipes.clear();
+		MSCore.getCache().customDecorRecipes.clear();
 		MSDecor.reloadConfigs();
 		if (MSDecor.getInstance().isEnabled()) {
 			ChatUtils.sendFine(sender, Component.text("Плагин был успешно перезагружён за " + (System.currentTimeMillis() - time) + "ms"));

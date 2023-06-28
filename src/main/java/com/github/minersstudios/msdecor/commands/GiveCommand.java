@@ -30,7 +30,7 @@ public class GiveCommand {
 				return true;
 			}
 
-			CustomDecorData customDecorData = MSCore.getConfigCache().customDecorMap.getByPrimaryKey(args[2]);
+			CustomDecorData customDecorData = MSCore.getCache().customDecorMap.getByPrimaryKey(args[2]);
 			if (customDecorData == null) {
 				ChatUtils.sendError(sender, Component.text("Такого декора не существует!"));
 				return true;

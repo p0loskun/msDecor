@@ -55,14 +55,14 @@ public interface CustomDecorData extends Cloneable {
 	default void register(boolean regRecipes) {
 		if (this instanceof Typed typed) {
 			for (Typed.Type type : typed.getTypes()) {
-				MSCore.getConfigCache().customDecorMap.put(
+				MSCore.getCache().customDecorMap.put(
 						type.getNamespacedKey().getKey(),
 						type.getCustomModelData(),
 						typed.createCustomDecorData(type)
 				);
 			}
 		} else {
-			MSCore.getConfigCache().customDecorMap.put(
+			MSCore.getCache().customDecorMap.put(
 					this.getNamespacedKey().getKey(),
 					this.getItemStack().getItemMeta().getCustomModelData(),
 					this
@@ -84,7 +84,7 @@ public interface CustomDecorData extends Cloneable {
 			for (Recipe recipe : recipes) {
 				Bukkit.addRecipe(recipe);
 				if (this.isShowInCraftsMenu()) {
-					MSCore.getConfigCache().customDecorRecipes.add(recipe);
+					MSCore.getCache().customDecorRecipes.add(recipe);
 				}
 			}
 		}

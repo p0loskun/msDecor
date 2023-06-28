@@ -60,9 +60,9 @@ public class CommandHandler implements MSCommandExecutor {
 					completions.add(player.getName());
 				}
 			}
-			case 3 -> completions.addAll(MSCore.getConfigCache().customDecorMap.primaryKeySet());
+			case 3 -> completions.addAll(MSCore.getCache().customDecorMap.primaryKeySet());
 			case 4 -> {
-				CustomDecorData customDecorData = MSCore.getConfigCache().customDecorMap.getByPrimaryKey(args[2]);
+				CustomDecorData customDecorData = MSCore.getCache().customDecorMap.getByPrimaryKey(args[2]);
 				if (customDecorData instanceof Typed typed) {
 					for (Typed.Type type : typed.getTypes()) {
 						completions.add(type.getNamespacedKey().getKey());
